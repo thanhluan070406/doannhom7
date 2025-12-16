@@ -1,0 +1,889 @@
+.top-bar {
+  background: #000;
+  color: #fff;
+  padding: 8px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.top-left a {
+  color: white;
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.top-right span {
+  margin-left: 25px;
+}
+
+/* ========================== MENU ========================== */
+.menu-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px; 
+  background: #fff;
+}
+
+.logo {
+  width: 140px; 
+  height: 40px; 
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; 
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  transform: translateY(
+    0%
+  ); 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+nav a {
+  margin: 0 20px;
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none; 
+}
+
+.icons i {
+  margin-left: 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.icons i:hover {
+  color: #ff6600;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.nho-hon {
+  max-width: 380px;
+}
+
+/* ==================== SLIDER TEXT – PHIÊN BẢN CUỐI CÙNG, CHUẨN ĐẸP ==================== */
+
+
+.nen-mon {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  max-width: fit-content;
+  line-height: 1.3;
+  padding: 28px 38px; 
+}
+
+/* SLIDE 1 */
+.slide:first-child .nen-mon {
+  bottom: 70px !important; 
+  left: 8%;
+}
+
+/* SLIDE 2 */
+.slide:nth-child(2) .nen-mon {
+  bottom: 260px !important;
+  left: 10%;
+  padding: 18px 32px;
+}
+
+/* SLIDE 3  */
+.slide:nth-child(3) .nen-mon {
+  bottom: 90px !important; 
+  right: 8% !important; 
+  left: auto !important; 
+  padding: 20px 34px;
+}
+/* ==================== NỘI DUNG CHỮ THEO TỪNG SLIDE ==================== */
+
+/* Slide 1 – EATOPIA siêu to */
+.slide:first-child .tieu-de {
+  font-family: "Anton", sans-serif;
+  font-size: 110px;
+  color: white;
+  margin: 0 0 16px 0;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.slide:first-child .mo-ta {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: white;
+  margin: 0 0 28px 0;
+  max-width: 680px;
+}
+.slide:first-child .nut-menu {
+  padding: 16px 40px;
+  background: white;
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+/* Slide 2 */
+.slide:nth-child(2) .tieu-de-nho {
+  font-family: "Inter", sans-serif;
+  font-size: 26px;
+  color: white;
+  margin: 0 0 7px 0;
+  font-weight: 500;
+}
+.slide:nth-child(2) .tieu-de {
+  font-family: "Anton", sans-serif;
+  font-size: 48px; 
+  color: white;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* Slide 3  */
+.slide:nth-child(3) .tieu-de-nho {
+  font-family: "Inter", sans-serif;
+  font-size: 26px;
+  color: white;
+  margin: 0 0 7px 0;
+}
+.slide:nth-child(3) .tieu-de {
+  font-family: "Anton", sans-serif;
+  font-size: 56px;
+  color: white;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+
+.mui-ten {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55px;
+  height: 55px;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mui-ten:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.slider .mui-ten {
+  opacity: 0; 
+  transition: opacity 0.4s ease; 
+}
+
+.slider:hover .mui-ten {
+  opacity: 1; 
+}
+
+.trai {
+  left: 15px !important;
+}
+.phai {
+  right: 15px !important;
+}
+
+
+.cham-tron {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  text-align: center;
+}
+
+.cham {
+  height: 9px;
+  width: 9px;
+  margin: 0 3px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.cham.active {
+  background: white;
+}
+/* ========================== PHẦN TÍNH HOA MÓN ĂN ========================== */
+.phan-tinh-hoa {
+  background: #f6f2f2;
+  padding: 50px 150px;
+  
+}
+
+.tua-trang {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+
+/* ============================================================== */
+.KHUNG {
+    width: 100%;
+    display: flex;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+
+.TRAI {
+    position: relative;
+    width: 16.66%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.TRAI .ANH {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.PHU {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    border-radius: 10px;
+}
+
+.CHU {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    z-index: 2;
+}
+
+.PHAI {
+    width: 83.34%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.MUC {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.THONGTIN {
+    position: absolute;
+    width: auto;
+    bottom: 0;  
+    left: 0;     
+    right:0;
+    padding: 10px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.42);
+    border-radius: 10px;
+    color: #fff;
+    backdrop-filter: blur(5px);
+}
+
+
+
+.TEN {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+.MOTA {
+    margin: 3px 0 10px 0;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+
+.DUOI {
+    display: flex;
+    align-items: center;
+}
+
+.GIA, .MUA {
+    border: 1px solid white;
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.GIA {
+    background: transparent;
+}
+
+.MUA {
+
+    background: white;
+    color: black;
+    margin-left: auto;
+}
+
+.MUA:hover {
+    background: #f2f2f2;
+}
+
+
+
+
+.hero-section {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ===== OVERLAY GRADIENT BẰNG ::before (chắc chắn không lỗi) ===== */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  /* Nửa trái tối – nửa phải sáng rõ ràng */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 0%,
+    /* rất tối */ rgba(0, 0, 0, 0.793) 35%,
+    /* tối vừa */ rgba(0, 0, 0, 0.342) 70%,
+    /* hơi tối */ rgba(0, 0, 0, 0) 100% /* sáng hoàn toàn */
+  );
+}
+
+/* chữ phía trên mọi thứ */
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: white;
+  width: 45%;
+}
+
+/* button */
+.btn-view-more {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #fff;
+  color: #000;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.btn-view-more:hover {
+  filter: brightness(0.8);
+}
+/* ===== KẾT THÚC PHẦN HERO SECTION ===== */
+.menu-flex {
+  width: 100%; /* rộng 100% trang */
+  display: flex;
+  justify-content: space-around; /* cách đều nhau */
+  background: #fff; /* khung trắng */
+  padding: 40px 150px; /* padding đẹp, không lạc lõng */
+  box-sizing: border-box; /* bao gồm padding trong width */
+  gap: 20px; /* khoảng cách giữa 3 item */
+}
+
+.menu-item {
+  flex: 1; /* chia đều chiều rộng */
+  max-width: 33%; /* giới hạn 1/3 trang */
+  height: 250px; /* cao cố định để bằng nhau (chỉnh tùy ý: 350–450px) */
+  position: relative;
+  overflow: hidden; /* ngăn ảnh bay ra ngoài */
+  border-radius: 10px; /* bo góc đẹp */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* bóng nhẹ cho chuyên nghiệp */
+}
+
+.menu-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ảnh cover đầy khung, không méo */
+  display: block;
+}
+
+/* Giữ nguyên overlay */
+.menu-item .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu-item .overlay h2 {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.menu-item .overlay p {
+  color: white;
+  font-size: 22px;
+  font-weight: 400;
+  margin-top: 12px;
+}
+
+/* NỀN CHỮ – trắng tối 1 chút – cao 80% ảnh – nằm giữa */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.25); /* trắng nhưng tối nhẹ */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* CHỮ */
+.overlay h2 {
+  color: white;
+  font-size: 32px;
+  font-weight: 700; /* đậm */
+  margin: 0;
+}
+
+/* <!-- ========================== PHẦN ĐÁNH GIÁ ========================== --> */
+.review-section {
+  width: 100%;
+  padding: 60px 0;
+  background: #e7dede;
+  position: relative;
+}
+
+.review-slider {
+  width: 70%;                
+  margin: auto;
+  position: relative;
+}
+
+.review {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;         
+}
+
+.review.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+
+.stars {
+  font-size: 32px;      
+  font-weight: 700;     
+  letter-spacing: 2px;  
+  color: #ffb400;         
+  text-align: left;
+  padding-left: 230px;   
+}
+
+.stars .faded {
+  color: #d9d9d9;         
+}
+
+
+.review .content {
+  font-size: 20px;
+  width: 70%;               
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #1a1a1a;
+  font-style: italic;
+  text-align: left;        
+}
+
+.author {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #000;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;         
+}
+
+.review-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1.5px solid #b0b0b0;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #444;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+
+.review-arrow.left {
+  left: 0;         
+  transform: translate(-50%, -50%);
+}
+
+
+.review-arrow.right {
+  right: 0;
+  transform: translate(50%, -50%); 
+}
+
+.review-arrow:hover {
+  background: #b0b0b0;
+  color: white;
+}
+
+/* DOTS */
+.review-dots {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.r-dot {
+  height: 10px;
+  width: 10px;
+  background: #cfcfcf;
+  display: inline-block;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.r-dot.active {
+  background: #8b8b8b;
+}
+
+/* <!-- ========================== CHÂN TRANG ========================== --> */
+.footer-section {
+  width: 100%;
+  background: #000;
+  color: white;
+  padding: 0px 150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px;
+  box-sizing: border-box;
+}
+
+.footer-col {
+  width: max-content;
+  max-width: 360px;
+  padding: 15px 0;
+}
+
+.footer-col h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.footer-col .underline {
+  width: 40px;
+  height: 1px;
+  background: white;
+  margin-bottom: 20px;
+}
+
+.footer-col p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.footer-icons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icons i {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+.footer-img {
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========================== RESPONSIVE – PHẦN TINH HOA ẨM THỰC (CẬP NHẬT LẦN 3) ========================== */
+
+/* Tablet (Màn hình từ 769px đến 1024px) */
+@media (max-width: 1024px) {
+    .phan-tinh-hoa {
+        padding: 40px 80px;
+    }
+    
+    /* TRAI: Giữ 15% */
+    .TRAI {
+        width: 15%; 
+    }
+
+    /* KHUNG PHAI: 3 sản phẩm trên 1 hàng (3 cột) */
+    .PHAI {
+        width: 85%; 
+        grid-template-columns: repeat(3, 1fr); /* 3 cột */
+        gap: 8px;
+        padding: 8px;
+    }
+
+    /* Điều chỉnh chữ .TRAI */
+    .TRAI .CHU h1 {
+        font-size: 20px;
+    }
+
+    .TRAI .CHU p {
+        font-size: 12px;
+    }
+}
+
+/* Mobile (Màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    .phan-tinh-hoa {
+        padding: 30px 15px;
+    }
+
+    /* TRAI: Giữ 15% */
+    .TRAI {
+        width: 15%; 
+    }
+
+    /* KHUNG PHAI: 2 sản phẩm trên 1 hàng (2 cột) */
+    .PHAI {
+        width: 85%; 
+        grid-template-columns: repeat(2, 1fr); /* 2 cột */
+        gap: 5px;
+        padding: 5px;
+    }
+    
+    /* Điều chỉnh kích cỡ chữ trên mobile */
+    .TRAI .CHU h1 {
+        font-size: 16px;
+    }
+
+    .TRAI .CHU p {
+        font-size: 10px;
+    }
+    
+    /* Điều chỉnh thông tin sản phẩm trên mobile */
+    .MUC .TEN {
+        font-size: 13px;
+    }
+    
+    .MUC .MOTA {
+        font-size: 10px;
+        margin: 1px 0 5px 0;
+    }
+    
+    .MUC .DUOI {
+        flex-direction: column; /* Chuyển giá và nút mua xuống dòng */
+        align-items: flex-start;
+    }
+    
+    .MUC .GIA, .MUC .MUA {
+        padding: 3px 6px;
+        font-size: 9px;
+        margin-top: 3px;
+    }
+
+    .MUC .MUA {
+        margin-left: 0; 
+    }
+}
+
+/* Thêm quy tắc ẩn các sản phẩm dư thừa vào cuối file trang-chu.css */
+
+/* Tablet (Màn hình từ 769px đến 1024px) - Chỉ hiển thị 3 sản phẩm */
+@media (max-width: 1024px) {
+    /* ... các quy tắc hiện có ... */
+    
+    /* ẨN SẢN PHẨM THỨ 4 TRÊN TABLET */
+    /* Quy tắc này sẽ được áp dụng cho tất cả các KHUNG */
+    .PHAI .MUC:nth-child(4) {
+        display: none;
+    }
+}
+
+/* Mobile (Màn hình nhỏ hơn 768px) - Chỉ hiển thị 2 sản phẩm */
+@media (max-width: 768px) {
+    /* ... các quy tắc hiện có ... */
+    
+    /* ẨN SẢN PHẨM THỨ 3 VÀ 4 TRÊN MOBILE */
+    .PHAI .MUC:nth-child(3),
+    .PHAI .MUC:nth-child(4) {
+        display: none;
+    }
+}
+
+/* ========================== RESPONSIVE – CHÂN TRANG ========================== */
+
+/* Tablet (Màn hình từ 769px đến 1024px) */
+@media (max-width: 1024px) {
+    .footer-section {
+        padding: 20px 50px; /* Giảm padding ngang */
+        gap: 50px; /* Giảm khoảng cách giữa các cột */
+        justify-content: space-between; /* Căn đều các cột */
+    }
+
+    .footer-col {
+        /* Cho phép cột co lại một chút nhưng vẫn giữ tối đa 30% */
+        max-width: 30%; 
+        width: 30%;
+    }
+    
+    .footer-col p {
+        font-size: 16px; /* Giảm cỡ chữ */
+    }
+
+    .footer-col h2 {
+        font-size: 20px; /* Giảm cỡ chữ tiêu đề */
+    }
+}
+
+/* Mobile (Màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    .footer-section {
+        flex-direction: column; /* CHUYỂN BỐ CỤC SANG DỌC */
+        align-items: center; /* Căn giữa các khối */
+        padding: 30px 20px; /* Padding ít hơn */
+        gap: 40px; /* Khoảng cách giữa các cột (giờ là các hàng) */
+    }
+
+    .footer-col {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        max-width: 100%;
+        text-align: center; /* Căn giữa nội dung trong cột */
+    }
+    
+    .footer-col h2 {
+        font-size: 22px; 
+    }
+    
+    .footer-col .underline {
+        margin: 0px auto 20px auto; /* Căn giữa gạch chân */
+    }
+    
+    .footer-col p {
+        font-size: 15px; 
+    }
+
+    .footer-icons {
+        justify-content: center; /* Căn giữa các icon */
+    }
+    
+    .footer-img {
+        width: 200px; /* Ảnh nhỏ lại */
+        margin: auto;
+    }
+}

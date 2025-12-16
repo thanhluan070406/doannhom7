@@ -1,0 +1,288 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container-blog {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+}
+/* ================================ */
+.wrapper {
+    width: 1000px;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.main-content {
+    padding: 40px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 28px;
+    color: #d35400;
+    text-align: center;
+    margin: 20px 0 10px;
+    font-weight: normal;
+}
+
+.meta {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.article-body {
+    float: left;
+    width: 650px;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.article-body h2 {
+    font-size: 22px;
+    color: #333;
+    margin: 30px 0 15px;
+}
+
+.post-image {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.post-image img {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Sidebar đúng 100% như ảnh */
+.sidebar h3 {
+    text-transform: uppercase;
+    color: #e67e22;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #e67e22;
+    font-weight: bold;
+}
+.sidebar {
+     float: right;
+    width: 280px;
+    margin-top: -990px;   /* ĐẨY LÊN TRÊN như ảnh */
+    padding-left: 80px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Thay gạch chân bằng dòng chữ "Theo dõi chúng tôi" + gạch dưới mảnh */
+.sidebar .follow-text {
+    color: #e67e22;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #e67e22;   /* gạch dưới mảnh hơn */
+    display: inline-block;
+}
+
+.social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    border-radius: 30px;
+    padding: 12px 18px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.social-link:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.social-link i {
+    font-size: 20px;
+    width: 36px;
+    text-align: center;
+    margin-right: 15px;
+}
+
+/* Màu icon đúng như ảnh */
+.social-link:nth-child(1) i { color: #1877f2; }     /* Facebook */
+.social-link:nth-child(2) i { color: #0084ff; }     /* Messenger */
+.social-link:nth-child(3) i { color: #666666; }     /* Email */
+.social-link:nth-child(4) i { color: #000000; }      /* X-Twitter */
+.clear { clear: both; }
+/* ============== Chia sẻ ================= */
+.share-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.share-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.share-icons {
+  display: flex;
+  gap: 10px;
+}
+.heart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  color: #e74c3c;
+  cursor: pointer;
+  user-select: none;
+}
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.share-btn.facebook {
+  background-color: #1877f2;
+}
+
+.share-btn.twitter {
+  background-color: #000000;
+}
+
+.share-btn.email {
+  background-color: #4285f4;
+}
+
+.share-btn.copy {
+  background-color: #666;
+}
+
+.share-btn.more {
+  background-color: #888;
+}
+
+.share-btn i {
+  pointer-events: none;
+}
+
+/* <!-- ========================== CHÂN TRANG ========================== --> */
+.footer-section {
+    width: 100%;
+    background: #000;
+    color: white;
+    padding: 50px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+.footer-col {
+    width: max-content;           /* Không cho tự giãn ra */
+    max-width: 360px; 
+}
+
+.footer-col h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer-col .underline {
+    width: 40px;
+    height: 3px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+/* Đoạn văn */
+.footer-col p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ICON TRÒN */
+.footer-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-icons i {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ẢNH */
+.footer-img {
+    width: 380px;
+    border-radius: 5px;
+    margin-top: 10px;
+}

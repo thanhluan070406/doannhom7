@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatopia</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="web/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+
+    <div class="top-bar">
+        <div class="top-left">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+
+        <div class="top-right">
+            <span><i class="fa-solid fa-location-dot"></i> ĐH VINH</span>
+            <span><i class="fa-regular fa-envelope"></i> thanhluan070406@GMAIL.COM</span>
+            <span><i class="fa-solid fa-phone"></i> 0961652546</span>
+            <span><i class="fa-regular fa-clock"></i> 07:00–22:00</span>
+        </div>
+    </div>
+
+    <div class="menu-bar">
+        <div class="logo">
+            <img src="web/img/logo.png" alt="ignore">
+    </div>
+
+        <nav>
+            <div href="google.com">
+            <a href="#">TRANG CHỦ</a>
+            <a href="./menu.html">THỰC ĐƠN ▾</a>
+            <a href="./blog.html">BLOG</a>
+            <a href="./about.html">GIỚI THIỆU</a>
+            <a href="./contact.html">LIÊN HỆ</a>
+            </div>
+        </nav>
+
+        <div class="icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-user"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+    </div>
+</header>
+
+<div class="slider">
+
+    <!-- SLIDE 1 -->
+    <div class="slide active" style="background-image: url('web/img/S1.jpg');">
+    <div class="nen-mon slide1-text">
+        <h1 class="tieu-de">EATOPIA</h1>
+        <p class="mo-ta">
+            mang đến hương vị thơm ngon từ nguyên liệu tươi mới,<br>
+            chọn lọc kỹ càng nhất, tự hào hội tụ tinh hoa ẩm thực<br>
+            ba miền Bắc, Trung, Nam trên cùng một bàn tiệc.
+        </p>
+        <a class="nut-menu" href="#">Thực Đơn</a>
+    </div>
+</div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide" style="background-image: url('web/img/S2.jpg');">
+        <div class="nen-mon">
+            <p class="tieu-de-nho">Đắm Đuối Mê Say</p>
+            <h1 class="tieu-de">Cơm Tấm Sài Gòn</h1>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide" style="background-image: url('web/img/S3.png');">
+        <div class="nen-mon nho-hon">
+            <p class="tieu-de-nho">Vị Ngon Từ Cố Đô</p>
+            <h1 class="tieu-de">Bún Bò Huế</h1>
+        </div>
+    </div>
+
+    <!-- NÚT TRÁI PHẢI -->
+    <div class="mui-ten trai" onclick="chuyenSlide(-1)">&#10094;</div>
+    <div class="mui-ten phai" onclick="chuyenSlide(1)">&#10095;</div>
+
+    <!-- 3 NÚT TRÒN -->
+    <div class="cham-tron">
+        <span class="cham active" onclick="denSlide(0)"></span>
+        <span class="cham" onclick="denSlide(1)"></span>
+        <span class="cham" onclick="denSlide(2)"></span>
+    </div>
+
+</div>
+<div class="phan-tinh-hoa">
+
+    <h1 class="tua-trang">TINH HOA ẨM THỰC BẮC - TRUNG - NAM</h1>
+
+    <!-- DÒNG 1 -->
+    <div class="KHUNG">
+
+        <div class="TRAI">
+            <img src="web/img/Phở gà Hà Nội.jpg" alt="mien-bac" class="ANH">
+            <div class="PHU"></div>
+            <div class="CHU">
+                <h1>MIỀN BẮC</h1>
+                <p>Thanh Tao<br>Vị Hài Hòa</p>
+            </div>
+        </div>
+
+        <div class="PHAI">
+
+            <div class="MUC" style="background-image: url('web/img/Bánh\ mướt\ nhân\ thịt.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/bún\ chả\ hà\ nội.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/Cuốn\ tôm.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/Phở\ bò.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- DÒNG 2 -->
+    <div class="KHUNG">
+
+        <div class="TRAI">
+            <img src="web/img/Phở gà Hà Nội.jpg" alt="mien-bac" class="ANH">
+            <div class="PHU"></div>
+            <div class="CHU">
+                <h1>MIỀN BẮC</h1>
+                <p>Thanh Tao<br>Vị Hài Hòa</p>
+            </div>
+        </div>
+
+        <div class="PHAI">
+
+            <div class="MUC" style="background-image: url('web/img/Bánh\ mướt\ nhân\ thịt.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/bún\ chả\ hà\ nội.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/Cuốn\ tôm.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/Phở\ bò.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- DÒNG 3 -->
+    <div class="KHUNG">
+
+        <div class="TRAI">
+            <img src="web/img/Phở gà Hà Nội.jpg" alt="mien-bac" class="ANH">
+            <div class="PHU"></div>
+            <div class="CHU">
+                <h1>MIỀN BẮC</h1>
+                <p>Thanh Tao<br>Vị Hài Hòa</p>
+            </div>
+        </div>
+
+        <div class="PHAI">
+
+            <div class="MUC" style="background-image: url('web/img/Bánh\ mướt\ nhân\ thịt.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/bún\ chả\ hà\ nội.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/Cuốn\ tôm.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="MUC" style="background-image: url('web/img/Phở\ bò.jpg');">
+                <div class="THONGTIN">
+                    <h3 class="TEN">Bánh Xèo Miền Nam</h3>
+                    <p class="MOTA">Miền Nam</p>
+                    <div class="DUOI">
+                        <span class="GIA">50.000đ</span>
+                        <button class="MUA">Mua Ngay</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+<div class="hero-section">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">ẨM THỰC VIỆT NAM</h1>
+        <p class="hero-description">
+            Nổi tiếng với sự phong phú và tinh tế, thể hiện qua kết hợp hài hòa giữa các loại thảo mộc, 
+            gia vị và nguyên liệu tươi ngon.
+        </p>
+        <a href="./blog.html" class="btn-view-more">Xem Thêm</a>
+    </div>
+
+    <img src="web/img/Ginger. (2).png" alt="Ẩm thực Việt Nam" class="hero-image">
+</div>
+<div class="menu-flex">
+
+    <div class="menu-item">
+        <img src="web/img/bun-cha.svg" alt="">
+        <div class="overlay">
+            <h2>MIỀN BẮC</h2>
+            <p>8 Món</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <img src="web/img/dacsan.svg" alt="">
+        <div class="overlay">
+            <h2>MIỀN TRUNG</h2>
+            <p>8 Món</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <img src="web/img/hu-tieu-pho.svg" alt="">
+        <div class="overlay">
+            <h2>MIỀN NAM</h2>
+            <p>8 Món</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+    <!-- ========================== PHẦN ĐÁNH GIÁ ========================== -->
+<div class="review-section">
+        <div class="review-slider">
+            <div class="review active">
+                <div class="stars">
+                    ★★★★☆
+                </div>
+                <p class="content">
+                    “Bún chả Hà Nội với thịt nướng thơm lừng, bún mát lạnh và nước chấm đậm đà là một sự kết hợp hoàn
+                    hảo không thể cưỡng lại.”
+                </p>
+                <p class="author">facebook: Xuân Hiếu</p>
+            </div>
+
+
+            <div class="review">
+                <div class="stars">
+                    ★★★★★
+                </div>
+                <p class="content">
+                    “Một bát phở bò nóng hổi, nước dùng ngọt thanh kết hợp cùng bánh phở mềm và thịt bò tươi ngon thực
+                    sự là một trải nghiệm khó quên!”
+                </p>
+                <p class="author">facebook: Văn Hà</p>
+            </div>
+
+
+            <div class="review">
+                <div class="stars">
+                    ★★★★★
+                </div>
+                <p class="content">
+                    “Bánh mì giòn rụm bên ngoài, nhân bên trong đầy đặn với pate, thịt nguội, dưa leo và rau thơm thật
+                    sự tuyệt vời!”
+                </p>
+                <p class="author">facebook: Minh Thiên</p>
+            </div>
+
+
+            <div class="review-arrow left" onclick="prevReview()">❮</div>
+            <div class="review-arrow right" onclick="nextReview()">❯</div>
+
+
+            <div class="review-dots">
+                <span class="r-dot active" onclick="goToReview(0)"></span>
+                <span class="r-dot" onclick="goToReview(1)"></span>
+                <span class="r-dot" onclick="goToReview(2)"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================== CHÂN TRANG ========================== --> 
+<div class="footer-section">
+        <div class="footer-col">
+            <h2>EATOPIA TOGETHER</h2>
+            <div class="underline"></div>
+    
+            <p>
+                Nơi mà hương vị truyền thống hòa quyện cùng sự tinh tế trong ẩm thực hiện đại.
+                Tại đây, chúng tôi tự hào mang đến cho quý khách những trải nghiệm ẩm thực độc đáo
+                và đáng nhớ nhất.
+            </p>
+    
+            <div class="footer-icons">
+                <i class="fa-regular fa-envelope"></i>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            
+        </div>
+        <div class="footer-col">
+            <h2>ĐỊA CHỈ</h2>
+            <div class="underline"></div>
+    
+            <p>Địa chỉ: 182 Lê Duẩn, TP. Vinh, Nghệ An</p>
+            <p>Hotline: 0961 652 546</p>
+            <p>Email: thanhluan070406@gmail.com</p>
+        </div>
+        <div class="footer-col">
+            <h2>NHÀ HÀNG</h2>
+            <div class="underline"></div>
+            <img src="./web/img/Ginger. (3).png" class="footer-img">
+        </div>
+    </div>
+
+<script src="web/java/trang-chu.js"></script>
+</body>
+</html>
