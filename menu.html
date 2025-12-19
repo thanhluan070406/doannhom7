@@ -65,35 +65,46 @@
     <div class="menu-layout">
 
         <!-- ===== SIDEBAR (để làm danh mục sau) ===== -->
-        <aside class="menu-sidebar">
-            <h3>Danh mục sản phẩm</h3>
+       <aside class="menu-sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-bars"></i>
+                <h3>Danh mục sản phẩm</h3>
+            </div>
             <ul>
-                <li>Tất cả</li>
+                <li class="active">Tất cả</li>
                 <li>Miền Bắc</li>
                 <li>Miền Trung</li>
                 <li>Miền Nam</li>
             </ul>
+            
+            <div class="sidebar-banners">
+                <img src="web/img/bánh ướt.jpg" alt="Phụ 1">
+                <img src="web/img/bánh canh cua.jpg" alt="Phụ 2">
+            </div>
         </aside>
 
-        <!-- ===== MAIN CONTENT ===== -->
-        <section class="menu-content">
-            <!-- SEARCH BAR -->
-        <div class="menu-search">
-            <input type="text" placeholder="Tìm kiếm">
-            <button class="search-btn">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </div>
-            <!-- ===== DÒNG 1 ===== -->
-            <div class="menu-row">
+        <div class="main-column">
+            <div class="top-content-bar">
+                <div class="menu-search">
+                    <input type="text" placeholder="Tìm kiếm">
+                    <button class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
 
+        <!-- ===== MAIN CONTENT ===== -->
+       <section class="menu-content">
+            <div class="menu-row">
                 <div class="menu-item">
                     <div class="menu-image" style="background-image: url('web/img/Phở gà Hà Nội.jpg');"></div>
                     <div class="menu-info">
                         <h3>Phở gà Hà Nội</h3>
                         <p>Miền Bắc</p>
-                        <span>50.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">50.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -102,8 +113,10 @@
                     <div class="menu-info">
                         <h3>Bún chả Hà Nội</h3>
                         <p>Miền Bắc</p>
-                        <span>50.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">50.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -112,8 +125,10 @@
                     <div class="menu-info">
                         <h3>Cuốn tôm</h3>
                         <p>Miền Bắc</p>
-                        <span>30.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">30.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -122,23 +137,24 @@
                     <div class="menu-info">
                         <h3>Phở bò</h3>
                         <p>Miền Bắc</p>
-                        <span>50.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">50.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
-            <!-- ===== DÒNG 2 ===== -->
             <div class="menu-row">
-
                 <div class="menu-item">
                     <div class="menu-image" style="background-image: url('web/img/bánh canh cua.jpg');"></div>
                     <div class="menu-info">
                         <h3>Bánh canh cua</h3>
                         <p>Miền Trung</p>
-                        <span>40.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">40.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -147,8 +163,10 @@
                     <div class="menu-info">
                         <h3>Bánh xèo</h3>
                         <p>Miền Trung</p>
-                        <span>50.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">50.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -157,8 +175,10 @@
                     <div class="menu-info">
                         <h3>Bánh ướt nhân thịt</h3>
                         <p>Miền Trung</p>
-                        <span>40.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">40.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -167,23 +187,24 @@
                     <div class="menu-info">
                         <h3>Cơm gà Phú Yên</h3>
                         <p>Miền Trung</p>
-                        <span>60.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">60.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
-            <!-- ===== DÒNG 3 ===== -->
             <div class="menu-row">
-
                 <div class="menu-item">
                     <div class="menu-image" style="background-image: url('web/img/Cơm tấm sài gòn.jpg');"></div>
                     <div class="menu-info">
                         <h3>Cơm tấm Sài Gòn</h3>
                         <p>Miền Nam</p>
-                        <span>80.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">80.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -192,8 +213,10 @@
                     <div class="menu-info">
                         <h3>Hủ tiếu</h3>
                         <p>Miền Nam</p>
-                        <span>50.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">50.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -202,8 +225,10 @@
                     <div class="menu-info">
                         <h3>Bò sốt vang</h3>
                         <p>Miền Nam</p>
-                        <span>50.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">50.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
 
@@ -212,26 +237,19 @@
                     <div class="menu-info">
                         <h3>Vịt quay</h3>
                         <p>Miền Nam</p>
-                        <span>260.000đ</span>
-                        <button class="MUA">Mua Ngay</button>
+                        <div class="info-footer">
+                            <span class="price-tag">260.000đ</span>
+                            <button class="buy-btn">Mua Ngay</button>
+                        </div>
                     </div>
                 </div>
-
             </div>
-            <!-- PAGINATION -->
+
             <div class="menu-pagination">
-
-                <button class="page-btn">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
-
+                <button class="page-btn"><i class="fa-solid fa-arrow-left"></i></button>
                 <span class="page-number active">01</span>
                 <span class="page-number">02</span>
-
-                <button class="page-btn">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-
+                <button class="page-btn"><i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </section>
     </div>
@@ -252,6 +270,12 @@
             Chef Luân là người trực tiếp chịu trách nhiệm về hương vị và chất lượng các món ăn tại nhà hàng.
             Với sự am hiểu nguyên liệu và kinh nghiệm thực tế trong gian bếp, Chef Luân luôn chú trọng
             công đoạn chế biến, từ sơ chế đến nêm nếm và trình bày.
+        </p>
+
+        <p class="chef-text">
+            Bằng niềm đam mê cháy bỏng với nền ẩm thực truyền thống, anh không ngừng tìm kiếm và sáng tạo để đưa những 
+            hương vị đặc trưng của ba miền vào thực đơn Eatopia. Sự kết hợp giữa kỹ thuật nấu nướng hiện đại và 
+            bí quyết gia truyền giúp mỗi món ăn đều mang một dấu ấn riêng biệt, khó quên trong lòng thực khách.
         </p>
 
         <p class="chef-text">

@@ -108,21 +108,39 @@ nav a {
     font-size: 20px;
 }
 /* ================= MENU SECTION ================ */
+/* Layout tổng thể */
 .menu-layout {
     display: flex;
-    gap: 15px;
-}
-.menu-sidebar {
-    width: 16.66%;
-    background: #faf6ee;
-    padding: 15px;
-    box-sizing: border-box;
-    border-radius: 12px;
+    gap: 30px;
+    padding: 20px 40px;
+    align-items: flex-start;
 }
 
-.menu-sidebar h3 {
+/* --- PHẦN 1: SIDEBAR (DANH MỤC) --- */
+.menu-sidebar {
+    width: 250px;
+    background: #fdf5e8;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 15px;
+}
+
+.sidebar-header i {
     font-size: 16px;
-    margin-bottom: 12px;
+    color: #333;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
 }
 
 .menu-sidebar ul {
@@ -132,40 +150,102 @@ nav a {
 }
 
 .menu-sidebar li {
-    padding: 8px 0;
+    padding: 12px 15px;
+    font-size: 15px;
     cursor: pointer;
-    font-size: 14px;
+    border-top: 1px solid #e8e2d5; /* Dấu gạch dưới ngăn cách */
+    color: #444;
+    transition: 0.3s;
+}
+
+.menu-sidebar li.active {
+    font-weight: 600;
 }
 
 .menu-sidebar li:hover {
-    font-weight: 600;
+    background: #f2ede0;
 }
+
+.sidebar-banners {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-banners img {
+    width: 100%;
+    border-radius: 12px;
+    /* Đổ bóng lệch sang phải và xuống dưới giống ảnh mẫu */
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 10px; /* Khoảng cách giữa 2 ảnh */
+    transition: transform 0.3s ease; /* Thêm hiệu ứng khi di chuột vào */
+}
+
+/* Hiệu ứng khi di chuột vào ảnh sẽ nổi lên một chút */
+.sidebar-banners img:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* --- PHẦN 2: MAIN COLUMN & SEARCH BAR --- */
+.main-column {
+    flex: 1;
+}
+
+.top-content-bar {
+    display: flex;
+    justify-content: flex-end; /* Đẩy thanh tìm kiếm sang phải giống ảnh */
+    margin-bottom: 25px;
+}
+
+/* Container thanh tìm kiếm */
 .menu-search {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 15px;
+    align-items: center;
+    background: #fff; /* Nền trắng bên trong */
+    border: 8px solid #fdf5e8; /* Viền dày màu kem nhạt bao quanh giống ảnh */
+    border-radius: 15px; /* Bo góc vừa phải cho khung ngoài */
+    padding: 2px 2px 2px 15px;
+    width: 350px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+/* Ô nhập liệu */
 .menu-search input {
-    padding: 8px 14px;
-    border: 1px solid #ddd;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    font-size: 14px;
-}
-
-.menu-search button {
-    background: #9e1b32;
     border: none;
-    padding: 8px 14px;
-    border-radius: 0 20px 20px 0;
-    color: #fff;
-    cursor: pointer;
+    outline: none;
+    flex: 1;
+    font-size: 15px;
+    background: transparent;
+    color: #333;
 }
 
-.menu-search button i {
-    font-size: 14px;
+/* Nút tìm kiếm (Hình vuông bo góc màu đỏ) */
+.menu-search .search-btn {
+    background: #a1202f; /* Màu đỏ sậm đặc trưng */
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px; /* Bo góc nhẹ tạo hình vuông mềm mại */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
 }
+
+.menu-search .search-btn:hover {
+    background: #851a27;
+}
+
+.menu-search .search-btn i {
+    font-size: 18px; /* Icon kính lúp lớn hơn một chút */
+}
+
+
+
 .menu-pagination {
     display: flex;
     justify-content: center;
@@ -202,153 +282,228 @@ nav a {
     color: #fff;
     border-color: #9e1b32;
 }
-/* FIX MẤT ẢNH CỘT 4 */
-.menu-content {
-    width: 100%;
-}
 
-.KHUNG {
-    width: 100%;
-    display: flex;
-}
-
-.PHAI {
-    width: 83.34%;
-    flex-shrink: 0;
-}
 /* ===== GRID 4 ẢNH / 1 DÒNG ===== */
+/* ===== GRID 12 MÓN (4 cột mỗi dòng) ===== */
 .menu-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-/* ===== 1 ITEM ===== */
+/* ===== THIẾT KẾ THẺ SẢN PHẨM ===== */
 .menu-item {
     position: relative;
-    border-radius: 12px;
+    border-radius: 20px;
     overflow: hidden;
     background: #000;
+    transition: all 0.3s ease; /* Thêm transition để hiệu ứng bóng hiện lên mượt mà */
+    cursor: pointer;
 }
 
-/* ===== ẢNH ===== */
+/* Hiệu ứng khi di chuột vào: Hiện bóng đổ, không phóng to */
+.menu-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Hiện bóng đổ đậm bên dưới */
+    transform: translateY(-5px); /* Nhấc nhẹ thẻ lên một chút để thấy rõ bóng hơn */
+}
+
 .menu-image {
     width: 100%;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 3 / 4; /* Tỷ lệ ảnh đứng chuẩn */
     background-size: cover;
     background-position: center;
+    transition: transform 0.5s ease;
 }
 
-/* ===== INFO PHỦ DƯỚI ẢNH ===== */
+
+/* ===== LỚP PHỦ THÔNG TIN (Glassmorphism) ===== */
 .menu-info {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 10px;
-    background: rgba(0,0,0,0.45);
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.45); /* Màu đen mờ */
+    backdrop-filter: blur(10px); /* Hiệu ứng kính mờ xuyên thấu ảnh nền */
+    -webkit-backdrop-filter: blur(10px);
     color: #fff;
-    backdrop-filter: blur(5px);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .menu-info h3 {
     margin: 0;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .menu-info p {
-    margin: 4px 0;
+    margin: 4px 0 12px 0;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+/* ===== CĂN CHỈNH GIÁ VÀ NÚT NẰM NGANG ===== */
+.info-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa thẻ giá và nút */
+}
+
+.price-tag {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px 15px;
+    border-radius: 10px;
     font-size: 14px;
-    opacity: 0.85;
+    white-space: nowrap;
 }
 
-.menu-info span {
-    display: inline-block;
-    border: 1px solid #fff;
-    padding: 4px 10px;
+.buy-btn {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
     border-radius: 10px;
-    font-size: 13px;
-}
-.MUA {
-
-    background: white;
-    color: black;
-    margin-left: auto;
-}
-.menu-info, .MUA {
-    border: 1px solid white;
-    padding: 5px 12px;
-    font-size: 13px;
-    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
     cursor: pointer;
-    user-select: none;
+    transition: 0.3s;
 }
+
+.buy-btn:hover {
+    background: #e0e0e0;
+}
+
+
+
+
+
+
+/* ================= CHEF SECTION (NGHỆ NHÂN) ================ */
 .chef-section {
     display: flex;
-    gap: 40px;
-    background: #faf6ee;
-    padding: 30px;
+    align-items: stretch; /* Đảm bảo cột chữ luôn cao bằng ảnh */
+    gap: 50px; /* Giảm nhẹ khoảng cách giữa ảnh và chữ để dành chỗ cho nội dung */
+    background: #fdf8f0;
+    
+    /* Margin thụt lề 2 bên - bạn có thể chỉnh từ 5% đến 10% để nội dung dài ra */
+    margin: 30px 8%; 
+    
+    padding: 60px 50px; 
     border-radius: 20px;
-    align-items: center;
+    max-width: 100%; /* Đảm bảo không bị giới hạn chiều ngang */
 }
 
-/* ===== ẢNH BÊN TRÁI ===== */
+/* KHUNG ẢNH - ĐIỀU CHỈNH TỈ LỆ GỌN LẠI */
 .chef-image {
-    width: 40%;
+    /* flex: 0 0 35% giúp ảnh chiếm cố định 35%, dành 65% còn lại cho chữ dài ra */
+    flex: 0 0 35%; 
+    min-width: 300px; /* Đảm bảo ảnh không bị quá nhỏ trên màn hình bé */
 }
 
 .chef-image img {
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 12px 0 25px rgba(0, 0, 0, 0.25);
+    height: 100%;
     object-fit: cover;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== NỘI DUNG BÊN PHẢI ===== */
+/* KHUNG NỘI DUNG - ƯU TIÊN CHIỀU NGANG ĐỂ CHỮ KHÔNG BỊ NGẮN */
 .chef-content {
-    width: 40%;
+    flex: 2; /* Tự động lấy toàn bộ phần còn lại (khoảng 65%) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 5px;
 }
 
 .chef-title {
-    font-size: 30px;
+    font-size: 38px;
     font-weight: 700;
-    margin-bottom: 20px;
-    position: relative;
-    display: inline-block;
+    margin: 0 0 15px 0;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    line-height: 1.1;
+    text-transform: uppercase;
 }
 
-.chef-title span {
+/* Đường gạch dưới tiêu đề */
+.chef-title::after {
+    content: "";
     display: block;
-    width: 80px;
-    height: 2px;
-    background: #000;
-    margin-top: 8px;
-}
-
-/* ===== CHỮ NỘI DUNG ===== */
-.chef-text {
-    font-size: 20px;
-    line-height: 1.7;
-    color: #333;
-    margin-bottom: 14px;
-}
-
-/* ===== NÚT XEM THÊM ===== */
-.chef-btn {
-    display: inline-block;
+    width: 100px;
+    height: 3px;
+    background: #1a1a1a;
     margin-top: 10px;
-    padding: 8px 18px;
-    border: 1px solid #000;
-    border-radius: 20px;
+}
+
+/* CHỮ NỘI DUNG - GIẢM NHẸ LINE-HEIGHT VÀ CỠ CHỮ ĐỂ TRÔNG DÀI HƠN */
+.chef-text {
+    font-size: 20px; /* Giảm nhẹ từ 19px xuống 18px để nội dung dàn trải hơn */
+    line-height: 1.6; /* Giảm nhẹ từ 1.8 giúp các đoạn văn không chiếm quá nhiều chiều cao */
+    color: #333;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+/* NÚT XEM THÊM */
+.chef-btn {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 12px 35px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     text-decoration: none;
-    color: #000;
-    font-size: 14px;
-    transition: 0.3s;
+    color: #1a1a1a;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .chef-btn:hover {
-    background: #000;
+    background: #1a1a1a;
     color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Responsive cho Tablet */
+@media (max-width: 1024px) {
+    /* Thu nhỏ Sidebar một chút hoặc giữ nguyên tùy diện tích */
+    .menu-sidebar {
+        width: 220px;
+    }
+
+    /* Quan trọng: Chuyển lưới sản phẩm thành 3 cột */
+    .menu-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px; /* Giảm nhẹ khoảng cách giữa các thẻ để vừa màn hình */
+    }
+
+    /* Điều chỉnh thanh tìm kiếm không bị tràn */
+    .menu-search {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Responsive cho Mobile (Dưới 768px) */
+@media (max-width: 768px) {
+    .menu-layout {
+        flex-direction: column; /* Đẩy Sidebar lên trên */
+    }
+
+    .menu-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .menu-row {
+        grid-template-columns: repeat(2, 1fr); /* Mobile hiện 2 cột cho đẹp */
+    }
 }
