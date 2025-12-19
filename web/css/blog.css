@@ -354,7 +354,8 @@ h2{
         font-size: 18px; 
     }
 
-    /* ========================== RESPONSIVE – CHÂN TRANG ========================== */
+}  
+ /* ========================== RESPONSIVE – CHÂN TRANG ========================== */
 
 /* Tablet (Màn hình từ 769px đến 1024px) */
 @media (max-width: 1024px) {
