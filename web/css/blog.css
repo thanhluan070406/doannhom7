@@ -201,21 +201,24 @@ h2{
   font-size: 14px;
 }
 
-/* <!-- ========================== CHÂN TRANG ========================== --> */
+/* ========================== FOOTER SECTION ========================== */
 .footer-section {
   width: 100%;
   background: #000;
   color: white;
-  padding: 15px 80px;
+  padding: 30px 150px; /* Giữ nguyên padding cũ của bạn */
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px;
+  gap: 100px; /* Giữ nguyên gap cũ */
   box-sizing: border-box;
 }
 
 .footer-col {
-  width: max-content;
+  /* Chỉnh sửa quan trọng: Đảm bảo 3 cột luôn bằng nhau */
+  flex: 1; 
+  width: 33.33%; 
+  /* Các thuộc tính còn lại giữ nguyên */
   max-width: 360px;
   padding: 15px 0;
 }
@@ -223,7 +226,7 @@ h2{
 .footer-col h2 {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .footer-col .underline {
@@ -236,6 +239,8 @@ h2{
 .footer-col p {
   font-size: 18px;
   line-height: 1.6;
+  margin: 0 0 15px;
+  text-align: justify;
 }
 
 .footer-icons {
@@ -255,14 +260,15 @@ h2{
   font-size: 14px;
   cursor: pointer;
 }
+
+/* Chỉnh lại ảnh để luôn full cột thứ 3 */
 .footer-img {
-  width: 280px;
-  max-width: 100%;
+  width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
+  max-width: 100%; /* Không bao giờ vượt quá khung cột */
   height: auto;
   display: block;
+  border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
 }
-
-
 /* ========================== RESPONSIVE CSS ========================== */
 /* Dưới 1024px: Bố cục lớn hơn tablet, cần điều chỉnh lề và khoảng cách */
 @media (max-width: 1024px) {
@@ -348,49 +354,100 @@ h2{
         font-size: 18px; 
     }
 
-    /* --- FOOTER --- */
+    /* ========================== RESPONSIVE – CHÂN TRANG ========================== */
+
+/* Tablet (Màn hình từ 769px đến 1024px) */
+@media (max-width: 1024px) {
     .footer-section {
-        flex-direction: column; 
-        padding: 20px 15px;
-        gap: 20px;
+        padding: 20px 50px; /* Giảm padding ngang */
+        gap: 50px; /* Giảm khoảng cách giữa các cột */
+        justify-content: space-between; /* Căn đều các cột */
     }
+
     .footer-col {
-        width: 100%;
-        max-width: none;
-        padding: 10px 0;
-        border-bottom: 1px dashed #444; 
+        /* Cho phép cột co lại một chút nhưng vẫn giữ tối đa 30% */
+        max-width: 30%; 
+        width: 30%;
     }
-    .footer-col:last-child {
-        border-bottom: none;
+    
+    .footer-col p {
+        font-size: 16px; /* Giảm cỡ chữ */
     }
+
     .footer-col h2 {
-        font-size: 20px;
-    }
-    .footer-img {
-        width: 100%;
-        max-width: 250px; 
+        font-size: 20px; /* Giảm cỡ chữ tiêu đề */
     }
 }
 
-@media (max-width: 480px) {
+/* Mobile (Màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    /* Khối chân trang chính */
+    .footer-section {
+        flex-direction: column; /* Chuyển bố cục sang dọc (stacked) */
+        align-items: center; /* Căn giữa các cột/khối theo chiều ngang */
+        padding: 30px 20px;
+        gap: 40px; /* Khoảng cách giữa các khối nội dung */
+    }
 
-    .h1-first {
-        font-size: 32px; 
+    /* Từng cột (column) trong chân trang */
+    .footer-col {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        max-width: 100%;
+        text-align: center; /* Căn giữa nội dung văn bản trong cột */
     }
     
-    .blog-content {
-        padding-bottom: 10px;
-        margin-bottom: 15px;
+    /* Tiêu đề */
+    .footer-col h2 {
+        font-size: 22px; 
+        margin-bottom: 5px; /* Giảm khoảng cách dưới tiêu đề */
     }
-    h2 {
-        font-size: 16px;
+    
+    /* Gạch chân (nếu có) */
+    .footer-col .underline {
+        margin: 0px auto 20px auto; /* Căn giữa gạch chân */
     }
-    .bth {
-        padding: 8px;
-        font-size: 11px;
+    
+    /* Đoạn văn bản */
+    .footer-col p {
+        font-size: 15px; 
+        line-height: 1.6; /* Tăng line-height cho dễ đọc */
+        margin-bottom: 10px;
+        text-align: center;
     }
 
-    .footer-col p {
-        font-size: 14px;
+    /* Icon mạng xã hội */
+    .footer-icons {
+        justify-content: center; /* Căn giữa các icon */
+        margin-top: 10px;
+    }
+    
+    /* Hình ảnh chi nhánh (ở cuối chân trang) */
+    .footer-img {
+        width: 200px; /* Ảnh nhỏ lại */
+        height: auto;
+        margin: 15px auto 0 auto; /* Căn giữa ảnh */
+        display: block; /* Đảm bảo ảnh là block để có thể căn giữa bằng margin: auto */
+    }
+    
+    /* Đảm bảo danh sách (nếu dùng cho địa chỉ) được căn giữa */
+    .footer-col ul,
+    .footer-col li {
+        text-align: center;
+        list-style: none; 
+        padding: 0;
+    }
+
+    .footer-img {
+        width: 100%;       /* Thay đổi từ 200px thành 100% để phóng to hết cỡ cột */
+        max-width: 400px;  /* Giới hạn độ rộng tối đa để ảnh không bị vỡ quá to trên máy tính bảng nhỏ */
+        height: auto;
+        margin: 15px auto 0 auto; 
+        display: block; 
+        border-radius: 12px; /* Có thể tăng bo góc cho đẹp hơn trên mobile */
+    }
+
+    .footer-col>.text {
+        margin-bottom: 15px;
+        text-align: justify;
     }
 }
