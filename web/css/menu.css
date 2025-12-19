@@ -472,39 +472,221 @@ nav a {
     transform: translateY(-3px);
 }
 
-/* Responsive cho Tablet */
-@media (max-width: 1024px) {
-    /* Thu nhỏ Sidebar một chút hoặc giữ nguyên tùy diện tích */
-    .menu-sidebar {
-        width: 220px;
+
+
+
+
+/* ========================== RESPONSIVE PHẦN CHEF LUÂN RIÊNG - MOBILE ========================== */
+@media (max-width: 768px) {
+    .chef-section {
+        flex-direction: column;
+        padding: 30px 20px;
+        margin: 20px 0;
+        text-align: center;
+        background: #fdf8f0;
+        border-radius: 15px;
     }
 
-    /* Quan trọng: Chuyển lưới sản phẩm thành 3 cột */
-    .menu-row {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px; /* Giảm nhẹ khoảng cách giữa các thẻ để vừa màn hình */
+    .chef-content {
+        order: 1; /* Chữ lên trên */
     }
 
-    /* Điều chỉnh thanh tìm kiếm không bị tràn */
-    .menu-search {
+    .chef-image {
+        order: 2; /* Ảnh xuống dưới */
         width: 100%;
         max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .chef-image img {
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .chef-title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .chef-title::after {
+        margin: 10px auto;
+    }
+
+    .chef-text {
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    .chef-btn {
+        align-self: center;
+        margin-top: 20px;
     }
 }
 
-/* Responsive cho Mobile (Dưới 768px) */
+
+/* ========================== FOOTER SECTION ========================== */
+.footer-section {
+  width: 100%;
+  background: #000;
+  color: white;
+  padding: 30px 150px; /* Giữ nguyên padding cũ của bạn */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px; /* Giữ nguyên gap cũ */
+  box-sizing: border-box;
+}
+
+.footer-col {
+  /* Chỉnh sửa quan trọng: Đảm bảo 3 cột luôn bằng nhau */
+  flex: 1; 
+  width: 33.33%; 
+  /* Các thuộc tính còn lại giữ nguyên */
+  max-width: 360px;
+  padding: 15px 0;
+}
+
+.footer-col h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.footer-col .underline {
+  width: 40px;
+  height: 1px;
+  background: white;
+  margin-bottom: 20px;
+}
+
+.footer-col p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 15px;
+  text-align: justify;
+}
+
+.footer-icons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icons i {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Chỉnh lại ảnh để luôn full cột thứ 3 */
+.footer-img {
+  width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
+  max-width: 100%; /* Không bao giờ vượt quá khung cột */
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
+}
+/* ========================== RESPONSIVE – CHÂN TRANG ========================== */
+
+/* Tablet (Màn hình từ 769px đến 1024px) */
+@media (max-width: 1024px) {
+    .footer-section {
+        padding: 20px 50px; /* Giảm padding ngang */
+        gap: 50px; /* Giảm khoảng cách giữa các cột */
+        justify-content: space-between; /* Căn đều các cột */
+    }
+
+    .footer-col {
+        /* Cho phép cột co lại một chút nhưng vẫn giữ tối đa 30% */
+        max-width: 30%; 
+        width: 30%;
+    }
+    
+    .footer-col p {
+        font-size: 16px; /* Giảm cỡ chữ */
+    }
+
+    .footer-col h2 {
+        font-size: 20px; /* Giảm cỡ chữ tiêu đề */
+    }
+}
+
+/* Mobile (Màn hình nhỏ hơn 768px) */
 @media (max-width: 768px) {
-    .menu-layout {
-        flex-direction: column; /* Đẩy Sidebar lên trên */
+    /* Khối chân trang chính */
+    .footer-section {
+        flex-direction: column; /* Chuyển bố cục sang dọc (stacked) */
+        align-items: center; /* Căn giữa các cột/khối theo chiều ngang */
+        padding: 30px 20px;
+        gap: 40px; /* Khoảng cách giữa các khối nội dung */
     }
 
-    .menu-sidebar {
-        width: 100%;
-        margin-bottom: 20px;
+    /* Từng cột (column) trong chân trang */
+    .footer-col {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        max-width: 100%;
+        text-align: center; /* Căn giữa nội dung văn bản trong cột */
+    }
+    
+    /* Tiêu đề */
+    .footer-col h2 {
+        font-size: 22px; 
+        margin-bottom: 5px; /* Giảm khoảng cách dưới tiêu đề */
+    }
+    
+    /* Gạch chân (nếu có) */
+    .footer-col .underline {
+        margin: 0px auto 20px auto; /* Căn giữa gạch chân */
+    }
+    
+    /* Đoạn văn bản */
+    .footer-col p {
+        font-size: 15px; 
+        line-height: 1.6; /* Tăng line-height cho dễ đọc */
+        margin-bottom: 10px;
+        text-align: center;
     }
 
-    .menu-row {
-        grid-template-columns: repeat(2, 1fr); /* Mobile hiện 2 cột cho đẹp */
+    /* Icon mạng xã hội */
+    .footer-icons {
+        justify-content: center; /* Căn giữa các icon */
+        margin-top: 10px;
+    }
+    
+    /* Hình ảnh chi nhánh (ở cuối chân trang) */
+    .footer-img {
+        width: 200px; /* Ảnh nhỏ lại */
+        height: auto;
+        margin: 15px auto 0 auto; /* Căn giữa ảnh */
+        display: block; /* Đảm bảo ảnh là block để có thể căn giữa bằng margin: auto */
+    }
+    
+    /* Đảm bảo danh sách (nếu dùng cho địa chỉ) được căn giữa */
+    .footer-col ul,
+    .footer-col li {
+        text-align: center;
+        list-style: none; 
+        padding: 0;
+    }
+
+    .footer-img {
+        width: 100%;       /* Thay đổi từ 200px thành 100% để phóng to hết cỡ cột */
+        max-width: 400px;  /* Giới hạn độ rộng tối đa để ảnh không bị vỡ quá to trên máy tính bảng nhỏ */
+        height: auto;
+        margin: 15px auto 0 auto; 
+        display: block; 
+        border-radius: 12px; /* Có thể tăng bo góc cho đẹp hơn trên mobile */
+    }
+
+    .footer-col>.text {
+        margin-bottom: 15px;
+        text-align: justify;
     }
 }
 
@@ -516,13 +698,3 @@ nav a {
 
 
 
-
-
-
-
-
-
-
-
-
-================== FOOTER ========================= */
