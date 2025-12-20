@@ -21,3 +21,24 @@ function denSlide(n) {
     slideIndex = n;
     capNhatSlide();
 }
+// ================= SLIDE PHẦN TINH HOA =================
+document.querySelectorAll(".KHUNG").forEach(khung => {
+
+    const phai = khung.querySelector(".PHAI");
+    const leftBtn = khung.querySelector(".phai-arrow.left");
+    const rightBtn = khung.querySelector(".phai-arrow.right");
+
+    // Click qua phải
+    rightBtn.addEventListener("click", () => {
+        const first = phai.querySelector(".MUC");
+        phai.appendChild(first); // đẩy cái đầu xuống cuối
+    });
+
+    // Click qua trái
+    leftBtn.addEventListener("click", () => {
+        const items = phai.querySelectorAll(".MUC");
+        const last = items[items.length - 1];
+        phai.prepend(last); // kéo cái cuối lên đầu
+    });
+
+});
