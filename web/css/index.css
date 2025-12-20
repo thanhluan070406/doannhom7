@@ -406,24 +406,31 @@ body {
     box-sizing: border-box;
 }
 
-/* Mũi tên RIÊNG cho phần PHAI - hoàn toàn độc lập */
+/* Nút mũi tên carousel - kiểu giống pagination bạn gửi */
 .phai-arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-60%);
-    width: 24px;
-    height: 24px;
-    background: rgba(255, 255, 255, 0.7);
+    transform: translateY(-50%);
+    width: 30px;                  /* Lớn hơn một chút so với pagination để nổi bật */
+    height: 30px;
     border-radius: 50%;
-    color: #333;
-    font-size: 16px;
+    border: 1px solid #ddd;       /* Viền xám nhẹ như mẫu */
+    background: #fff;             /* Nền trắng */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
-    user-select: none;
+    opacity: 0;                   /* Ẩn mặc định */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow nhẹ tạo cảm giác nổi */
+    color: #333;                  /* Màu icon xám đậm */
+    font-size: 10px;              /* Kích thước icon vừa phải */
+}
+
+/* Hiện nút khi hover vào toàn bộ phần .PHAI */
+.PHAI:hover .phai-arrow {
+    opacity: 1;
 }
 
 /* Vị trí trái - phải */
@@ -435,13 +442,12 @@ body {
     right: 10px;
 }
 
-/* Hiệu ứng di chuột vào: sáng lên, nền trắng đậm, viền và chữ đậm hơn */
+/* Hiệu ứng hover nút: phóng to nhẹ + shadow đậm hơn */
 .phai-arrow:hover {
-    background: #ffffff;
-    border-color: #000;
-    color: #000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-50%) scale(1.1); /* Phóng nhẹ khi hover */
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: #aaa;
+    background: #f9f9f9;
 }
 
 .hero-section {
