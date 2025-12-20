@@ -51,7 +51,9 @@
     0%
   ); 
 }
-
+.hamburham{
+  display: none;
+}
 nav {
   display: flex;
   align-items: center;
@@ -179,7 +181,10 @@ body {
 .blog-content img{
   width: 100%;
 }
-
+.h{
+  color:#000;
+  text-decoration: none;
+}
 h2{
   font-size: 24px;
   padding-top: 10px;
@@ -206,19 +211,17 @@ h2{
   width: 100%;
   background: #000;
   color: white;
-  padding: 30px 150px; /* Giữ nguyên padding cũ của bạn */
+  padding: 30px 150px; 
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px; /* Giữ nguyên gap cũ */
+  gap: 100px; 
   box-sizing: border-box;
 }
 
 .footer-col {
-  /* Chỉnh sửa quan trọng: Đảm bảo 3 cột luôn bằng nhau */
   flex: 1; 
   width: 33.33%; 
-  /* Các thuộc tính còn lại giữ nguyên */
   max-width: 360px;
   padding: 15px 0;
 }
@@ -261,194 +264,207 @@ h2{
   cursor: pointer;
 }
 
-/* Chỉnh lại ảnh để luôn full cột thứ 3 */
+
 .footer-img {
-  width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
-  max-width: 100%; /* Không bao giờ vượt quá khung cột */
+  width: 100%; 
+  max-width: 100%; 
   height: auto;
   display: block;
-  border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
-}
-/* ========================== RESPONSIVE CSS ========================== */
-/* Dưới 1024px: Bố cục lớn hơn tablet, cần điều chỉnh lề và khoảng cách */
-@media (max-width: 1024px) {
-    .top-bar, .menu-bar {
-        padding: 8px 20px; /* Giảm padding ngang */
-    }
-    nav a {
-        margin: 0 10px; /* Giảm khoảng cách giữa các menu item */
-        font-size: 14px;
-    }
-    .blog-container {
-        padding: 60px 20px;
-        gap: 30px; /* Giảm khoảng cách giữa các cột blog */
-    }
-    .footer-section {
-        gap: 50px;
-        padding: 15px 40px;
-    }
-    .footer-col p {
-        font-size: 16px;
-    }
+  border-radius: 8px; 
 }
 
-/* Dưới 768px: Bố cục cho Tablet/Mobile ngang */
-@media (max-width: 768px) {
-    /* --- HEADER & TOP BAR --- */
-    .top-bar {
-        flex-direction: column; /* Xếp chồng thanh Top Bar */
-        align-items: flex-start;
-        font-size: 12px;
-        padding: 8px 15px;
-    }
-    .top-right {
-        margin-top: 5px;
-    }
-    .top-right span {
-        margin-left: 10px;
-    }
-    .top-right span:not(:first-child) {
-        /* Ẩn bớt thông tin liên hệ để giữ gọn */
-        display: none; 
-    }
-    .top-right span:first-child {
-        margin-left: 0;
-    }
-    
-    .menu-bar {
-        padding: 10px 15px;
-        position: relative;
-    }
-    
-    /* Ẩn menu điều hướng chính trên tablet/mobile */
-    nav {
-        display: none;
-    }
+/* =============== Mobile ================== */
+/* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
+@media screen and (max-width: 768px) {
+  /* Ẩn top-bar cũ nếu có */
+  .top-bar {
+    display: none;
+  }
 
-    /* --- BLOG CONTAINER (Chuyển từ 3 cột sang 1 cột) --- */
-    .blog-container {
-        flex-direction: column; /* Xếp chồng các bài viết thành 1 cột dọc */
-        padding: 40px 15px;
-        gap: 40px;
-    }
+  /* Thanh menu mobile cố định ở trên cùng */
+  .menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 15px 20px;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 
-    .blog-content {
-        width: 100%; /* Bài viết chiếm toàn bộ chiều rộng */
-        display: flex; /* Bật lại flex cho bố cục ảnh-nội dung */
-        align-items: flex-start;
-    }
-    .blog-content img {
-        /* Thiết lập lại tỷ lệ ảnh-nội dung như ảnh mẫu */
-        width: 35%; 
-        margin-right: 15px;
-        height: auto;
-    }
-    .blog-content > * {
-        max-width: 65%;
-    }
-    
-    .p1 {
-        padding-top: 5px; 
-    }
-    h2 {
-        font-size: 18px; 
-    }
+  /* Logo căn giữa */
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    z-index: 10;
+  }
 
-}  
- /* ========================== RESPONSIVE – CHÂN TRANG ========================== */
+  /* Hamburger: vòng tròn đen */
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 20px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.3s;
+  }
 
-/* Tablet (Màn hình từ 769px đến 1024px) */
-@media (max-width: 1024px) {
-    .footer-section {
-        padding: 20px 50px; /* Giảm padding ngang */
-        gap: 50px; /* Giảm khoảng cách giữa các cột */
-        justify-content: space-between; /* Căn đều các cột */
-    }
+  /* Icons góc phải */
+  .icons {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 25px;
+  }
 
-    .footer-col {
-        /* Cho phép cột co lại một chút nhưng vẫn giữ tối đa 30% */
-        max-width: 30%; 
-        width: 30%;
-    }
-    
-    .footer-col p {
-        font-size: 16px; /* Giảm cỡ chữ */
-    }
+  .icons i {
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+  }
 
-    .footer-col h2 {
-        font-size: 20px; /* Giảm cỡ chữ tiêu đề */
-    }
+  .icons i:nth-child(3) {
+    display: none;
+  }
+
+  /* Overlay khi menu mở */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1098;
+  }
+
+  .menu-overlay.active {
+    display: block;
+  }
+
+  /* Sidebar menu từ trái - MẤT HOÀN TOÀN THANH TRẮNG */
+  nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -260px;                /* Ẩn bên trái */
+    width: 240px;                /* Giữ độ rộng hẹp */
+    height: 100%;
+    background: #ffffff;
+    padding: 120px 20px 40px 0;   /* BỎ HOÀN TOÀN padding-left → sát lề trái */
+    transition: left 0.4s ease;
+    z-index: 1099;
+    box-shadow: none;
+    overflow-y: auto;
+  }
+
+  nav.active {
+    left: 0;                     /* Sát hẳn mép trái màn hình */
+  }
+
+  nav a {
+    display: block;
+    padding: 18px 30px 18px 30px; /* Padding left/right đều để chữ không quá sát mép (có thể chỉnh 25px nếu muốn gần hơn) */
+    font-size: 19px;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  /* Gạch chân kéo dài full width (từ mép trái đến mép phải) */
+  nav a {
+    position: relative;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;      /* Bắt đầu từ mép trái */
+    right: 0;     /* Kéo dài đến mép phải */
+    bottom: 0;
+    height: 1px;
+    background: #dddddd;
+  }
+
+  nav a:last-child::after {
+    display: none;
+  }
+
+  nav a:hover {
+    color: #333;
+    background: #f9f9f9; /* Tùy chọn: hover nhẹ */
+  }
+
+  /* Đẩy nội dung chính xuống */
+  body {
+    padding-top: 90px;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
 }
 
-/* Mobile (Màn hình nhỏ hơn 768px) */
-@media (max-width: 768px) {
-    /* Khối chân trang chính */
-    .footer-section {
-        flex-direction: column; /* Chuyển bố cục sang dọc (stacked) */
-        align-items: center; /* Căn giữa các cột/khối theo chiều ngang */
-        padding: 30px 20px;
-        gap: 40px; /* Khoảng cách giữa các khối nội dung */
-    }
+@media screen and (max-width: 480px) {
+  .menu-bar {
+    height: 80px;
+    padding: 12px 15px;
+  }
 
-    /* Từng cột (column) trong chân trang */
-    .footer-col {
-        width: 100%; /* Chiếm toàn bộ chiều rộng */
-        max-width: 100%;
-        text-align: center; /* Căn giữa nội dung văn bản trong cột */
-    }
-    
-    /* Tiêu đề */
-    .footer-col h2 {
-        font-size: 22px; 
-        margin-bottom: 5px; /* Giảm khoảng cách dưới tiêu đề */
-    }
-    
-    /* Gạch chân (nếu có) */
-    .footer-col .underline {
-        margin: 0px auto 20px auto; /* Căn giữa gạch chân */
-    }
-    
-    /* Đoạn văn bản */
-    .footer-col p {
-        font-size: 15px; 
-        line-height: 1.6; /* Tăng line-height cho dễ đọc */
-        margin-bottom: 10px;
-        text-align: center;
-    }
+  .logo {
+    width: 120px;
+  }
 
-    /* Icon mạng xã hội */
-    .footer-icons {
-        justify-content: center; /* Căn giữa các icon */
-        margin-top: 10px;
-    }
-    
-    /* Hình ảnh chi nhánh (ở cuối chân trang) */
-    .footer-img {
-        width: 200px; /* Ảnh nhỏ lại */
-        height: auto;
-        margin: 15px auto 0 auto; /* Căn giữa ảnh */
-        display: block; /* Đảm bảo ảnh là block để có thể căn giữa bằng margin: auto */
-    }
-    
-    /* Đảm bảo danh sách (nếu dùng cho địa chỉ) được căn giữa */
-    .footer-col ul,
-    .footer-col li {
-        text-align: center;
-        list-style: none; 
-        padding: 0;
-    }
+  .hamburger {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    bottom: 15px;
+    left: 15px;
+  }
 
-    .footer-img {
-        width: 100%;       /* Thay đổi từ 200px thành 100% để phóng to hết cỡ cột */
-        max-width: 400px;  /* Giới hạn độ rộng tối đa để ảnh không bị vỡ quá to trên máy tính bảng nhỏ */
-        height: auto;
-        margin: 15px auto 0 auto; 
-        display: block; 
-        border-radius: 12px; /* Có thể tăng bo góc cho đẹp hơn trên mobile */
-    }
+  .icons {
+    right: 15px;
+    bottom: 17px;
+    gap: 20px;
+  }
 
-    .footer-col>.text {
-        margin-bottom: 15px;
-        text-align: justify;
-    }
+  .icons i {
+    font-size: 22px;
+  }
+
+  nav {
+    width: 220px;
+    left: -240px;
+    padding: 110px 15px 40px 0;  /* Vẫn bỏ padding-left */
+  }
+
+  nav a {
+    padding: 18px 25px; /* Giảm nhẹ trên mobile nhỏ */
+  }
+
+  body {
+    padding-top: 80px;
+  }
 }

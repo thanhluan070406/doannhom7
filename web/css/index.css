@@ -395,9 +395,54 @@ body {
 .MUA:hover {
     background: #f2f2f2;
 }
+/*=======thêm mũi tên======*/
+.KHUNG .PHAI {
+    position: relative;
+    overflow: hidden; /* Ẩn phần thừa khi slide (nếu bạn dùng JS slide) */
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
+/* Mũi tên RIÊNG cho phần PHAI - hoàn toàn độc lập */
+.phai-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-60%);
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    color: #333;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    user-select: none;
+}
 
+/* Vị trí trái - phải */
+.phai-arrow.left {
+    left: 10px;
+}
 
+.phai-arrow.right {
+    right: 10px;
+}
+
+/* Hiệu ứng di chuột vào: sáng lên, nền trắng đậm, viền và chữ đậm hơn */
+.phai-arrow:hover {
+    background: #ffffff;
+    border-color: #000;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%) scale(1.1); /* Phóng nhẹ khi hover */
+}
 
 .hero-section {
   width: 100%;
@@ -726,7 +771,170 @@ body {
 }
 
 
-/* ========================== RESPONSIVE – PHẦN TINH HOA ẨM THỰC (CẬP NHẬT LẦN 3) ========================== */
+/* ========================== RESPONSIVE – SLIDER (FIX NỀN CHỮ QUÁ TO & DÍNH MŨI TÊN TRÊN MOBILE) ========================== */
+
+/* Tablet (1025px → 769px) */
+@media (max-width: 1024px) {
+    .slider {
+        height: 80vh;
+    }
+
+    /* Nền chữ nhỏ gọn hơn, padding giảm */
+    .nen-mon {
+        padding: 16px 26px !important;
+        border-radius: 20px;
+        max-width: 580px !important; /* Giới hạn chặt để không tràn */
+    }
+
+    /* Slide 1 */
+    .slide:first-child .nen-mon {
+        bottom: 60px !important;
+        left: 6% !important;
+    }
+    .slide:first-child .tieu-de {
+        font-size: 76px;
+    }
+    .slide:first-child .mo-ta {
+        font-size: 16px;
+        max-width: 500px;
+    }
+    .slide:first-child .nut-menu {
+        padding: 12px 28px;
+        font-size: 16px;
+        white-space: nowrap; /* Không xuống dòng */
+    }
+
+    /* Slide 2 & 3 */
+    .slide:nth-child(2) .nen-mon,
+    .slide:nth-child(3) .nen-mon {
+        padding: 12px 22px !important;
+    }
+    .slide:nth-child(2) .tieu-de,
+    .slide:nth-child(3) .tieu-de {
+        font-size: 38px;
+    }
+    .slide:nth-child(2) .tieu-de-nho,
+    .slide:nth-child(3) .tieu-de-nho {
+        font-size: 20px;
+    }
+
+    /* Dịch mũi tên vào trong để tránh dính nền */
+    .mui-ten {
+        width: 48px;
+        height: 48px;
+        font-size: 26px;
+    }
+    .trai { left: 25px !important; }
+    .phai { right: 25px !important; }
+}
+
+/* Mobile (≤ 768px) - FIX CHÍNH CHO VẤN ĐỀ BẠN GỬI ẢNH */
+@media (max-width: 768px) {
+    .slider {
+        height: 60vh; /* Giảm chiều cao slider để ảnh không bị crop quá xấu */
+    }
+
+    /* Nền chữ NHỎ GỌN RẤT NHIỀU - chỉ chiếm khoảng 40-50% chiều rộng màn hình */
+    .nen-mon {
+        padding: 14px 20px !important;   /* Padding nhỏ */
+        border-radius: 18px !important;
+        max-width: 75% !important;       /* Giới hạn chặt, không bao giờ to gần full màn hình */
+        width: auto !important;
+        backdrop-filter: blur(8px);      /* Giữ hiệu ứng mờ nhưng nhẹ hơn */
+    }
+
+    /* Slide 1 - EATOPIA chính */
+    .slide:first-child .nen-mon {
+        bottom: 40px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important; /* Căn giữa ngang trên mobile cho đẹp */
+    }
+    .slide:first-child .tieu-de {
+        font-size: 44px !important;  /* Nhỏ hơn rất nhiều */
+        letter-spacing: 1px;
+    }
+    .slide:first-child .mo-ta {
+        font-size: 13px !important;
+        max-width: 100%;
+        line-height: 1.4;
+    }
+    .slide:first-child .nut-menu {
+        padding: 10px 22px !important;
+        font-size: 13px !important;
+        white-space: nowrap;
+        border-radius: 30px;
+    }
+
+    /* Slide 2 */
+    .slide:nth-child(2) .nen-mon {
+        bottom: 100px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important; /* Căn giữa */
+        padding: 10px 16px !important;
+    }
+    .slide:nth-child(2) .tieu-de-nho {
+        font-size: 15px;
+    }
+    .slide:nth-child(2) .tieu-de {
+        font-size: 28px !important;
+    }
+
+    /* Slide 3 */
+    .slide:nth-child(3) .nen-mon {
+        bottom: 60px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important; /* Căn giữa */
+        padding: 10px 16px !important;
+    }
+    .slide:nth-child(3) .tieu-de-nho {
+        font-size: 15px;
+    }
+    .slide:nth-child(3) .tieu-de {
+        font-size: 30px !important;
+    }
+
+    /* Mũi tên nhỏ & dịch sát vào góc để KHÔNG DÍNH nền chữ */
+    .mui-ten {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 18px !important;
+        opacity: 1; /* Luôn hiển thị trên mobile */
+    }
+    .trai { left: 10px !important; }
+    .phai { right: 10px !important; }
+
+    /* Các chấm tròn dưới slider cũng nhỏ lại */
+    .cham-tron .cham {
+        height: 7px;
+        width: 7px;
+    }
+}
+
+/* Mobile nhỏ hơn nữa (≤ 480px) - cho điện thoại nhỏ */
+@media (max-width: 480px) {
+    .nen-mon {
+        padding: 12px 16px !important;
+        max-width: 80% !important;
+        border-radius: 16px !important;
+    }
+
+    .slide:first-child .tieu-de {
+        font-size: 38px !important;
+    }
+    .slide:first-child .mo-ta {
+        font-size: 12px !important;
+    }
+    .slide:first-child .nut-menu {
+        padding: 8px 18px !important;
+        font-size: 12px !important;
+    }
+
+    .slide:nth-child(2) .tieu-de,
+    .slide:nth-child(3) .tieu-de {
+        font-size: 26px !important;
+    }
+}
+/* ========================== RESPONSIVE – PHẦN TINH HOA ẨM THỰC ========================== */
 
 /* Tablet (Màn hình từ 769px đến 1024px) */
 @media (max-width: 1024px) {
@@ -832,6 +1040,83 @@ body {
     .PHAI .MUC:nth-child(3),
     .PHAI .MUC:nth-child(4) {
         display: none;
+    }
+}
+/* ========================== RESPONSIVE – HERO SECTION ========================== */
+
+/* Tablet (Màn hình từ 769px đến 1024px) */
+@media (max-width: 1024px) {
+    .hero-section {
+        height: 500px; /* Giảm chiều cao */
+    }
+
+    .hero-content {
+        width: 50%; /* Mở rộng một chút để phù hợp */
+        left: 3%;
+    }
+
+    .hero-title {
+        font-size: 36px; /* Giảm font-size */
+    }
+
+    .hero-description {
+        font-size: 18px;
+    }
+
+    .btn-view-more {
+        padding: 10px 24px;
+        font-size: 16px;
+    }
+
+    /* Điều chỉnh overlay gradient cho tablet */
+    .hero-section::before {
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.7) 40%,
+            rgba(0, 0, 0, 0.3) 70%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+}
+
+/* Mobile (Màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 400px; /* Giảm chiều cao hơn */
+    }
+
+    .hero-content {
+        width: 80%; /* Mở rộng để chữ không bị ép */
+        left: 10%;
+        text-align: center; /* Căn giữa chữ trên mobile */
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .btn-view-more {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    /* Điều chỉnh overlay gradient cho mobile */
+    .hero-section::before {
+        background: linear-gradient(
+            to bottom, /* Chuyển gradient theo chiều dọc để chữ không vượt nền */
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.6) 50%,
+            rgba(0, 0, 0, 0.3) 100%
+        );
+    }
+
+    .hero-image {
+        object-position: center; /* Giữ ảnh giữa */
     }
 }
 
