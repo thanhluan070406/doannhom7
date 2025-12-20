@@ -343,7 +343,8 @@ body {
     bottom: 0;  
     left: 0;     
     right:0;
-    padding: 10px;
+    padding: 3px;
+    text-align: center;
     z-index: 10;
     background: rgba(0, 0, 0, 0.42);
     border-radius: 10px;
@@ -361,7 +362,7 @@ body {
 
 
 .MOTA {
-    margin: 3px 0 10px 0;
+    margin: 3px 0 5px 0;
     font-size: 14px;
     opacity: 0.85;
 }
