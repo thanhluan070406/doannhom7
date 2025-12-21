@@ -63,3 +63,45 @@ document.querySelectorAll(".KHUNG").forEach(khung => {
 
 });
 
+
+// ======================== REVIEW SLIDER MỚI ========================
+let currentReview = 0;
+const reviewCards = document.querySelectorAll('.review-card');
+const reviewDots = document.querySelectorAll('.r-dot');
+const totalReviews = reviewCards.length;
+
+if (totalReviews > 0) {  // Chỉ chạy nếu có review
+    function showReview(index) {
+        reviewCards.forEach(card => card.classList.remove('active'));
+        reviewDots.forEach(dot => dot.classList.remove('active'));
+        
+        reviewCards[index].classList.add('active');
+        reviewDots[index].classList.add('active');
+    }
+
+    function nextReview() {
+        currentReview = (currentReview + 1) % totalReviews;
+        showReview(currentReview);
+    }
+
+    // Auto play mỗi 6 giây (giữ nguyên tự động chuyển)
+    setInterval(nextReview, 10000);
+
+    // Click arrows (giữ nguyên nút trái/phải hoạt động)
+    const leftArrow = document.querySelector('.review-arrow.left');
+    const rightArrow = document.querySelector('.review-arrow.right');
+
+    if (leftArrow) {
+        leftArrow.addEventListener('click', () => {
+            currentReview = (currentReview - 1 + totalReviews) % totalReviews;
+            showReview(currentReview);
+        });
+    }
+
+    if (rightArrow) {
+        rightArrow.addEventListener('click', nextReview);
+    }
+
+    // Hiển thị review đầu tiên ngay khi load
+    showReview(0);
+}

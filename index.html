@@ -342,56 +342,75 @@
 
 
 
-    <!-- ========================== PHẦN ĐÁNH GIÁ ========================== -->
+
+<!-- ========================== PHẦN ĐÁNH GIÁ KHÁCH HÀNG ========================== -->
 <div class="review-section">
+    <div class="container">
+        <h2 class="review-title">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+        
         <div class="review-slider">
-            <div class="review active">
-                <div class="stars">
-                    ★★★★☆
-                </div>
+            <!-- Review 1 -->
+            <div class="review-card active">
+                <div class="stars">★★★★☆</div>
                 <p class="content">
-                    “Bún chả Hà Nội với thịt nướng thơm lừng, bún mát lạnh và nước chấm đậm đà là một sự kết hợp hoàn
-                    hảo không thể cưỡng lại.”
+                    Bún chả Hà Nội với thịt nướng thơm lừng, bún mát lạnh và nước chấm đậm đà là một sự kết hợp hoàn hảo không thể cưỡng lại.
                 </p>
-                <p class="author">facebook: Xuân Hiếu</p>
+                <p class="author"> Xuân Hiếu (Facebook)</p>
             </div>
 
-
-            <div class="review">
-                <div class="stars">
-                    ★★★★★
-                </div>
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
                 <p class="content">
-                    “Một bát phở bò nóng hổi, nước dùng ngọt thanh kết hợp cùng bánh phở mềm và thịt bò tươi ngon thực
-                    sự là một trải nghiệm khó quên!”
+                    Một bát phở bò nóng hổi, nước dùng ngọt thanh kết hợp cùng bánh phở mềm và thịt bò tươi ngon thực sự là một trải nghiệm khó quên!
                 </p>
-                <p class="author">facebook: Văn Hà</p>
+                <p class="author"> Văn Hà (Facebook)</p>
             </div>
 
-
-            <div class="review">
-                <div class="stars">
-                    ★★★★★
-                </div>
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
                 <p class="content">
-                    “Bánh mì giòn rụm bên ngoài, nhân bên trong đầy đặn với pate, thịt nguội, dưa leo và rau thơm thật
-                    sự tuyệt vời!”
+                    Bánh mì giòn rụm bên ngoài, nhân bên trong đầy đặn với pate, thịt nguội, dưa leo và rau thơm thật sự tuyệt vời!
                 </p>
-                <p class="author">facebook: Minh Thiên</p>
+                <p class="author"> Minh Thiên (Facebook)</p>
             </div>
 
+            <!-- Review 4 -->
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="content">
+                    Bánh mì giòn rụm bên ngoài, nhân bên trong đầy đặn với pate, thịt nguội, dưa leo và rau thơm thật sự tuyệt vời!
+                </p>
+                <p class="author"> Thành Luân (Facebook)</p>
+            </div>
 
-            <div class="review-arrow left" onclick="prevReview()">❮</div>
-            <div class="review-arrow right" onclick="nextReview()">❯</div>
+            <!-- Nút điều hướng -->
+            <button class="review-arrow left" aria-label="Đánh giá trước">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="review-arrow right" aria-label="Đánh giá tiếp">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
-
+            <!-- Dots -->
             <div class="review-dots">
-                <span class="r-dot active" onclick="goToReview(0)"></span>
-                <span class="r-dot" onclick="goToReview(1)"></span>
-                <span class="r-dot" onclick="goToReview(2)"></span>
+                <span class="r-dot active"></span>
+                <span class="r-dot"></span>
+                <span class="r-dot"></span>
+                <span class="r-dot"></span>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+
+
+
+
 
     <!-- ========================== CHÂN TRANG ========================== --> 
 <div class="footer-section">
