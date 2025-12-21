@@ -1,5 +1,5 @@
-*{
-  padding:0;
+* {
+  padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -29,29 +29,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px; 
+  padding: 10px 40px;
   background: #fff;
 }
 
 .logo {
-  width: 140px; 
-  height: 40px; 
-  overflow: hidden; 
+  width: 140px;
+  height: 60px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent; 
+  background: transparent;
 }
 
 .logo img {
   width: 100%;
   height: auto;
   max-height: none;
-  transform: translateY(
-    0%
-  ); 
+  transform: translateY(0%);
 }
-.hamburger{
+.hamburger {
   display: none;
 }
 nav {
@@ -65,7 +63,7 @@ nav a {
   color: #000;
   font-size: 15px;
   font-weight: 500;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .icons i {
@@ -109,68 +107,68 @@ body {
 /* ========== blog ========= */
 
 .blog {
-    width: 100%;
-    height: 300px;
-    background-image: url("/web/img/mamcobac.jpg"); 
-    background-size: cover;
-    background-position: center;
-    position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url("/web/img/mamcobac.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
 .blog::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .blog-hearder {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
 }
 
 .h1-first {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 8px;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
-.home-link{
+.home-link {
   text-decoration: none;
   color: #fff;
 }
 .home-link:hover {
-    color: red; 
+  color: red;
 }
 .p-first {
-    font-size: 16px;
-    color:#fff;
+  font-size: 16px;
+  color: #fff;
 }
 
 .p-first i {
-    font-style: normal;
-    opacity: 0.9;
+  font-style: normal;
+  opacity: 0.9;
 }
 /* ============blog - container================== */
-.blog-container{
+.blog-container {
   max-width: 1200px;
   justify-content: space-between;
-  display: flex; 
+  display: flex;
   gap: 60px;
   margin: auto;
   padding: 100px 0;
 }
 
-.blog-content{
+.blog-content {
   width: 32%;
 }
-.p1{
+.p1 {
   color: red;
   font-size: 12px;
   font-style: italic;
@@ -178,31 +176,31 @@ body {
   padding-bottom: 10px;
 }
 
-.blog-content img{
+.blog-content img {
   width: 100%;
 }
-.h{
-  color:#000;
+.h {
+  color: #000;
   text-decoration: none;
 }
-h2{
+h2 {
   font-size: 24px;
   padding-top: 10px;
   line-height: 1.6;
 }
-.p2{
+.p2 {
   font-size: 14px;
   padding-bottom: 30px;
 }
 
-.bth{
+.bth {
   text-decoration: none;
   color: white;
   background-color: red;
-  padding:10px;
+  padding: 10px;
 }
 
-.bth i{
+.bth i {
   font-size: 14px;
 }
 
@@ -211,17 +209,17 @@ h2{
   width: 100%;
   background: #000;
   color: white;
-  padding: 30px 150px; 
+  padding: 30px 150px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px; 
+  gap: 100px;
   box-sizing: border-box;
 }
 
 .footer-col {
-  flex: 1; 
-  width: 33.33%; 
+  flex: 1;
+  width: 33.33%;
   max-width: 360px;
   padding: 15px 0;
 }
@@ -264,13 +262,12 @@ h2{
   cursor: pointer;
 }
 
-
 .footer-img {
-  width: 100%; 
-  max-width: 100%; 
+  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 /* =============== Mobile ================== */
@@ -286,50 +283,49 @@ h2{
     left: 0;
     right: 0;
     background: #ffffff;
-    padding: 15px 20px;
-    height: 90px;
+    padding: 10px 20px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
-  .logo {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 140px;
-    z-index: 10;
-  }
+ .logo {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
 
   .hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 20px;
-    bottom: 18px;
-    width: 44px;
-    height: 44px;
-    background: #000000;
-    color: #ffffff;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1001;
-    transition: background 0.3s;
+  position: absolute;
+  left: 20px;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
   }
 
-  /* Icons góc phải */
-  .icons {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    gap: 25px;
-  }
+.icons {
+  position: absolute;
+  right: 20px;
+  top: 45%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 10px;
+}
 
   .icons i {
     font-size: 24px;
@@ -361,11 +357,11 @@ h2{
     flex-direction: column;
     position: fixed;
     top: 0;
-    left: -260px;               
-    width: 240px;                
+    left: -260px;
+    width: 240px;
     height: 100%;
     background: #ffffff;
-    padding: 120px 20px 40px 0;   
+    padding: 120px 20px 40px 0;
     transition: left 0.4s ease;
     z-index: 1099;
     box-shadow: none;
@@ -373,12 +369,12 @@ h2{
   }
 
   nav.active {
-    left: 0;                 
+    left: 0;
   }
 
   nav a {
     display: block;
-    padding: 18px 30px 18px 30px; 
+    padding: 18px 30px 18px 30px;
     font-size: 19px;
     font-weight: 600;
     color: #000000;
@@ -391,10 +387,10 @@ h2{
   }
 
   nav a::after {
-    content: '';
+    content: "";
     position: absolute;
-    left: 0;      
-    right: 0;     
+    left: 0;
+    right: 0;
     bottom: 0;
     height: 1px;
     background: #dddddd;
@@ -421,8 +417,8 @@ h2{
 
 @media screen and (max-width: 480px) {
   .menu-bar {
-    height: 80px;
-    padding: 12px 15px;
+    height: 70px;
+    padding: 0px 15px;
   }
 
   .logo {
@@ -430,17 +426,13 @@ h2{
   }
 
   .hamburger {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-    bottom: 15px;
-    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .icons {
-    right: 15px;
-    bottom: 17px;
-    gap: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .icons i {
@@ -450,14 +442,15 @@ h2{
   nav {
     width: 220px;
     left: -240px;
-    padding: 110px 15px 40px 0;  /* Vẫn bỏ padding-left */
+    padding: 110px 15px 40px 0; /* Vẫn bỏ padding-left */
   }
 
   nav a {
-    padding: 18px 25px; /* Giảm nhẹ trên mobile nhỏ */
+    padding: 18px 20px; /* Giảm nhẹ trên mobile nhỏ */
   }
 
   body {
-    padding-top: 80px;
+    padding-top: 70px;
   }
 }
+/* =========reponsive blog============= */

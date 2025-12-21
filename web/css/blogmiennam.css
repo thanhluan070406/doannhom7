@@ -8,6 +8,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f5f5f5;
   color: #333;
+  line-height: 1.6;
 }
 .top-bar {
   background: #000;
@@ -116,12 +117,12 @@ nav a {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  line-height: 1.6;
 }
 
+/* ============ giữa trang ============= */
 .hero-banner {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                      url('/web/img/mammientrung.png'); 
+url('/web/img/mammiennam.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
