@@ -615,7 +615,7 @@ body {
 
 .DUOI {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
 .GIA, .MUA {
@@ -635,7 +635,7 @@ body {
 
     background: white;
     color: black;
-    margin-left: auto;
+    margin-left: 0;
 }
 
 .MUA:hover {
