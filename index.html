@@ -41,12 +41,25 @@
     </div>
     <div class="menu-overlay"></div>
         <nav>
-            <div href="google.com">
-            <a href="./index.html">TRANG CHỦ</a>
-            <a href="./menu.html">THỰC ĐƠN ▾</a>
-            <a href="./blog.html">BLOG</a>
-            <a href="./about.html">GIỚI THIỆU</a>
-            <a href="./contact.html">LIÊN HỆ</a>
+            <div>
+                <a href="./index.html">TRANG CHỦ</a>
+
+                <div class="menu-drop">
+                <a href="./menu.html" class="has-sub">
+                    THỰC ĐƠN 
+                    <i class="fa-solid fa-angle-down arrow"></i>
+                </a>
+
+                <ul class="submenu">
+                    <li><a href="#mien-bac">MIỀN BẮC</a></li>
+                    <li><a href="#mien-trung">MIỀN TRUNG</a></li>
+                    <li><a href="#mien-nam">MIỀN NAM</a></li>
+                </ul>
+                </div>
+
+                <a href="./blog.html">BLOG</a>
+                <a href="./about.html">GIỚI THIỆU</a>
+                <a href="./contact.html">LIÊN HỆ</a>
             </div>
         </nav>
 
@@ -108,7 +121,7 @@
         </div>
 
         <div class="PHAI">
-
+            <a id="mien-bac"></a>
             <div class="MUC" style="background-image: url('web/img/Phở gà Hà Nội.jpg');">
                 <div class="THONGTIN">
                     <h3 class="TEN">Phở gà Hà Nội</h3>
@@ -175,7 +188,7 @@
         </div>
 
         <div class="PHAI">
-
+            <a id="mien-trung"></a>
             <div class="MUC" style="background-image: url('web/img/Bánh canh cua.jpg');">
                 <div class="THONGTIN">
                     <h3 class="TEN">Bánh canh cua</h3>
@@ -242,7 +255,7 @@
         </div>
 
         <div class="PHAI">
-
+            <a id="mien-nam"></a>
             <div class="MUC" style="background-image: url('web/img/Cơm tấm sài gòn.jpg');">
                 <div class="THONGTIN">
                     <h3 class="TEN">Cơm tấm Sài Gòn</h3>
