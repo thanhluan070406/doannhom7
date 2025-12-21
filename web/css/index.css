@@ -715,18 +715,18 @@ body {
   z-index: 0;
 }
 
-/* ===== OVERLAY GRADIENT BẰNG ::before (chắc chắn không lỗi) ===== */
-/* ===== HERO SECTION – PAN NGANG NHẸ, KHÔNG LỘ TRẮNG ===== */
+
+/* ===== HERO SECTION ===== */
 .hero-section {
     width: 100%;
     height: 600px;
     position: relative;
     overflow: hidden;
-    background-image: url('/web/img/Phở\ bò.jpg'); /* Thay bằng ảnh mới nếu muốn */
-    background-size: 140%;              /* Ảnh lớn hơn khung để pan không lộ */
+    background-image: url('/web/img/Phở\ bò.jpg'); 
+    background-size: 140%;             
     background-position: center center;
     background-repeat: no-repeat;
-    animation: panHorizontal 25s ease-in-out infinite alternate; /* Pan chậm, qua lại */
+    animation: panHorizontal 25s ease-in-out infinite alternate; 
 }
 
 /* Overlay tối để chữ nổi bật */
