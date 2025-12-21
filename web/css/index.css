@@ -647,7 +647,7 @@ body {
     overflow: hidden; /* Ẩn phần thừa khi slide (nếu bạn dùng JS slide) */
     display: flex;
     flex-wrap: nowrap;
-    gap: 10px;
+    gap: 20px;
     padding: 10px;
     box-sizing: border-box;
 }
