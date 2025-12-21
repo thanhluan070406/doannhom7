@@ -78,7 +78,6 @@ nav a {
   transition: .3s;
 }
 
-/* submenu */
 .submenu{
   position: absolute;
   top: 100%; 
@@ -106,12 +105,10 @@ nav a {
   background: #ffd43b;   /* vàng */
 }
 
-/* Hover hiện menu */
 .menu-drop:hover .submenu{
   display: block;
 }
 
-/* Xoay mũi tên */
 .menu-drop:hover .arrow{
   transform: rotate(180deg);
 }
@@ -512,7 +509,7 @@ body {
 /* ========================== PHẦN TÍNH HOA MÓN ĂN ========================== */
 .phan-tinh-hoa {
   background: #f6f2f2;
-  padding: 50px 150px;
+  padding: 50px 80px;
   
 }
 
@@ -864,94 +861,196 @@ body {
 
 
 /* ===== KẾT THÚC PHẦN HERO SECTION ===== */
+/* ===== PHẦN MENU-FLEX - CẬP NHẬT HOVER ZOOM + NỔI BÓNG ===== */
 .menu-flex {
-  width: 100%; /* rộng 100% trang */
+  width: 100%;
   display: flex;
-  justify-content: space-around; /* cách đều nhau */
-  background: #fff; /* khung trắng */
-  padding: 40px 150px; /* padding đẹp, không lạc lõng */
-  box-sizing: border-box; /* bao gồm padding trong width */
-  gap: 20px; /* khoảng cách giữa 3 item */
+  justify-content: space-around;
+  background: #fff;
+  padding: 40px 80px;
+  box-sizing: border-box;
+  gap: 20px;
+  overflow: hidden;
 }
 
 .menu-item {
-  flex: 1; /* chia đều chiều rộng */
-  max-width: 33%; /* giới hạn 1/3 trang */
-  height: 250px; /* cao cố định để bằng nhau (chỉnh tùy ý: 350–450px) */
+  flex: 1;
+  max-width: 33%;
+  height: 200px; 
   position: relative;
-  overflow: hidden; /* ngăn ảnh bay ra ngoài */
-  border-radius: 10px; /* bo góc đẹp */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* bóng nhẹ cho chuyên nghiệp */
+  overflow: hidden; 
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  transition: all 0.4s ease; 
+  cursor: pointer; 
 }
 
 .menu-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ảnh cover đầy khung, không méo */
+  object-fit: cover;
   display: block;
+  transition: transform 0.6s ease; 
 }
 
-/* Giữ nguyên overlay */
+
+.menu-item:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); 
+}
+
+.menu-item:hover img {
+  transform: scale(1.15); 
+}
+
+
 .menu-item .overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 80%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 60%;                    /* Giữ nguyên chiều cao overlay */
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.4); 
+    display: flex;
+    align-items: center;           /* Căn giữa theo chiều dọc */
+    justify-content: center;       /* Căn giữa theo chiều ngang */
+    text-align: center;
+    flex-direction: column;
+    transition: background 0.3s ease;
+    padding: 20px;                 /* Thêm padding nhẹ để tạo khoảng thở */
+    box-sizing: border-box;
 }
 
-.menu-item .overlay h2 {
-  color: white;
-  font-size: 32px;
-  font-weight: 700;
-  margin: 0;
+.menu-item:hover .overlay {
+   background: rgba(0, 0, 0, 0.55); 
 }
 
-.menu-item .overlay p {
-  color: white;
-  font-size: 22px;
-  font-weight: 400;
-  margin-top: 12px;
+.menu-item .overlay .title {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 5px 0;              /* Khoảng cách dưới title cố định, đều */
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;                   /* Đảm bảo căn giữa tốt */
 }
 
-/* NỀN CHỮ – trắng tối 1 chút – cao 80% ảnh – nằm giữa */
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 80%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.25); /* trắng nhưng tối nhẹ */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.menu-item .overlay .sum {
+    color: white;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 5px 0 0 0;              /* Khoảng cách trên sum cố định, đối xứng với title */
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    font-style: italic;
 }
 
-/* CHỮ */
-.overlay h2 {
-  color: white;
-  font-size: 32px;
-  font-weight: 700; /* đậm */
-  margin: 0;
+/* ========================== RESPONSIVE – MENU-FLEX (3 BREAKPOINTS) ========================== */
+
+/* Tablet (Màn hình từ 769px đến 1024px) - Chia 2 cột */
+@media (max-width: 1024px) {
+    .menu-flex {
+        flex-wrap: wrap;            /* Cho phép xuống dòng */
+        justify-content: center;    /* Căn giữa các item */
+        padding: 30px 40px;
+        gap: 20px;
+    }
+
+    .menu-item {
+        flex: 0 1 calc(50% - 20px); /* Chia 2 cột, trừ đi gap */
+        max-width: calc(50% - 20px);
+        height: 180px;
+    }
+
+    .menu-item .overlay {
+        height: 55%;
+        padding: 15px;
+    }
+
+    .menu-item .overlay .title {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .menu-item .overlay .sum {
+        font-size: 20px;
+        margin-top: 8px;
+    }
 }
+
+/* Mobile (Màn hình nhỏ hơn hoặc bằng 768px) - 1 cột dọc */
+@media (max-width: 768px) {
+    .menu-flex {
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 20px;
+        gap: 20px;
+    }
+
+    .menu-item {
+        width: 100%;
+        max-width: 300px;           /* Giới hạn chiều rộng hợp lý */
+        height: 160px;
+    }
+
+    .menu-item .overlay {
+        height: 50%;
+        padding: 12px;
+    }
+
+    .menu-item .overlay .title {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+
+    .menu-item .overlay .sum {
+        font-size: 18px;
+        margin-top: 6px;
+    }
+}
+
+/* Mobile nhỏ (Màn hình nhỏ hơn hoặc bằng 480px) */
+@media (max-width: 480px) {
+    .menu-flex {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+
+    .menu-item {
+        max-width: 280px;
+        height: 140px;
+    }
+
+    .menu-item .overlay {
+        height: 45%;
+        padding: 10px;
+    }
+
+    .menu-item .overlay .title {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .menu-item .overlay .sum {
+        font-size: 16px;
+        margin-top: 5px;
+    }
+}
+
+
+
+
+
+
 
 /* ========================== SỬA REVIEW SECTION - CHỈ ẨN CARD KHÔNG ACTIVE & HIỂN THỊ MŨI TÊN ========================== */
 
-/* Ẩn tất cả card review, chỉ hiện cái có class active */
 .review-card {
     position: relative;
     z-index: 1;
-    display: none; /* Ẩn hết */
+    display: none; 
     background: white;
     border-radius: 20px;
     padding: 50px 70px;
