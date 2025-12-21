@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.hero-banner {
+    /* CHỈ CẦN ĐƯA ẢNH VÀO DÒNG DƯỚI ĐÂY */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url('/web/img/m'); 
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Căn giữa toàn bộ nội dung */
+    width: 100%;
+    height: 600px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+/* Tạo ô vuông trắng ở giữa giống như ảnh bạn gửi */
+.logo-box {
+    width: 80px;      /* Độ rộng ô vuông */
+    height: 60px;     /* Độ cao ô vuông */
+    background-color: #ffffff; /* Màu trắng */
+    margin: 0 auto 30px; /* Căn giữa và tạo khoảng cách với chữ bên dưới */
+    display: block;
+}
+
+.title-content h1 {
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 1.5;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+.content {
+  flex: 3;
+  padding: 30px;
+}
+
+
+.ND h2 {
+  font-size: 24px;
+  color: black;
+  margin: 30px 0 15px;
+}
+
+.ND p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.ND img {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  margin: 25px 0;
+}
+
+.coment {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+}
+
+.coment h3 {
+  font-size: 18px;
+  color: black;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.coment textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 10px;
+}
+
+.coment button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.coment button:hover {
+  background-color: black;
+}
+
+.share-section {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+}
+
+.share-section strong {
+  display: block;
+  font-size: 18px;
+  color: #d4380d;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.social-buttons button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin-right: 10px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.social-buttons button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+.social-buttons button:nth-child(1) {
+  background-color: red;
+  color: white;
+}
+
+.social-buttons button:nth-child(1):hover {
+  background-color: red;
+  transform: translateY(-3px);
+}
+
+.social-buttons button:nth-child(2) {
+  background-color: #1877f2;
+  color: white;
+}
+
+.social-buttons button:nth-child(2):hover {
+  background-color: #166fe5;
+  transform: translateY(-3px);
+}
+
+.social-buttons button:nth-child(3) {
+  background-color: #000000;
+  color: white;
+}
+
+.social-buttons button:nth-child(3):hover {
+  background-color: #1d1f23;
+  transform: translateY(-3px);
+}
+
+.social-buttons button:nth-child(4) {
+  background-color: #4285f4;
+  color: white;
+}
+
+.social-buttons button:nth-child(4):hover {
+  background-color: #3367d6;
+  transform: translateY(-3px);
+}
+
+.social-buttons button:nth-child(5) {
+  background-color: grey;
+  color: white;
+}
+
+/* === (THEO DÕI CHÚNG TÔI) === */
+.join {
+  flex: 1;
+  padding: 30px 20px;
+  background-color: #fafafa;
+}
+
+.join-title {
+  font-size: 18px;
+  color: #d4380d;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.social-list {
+  list-style: none;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.social-item:hover {
+  background-color: #e5e5e5;
+}
+
+.social-item i {
+  font-size: 20px;
+  margin-right: 15px;
+  width: 30px;
+  text-align: center;
+}
+
+.icon-fb {
+  color: #1877f2;
+}
+.icon-ms {
+  color: #00b2ff;
+}
+.icon-mail {
+  color: #c71610;
+}
+.icon-x {
+  color: #000;
+}
