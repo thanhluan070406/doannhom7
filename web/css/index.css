@@ -120,7 +120,7 @@ body {
 
 /* SLIDE 2 */
 .slide:nth-child(2) .nen-mon {
-  bottom: 260px !important;
+  bottom: 420px !important;
   left: 10%;
   padding: 18px 32px;
 }
@@ -141,24 +141,25 @@ body {
   color: white;
   margin: 0 0 16px 0;
   line-height: 1;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
 }
 .slide:first-child .mo-ta {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: white;
-  margin: 0 0 28px 0;
+  margin: 0 0 24px 0;
   max-width: 680px;
 }
 .slide:first-child .nut-menu {
-  padding: 16px 40px;
-  background: white;
-  color: black;
+  display: inline-block;      /* Thêm để kiểm soát tốt hơn */
+  padding: 14px 36px;
+  background: #ff6600;
+  color: white;
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 20px;
-  border-radius: 50px;
+  border-radius: 20px;
   text-decoration: none;
 }
 
@@ -167,8 +168,9 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 26px;
   color: white;
-  margin: 0 0 7px 0;
-  font-weight: 500;
+  margin: 0 0 20px 0;
+  font-style: italic;
+  text-align: center;
 }
 .slide:nth-child(2) .tieu-de {
   font-family: "Anton", sans-serif;
@@ -176,7 +178,7 @@ body {
   color: white;
   margin: 0;
   line-height: 1;
-  letter-spacing: 1.5px;
+  letter-spacing: 3px;
   white-space: nowrap;
   text-transform: uppercase;
 }
@@ -186,7 +188,9 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 26px;
   color: white;
-  margin: 0 0 7px 0;
+  margin: 0 0 25px 0;
+  font-style: italic;
+  text-align: center;
 }
 .slide:nth-child(3) .tieu-de {
   font-family: "Anton", sans-serif;
@@ -194,7 +198,7 @@ body {
   color: white;
   margin: 0;
   line-height: 1;
-  letter-spacing: 1.5px;
+  letter-spacing: 3px;
   white-space: nowrap;
   text-transform: uppercase;
 }
@@ -257,6 +261,245 @@ body {
 .cham.active {
   background: white;
 }
+
+/* ========================== animation SLIDER ========================== */
+
+/* ==================== ANIMATION SLIDER - SLIDE 1 (CẬP NHẬT MỚI NHẤT) ==================== */
+
+/* 1. Ảnh nền Slide 1: Chỉ fade-in + di chuyển rất chậm (gần như tĩnh, không zoom) */
+.slide:first-child {
+    background-position: center center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.slide:first-child.active {
+    opacity: 1;
+    animation: subtleMove 22s ease-in-out infinite alternate;
+}
+
+/* Hiệu ứng ảnh rất nhẹ: chỉ dịch chuyển nhẹ theo chiều dọc, không zoom */
+@keyframes subtleMove {
+    0% {
+        background-position: center 40%;
+    }
+    100% {
+        background-position: center 60%;
+    }
+}
+
+/* 2. Khối chữ (.nen-mon): Trượt chậm từ dưới lên */
+.slide:first-child .nen-mon {
+    opacity: 0;
+    transform: translateY(80px); /* bắt đầu thấp hơn một chút */
+    transition: opacity 1.4s ease 0.5s, transform 1.4s ease 0.5s;
+}
+
+.slide:first-child.active .nen-mon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. Từng phần tử chữ hiện lần lượt, chậm rãi từ dưới lên */
+.slide:first-child .tieu-de,
+.slide:first-child .mo-ta,
+.slide:first-child .nut-menu {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide:first-child.active .tieu-de {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+.slide:first-child.active .mo-ta {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.3s;
+}
+
+.slide:first-child.active .nut-menu {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.8s; /* chậm hơn, nút hiện cuối cùng */
+}
+
+/* Đảm bảo reset animation khi chuyển slide */
+.slide:first-child:not(.active) .nen-mon,
+.slide:first-child:not(.active) .tieu-de,
+.slide:first-child:not(.active) .mo-ta,
+.slide:first-child:not(.active) .nut-menu {
+    opacity: 0 !important;
+    transform: translateY(80px) !important;
+}
+
+
+
+
+/* ==================== ANIMATION SLIDER 2 - TRƯỢT TỪ TRÁI SANG (CHẬM MƯỢT) ==================== */
+
+/* 1. Ảnh nền Slide 2: Giữ hiệu ứng nhẹ, gần như tĩnh (giống Slide 1) */
+.slide:nth-child(2) {
+    background-position: center center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.slide:nth-child(2).active {
+    opacity: 1;
+    animation: subtleMove 22s ease-in-out infinite alternate;
+}
+
+/* Dùng chung keyframes nhẹ từ trước */
+@keyframes subtleMove {
+    0% {
+        background-position: center 40%;
+    }
+    100% {
+        background-position: center 60%;
+    }
+}
+
+/* 2. Khối chữ (.nen-mon): Trượt chậm từ trái sang */
+.slide:nth-child(2) .nen-mon {
+    opacity: 0;
+    transform: translateX(-100px); /* bắt đầu từ bên trái ngoài khung */
+    transition: opacity 1.4s ease 0.5s, transform 1.4s ease 0.5s;
+}
+
+.slide:nth-child(2).active .nen-mon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 3. Từng phần tử chữ hiện lần lượt từ trái sang, chậm rãi */
+.slide:nth-child(2) .tieu-de-nho,
+.slide:nth-child(2) .tieu-de {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide:nth-child(2).active .tieu-de-nho {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.9s; /* hiện trước */
+}
+
+.slide:nth-child(2).active .tieu-de {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 1.4s; /* tiêu đề chính hiện sau, chậm mượt */
+}
+
+/* Reset animation khi slide không active */
+.slide:nth-child(2):not(.active) .nen-mon,
+.slide:nth-child(2):not(.active) .tieu-de-nho,
+.slide:nth-child(2):not(.active) .tieu-de {
+    opacity: 0 !important;
+    transform: translateX(-100px) !important;
+}
+
+/* Áp dụng luôn hiệu ứng hover nổi khối như Slide 1 (tùy chọn, rất đẹp) */
+.slide:nth-child(2) .nen-mon:hover {
+    transform: translateY(-12px) translateX(0) !important;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(255, 102, 0, 0.15);
+}
+
+
+
+
+
+
+/* ==================== ANIMATION SLIDER 3 - TRƯỢT TỪ PHẢI SANG (CHẬM MƯỢT) ==================== */
+
+/* 1. Ảnh nền Slide 3: Giữ hiệu ứng nhẹ, gần như tĩnh (giống Slide 1 & 2) */
+.slide:nth-child(3) {
+    background-position: center center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.slide:nth-child(3).active {
+    opacity: 1;
+    animation: subtleMove 22s ease-in-out infinite alternate;
+}
+
+/* Dùng chung keyframes nhẹ */
+@keyframes subtleMove {
+    0% {
+        background-position: center 40%;
+    }
+    100% {
+        background-position: center 60%;
+    }
+}
+
+/* 2. Khối chữ (.nen-mon): Trượt chậm từ phải sang */
+.slide:nth-child(3) .nen-mon {
+    opacity: 0;
+    transform: translateX(100px); /* bắt đầu từ bên phải ngoài khung */
+    transition: opacity 1.4s ease 0.5s, transform 1.4s ease 0.5s;
+}
+
+.slide:nth-child(3).active .nen-mon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 3. Từng phần tử chữ hiện lần lượt từ phải sang, chậm rãi */
+.slide:nth-child(3) .tieu-de-nho,
+.slide:nth-child(3) .tieu-de {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide:nth-child(3).active .tieu-de-nho {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.9s; /* hiện trước */
+}
+
+.slide:nth-child(3).active .tieu-de {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 1.4s; /* tiêu đề chính hiện sau, chậm mượt */
+}
+
+/* Reset animation khi slide không active */
+.slide:nth-child(3):not(.active) .nen-mon,
+.slide:nth-child(3):not(.active) .tieu-de-nho,
+.slide:nth-child(3):not(.active) .tieu-de {
+    opacity: 0 !important;
+    transform: translateX(100px) !important;
+}
+
+/* Áp dụng hiệu ứng hover nổi khối giống Slide 1 & 2 (rất khuyến khích) */
+.slide:nth-child(3) .nen-mon:hover {
+    transform: translateY(-12px) translateX(0) !important;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(255, 102, 0, 0.15);
+}
+
+
+
+
+
+
 /* ========================== PHẦN TÍNH HOA MÓN ĂN ========================== */
 .phan-tinh-hoa {
   background: #f6f2f2;
