@@ -1,21 +1,26 @@
 let slideIndex = 0;
 const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".cham");
+const totalSlides = slides.length;
 
 function capNhatSlide() {
     slides.forEach(s => s.classList.remove("active"));
-    dots.forEach(c => c.classList.remove("active"));
-
     slides[slideIndex].classList.add("active");
-    dots[slideIndex].classList.add("active");
 }
 
-function chuyenSlide(n) {
-    slideIndex += n;
-    if (slideIndex < 0) slideIndex = slides.length - 1;
-    if (slideIndex >= slides.length) slideIndex = 0;
+function chuyenSlideTiep() {
+    slideIndex++;
+    if (slideIndex >= totalSlides) {
+        slideIndex = 0;
+    }
     capNhatSlide();
 }
+
+// Khởi động tự động
+document.addEventListener("DOMContentLoaded", function() {
+    capNhatSlide(); // Hiển thị slide đầu tiên
+    setInterval(chuyenSlideTiep, 6000); // Chuyển slide mỗi 6 giây
+});
+
 
 function denSlide(n) {
     slideIndex = n;
@@ -58,3 +63,45 @@ document.querySelectorAll(".KHUNG").forEach(khung => {
 
 });
 
+
+// ======================== REVIEW SLIDER MỚI ========================
+let currentReview = 0;
+const reviewCards = document.querySelectorAll('.review-card');
+const reviewDots = document.querySelectorAll('.r-dot');
+const totalReviews = reviewCards.length;
+
+if (totalReviews > 0) {  // Chỉ chạy nếu có review
+    function showReview(index) {
+        reviewCards.forEach(card => card.classList.remove('active'));
+        reviewDots.forEach(dot => dot.classList.remove('active'));
+        
+        reviewCards[index].classList.add('active');
+        reviewDots[index].classList.add('active');
+    }
+
+    function nextReview() {
+        currentReview = (currentReview + 1) % totalReviews;
+        showReview(currentReview);
+    }
+
+    // Auto play mỗi 6 giây (giữ nguyên tự động chuyển)
+    setInterval(nextReview, 10000);
+
+    // Click arrows (giữ nguyên nút trái/phải hoạt động)
+    const leftArrow = document.querySelector('.review-arrow.left');
+    const rightArrow = document.querySelector('.review-arrow.right');
+
+    if (leftArrow) {
+        leftArrow.addEventListener('click', () => {
+            currentReview = (currentReview - 1 + totalReviews) % totalReviews;
+            showReview(currentReview);
+        });
+    }
+
+    if (rightArrow) {
+        rightArrow.addEventListener('click', nextReview);
+    }
+
+    // Hiển thị review đầu tiên ngay khi load
+    showReview(0);
+}
