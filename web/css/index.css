@@ -28,6 +28,10 @@
   background: #fff;
 }
 
+.hamburger {
+  display: none;
+}
+
 .logo {
   width: 140px; 
   height: 40px; 
