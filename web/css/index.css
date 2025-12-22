@@ -59,6 +59,14 @@ nav {
     padding: 0;
     height: 100%; /* Quan trọng để xác định điểm tựa cho submenu */
 }
+nav ul.nav-links {
+    display: flex !important;    /* Ép dàn ngang */
+    list-style: none !important; /* Xóa dấu chấm tròn */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: center;
+}
 
 .nav-links > li {
     position: relative;
