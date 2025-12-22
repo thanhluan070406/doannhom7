@@ -61,11 +61,11 @@ nav {
     display: flex;
     margin: 0;
     padding: 0;
-    height: 100%; /* Quan trọng để xác định điểm tựa cho submenu */
+    height: 100%; 
 }
 nav ul.nav-links {
-    display: flex !important;    
-    list-style: none !important; 
+    display: flex ;    
+    list-style: none ; 
     margin: 0;
     padding: 0;
     height: 100%;
@@ -92,7 +92,7 @@ nav ul.nav-links {
 /* 2. Xử lý Submenu (Dropdown) */
 .submenu {
     position: absolute;
-    top: 210%; 
+    top: 110%; 
     left: 0;
     background-color: #fff;
     min-width: 180px;
