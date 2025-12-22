@@ -92,7 +92,7 @@ nav ul.nav-links {
 /* 2. Xử lý Submenu (Dropdown) */
 .submenu {
     position: absolute;
-    top: 110%; 
+    top: 210%; 
     left: 0;
     background-color: #fff;
     min-width: 180px;
@@ -1595,7 +1595,7 @@ body {
     position: static !important; /* Buộc nó phải xếp hàng ngay dưới chữ Thực đơn */
     display: none;               /* Mặc định ẩn */
     width: 100% !important;
-    top: auto !important;        /* Hủy bỏ hoàn toàn cái top: 210% của desktop */
+    top: 0!important;        /* Hủy bỏ hoàn toàn cái top: 210% của desktop */
     margin: 0 !important;        /* Xóa mọi khoảng cách thừa */
     padding: 0 !important;
     opacity: 1 !important;
