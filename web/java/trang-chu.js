@@ -41,28 +41,6 @@ document.querySelector('.menu-overlay').addEventListener('click', function() {
   document.body.classList.remove('menu-open');
 });
 
-// ================= SLIDE PHẦN TINH HOA =================
-document.querySelectorAll(".KHUNG").forEach(khung => {
-
-    const phai = khung.querySelector(".PHAI");
-    const leftBtn = khung.querySelector(".phai-arrow.left");
-    const rightBtn = khung.querySelector(".phai-arrow.right");
-
-    // Click qua phải
-    rightBtn.addEventListener("click", () => {
-        const first = phai.querySelector(".MUC");
-        phai.appendChild(first); // đẩy cái đầu xuống cuối
-    });
-
-    // Click qua trái
-    leftBtn.addEventListener("click", () => {
-        const items = phai.querySelectorAll(".MUC");
-        const last = items[items.length - 1];
-        phai.prepend(last); // kéo cái cuối lên đầu
-    });
-
-});
-
 
 // ======================== REVIEW SLIDER MỚI ========================
 let currentReview = 0;
@@ -105,3 +83,68 @@ if (totalReviews > 0) {  // Chỉ chạy nếu có review
     // Hiển thị review đầu tiên ngay khi load
     showReview(0);
 }
+
+
+// ==================== CAROUSEL CHO CÁC VÙNG MIỀN (ĐÃ CẬP NHẬT ẨN NÚT KHI ĐẾN ĐẦU/CUỐI) ====================
+document.querySelectorAll('.PHAI').forEach(container => {
+    const track = container.querySelector('.carousel-track');
+    const items = track.querySelectorAll('.MUC');
+    const leftBtn = container.querySelector('.phai-arrow.left');
+    const rightBtn = container.querySelector('.phai-arrow.right');
+
+    // Nếu tổng món ≤ 4 thì ẩn luôn cả 2 nút
+    if (items.length <= 4) {
+        if (leftBtn) leftBtn.style.display = 'none';
+        if (rightBtn) rightBtn.style.display = 'none';
+        return;
+    }
+
+    let currentIndex = 0;
+    const visibleItems = 4;
+    const totalItems = items.length;
+
+    function updateCarousel() {
+        const itemWidth = items[0].offsetWidth + 10; // width + gap 10px
+        track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
+        // Ẩn/hiện nút trái
+        if (currentIndex === 0) {
+            leftBtn.style.opacity = '0';
+            leftBtn.style.pointerEvents = 'none'; // không click được
+        } else {
+            leftBtn.style.opacity = '';
+            leftBtn.style.pointerEvents = '';
+        }
+
+        // Ẩn/hiện nút phải
+        if (currentIndex >= totalItems - visibleItems) {
+            rightBtn.style.opacity = '0';
+            rightBtn.style.pointerEvents = 'none';
+        } else {
+            rightBtn.style.opacity = '';
+            rightBtn.style.pointerEvents = '';
+        }
+    }
+
+    // Click nút phải
+    rightBtn.addEventListener('click', () => {
+        if (currentIndex < totalItems - visibleItems) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    // Click nút trái
+    leftBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    // Cập nhật lại khi resize màn hình (rất quan trọng)
+    window.addEventListener('resize', updateCarousel);
+
+    // Khởi tạo lần đầu
+    updateCarousel();
+});
