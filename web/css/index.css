@@ -117,6 +117,7 @@ nav ul.nav-links {
 /* 3. Xử lý các mục bên trong Submenu để "KHÔNG KHOẢNG TRẮNG" */
 .submenu li {
     width: 100%;
+    border-bottom: 1px solid #ffffff; /* Đường kẻ mờ giữa các mục (tùy chọn) */
 }
 
 .submenu li:last-child {
