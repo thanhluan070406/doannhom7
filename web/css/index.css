@@ -1757,70 +1757,58 @@ body {
     display: block;
   }
 
-  /* 1. Ép .nav-links thành dọc, bỏ hết flex ngang */
-    .nav-links {
-        display: block !important;     /* Quan trọng nhất - buộc nằm dọc */
-        height: auto !important;
-        padding: 0;
-        margin: 0;
-    }
+  nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 240px;
+    height: 100%;
+    background: #ffffff;
+    padding: 120px 20px 40px 0;
+    transition: left 0.4s ease;
+    z-index: 1099;
+    box-shadow: none;
+    overflow-y: auto;
+  }
 
-    /* 2. Các <li> cũng phải block để nằm dọc */
-    .nav-links > li {
-        display: block !important;
-        position: relative;            /* Giữ để submenu hoạt động */
-        height: auto !important;
-    }
+  nav.active {
+    left: 0;
+  }
 
-    /* 3. Link <a> trong menu chính - đẹp và dễ bấm trên mobile */
-    .nav-links > li > a {
-        display: block !important;
-        padding: 18px 30px !important; /* Giữ padding đẹp như bạn đã set */
-        height: auto !important;
-        text-align: left;
-        border-bottom: 1px solid #eee;
-    }
+  nav a {
+    display: block;
+    padding: 18px 30px 18px 30px;
+    font-size: 19px;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    border-bottom: 1px solid #dddddd;
+  }
 
-    /* 4. Submenu trên mobile: không dùng hover nữa, mà nằm dọc ngay dưới mục cha */
-    .submenu {
-        position: static !important;   /* Bỏ absolute, để nó chảy tự nhiên */
-        opacity: 1 !important;
-        visibility: visible !important;
-        box-shadow: none !important;
-        background: #f9f9f9 !important;
-        min-width: auto !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        display: none;                 /* Mặc định ẩn */
-        transition: none !important;
-    }
+  nav a {
+    position: relative;
+  }
 
-    /* 5. Khi mục cha được mở (dùng class active bằng JS) thì hiện submenu */
-    .has-submenu.active > .submenu {
-        display: block !important;
-    }
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: #dddddd;
+  }
 
-    /* 6. Các mục trong submenu - thụt vào một chút cho dễ nhìn */
-    .submenu li a {
-        padding: 14px 50px !important; /* Thụt phải 50px để phân cấp */
-        font-size: 16px !important;
-        background: #f0f0f0;
-        color: #333;
-    }
+  nav a:last-child::after {
+    display: none;
+  }
 
-    .submenu li a:hover {
-        background: #e0e0e0 !important;
-        color: #ff6600 !important;
-    }
-
-    /* 7. Mũi tên chỉ xuống - xoay khi mở submenu (tùy chọn đẹp) */
-    .arrow {
-        transition: transform 0.3s ease;
-        float: right;
-    }
-    .has-submenu.active .arrow {
-        transform: rotate(180deg);
-    }
+  nav a:hover {
+    color: #333;
+    background: #f9f9f9; /* Tùy chọn: hover nhẹ */
+  }
 
   /* Đẩy nội dung chính xuống */
   body {
@@ -1870,7 +1858,6 @@ body {
     padding-top: 70px;
   }
 }
-
 /* ========================== RESPONSIVE – SLIDER  ========================== */
 
 
