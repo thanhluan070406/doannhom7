@@ -214,7 +214,7 @@ function removeSuggestions() {
 document.addEventListener('click', e => {
     if (!searchContainer.contains(e.target)) removeSuggestions();
 });
-
+targetLi.scrollIntoView({behavior: 'smooth'});
 // Khởi động: hiển thị tất cả + active "Tất cả"
 filterAndDisplay();
 document.querySelector('.menu-sidebar li.active')?.classList.remove('active');
