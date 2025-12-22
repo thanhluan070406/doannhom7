@@ -1550,76 +1550,65 @@ body {
 
   /* Thay đổi chính ở đây để phù hợp với ul li */
   nav {
-    display: block; /* Chuyển từ flex sang block để chứa danh sách dọc */
+    display: block !important;
     position: fixed;
     top: 0;
-    left: -260px;
+    left: -260px; /* Menu ẩn bên trái */
     width: 240px;
     height: 100%;
     background: #ffffff;
-    padding: 100px 0 40px 0; /* Bỏ padding-right để menu sát lề */
+    padding: 100px 0 40px 0;
     transition: left 0.4s ease;
     z-index: 1099;
     overflow-y: auto;
   }
 
   nav.active {
-    left: 0;
+    left: 0; /* Hiện menu khi bấm hamburger */
   }
 
-  /* QUAN TRỌNG: Ép danh sách ul mới phải thẳng hàng dọc */
+  /* ÉP THẲNG HÀNG DỌC & XÓA DẤU CHẤM */
   nav ul.nav-links {
     display: flex !important;
-    flex-direction: column !important; /* Ép xếp chồng lên nhau */
-    list-style: none !important;      /* Xóa dấu chấm tròn */
+    flex-direction: column !important;
+    list-style: none !important;
     padding: 0 !important;
-    margin: 0 !important;
-    width: 100%;
+    width: 100% !important;
   }
 
   nav ul.nav-links > li {
     width: 100%;
-    display: block; /* Mỗi li chiếm 1 dòng */
   }
 
   nav ul.nav-links > li > a {
     display: block;
-    padding: 18px 30px; /* Giữ padding giống hình cũ của bạn */
+    padding: 18px 30px;
     font-size: 19px;
     font-weight: 600;
-    color: #000000;
+    color: #000;
     text-decoration: none;
-    border-bottom: 1px solid #dddddd; /* Tạo đường kẻ ngăn cách */
-    width: 100%;
-    box-sizing: border-box; /* Đảm bảo không bị tràn chiều rộng */
-    text-align: left;
+    border-bottom: 1px solid #ddd;
   }
 
-  /* Hover cho menu mobile */
-  nav ul.nav-links > li > a:hover {
-    background: #f9f9f9;
-    color: #333;
-  }
-
-  /* Xử lý submenu trong menu mobile */
+  /* XỬ LÝ SUBMENU TRÊN MOBILE (KHÔNG ĐÈ CHỮ) */
   .submenu {
-    position: static; /* Đẩy các menu dưới xuống thay vì bay lơ lửng */
-    display: none;    /* Mặc định ẩn */
+    position: static !important; /* Đẩy các mục BLOG, LIÊN HỆ xuống dưới */
+    display: none; 
     width: 100%;
-    padding: 0;
-    box-shadow: none;
-    background: #fcfcfc;
+    background: #f9f9f9 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
   }
 
-  /* Khi hover vào THỰC ĐƠN trên mobile sẽ hiện submenu dọc */
+  /* Hiển thị submenu khi hover (hoặc bạn có thể dùng JS để click) */
   .has-submenu:hover .submenu {
-    display: block;
+    display: block !important;
   }
 
   .submenu li a {
-    padding-left: 50px !important; /* Thụt lề vào trong cho đẹp */
+    padding: 15px 30px 15px 50px !important; /* Thụt lề vào trong */
     font-size: 16px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee !important;
   }
 
   body {
