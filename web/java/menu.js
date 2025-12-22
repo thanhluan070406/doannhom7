@@ -226,6 +226,7 @@ document.addEventListener('click', e => {
     if (!searchContainer.contains(e.target)) removeSuggestions();
 });
 
+
 // Cập nhật lại khi thay đổi kích thước màn hình
 window.addEventListener('resize', () => {
     const newItemsPerPage = getItemsPerPage();
@@ -286,3 +287,36 @@ document.querySelectorAll('.mobile-sidebar-drawer li').forEach(item => {
         closeMobileSidebar(); // Đóng drawer sau khi chọn
     });
 });
+
+// XỬ LÝ LINK TỪ TRANG KHÁC VỚI #HASH (ví dụ menu.html#mien-nam)
+document.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.substring(1); // Lấy phần sau # (ví dụ "mien-nam")
+    if (hash) {
+        const targetLi = document.getElementById(hash);
+        if (targetLi) {
+            // Xóa class active cũ
+            sidebarItems.forEach(li => li.classList.remove('active'));
+            
+            // Thêm active cho mục mới → sáng đỏ + nền xám như ảnh
+            targetLi.classList.add('active');
+            
+            // Set vùng lọc đúng
+            if (hash === 'tat-ca') {
+                currentRegion = 'all';
+            } else if (hash === 'mien-bac') {
+                currentRegion = 'mien-bac';
+            } else if (hash === 'mien-trung') {
+                currentRegion = 'mien-trung';
+            } else if (hash === 'mien-nam') {
+                currentRegion = 'mien-nam';
+            }
+            
+            // Lọc và hiển thị món ăn tương ứng
+            filterAndDisplay();
+        }
+    }
+});
+// Khởi động: hiển thị tất cả + active "Tất cả"
+filterAndDisplay();
+document.querySelector('.menu-sidebar li.active')?.classList.remove('active');
+document.querySelector('.menu-sidebar li:first-child').classList.add('active');
