@@ -1765,7 +1765,8 @@ body {
 
     /* Các link menu */
     .nav-links {
-        display: block !important;
+        display: flex;
+        flex-direction: column;
     }
 
     nav a {
