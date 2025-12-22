@@ -411,8 +411,9 @@ url('/web/img/mammiennam.png');
 }
 
 /* ================================================================= */
-@media (max-width: 768px) {
 .hero-banner { display: block !important; position: relative !important; width: 100% !important; min-height: 200px !important; }
+@media (max-width: 768px) {
+
     body, 
     .site, 
     #page, 
