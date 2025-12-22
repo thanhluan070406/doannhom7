@@ -790,8 +790,8 @@ body {
     position: relative;
 }
 
-/* Laptop (992px - 1199px): GIỮ NGUYÊN CỘT TRÁI + chỉ hiển thị 3 món bên phải */
-@media (max-width: 1199px) {
+
+@media (max-width: 1440px) {
     .KHUNG .PHAI .MUC {
         flex: 0 0 calc(33.333% - 6.67px); /* 3 món */
     }
@@ -800,9 +800,12 @@ body {
     }
     
     .TRAI {
-        width: 15%; 
+        width: 20%;         /* Tăng từ 16.66% → 25%, ảnh to hơn, đẹp hơn */
     }
-
+    .PHAI {
+        width: 80%;  
+        margin-bottom: 15px;
+    }
 
     .TRAI .CHU h1 {
         font-size: 20px;
@@ -814,17 +817,45 @@ body {
 }
 
 /* Tablet (768px - 991px): GIỮ NGUYÊN CỘT TRÁI + chỉ hiển thị 2 món bên phải */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
     .KHUNG .PHAI .MUC {
         flex: 0 0 calc(50% - 5px); /* 2 món */
     }
+    .tua-trang {
+        font-size: 25px;
+        margin-bottom: 20px;
+        white-space: nowrap;        /* Thêm dòng này */
+        overflow: hidden;
+    }
+    .TRAI {
+        width: 30%;         /* Ảnh lớn hơn nữa, cân đối tốt */
+    }
+    .PHAI {
+        width: 70%;
+    }
+
+    .MUC .DUOI {
+        align-items: flex-start;
+    }
+    
+    .MUC .GIA, .MUC .MUA {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    
 }
 
 
 @media (max-width: 768px) {
-    .tua-trang h1 {
-        font-size: 25px;
+    .tua-trang {
+        font-size: 20px;
         margin-bottom: 20px;
+        white-space: nowrap;        /* Thêm dòng này */
+        overflow: hidden;
+    }
+
+    .phan-tinh-hoa {
+        padding: 30px !important;
     }
 
     .TRAI {
@@ -847,6 +878,7 @@ body {
         width: 15%; 
     }
 
+    
  
     .TRAI .CHU h1 {
         font-size: 16px;
@@ -857,39 +889,98 @@ body {
     }
 
     .MUC .TEN {
-        font-size: 13px;
+        font-size: 15px;
     }
     
     .MUC .MOTA {
         font-size: 10px;
-        margin: 1px 0 5px 0;
+        margin: 5px 0 2px 0;
     }
     
     .MUC .DUOI {
-        flex-direction: column; 
         align-items: flex-start;
     }
     
     .MUC .GIA, .MUC .MUA {
-        padding: 3px 6px;
-        font-size: 9px;
-        margin-top: 3px;
+        padding: 5px 10px;
+        font-size: 11px;
+        margin-top:3px;
     }
 
-    .MUC .MUA {
-        margin-left: 0; 
+    .phai-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .phai-arrow.left {
+        left: 10px;
+    }
+    .phai-arrow.right {
+        right: 8px;
     }
 }
+
 
 @media (max-width: 480px) {
-    .tua-trang h1 {
-        font-size: 20px;
-        margin-bottom: 20px;
+    .phan-tinh-hoa {
+        padding: 20px 10px !important;
+
+    }
+
+    .tua-trang {
+        font-size: 17px;
+        margin-bottom: 17px;
+        white-space: nowrap;        /* Thêm dòng này */
+        overflow: hidden;
+    }
+    .PHAI {
+        margin-bottom: 15px;
+    }
+
+    .phai-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+    .THONGTIN {
+        padding: 5px 8px;
+    }
+
+    .phai-arrow.left {
+        left: 7px;
+    }
+    .phai-arrow.right {
+        right: 5px;
+    }
+
+    .TRAI .CHU h1 {
+        font-size: 16px;
+    }
+
+    .TRAI .CHU p {
+        font-size: 10px;
+    }
+
+    .MUC .TEN {
+        font-size: 15px;
+    }
+    
+    .MUC .MOTA {
+        font-size: 10px;
+        margin: 5px 0 5px 0;
+    }
+
+    .MUC .DUOI {
+        align-items: flex-start;
+    }
+    
+    .MUC .GIA, .MUC .MUA {
+        padding: 4px 8px;
+        font-size: 10px;
+        margin-top: 0;
     }
 }
-
-
-
 
 
 
@@ -1445,9 +1536,9 @@ body {
     }
 
     .review-arrow {
-        width: 40px !important;
-        height: 40px !important;
-        font-size: 20px !important;
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 15px !important;
     }
 
     .review-slider {
@@ -1455,11 +1546,11 @@ body {
     }
 
     .review-arrow.left {
-        left: 5px !important;
+        left: 0px !important;
     }
 
     .review-arrow.right {
-        right: 5px !important;
+        right: 0px !important;
     }
 
     .review-dots {
@@ -1489,9 +1580,16 @@ body {
     }
 
     .review-arrow {
-        width: 36px !important;
-        height: 36px !important;
-        font-size: 18px !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 14px !important;
+    }
+
+    .review-arrow.left {
+        left: -10px !important;        
+    }
+    .review-arrow.right {
+        right: -10px !important;
     }
 
     .review-slider {
