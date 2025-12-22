@@ -64,8 +64,8 @@ nav {
     height: 100%; /* Quan trọng để xác định điểm tựa cho submenu */
 }
 nav ul.nav-links {
-    display: flex !important;    /* Ép dàn ngang */
-    list-style: none !important; /* Xóa dấu chấm tròn */
+    display: flex !important;    
+    list-style: none !important; 
     margin: 0;
     padding: 0;
     height: 100%;
@@ -86,19 +86,19 @@ nav ul.nav-links {
     font-weight: 500;
     display: flex;
     align-items: center;
-    height: 100%; /* Phủ kín chiều cao menu-bar */
+    height: 100%; 
 }
 
 /* 2. Xử lý Submenu (Dropdown) */
 .submenu {
     position: absolute;
-    top: 210%; /* Nằm sát mép dưới của menu-bar */
+    top: 210%; 
     left: 0;
     background-color: #fff;
     min-width: 180px;
     list-style: none;
-    padding: 0; /* Triệt tiêu khoảng trắng trên dưới */
-    margin: 0;  /* Triệt tiêu khoảng cách so với thẻ cha */
+    padding: 0; 
+    margin: 0;  
     box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
     
     /* Hiệu ứng ẩn/hiện */
@@ -117,7 +117,7 @@ nav ul.nav-links {
 /* 3. Xử lý các mục bên trong Submenu để "KHÔNG KHOẢNG TRẮNG" */
 .submenu li {
     width: 100%;
-    border-bottom: 1px solid #000000; /* Đường kẻ mờ giữa các mục (tùy chọn) */
+    border-bottom: 1px solid #ffffff; 
 }
 
 .submenu li:last-child {
