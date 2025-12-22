@@ -1592,13 +1592,16 @@ body {
 
   /* XỬ LÝ SUBMENU TRÊN MOBILE (KHÔNG ĐÈ CHỮ) */
   .submenu {
-    position: static !important; /* Đẩy các mục BLOG, LIÊN HỆ xuống dưới */
-    display: none; 
-    width: 100%;
-    top: 0 !important; 
-    background: #f9f9f9 ;
-    box-shadow: none ;
-    padding: 0 ;
+    position: static !important; /* Buộc nó phải xếp hàng ngay dưới chữ Thực đơn */
+    display: none;               /* Mặc định ẩn */
+    width: 100% !important;
+    top: auto !important;        /* Hủy bỏ hoàn toàn cái top: 210% của desktop */
+    margin: 0 !important;        /* Xóa mọi khoảng cách thừa */
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: #f9f9f9 !important; /* Màu nền khác một chút để dễ nhìn */
+    box-shadow: none !important;    /* Bỏ đổ bóng để không bị thô */
   }
 
   /* Hiển thị submenu khi hover (hoặc bạn có thể dùng JS để click) */
@@ -1607,9 +1610,11 @@ body {
   }
 
   .submenu li a {
-    padding: 15px 30px 15px 50px !important; /* Thụt lề vào trong */
-    font-size: 16px;
+    padding: 12px 30px 12px 50px !important; /* Thụt lề trái 50px để tạo cấp bậc */
+    background: #f9f9f9 !important;
     border-bottom: 1px solid #eee !important;
+    font-size: 16px !important;
+    color: #333 !important;
   }
 
   body {
