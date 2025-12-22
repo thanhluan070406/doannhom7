@@ -556,7 +556,7 @@ body {
 /* ========================== PHẦN TÍNH HOA MÓN ĂN ========================== */
 .phan-tinh-hoa {
     background: #f6f2f2;
-    padding: 50px 60px;
+    padding: 50px 80px;
 }
 
 .tua-trang {
@@ -756,9 +756,6 @@ body {
     font-size: 20px;
     backdrop-filter: blur(4px);
     border: none;
-    opacity: 0;                    /* Mặc định ẩn */
-    pointer-events: none;          /* Không click được khi ẩn */
-    transition: opacity 0.3s ease, background 0.3s ease;
 }
 
 .phai-arrow.left {
@@ -776,117 +773,6 @@ body {
 }
 
 
-.KHUNG .PHAI:hover .phai-arrow:not(.disabled) {
-    opacity: 1;
-    pointer-events: all;           
-}
-
-
-
-/* Cột phải chiếm hết phần còn lại */
-.PHAI {
-    flex: 1;
-    min-width: 0; /* Cho phép co lại nếu cần */
-    position: relative;
-}
-
-/* Laptop (992px - 1199px): GIỮ NGUYÊN CỘT TRÁI + chỉ hiển thị 3 món bên phải */
-@media (max-width: 1199px) {
-    .KHUNG .PHAI .MUC {
-        flex: 0 0 calc(33.333% - 6.67px); /* 3 món */
-    }
-    .phan-tinh-hoa {
-        padding: 40px ;
-    }
-    
-    .TRAI {
-        width: 15%; 
-    }
-
-
-    .TRAI .CHU h1 {
-        font-size: 20px;
-    }
-
-    .TRAI .CHU p {
-        font-size: 12px;
-    }
-}
-
-/* Tablet (768px - 991px): GIỮ NGUYÊN CỘT TRÁI + chỉ hiển thị 2 món bên phải */
-@media (max-width: 991px) {
-    .KHUNG .PHAI .MUC {
-        flex: 0 0 calc(50% - 5px); /* 2 món */
-    }
-}
-
-
-@media (max-width: 768px) {
-    .tua-trang h1 {
-        font-size: 25px;
-        margin-bottom: 20px;
-    }
-
-    .TRAI {
-        display: none !important; /* Cột trái biến mất */
-    }
-
-    .KHUNG .PHAI .MUC {
-        flex: 0 0 calc(50% - 7.5px); /* 2 món trên mobile */
-    }
-
-    .carousel-track {
-        gap: 15px;
-        padding: 0 10px;
-    }
-    .phan-tinh-hoa {
-        padding: 30px 15px;
-    }
-
-    .TRAI {
-        width: 15%; 
-    }
-
- 
-    .TRAI .CHU h1 {
-        font-size: 16px;
-    }
-
-    .TRAI .CHU p {
-        font-size: 10px;
-    }
-
-    .MUC .TEN {
-        font-size: 13px;
-    }
-    
-    .MUC .MOTA {
-        font-size: 10px;
-        margin: 1px 0 5px 0;
-    }
-    
-    .MUC .DUOI {
-        flex-direction: column; 
-        align-items: flex-start;
-    }
-    
-    .MUC .GIA, .MUC .MUA {
-        padding: 3px 6px;
-        font-size: 9px;
-        margin-top: 3px;
-    }
-
-    .MUC .MUA {
-        margin-left: 0; 
-    }
-}
-
-@media (max-width: 480px) {
-    .tua-trang h1 {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-}
 
 
 
@@ -926,7 +812,7 @@ body {
     height: 600px;
     position: relative;
     overflow: hidden;
-    background-image: url('/web/img/phobo.jpg'); 
+    background-image: url('/web/img/Phở\ bò.jpg'); 
     background-size: 140%;             
     background-position: center center;
     background-repeat: no-repeat;
@@ -2014,7 +1900,98 @@ body {
         font-size: 26px !important;
     }
 }
+/* ========================== RESPONSIVE – PHẦN TINH HOA ẨM THỰC ========================== */
 
+@media (max-width: 1024px) {
+    .phan-tinh-hoa {
+        padding: 40px 80px;
+    }
+    
+    .TRAI {
+        width: 15%; 
+    }
+
+    .PHAI {
+        width: 85%; 
+        grid-template-columns: repeat(3, 1fr); /* 3 cột */
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .TRAI .CHU h1 {
+        font-size: 20px;
+    }
+
+    .TRAI .CHU p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .phan-tinh-hoa {
+        padding: 30px 15px;
+    }
+
+    .TRAI {
+        width: 15%; 
+    }
+
+
+    .PHAI {
+        width: 85%; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 5px;
+        padding: 5px;
+    }
+ 
+    .TRAI .CHU h1 {
+        font-size: 16px;
+    }
+
+    .TRAI .CHU p {
+        font-size: 10px;
+    }
+
+    .MUC .TEN {
+        font-size: 13px;
+    }
+    
+    .MUC .MOTA {
+        font-size: 10px;
+        margin: 1px 0 5px 0;
+    }
+    
+    .MUC .DUOI {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    
+    .MUC .GIA, .MUC .MUA {
+        padding: 3px 6px;
+        font-size: 9px;
+        margin-top: 3px;
+    }
+
+    .MUC .MUA {
+        margin-left: 0; 
+    }
+}
+
+@media (max-width: 1024px) {
+  
+    .PHAI .MUC:nth-child(4) {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .PHAI .MUC:nth-child(3),
+    .PHAI .MUC:nth-child(4) {
+        display: none;
+    }
+}
 
 
 
