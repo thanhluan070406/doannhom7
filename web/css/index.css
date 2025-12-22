@@ -1599,18 +1599,17 @@ body {
     }
   /* Thay đổi chính ở đây để phù hợp với ul li */
   nav {
+    display: block; /* Chuyển từ flex sang block để chứa danh sách dọc */
     position: fixed;
     top: 0;
     left: -260px;
     width: 240px;
     height: 100%;
     background: #ffffff;
-    padding: 100px 0 40px 0; /* Điều chỉnh padding */
+    padding: 100px 0 40px 0; /* Bỏ padding-right để menu sát lề */
     transition: left 0.4s ease;
     z-index: 1099;
-    box-shadow: none;
     overflow-y: auto;
-    display: block; /* Đảm bảo hiển thị dọc */
   }
 
     nav.active {
@@ -1650,51 +1649,59 @@ body {
         background: #f9f9f9; 
     }
 
+  /* QUAN TRỌNG: Ép danh sách ul mới phải thẳng hàng dọc */
   nav ul.nav-links {
-    flex-direction: column; /* Xếp dọc các li */
-    align-items: flex-start;
-    height: auto;
+    display: flex !important;
+    flex-direction: column !important; /* Ép xếp chồng lên nhau */
+    list-style: none !important;      /* Xóa dấu chấm tròn */
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
   }
 
   nav ul.nav-links > li {
     width: 100%;
-    display: block;
-    height: auto;
+    display: block; /* Mỗi li chiếm 1 dòng */
   }
 
   nav ul.nav-links > li > a {
     display: block;
-    padding: 18px 30px;
+    padding: 18px 30px; /* Giữ padding giống hình cũ của bạn */
     font-size: 19px;
     font-weight: 600;
     color: #000000;
     text-decoration: none;
-    border-bottom: 1px solid #dddddd;
-    height: auto;
+    border-bottom: 1px solid #dddddd; /* Tạo đường kẻ ngăn cách */
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Đảm bảo không bị tràn chiều rộng */
+    text-align: left;
   }
 
-  /* Ẩn dropdown trên mobile hoặc cho hiển thị đơn giản */
+  /* Hover cho menu mobile */
+  nav ul.nav-links > li > a:hover {
+    background: #f9f9f9;
+    color: #333;
+  }
+
+  /* Xử lý submenu trong menu mobile */
   .submenu {
-    position: static; /* Không dùng absolute trên mobile */
-    opacity: 1;
-    visibility: visible;
-    display: none; /* Mặc định ẩn, sẽ hiện khi click nếu có JS */
-    box-shadow: none;
+    position: static; /* Đẩy các menu dưới xuống thay vì bay lơ lửng */
+    display: none;    /* Mặc định ẩn */
     width: 100%;
-    padding-left: 20px; /* Thụt lề cho submenu */
+    padding: 0;
+    box-shadow: none;
     background: #fcfcfc;
   }
 
-  /* Hiển thị submenu khi li được active/hover trên mobile */
+  /* Khi hover vào THỰC ĐƠN trên mobile sẽ hiện submenu dọc */
   .has-submenu:hover .submenu {
     display: block;
   }
 
   .submenu li a {
+    padding-left: 50px !important; /* Thụt lề vào trong cho đẹp */
+    font-size: 16px;
     border-bottom: 1px solid #eee;
-    padding: 12px 30px;
   }
 
   body {
