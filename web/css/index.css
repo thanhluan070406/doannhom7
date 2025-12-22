@@ -1595,10 +1595,10 @@ body {
     position: static !important; /* Đẩy các mục BLOG, LIÊN HỆ xuống dưới */
     display: none; 
     width: 100%;
-    top: auto;
-    background: #f9f9f9 !important;
-    box-shadow: none !important;
-    padding: 0 !important;
+    top: 0 !important; 
+    background: #f9f9f9 ;
+    box-shadow: none ;
+    padding: 0 ;
   }
 
   /* Hiển thị submenu khi hover (hoặc bạn có thể dùng JS để click) */
