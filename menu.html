@@ -63,17 +63,39 @@
     </div>
 </div>
 <div class="menu-body">
-
+    
     <!-- ===== SIDEBAR + CONTENT ===== -->
     <div class="menu-layout">
 
-        <aside class="menu-sidebar">
+        <!-- MOBILE DRAWER SIDEBAR (chỉ hiện trên mobile) -->
+        <div class="mobile-sidebar-drawer" id="mobileSidebar">
+            <div class="sidebar-header">
+                <h3>DANH MỤC SẢN PHẨM</h3>
+                <button class="close-drawer" id="closeDrawer">&times;</button>
+            </div>
+            <ul>
+                <li class="active"><a href="#">Tất cả</a></li>
+                <li><a href="#">Miền Bắc</a></li>
+                <li><a href="#">Miền Trung</a></li>
+                <li><a href="#">Miền Nam</a></li>
+            </ul>
+            
+            <div class="sidebar-banners">
+                <img src="web/img/Bún cá Nha Trang.jpg" alt="Phụ 1">
+                <img src="web/img/nền phở bò.jpg" alt="Phụ 2">
+            </div>
+        </div>
+
+        
+
+        <!-- Sidebar cũ giữ nguyên cho desktop -->
+        <aside class="menu-sidebar desktop-sidebar">
             <div class="sidebar-header">
                 <i class="fa-solid fa-bars"></i>
                 <h3>Danh mục sản phẩm</h3>
             </div>
             <ul>
-                <li class="active"><a href="#">Tất cả</a></li>  <!-- Thêm <a> như bạn muốn -->
+                <li class="active"><a href="#">Tất cả</a></li>
                 <li><a href="#">Miền Bắc</a></li>
                 <li><a href="#">Miền Trung</a></li>
                 <li><a href="#">Miền Nam</a></li>
@@ -87,6 +109,12 @@
 
         <div class="main-column">
             <div class="top-content-bar">
+                <!-- Nút mở drawer trên mobile -->
+                <div class="mobile-category-btn" id="openDrawer">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>Danh mục sản phẩm</span>
+                </div>
+                <!-- Thanh tìm kiếm -->
                 <div class="menu-search">
                     <input type="text" placeholder="Tìm kiếm">
                     <button class="search-btn">
@@ -386,7 +414,7 @@
                     </div>
                 </div>
 
-                <div class="menu-item" data-region="mien-nam">
+                <div class="menu-item" data-region="mien-bac">
                     <div class="menu-image" style="background-image: url('web/img/Bún\ cá\ Nha\ Trang.jpg');"></div>
                     <div class="menu-info">
                         <h3>Bún cá Nha Trang</h3>

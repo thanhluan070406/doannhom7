@@ -1,25 +1,37 @@
-// menu.js - ĐÃ THÊM LỌC THEO VÙNG MIỀN (Bắc/Trung/Nam) + giữ nguyên tìm kiếm, phân trang, gợi ý
+// menu.js - ĐÃ FIX RESPONSIVE PHÂN TRANG + LỌC VÙNG + TÌM KIẾM
 
 const searchInput = document.querySelector('.menu-search input');
 const searchBtn = document.querySelector('.search-btn');
 const menuRow = document.querySelector('.menu-row');
 const paginationContainer = document.querySelector('.menu-pagination');
 const searchContainer = document.querySelector('.menu-search');
-const sidebarItems = document.querySelectorAll('.menu-sidebar li'); // Các mục sidebar
+const sidebarItems = document.querySelectorAll('.menu-sidebar li');
 
 let menuItems = document.querySelectorAll('.menu-item');
 let originalMenuHTML = menuRow.innerHTML;
 let allItemTitles = [];
 let currentPage = 1;
 let currentQuery = '';
-let currentRegion = 'all'; // 'all', 'mien-bac', 'mien-trung', 'mien-nam'
-let currentFilteredItems = []; // Danh sách món hiện tại sau khi lọc
-const itemsPerPage = 12;
+let currentRegion = 'all';
+let currentFilteredItems = [];
 
-// Đảm bảo container tìm kiếm có position relative
-searchContainer.style.position = 'relative';
+// Hàm tính số món mỗi trang theo kích thước màn hình
+function getItemsPerPage() {
+    const width = window.innerWidth;
+    if (width <= 480) {
+        return 8;   // Mobile nhỏ: 2 cột × 4 hàng
+    } else if (width <= 767) {
+        return 12;  // Mobile/tablet: 3 cột × 4 hàng
+    } else if (width <= 1024) {
+        return 8;   // Tablet: 2 cột × 4 hàng (có thể đổi thành 12 nếu muốn nhiều hơn)
+    } else {
+        return 12;  // Desktop & Laptop: 12 món/trang là hợp lý
+    }
+}
 
-// Lấy tên món cho gợi ý
+let itemsPerPage = getItemsPerPage();
+
+// Lấy tên món cho gợi ý tìm kiếm
 menuItems.forEach(item => {
     const title = item.querySelector('h3').textContent.trim();
     allItemTitles.push(title);
@@ -32,13 +44,18 @@ function normalize(str) {
 // Hiển thị món của trang hiện tại
 function displayCurrentPage() {
     menuItems.forEach(item => item.style.display = 'none');
+
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
-    currentFilteredItems.slice(start, end).forEach(item => item.style.display = '');
+
+    currentFilteredItems.slice(start, end).forEach(item => {
+        item.style.display = 'block'; // hoặc 'grid', nhưng block đủ vì grid container xử lý
+    });
 }
 
 // Render phân trang
 function renderPagination(totalItems) {
+    // Xóa các số trang cũ
     paginationContainer.querySelectorAll('.page-number').forEach(el => el.remove());
 
     const totalPages = totalItems === 0 ? 1 : Math.ceil(totalItems / itemsPerPage);
@@ -58,6 +75,7 @@ function renderPagination(totalItems) {
         paginationContainer.insertBefore(pageNum, nextBtn);
     }
 
+    // Nút prev/next
     prevBtn.onclick = () => {
         if (currentPage > 1) {
             currentPage--;
@@ -78,20 +96,19 @@ function renderPagination(totalItems) {
     nextBtn.disabled = currentPage === totalPages || totalItems === 0;
 }
 
-// Hàm lọc và hiển thị (gọi khi thay đổi vùng hoặc tìm kiếm)
+// Lọc và hiển thị lại toàn bộ
 function filterAndDisplay() {
-    // Khôi phục HTML gốc
     menuRow.innerHTML = originalMenuHTML;
     menuItems = document.querySelectorAll('.menu-item');
 
     let filtered = Array.from(menuItems);
 
-    // Lọc theo vùng miền
+    // Lọc theo vùng
     if (currentRegion !== 'all') {
         filtered = filtered.filter(item => item.dataset.region === currentRegion);
     }
 
-    // Lọc thêm theo từ khóa tìm kiếm
+    // Lọc theo tìm kiếm
     if (currentQuery !== '') {
         const normQuery = normalize(currentQuery);
         filtered = filtered.filter(item => {
@@ -102,9 +119,7 @@ function filterAndDisplay() {
 
     currentFilteredItems = filtered;
 
-    // Ẩn tất cả trước
-    menuItems.forEach(item => item.style.display = 'none');
-
+    // Nếu không có kết quả
     if (currentFilteredItems.length === 0) {
         menuRow.innerHTML = `
             <p style="grid-column: 1 / -1; text-align: center; padding: 80px 20px; font-size: 20px; color: #999;">
@@ -120,15 +135,12 @@ function filterAndDisplay() {
     renderPagination(currentFilteredItems.length);
 }
 
-// ==================== SIDEBAR LỌC VÙNG ====================
+// Sidebar lọc vùng
 sidebarItems.forEach(item => {
     item.addEventListener('click', () => {
-        // Xóa class active cũ
         sidebarItems.forEach(li => li.classList.remove('active'));
-        // Thêm active cho cái được click
         item.classList.add('active');
 
-        // Lấy vùng từ nội dung (hoặc dùng data attribute nếu muốn)
         const text = item.textContent.trim().toLowerCase();
         if (text === 'tất cả') {
             currentRegion = 'all';
@@ -144,7 +156,7 @@ sidebarItems.forEach(item => {
     });
 });
 
-// ==================== TÌM KIẾM ====================
+// Tìm kiếm
 function performSearch(query) {
     currentQuery = query.trim();
     filterAndDisplay();
@@ -154,7 +166,6 @@ searchBtn.addEventListener('click', () => performSearch(searchInput.value));
 searchInput.addEventListener('keyup', e => {
     if (e.key === 'Enter') performSearch(searchInput.value);
 });
-
 searchInput.addEventListener('input', () => {
     const value = searchInput.value.trim();
     showSuggestions(value);
@@ -163,7 +174,7 @@ searchInput.addEventListener('input', () => {
     }
 });
 
-// ==================== GỢI Ý TÌM KIẾM (giữ nguyên) ====================
+// Gợi ý tìm kiếm
 function showSuggestions(query) {
     removeSuggestions();
     if (!query) return;
@@ -215,7 +226,63 @@ document.addEventListener('click', e => {
     if (!searchContainer.contains(e.target)) removeSuggestions();
 });
 
-// Khởi động: hiển thị tất cả + active "Tất cả"
+// Cập nhật lại khi thay đổi kích thước màn hình
+window.addEventListener('resize', () => {
+    const newItemsPerPage = getItemsPerPage();
+    if (newItemsPerPage !== itemsPerPage) {
+        itemsPerPage = newItemsPerPage;
+        currentPage = 1;
+        displayCurrentPage();
+        renderPagination(currentFilteredItems.length);
+    }
+});
+
+// Khởi động ban đầu
 filterAndDisplay();
-document.querySelector('.menu-sidebar li.active')?.classList.remove('active');
-document.querySelector('.menu-sidebar li:first-child').classList.add('active');
+
+
+// ==================== MOBILE DRAWER SIDEBAR ====================
+const openDrawerBtn = document.getElementById('openDrawer');
+const closeDrawerBtn = document.getElementById('closeDrawer');
+const mobileSidebar = document.getElementById('mobileSidebar');
+const drawerOverlay = document.createElement('div');
+drawerOverlay.classList.add('drawer-overlay');
+document.body.appendChild(drawerOverlay);
+
+function openMobileSidebar() {
+    mobileSidebar.classList.add('active');
+    drawerOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Chặn scroll nền
+}
+
+function closeMobileSidebar() {
+    mobileSidebar.classList.remove('active');
+    drawerOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+openDrawerBtn.addEventListener('click', openMobileSidebar);
+closeDrawerBtn.addEventListener('click', closeMobileSidebar);
+drawerOverlay.addEventListener('click', closeMobileSidebar);
+
+// Cũng dùng chung logic lọc danh mục cho drawer
+document.querySelectorAll('.mobile-sidebar-drawer li').forEach(item => {
+    item.addEventListener('click', () => {
+        document.querySelectorAll('.mobile-sidebar-drawer li').forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
+
+        const text = item.textContent.trim().toLowerCase();
+        if (text === 'tất cả') {
+            currentRegion = 'all';
+        } else if (text.includes('bắc')) {
+            currentRegion = 'mien-bac';
+        } else if (text.includes('trung')) {
+            currentRegion = 'mien-trung';
+        } else if (text.includes('nam')) {
+            currentRegion = 'mien-nam';
+        }
+
+        filterAndDisplay();
+        closeMobileSidebar(); // Đóng drawer sau khi chọn
+    });
+});

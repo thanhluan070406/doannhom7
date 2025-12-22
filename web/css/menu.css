@@ -372,6 +372,7 @@ nav a {
     margin: 0;
     font-size: 20px;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .menu-info p {
@@ -420,16 +421,429 @@ nav a {
     border-radius: 0;
 }
 
-
-/* ===== TABLET: CHỈ HIỂN THỊ 3 MÓN/HÀNG, MÓN THỨ 4 MẤT HẲN ===== */
-
-/* Mặc định desktop: 4 cột */
 .menu-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-bottom: 30px;
 }
+
+/* =====================================================================
+   RESPONSIVE CHO PHẦN SẢN PHẨM (MENU ITEMS)
+   ===================================================================== */
+
+@media (min-width: 1440px) {
+    .menu-row {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;          
+        padding: 0 10px;    
+    }
+
+    .menu-item {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 1439px) and (min-width: 1025px) {
+
+    .menu-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap:10px;
+    }
+
+    .menu-search {
+        width: 320px; 
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .menu-layout {
+        padding: 20px 30px;
+        gap: 20px !important;
+    }
+    .menu-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        display: grid;
+        grid-auto-rows: minmax(0, auto);
+    }
+
+     .menu-info h3 {
+        font-size: 18px;
+    }
+
+    .menu-info p {
+        font-size: 13px;
+    }
+
+    .price-tag {
+        padding: 7px 14px;
+        font-size: 14px;
+    }
+
+    .buy-btn {
+        padding: 7px 16px;
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 767px)  {
+    .menu-layout{
+      padding: 6px 8px;
+    }
+    .menu-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .menu-info {
+        max-height: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 6px 8px !important;
+    }
+
+    .menu-sidebar {
+        display: none;
+    }
+
+    .main-column {
+        flex: 1;
+        width: 100%;
+    }
+
+    .top-content-bar {
+        justify-content: center;
+    }
+
+    .menu-search {
+        width: 400px;
+    }
+
+     .menu-info h3 {
+        font-size: 15px;
+        line-height: 1.2;
+    }
+
+    .menu-info p {
+        font-size: 11px;
+        margin: 3px 0 6px 0;
+    }
+
+    .price-tag {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .buy-btn {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .info-footer {
+        flex-direction: column; /* xếp dọc giá + nút trên mobile rất nhỏ */
+        gap: 4px;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 510px) {
+    .menu-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .menu-search {
+        width: 100%;
+        border-width: 6px; 
+        border-radius: 12px;
+    }
+
+    .menu-search input {
+        font-size: 14px;
+    }
+
+    .menu-search .search-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+    }
+
+    .menu-info h3 {
+        font-size: 14px;
+    }
+
+    .menu-info p {
+        font-size: 10px;
+    }
+
+    .price-tag,
+    .buy-btn {
+        font-size: 10px;
+        padding: 4px 6px;
+    }
+
+    .info-footer {
+        flex-direction: column; 
+        gap: 4px;
+        align-items: stretch;
+    }
+}
+
+/* ================== MOBILE DRAWER SIDEBAR & TOP BAR (GỘP HOÀN CHỈNH) ================== */
+
+.mobile-category-btn {
+    display: none; 
+    align-items: center;
+    gap: 10px;
+    background: #fdf5e8;
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.mobile-sidebar-drawer {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: #fdf5e8;
+    z-index: 1098;
+    transition: left 0.4s ease;
+    overflow-y: auto;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.2);
+    display: none; 
+}
+
+.mobile-sidebar-drawer.active {
+    left: 0;
+}
+
+.mobile-sidebar-drawer .sidebar-header {
+    padding: 20px 15px;
+    background: #a1202f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-sidebar-drawer .sidebar-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.close-drawer {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-sidebar-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-sidebar-drawer li {
+    padding: 16px 20px;
+    font-size: 16px;
+    border-bottom: 1px solid #e8e2d5;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.mobile-sidebar-drawer li:hover,
+.mobile-sidebar-drawer li.active {
+    background: #f2ede0;
+    color: #a1202f;
+    font-weight: 600;
+}
+
+.mobile-sidebar-drawer li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.mobile-sidebar-drawer .sidebar-banners {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.drawer-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1097;
+}
+
+.drawer-overlay.active {
+    display: block;
+}
+
+/* ================== RESPONSIVE MOBILE (≤768px) ================== */
+@media (max-width: 768px) {
+    .mobile-category-btn {
+        display: flex;
+    }
+
+    .mobile-sidebar-drawer {
+        display: block; 
+    }
+
+    .desktop-sidebar {
+        display: none !important;
+    }
+
+    .menu-layout {
+        flex-direction: column;
+    }
+
+    .main-column {
+        width: 100%;
+    }
+
+    .top-content-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px; 
+        padding: 0;
+        margin: 25px 0;
+    }
+
+    .mobile-category-btn {
+        flex: 2 1 140px;              
+        min-width: 140px;          
+        height: 50px;               
+        padding: 0 20px;            
+        justify-content: center;    
+        font-size: 16px;            
+        border-radius: 14px;        
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .menu-search {
+        flex: 1 1 100px;                  
+        min-width: 100px;
+        width: auto !important;
+        max-width: none;
+        height: 42px;               
+        border-radius: 14px;
+        padding: 0;
+        border: 4px solid #fdf5e8;
+    }
+
+    .menu-search input::placeholder {
+        color: #999;
+        font-size: 14px;
+    }
+
+    .menu-search input {
+        flex: 1;                   
+        min-width: 60px;
+        height: 100%;
+        font-size: 15px;
+        padding: 0 15px;
+    }
+
+    .menu-search .search-btn {
+        flex-shrink: 0;             
+        width: 45px;                
+        min-width: 48px;
+        height: 45px;
+        border-radius: 15px;
+    }
+
+    .menu-search .search-btn i {
+        font-size: 18px;
+    }
+
+    @media (max-width: 480px) {
+        .mobile-category-btn {
+            width: 100%;               
+            min-width: auto;            
+            height: 48px;               
+            padding: 0 16px;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;             
+            font-weight: 600;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-category-btn i {
+            font-size: 19px;
+            margin-right: 10px;
+        }
+
+        .menu-search {
+            width: 100%;
+            height: 42px;               
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            display: flex;  
+            padding: 0;
+            border: 4px solid #fdf5e8;             
+        }
+
+        .menu-search input {
+            flex: 1;
+            height: 100%;
+            padding: 0 0 0 10px;
+            font-size: 15.5px;
+        }
+
+        .menu-search input::placeholder {
+            font-size: 15px;
+            color: #999;
+        }
+
+        .menu-search .search-btn {
+            width: 42px;                 
+            min-width: 40px;
+            height: 42px;
+            flex-shrink: 0;
+            background: #a1202f;
+            border-radius: 15px;
+        }
+
+        .menu-search .search-btn i {
+            font-size: 19px;
+            color: white;
+        }
+
+        .menu-layout {
+            padding: 15px 12px;
+            gap: 20px;
+        }
+    }
+}
+
+
 
 
 
@@ -520,66 +934,171 @@ nav a {
 
 
 
-
-
-/* ========================== RESPONSIVE PHẦN CHEF LUÂN RIÊNG - MOBILE ========================== */
-@media (max-width: 768px) {
+/* ========================== RESPONSIVE PHẦN CHEF – 1024px (TABLET) ========================== */
+@media (max-width: 1024px) {
     .chef-section {
-        flex-direction: column;
-        padding: 30px 20px;
-        margin: 20px 0;
+        flex-direction: column;        /* Bố cục dọc */
+        align-items: center;
         text-align: center;
-        background: #fdf8f0;
-        border-radius: 15px;
+        padding: 40px 30px;
+        margin: 25px 4%;
+        gap: 35px;                      /* Khoảng cách giữa chữ và ảnh */
+        border-radius: 16px;
     }
 
+    /* Nội dung chữ nằm trên */
     .chef-content {
-        order: 1; 
+        order: 1;                       /* Đưa nội dung lên trước */
+        width: 100%;
+        padding-top: 0;
     }
 
+    /* Ảnh nằm dưới */
     .chef-image {
-        order: 2; 
+        order: 2;                       /* Đưa ảnh xuống sau */
         width: 100%;
-        max-width: 300px;
+        max-width: 450px;               /* Kích thước ảnh lớn vừa phải trên tablet */
         margin: 0 auto;
     }
 
     .chef-image img {
-        border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
 
     .chef-title {
-        font-size: 24px;
-        text-align: center;
+        font-size: 32px;
+        letter-spacing: 1.5px;
+        line-height: 1.2;
     }
 
     .chef-title::after {
-        margin: 10px auto;
+        width: 80px;
+        height: 2.5px;
+        margin: 10px auto 0;
     }
 
     .chef-text {
-        font-size: 15px;
-        text-align: justify;
+        font-size: 17px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
+
+    .chef-btn {
+        align-self: center;
+        margin-top: 25px;
+        padding: 12px 32px;
+        font-size: 16px;
+    }
+}
+
+/* ========================== RESPONSIVE PHẦN CHEF – MOBILE (≤768px) ========================== */
+@media (max-width: 768px) {
+    .chef-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 35px 20px;
+        margin: 20px 0;
+        gap: 30px;
+        border-radius: 15px;
+    }
+
+    .chef-content {
+        order: 1;
+    }
+
+    .chef-image {
+        order: 2;
+        width: 100%;
+        max-width: 320px;              
+        margin: 0 auto;
+    }
+
+    .chef-image img {
+        border-radius: 14px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .chef-title {
+        font-size: 26px;
+        letter-spacing: 1.2px;
+    }
+
+    .chef-title::after {
+        width: 70px;
+        height: 2px;
+        margin: 8px auto 0;
+    }
+
+    .chef-text {
+        font-size: 15.5px;
+        line-height: 1.6;
     }
 
     .chef-btn {
         align-self: center;
         margin-top: 20px;
+        padding: 11px 28px;
+        font-size: 16px;
     }
 }
 
+@media (max-width: 480px) {
+    .chef-section {
+        padding: 30px 15px;            
+        margin: 15px 0;
+        gap: 25px;                     
+        border-radius: 14px;
+    }
+
+    .chef-image {
+        max-width: 240px;             
+        margin: 0 auto;
+    }
+
+    .chef-image img {
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .chef-title {
+        font-size: 24px;               
+        letter-spacing: 1px;
+        line-height: 1.2;
+    }
+
+    .chef-title::after {
+        width: 60px;
+        height: 2px;
+        margin: 8px auto 0;
+    }
+
+    .chef-text {
+        font-size: 14.5px;             /* Văn bản nhỏ gọn, vẫn dễ đọc */
+        line-height: 1.55;
+        margin: 8px 0;
+    }
+
+    .chef-btn {
+        align-self: center;
+        margin-top: 18px;
+        padding: 10px 24px;            
+        font-size: 15px;
+        border-radius: 8px;
+    }
+}
 
 /* ========================== FOOTER SECTION ========================== */
 .footer-section {
   width: 100%;
   background: #000;
   color: white;
-  padding: 30px 150px; /* Giữ nguyên padding cũ của bạn */
+  padding: 30px 150px; 
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px; /* Giữ nguyên gap cũ */
+  gap: 100px; 
   box-sizing: border-box;
 }
 
