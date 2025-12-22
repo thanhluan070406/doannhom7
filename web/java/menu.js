@@ -214,7 +214,6 @@ function removeSuggestions() {
 document.addEventListener('click', e => {
     if (!searchContainer.contains(e.target)) removeSuggestions();
 });
-targetLi.scrollIntoView({behavior: 'smooth'});
 // XỬ LÝ LINK TỪ TRANG KHÁC VỚI #HASH (ví dụ menu.html#mien-nam)
 document.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash.substring(1); // Lấy phần sau # (ví dụ "mien-nam")
