@@ -1468,7 +1468,7 @@ body {
   .logo {
     position: absolute;
     left: 50%;
-    top: 60%;
+    top: 50%; /* Chỉnh lại một chút cho cân giữa */
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
@@ -1477,7 +1477,7 @@ body {
   .hamburger {
     position: absolute;
     left: 20px;
-    top: 55%;
+    top: 50%;
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
@@ -1489,12 +1489,13 @@ body {
     justify-content: center;
     font-size: 22px;
     cursor: pointer;
+    z-index: 1100; /* Đảm bảo nằm trên cùng */
   }
 
   .icons {
     position: absolute;
     right: 20px;
-    top: 45%;
+    top: 50%;
     transform: translateY(-50%);
     display: flex;
     gap: 10px;
@@ -1525,38 +1526,36 @@ body {
     display: block;
   }
 
-  /* CHỈ ĐỔI TÊN CLASS TẠI ĐÂY */
+  /* Thay đổi chính ở đây để phù hợp với ul li */
   nav {
-    display: flex;
-    flex-direction: column;
     position: fixed;
     top: 0;
     left: -260px;
     width: 240px;
     height: 100%;
     background: #ffffff;
-    padding: 120px 20px 40px 0;
+    padding: 100px 0 40px 0; /* Điều chỉnh padding */
     transition: left 0.4s ease;
     z-index: 1099;
     box-shadow: none;
     overflow-y: auto;
+    display: block; /* Đảm bảo hiển thị dọc */
   }
 
   nav.active {
     left: 0;
   }
 
-  /* Thay đổi để tác động vào ul li thay vì thẻ a trực tiếp */
   nav ul.nav-links {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    flex-direction: column; /* Xếp dọc các li */
+    align-items: flex-start;
+    height: auto;
   }
 
   nav ul.nav-links > li {
     width: 100%;
+    display: block;
+    height: auto;
   }
 
   nav ul.nav-links > li > a {
@@ -1566,39 +1565,36 @@ body {
     font-weight: 600;
     color: #000000;
     text-decoration: none;
-    position: relative;
-    border-bottom: 1px solid #dddddd; /* Thay cho ::after để đơn giản hóa cấu trúc li */
+    border-bottom: 1px solid #dddddd;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  /* Giữ nguyên hover cũ của bạn */
-  nav ul.nav-links > li > a:hover {
-    color: #333;
-    background: #f9f9f9;
-  }
-
-  /* Xử lý dropdown trên mobile */
+  /* Ẩn dropdown trên mobile hoặc cho hiển thị đơn giản */
   .submenu {
-    position: static; /* Ép về static để đẩy các menu dưới xuống */
-    display: none;
+    position: static; /* Không dùng absolute trên mobile */
     opacity: 1;
     visibility: visible;
-    padding-left: 20px;
+    display: none; /* Mặc định ẩn, sẽ hiện khi click nếu có JS */
     box-shadow: none;
-    border: none;
+    width: 100%;
+    padding-left: 20px; /* Thụt lề cho submenu */
+    background: #fcfcfc;
   }
 
-  /* Hiển thị dropdown khi hover li trên mobile */
+  /* Hiển thị submenu khi li được active/hover trên mobile */
   .has-submenu:hover .submenu {
     display: block;
   }
 
   .submenu li a {
-    padding: 15px 30px;
     border-bottom: 1px solid #eee;
+    padding: 12px 30px;
   }
 
   body {
-    padding-top: 90px;
+    padding-top: 70px;
   }
 
   body.menu-open {
@@ -1608,45 +1604,24 @@ body {
 
 @media screen and (max-width: 480px) {
   .menu-bar {
-    height: 70px;
-    padding: 0px 15px;
+    height: 60px;
+    padding: 0 15px;
   }
 
   .logo {
-    width: 120px;
-  }
-
-  .hamburger {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .icons {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .icons i {
-    font-size: 22px;
+    width: 110px;
   }
 
   nav {
     width: 220px;
     left: -240px;
-    padding: 110px 15px 40px 0;
   }
 
   nav ul.nav-links > li > a {
-    padding: 18px 20px;
-  }
-
-  body {
-    padding-top: 70px;
+    padding: 15px 20px;
+    font-size: 17px;
   }
 }
-
-
-
 
 /* ========================== RESPONSIVE – SLIDER (FIX NỀN CHỮ QUÁ TO & DÍNH MŨI TÊN TRÊN MOBILE) ========================== */
 
