@@ -409,3 +409,188 @@ url('/web/img/mammiennam.png');
   display: block;
   border-radius: 8px; 
 }
+
+/* ================================================================= */
+@media (max-width: 768px) {
+    /* Buộc layout chính thành column (dọc) để các phần xếp chồng lên nhau */
+    body, 
+    .site, 
+    #page, 
+    .container, 
+    .site-content, 
+    .content-sidebar-wrap,
+    .content-area,
+    .widget-area {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Nội dung bài viết lên đầu tiên, full width */
+    .entry-content,
+    .post-content,
+    #content,
+    .site-main,
+    .content-area,
+    main {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px !important;
+    }
+
+    /* Phần CHIA SẺ (các icon đỏ ở cuối bài) giữ vị trí thứ 2 */
+    .share-buttons,
+    .social-share,
+    .post-bottom-share,
+    .sharing,
+    div:has(> strong:contains("CHIA SẺ")) {
+        order: 2 !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 30px 0 20px !important;
+        padding: 15px 0 !important;
+    }
+
+    /* Đưa phần "THEO DÕI CHÚNG TÔI" xuống cuối cùng (order cao nhất) */
+    aside,
+    .widget-area,
+    .sidebar,
+    .secondary,
+    .right-column,
+    .follow-section,
+    div:has(> strong:contains("THEO DÕI CHÚNG TÔI")) {
+        order: 999 !important; /* Đảm bảo xuống dưới cùng */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 30px 0 0 !important;
+        padding: 20px 10px !important;
+        background: #f9f9f9;
+        border-top: 2px solid #ccc;
+        text-align: center !important;
+    }
+
+    /* Làm đẹp icon theo dõi khi xuống dưới */
+    .widget-area a,
+    .sidebar a {
+        display: inline-block !important;
+        margin: 10px !important;
+    }
+
+    /* Hình ảnh responsive */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 15px auto !important;
+    }
+
+    /* Xóa float nếu có */
+    * {
+        float: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .entry-content p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+}
+/* ========================== RESPONSIVE – FOOTER SECTION ========================== */
+@media (max-width: 1440px) {
+    .footer-section {
+        padding: 50px; 
+        gap: 50px;
+        justify-content: space-between;
+    }
+}
+@media (max-width: 1024px) {
+    .footer-section {
+        padding: 20px 50px; 
+        gap: 40px;
+        justify-content: space-between;
+    }
+
+    .footer-col {
+        max-width: 30%; 
+        width: 30%;
+    }
+    
+    .footer-col p {
+        font-size: 14px; 
+    }
+
+    .footer-col h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .footer-section {
+        flex-direction: column; 
+        align-items: center; 
+        padding: 30px 20px;
+        gap: 40px; 
+    }
+
+  
+    .footer-col {
+        width: 100%; 
+        max-width: 100%;
+        text-align: center; 
+    }
+    
+
+    .footer-col h2 {
+        font-size: 22px; 
+        margin-bottom: 5px; 
+    }
+    
+
+    .footer-col .underline {
+        margin: 0px auto 20px auto; 
+    }
+ 
+    .footer-col p {
+        font-size: 15px; 
+        line-height: 1.6; 
+        margin-bottom: 10px;
+        text-align: center;
+        
+    }
+
+    .footer-icons {
+        justify-content: center; 
+        margin-top: 10px;
+    }
+
+    .footer-img {
+        width: 200px; 
+        height: auto;
+        margin: 15px auto 0 auto; 
+        display: block; 
+    }
+ 
+    .footer-col ul,
+    .footer-col li {
+        text-align: center;
+        list-style: none; 
+        padding: 0;
+    }
+
+    .footer-img {
+        width: 100%;       
+        max-width: 400px;  
+        height: auto;
+        margin: 15px auto 0 auto; 
+        display: block; 
+        border-radius: 12px; 
+    }
+
+    .footer-col>.text {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+}

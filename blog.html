@@ -9,6 +9,7 @@
 </head>
 <body>
     <header>
+
     <div class="top-bar">
         <div class="top-left">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -23,33 +24,43 @@
             <span><i class="fa-regular fa-clock"></i> 07:00–22:00</span>
         </div>
     </div>
-
+    
     <div class="menu-bar">
-        <div class="logo">
-            <img src="./web/img/logo.svg" alt="ignore">
+    <div class="logo">
+        <img src="web/img/logo.png" alt="Logo">
     </div>
-<div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger">
         <i class="fa-solid fa-bars"></i>
     </div>
     <div class="menu-overlay"></div>
-        <nav id="main-nav">
-            <div href="google.com">
-            <a href=".">TRANG CHỦ</a>
-            <a href="#">THỰC ĐƠN ▾</a>
-            <a href="./blog.html">BLOG</a>
-            <a href="#">GIỚI THIỆU</a>
-            <a href="#">LIÊN HỆ</a>
-            </div>
-        </nav>
-
-        <div class="icons">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-regular fa-user"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
-        </div>
+        <nav>
+                <ul class="nav-links">
+                    <li><a href="./index.html">TRANG CHỦ</a></li>
+                    <li class="has-submenu">
+                        <a href="./menu.html">
+                            THỰC ĐƠN <i class="fa-solid fa-angle-down arrow"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="./menu.html">Tất cả</a></li>
+                            <li><a href="./menu.html">Miền Bắc</a></li>
+                            <li><a href="./menu.html">Miền Trung</a></li>
+                            <li><a href="./menu.html">Miền Nam</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./blog.html">BLOG</a></li>
+                    <li><a href="./about.html">GIỚI THIỆU</a></li>
+                    <li><a href="./contact.html">LIÊN HỆ</a></li>
+                </ul>
+            </nav>
+        
+    <div class="icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-regular fa-user"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
     </div>
-    
+</div>
 </header>
+
 <!-- ============== blog ============= -->
  <div class="blog">
      <div class="blog-hearder">
@@ -65,21 +76,21 @@
                 <div class="p1">Câu Chuyện • Đồ Ăn • Tin Tức</div>
                 <h2 class="h22">Ẩm thực miền Bắc: Thanh tao – tinh tế – nhẹ nhàng</h2>
                 <p class="p2">bởi eatopia | 12/12/2025</p>
-                <a class="bth" href="./blog1.html">XEM THÊM <i>>></i></a>
+                <a class="bth" href="./blogmienbac.html">XEM THÊM <i>>></i></a>
             </div>
             <div class="blog-content">
                 <img src="./web/img/mientrung.svg" alt="mientrung">
                 <p class="p1">Câu Chuyện • Đồ Ăn • Tin Tức</p>
                 <h2 class="h22"><a class="h" href="#">Ẩm thực miền Trung: Đậm đà – cay nồng – cầu kỳ</a></h2>
                 <p class="p2">bởi Eatopia | 12/12/2025</p>
-                <a class="bth" href="#">XEM THÊM <i>>></i></a>
+                <a class="bth" href="./blogmientrung.html">XEM THÊM <i>>></i></a>
             </div>
             <div class="blog-content">
                 <img src="./web/img/miennam.svg" alt="miennam">
                 <p class="p1">Câu Chuyện • Đồ Ăn • Tin Tức</p>
                 <h2 class="h22">Ẩm thực miền Nam: Ngọt – phóng khoáng – đa dạng</h2>
                 <p class="p2">bởi Eatopia | 12/12/2025</p>
-                <a class="bth" href="#">XEM THÊM <i>>></i></a>
+                <a class="bth" href="./blogmiennam.html">XEM THÊM <i>>></i></a>
             </div>
     </div>
     <!-- =================== chân trang ====================== -->

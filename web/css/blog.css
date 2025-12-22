@@ -1,27 +1,22 @@
-* {
-  padding: 0;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
 .top-bar {
-  background: #000;
-  color: #fff;
-  padding: 8px 40px;
+    background: #000;
+    color: #fff;
+    padding: 8px 40px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
 }
 
 .top-left a {
-  color: white;
-  margin-right: 15px;
-  font-size: 15px;
+    color: white;
+    margin-right: 15px;
+    font-size: 15px;
 }
 
 .top-right span {
-  margin-left: 25px;
+    margin-left: 25px;
 }
 
 /* ========================== MENU ========================== */
@@ -29,41 +24,125 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 10px 40px; 
   background: #fff;
 }
 
+.hamburger {
+  display: none;
+}
+
 .logo {
-  width: 140px;
-  height: 60px;
-  overflow: hidden;
+  width: 140px; 
+  height: 40px; 
+  overflow: hidden; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+  background: transparent; 
 }
 
 .logo img {
   width: 100%;
   height: auto;
   max-height: none;
-  transform: translateY(0%);
-}
-.hamburger {
-  display: none;
-}
-nav {
-  display: flex;
-  align-items: center;
-  height: 100%;
+  transform: translateY(0%); 
 }
 
-nav a {
-  margin: 0 20px;
-  color: #000;
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
+/* 1. Reset nav và ul để không có khoảng cách thừa */
+nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Quan trọng để xác định điểm tựa cho submenu */
+}
+nav ul.nav-links {
+    display: flex;    
+    list-style: none !important; 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: center;
+}
+
+.nav-links > li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links > li > a {
+    padding: 0 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    height: 100%; 
+}
+
+/* 2. Xử lý Submenu (Dropdown) */
+.submenu {
+    position: absolute;
+    top: 210%; 
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    list-style: none;
+    padding: 0; 
+    margin: 0;  
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    
+    /* Hiệu ứng ẩn/hiện */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+    z-index: 999;
+}
+
+/* Hiển thị khi di chuột vào <li> cha */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 3. Xử lý các mục bên trong Submenu để "KHÔNG KHOẢNG TRẮNG" */
+.submenu li {
+    width: 100%;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu li a {
+    display: block;
+    padding: 12px 20px; /* Tạo khoảng cách nội bộ trong ô */
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    background: #fff; /* Đảm bảo có nền để phủ kín */
+}
+
+/* 4. Hiệu ứng Hover: Chỉ đổi nền chữ nào đang di chuột vào */
+.submenu li a:hover {
+    background-color: #787772dc; /* Nền chuyển vàng */
+    color: #ffffff;
+}
+
+/* Biểu tượng mũi tên */
+.arrow {
+    margin-left: 6px;
+    font-size: 12px;
 }
 
 .icons i {
@@ -74,27 +153,42 @@ nav a {
 .icons i:hover {
   color: #ff6600;
 }
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1098;
+  }
+
+  .menu-overlay.active {
+    display: block;
+  }
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .slider {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    }
 
 .slide.active {
   opacity: 1;
@@ -103,7 +197,6 @@ body {
 .nho-hon {
   max-width: 380px;
 }
-
 /* ========== blog ========= */
 
 .blog {
@@ -454,3 +547,248 @@ h2 {
   }
 }
 /* =========reponsive blog============= */
+@media screen and (max-width: 768px) {
+  /* Container chính chứa 3 bài blog - ép 1 cột trên mobile */
+  .blog-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important; /* Khoảng cách giữa các bài */
+    padding: 20px 15px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Mỗi bài blog full width, kiểu dọc giống ảnh mẫu (ảnh trên, text dưới) */
+  .blog-content {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    background: #fff !important;
+    border-radius: 0 !important; /* Giống mẫu không bo góc */
+    overflow: hidden !important;
+    box-shadow: none !important; /* Không shadow như mẫu */
+    text-align: left !important;
+  }
+
+  /* Ảnh full width, chiều cao tự động hoặc cố định để đẹp */
+  .blog-content img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Phần text bên dưới ảnh */
+  .blog-content .p1 {
+    font-size: 14px !important;
+    color: #d4380d !important; /* Màu đỏ cam giống "CÂU CHUYỆN • TIN TỨC" */
+    margin: 20px 0 10px !important;
+    padding: 0 15px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .blog-content .h22 {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    margin: 0 0 15px !important;
+    padding: 0 15px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Nếu có link trong tiêu đề thì giữ màu đen, không gạch chân */
+  .blog-content .h22 a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  .blog-content .h22 a:hover {
+    color: #d4380d !important;
+  }
+
+  .blog-content .p2 {
+    font-size: 14px !important;
+    color: #666 !important;
+    margin: 0 0 20px !important;
+    padding: 0 15px !important;
+  }
+
+  /* Nút XEM THÊM đỏ với mũi tên */
+  .blog-content .bth {
+    display: inline-block !important;
+    background: #d4380d !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 12px 25px !important;
+    margin: 0 15px 20px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    align-self: flex-start !important;
+  }
+
+  .blog-content .bth i {
+    margin-left: 8px !important;
+    font-style: normal !important;
+  }
+
+  .blog-content .bth:hover {
+    background: #b5300b !important;
+  }
+
+  /* Phần header blog (tiêu đề Blog Ẩm Thực) */
+  .blog-hearder {
+    padding: 20px 15px !important;
+    text-align: center !important;
+  }
+
+  .blog-hearder .h1-first {
+    font-size: 28px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .blog-hearder .p-first {
+    font-size: 14px !important;
+    color: #888 !important;
+  }
+
+  .blog-hearder .home-link {
+    color: #888 !important;
+    text-decoration: none !important;
+  }
+  .blog-hearder .home-link:hover {
+    color: #b5300b !important; /* Đỏ đậm khi hover */
+    text-decoration: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-container {
+    gap: 25px !important;
+    padding: 15px 10px !important;
+  }
+
+  .blog-content .p1 {
+    font-size: 13px !important;
+    margin: 15px 0 8px !important;
+    padding: 0 10px !important;
+  }
+
+  .blog-content .h22 {
+    font-size: 20px !important;
+    padding: 0 10px !important;
+  }
+
+  .blog-content .p2 {
+    padding: 0 10px !important;
+  }
+
+  .blog-content .bth {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    margin: 0 10px 15px !important;
+  }
+
+  .blog-hearder .h1-first {
+    font-size: 24px !important;
+  }
+}
+/* ========================== RESPONSIVE – FOOTER SECTION ========================== */
+@media (max-width: 1440px) {
+    .footer-section {
+        padding: 50px; 
+        gap: 50px;
+        justify-content: space-between;
+    }
+}
+@media (max-width: 1024px) {
+    .footer-section {
+        padding: 20px 50px; 
+        gap: 40px;
+        justify-content: space-between;
+    }
+
+    .footer-col {
+        max-width: 30%; 
+        width: 30%;
+    }
+    
+    .footer-col p {
+        font-size: 14px; 
+    }
+
+    .footer-col h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .footer-section {
+        flex-direction: column; 
+        align-items: center; 
+        padding: 30px 20px;
+        gap: 40px; 
+    }
+
+  
+    .footer-col {
+        width: 100%; 
+        max-width: 100%;
+        text-align: center; 
+    }
+    
+
+    .footer-col h2 {
+        font-size: 22px; 
+        margin-bottom: 5px; 
+    }
+    
+
+    .footer-col .underline {
+        margin: 0px auto 20px auto; 
+    }
+ 
+    .footer-col p {
+        font-size: 15px; 
+        line-height: 1.6; 
+        margin-bottom: 10px;
+        text-align: center;
+        
+    }
+
+    .footer-icons {
+        justify-content: center; 
+        margin-top: 10px;
+    }
+
+    .footer-img {
+        width: 200px; 
+        height: auto;
+        margin: 15px auto 0 auto; 
+        display: block; 
+    }
+ 
+    .footer-col ul,
+    .footer-col li {
+        text-align: center;
+        list-style: none; 
+        padding: 0;
+    }
+
+    .footer-img {
+        width: 100%;       
+        max-width: 400px;  
+        height: auto;
+        margin: 15px auto 0 auto; 
+        display: block; 
+        border-radius: 12px; 
+    }
+
+    .footer-col>.text {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+}
