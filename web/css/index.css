@@ -756,8 +756,8 @@ body {
     font-size: 20px;
     backdrop-filter: blur(4px);
     border: none;
-    opacity: 0;                    /* Mặc định ẩn */
-    pointer-events: none;          /* Không click được khi ẩn */
+    opacity: 0;                    
+    pointer-events: none;          
     transition: opacity 0.3s ease, background 0.3s ease;
 }
 
@@ -783,24 +783,24 @@ body {
 
 
 
-/* Cột phải chiếm hết phần còn lại */
+
 .PHAI {
     flex: 1;
-    min-width: 0; /* Cho phép co lại nếu cần */
+    min-width: 0; 
     position: relative;
 }
 
 
 @media (max-width: 1440px) {
     .KHUNG .PHAI .MUC {
-        flex: 0 0 calc(33.333% - 6.67px); /* 3 món */
+        flex: 0 0 calc(33.333% - 6.67px); 
     }
     .phan-tinh-hoa {
         padding: 40px ;
     }
     
     .TRAI {
-        width: 20%;         /* Tăng từ 16.66% → 25%, ảnh to hơn, đẹp hơn */
+        width: 20%;         
     }
     .PHAI {
         width: 80%;  
@@ -816,19 +816,18 @@ body {
     }
 }
 
-/* Tablet (768px - 991px): GIỮ NGUYÊN CỘT TRÁI + chỉ hiển thị 2 món bên phải */
 @media (max-width: 1024px) {
     .KHUNG .PHAI .MUC {
-        flex: 0 0 calc(50% - 5px); /* 2 món */
+        flex: 0 0 calc(50% - 5px); 
     }
     .tua-trang {
-        font-size: 25px;
-        margin-bottom: 20px;
-        white-space: nowrap;        /* Thêm dòng này */
+        font-size: 30px;
+        margin:0 0 20px 0;
+        white-space: nowrap;        
         overflow: hidden;
     }
     .TRAI {
-        width: 30%;         /* Ảnh lớn hơn nữa, cân đối tốt */
+        width: 30%;         
     }
     .PHAI {
         width: 70%;
@@ -929,8 +928,8 @@ body {
     }
 
     .tua-trang {
-        font-size: 17px;
-        margin-bottom: 17px;
+        font-size: 15px;
+        margin-bottom: 15px;
         white-space: nowrap;        /* Thêm dòng này */
         overflow: hidden;
     }
@@ -2190,10 +2189,28 @@ body {
     }
 }
 
+@media (max-width: 480px) {
+    .hero-section {
+        height: 360px !important;                  /* Giảm nhẹ chiều cao để vừa màn hình */
+        background-size: cover ;         /* Giữ cover để full và có zoom nhẹ */
+        background-position: center 30% ;
+    }
+}
+
+
+
+/* ========================== RESPONSIVE – FOOTER SECTION ========================== */
+@media (max-width: 1440px) {
+    .footer-section {
+        padding: 50px; 
+        gap: 50px;
+        justify-content: space-between;
+    }
+}
 @media (max-width: 1024px) {
     .footer-section {
         padding: 20px 50px; 
-        gap: 50px;
+        gap: 40px;
         justify-content: space-between;
     }
 
@@ -2203,7 +2220,7 @@ body {
     }
     
     .footer-col p {
-        font-size: 16px; 
+        font-size: 14px; 
     }
 
     .footer-col h2 {
@@ -2243,6 +2260,7 @@ body {
         line-height: 1.6; 
         margin-bottom: 10px;
         text-align: center;
+        
     }
 
     .footer-icons {
