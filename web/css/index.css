@@ -24,50 +24,125 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 10px 40px; 
   background: #fff;
 }
 
 .logo {
-  width: 140px;
-  height: 60px;
-  overflow: hidden;
+  width: 140px; 
+  height: 40px; 
+  overflow: hidden; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+  background: transparent; 
 }
 
 .logo img {
   width: 100%;
   height: auto;
   max-height: none;
-  transform: translateY(0%);
-}
-.hamburger {
-  display: none;
-}
-nav {
-  display: flex;
-  align-items: center;
-  height: 100%;
+  transform: translateY(0%); 
 }
 
-nav a {
-  margin: 0 20px;
-  color: #000;
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
+/* 1. Reset nav và ul để không có khoảng cách thừa */
+nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Quan trọng để xác định điểm tựa cho submenu */
+}
+
+.nav-links > li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links > li > a {
+    padding: 0 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Phủ kín chiều cao menu-bar */
+}
+
+/* 2. Xử lý Submenu (Dropdown) */
+.submenu {
+    position: absolute;
+    top: 210%; /* Nằm sát mép dưới của menu-bar */
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    list-style: none;
+    padding: 0; /* Triệt tiêu khoảng trắng trên dưới */
+    margin: 0;  /* Triệt tiêu khoảng cách so với thẻ cha */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    
+    /* Hiệu ứng ẩn/hiện */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+    z-index: 999;
+}
+
+/* Hiển thị khi di chuột vào <li> cha */
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 3. Xử lý các mục bên trong Submenu để "KHÔNG KHOẢNG TRẮNG" */
+.submenu li {
+    width: 100%;
+    border-bottom: 1px solid #000000; /* Đường kẻ mờ giữa các mục (tùy chọn) */
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu li a {
+    display: block;
+    padding: 12px 20px; /* Tạo khoảng cách nội bộ trong ô */
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    background: #fff; /* Đảm bảo có nền để phủ kín */
+}
+
+/* 4. Hiệu ứng Hover: Chỉ đổi nền chữ nào đang di chuột vào */
+.submenu li a:hover {
+    background-color: #787772dc; /* Nền chuyển vàng */
+    color: #ffffff;
+}
+
+/* Biểu tượng mũi tên */
+.arrow {
+    margin-left: 6px;
+    font-size: 12px;
+}
+
 .icons i {
-    margin-left: 15px;
-    font-size: 18px;
-    cursor: pointer;
+  margin-left: 15px;
+  font-size: 18px;
+  cursor: pointer;
 }
 .icons i:hover {
-    color: #ff6600;
+  color: #ff6600;
 }
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
