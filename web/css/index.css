@@ -1800,49 +1800,6 @@ body {
     height: 1px;
     background: #dddddd;
   }
-    .nav-links {
-        display: block !important;  /* Buộc nằm dọc */
-    }
-    
-    .nav-links > li {
-        display: block !important;
-    }
-
-    /* 2. Sửa padding của link menu - GIẢM MẠNH padding ngang */
-    nav a {
-        padding: 18px 20px !important;  /* Giảm từ 30px xuống 20px mỗi bên → tổng 40px, vừa đẹp trong 240px */
-        box-sizing: border-box !important;  /* Quan trọng: padding nằm trong width */
-        width: 100% !important;             /* Chiếm hết chiều rộng sidebar */
-        text-align: left;                   /* Chữ căn trái đẹp */
-        white-space: nowrap;                /* Không xuống dòng chữ dài */
-        overflow: hidden;                   /* Ẩn phần thừa nếu vẫn dài (tùy chọn) */
-        text-overflow: ellipsis;            /* Thêm ... nếu tràn (tùy chọn) */
-    }
-
-    /* 3. Thêm chút padding-left cho nav để chữ không dính sát mép */
-    nav {
-        padding-left: 20px !important;   /* Thêm vào để cân đối */
-        padding-right: 20px !important;
-    }
-
-    /* 4. Submenu (nếu có) - làm nằm dọc và thụt vào */
-    .submenu {
-        position: static !important;
-        width: 100% !important;
-        background: #f9f9f9 !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        display: none;  /* Ẩn mặc định, dùng JS mở nếu cần */
-    }
-    
-    .has-submenu.active > .submenu {
-        display: block !important;
-    }
-    
-    .submenu li a {
-        padding-left: 40px !important;  /* Thụt vào để phân cấp */
-        font-size: 17px !important;
-    }
 
   nav a:last-child::after {
     display: none;
