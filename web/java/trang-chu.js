@@ -158,3 +158,22 @@ document.querySelectorAll('.PHAI').forEach(container => {
         resizeTimeout = setTimeout(updateCarousel, 300);
     });
 });
+// ======================== TOGGLE SUBMENU Ở MOBILE ========================
+document.querySelector('nav').addEventListener('click', function(e) {
+  const link = e.target.closest('.has-submenu > a');
+  if (link) {
+    e.preventDefault(); // Ngăn redirect nếu có href
+    const parent = link.parentElement;
+    const submenu = parent.querySelector('.submenu');
+    const arrow = link.querySelector('.arrow');
+
+    // Toggle submenu
+    if (submenu.style.display === 'block') {
+      submenu.style.display = 'none';
+      arrow.classList.remove('rotate');
+    } else {
+      submenu.style.display = 'block';
+      arrow.classList.add('rotate');
+    }
+  }
+});
