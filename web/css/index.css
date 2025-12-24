@@ -1750,37 +1750,96 @@ body {
         top: 0;
         left: -260px;
         width: 260px;
+        max-width: 260px;
         height: 100%;
-        background: #ffffff;
-        padding: 80px 0 40px 0;          /* Giảm padding-top từ 120px → 80px (vừa đủ tránh chồng header) */
-        transition: left 0.4s ease;
-        z-index: 1099;
+        background: #fff;
+        padding: 70px 0 30px 0;
+        transition: left .3s ease;
+        z-index: 1100;
         overflow-y: auto;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        box-shadow: 2px 0 10px rgba(0,0,0,.1);
     }
 
     nav.active {
         left: 0;
     }
 
-    /* Các link menu */
+    /* Xóa thụt của UL */
+    nav ul,
     .nav-links {
+        list-style: none;
         display: flex;
         flex-direction: column;
     }
 
-    nav a {
-        display: block;
-        padding: 16px 30px;              /* Giảm nhẹ để gọn hơn */
-        font-size: 18px;
-        font-weight: 600;
-        color: #000;
-        border-bottom: 1px solid #eee;
+    .nav-links li {
+        width: 100%;
+        position: relative;
     }
 
     nav a:hover {
-        background: #f9f9f9;
+        background: #f3f3f3;
         color: #ff6600;
+    }
+
+    nav a {
+        display: flex !important;           /* Đảm bảo chiếm full width */
+        align-items: center;                /* Căn giữa dọc */
+        padding: 18px 30px !important;      /* Tăng padding để vùng click lớn hơn */
+        width: 100%;                        /* Rộng 100% thanh */
+        box-sizing: border-box;             /* Quan trọng: padding không làm tràn */
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        transition: all 0.3s ease;
+    }
+
+    /* ====== HAS SUBMENU ====== */
+    .has-submenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Arrow cho submenu */
+    .arrow {
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .arrow.rotate {
+        transform: rotate(180deg); /* Xoay arrow khi mở submenu */
+    }
+
+    /* Submenu ở mobile: position static, display none ban đầu, thụt lề để giống ảnh */
+    .submenu {
+        display: none; /* Ban đầu ẩn */
+        position: static; /* Không absolute để nằm dưới cha */
+        width: 100%;
+        background: #fff;
+        padding: 0;
+        margin: 0;
+        box-shadow: none; /* Không shadow để sạch */
+    }
+    .has-submenu:hover > .submenu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    }
+    
+    .submenu li a {
+        padding: 12px 50px; /* Thụt lề lớn hơn (50px) để giống ảnh */
+        font-size: 16px; /* Chữ nhỏ hơn cha */
+        border-bottom: 1px solid #eee;
+        background: #f9f9f9; /* Nền nhẹ để phân biệt */
+    }
+
+    .submenu li a:hover {
+        background: #ff6600;
+        color: #fff;
     }
 }
 
@@ -1817,44 +1876,6 @@ body {
     body {
         padding-top: 70px;               /* Giữ nguyên, không cần giảm thêm */
     }
-}
-@media screen and (max-width: 480px) {
-  .menu-bar {
-    height: 70px;
-    padding: 0px 15px;
-  }
-
-  .logo {
-    width: 120px;
-  }
-
-  .hamburger {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .icons {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .icons i {
-    font-size: 22px;
-  }
-
-  nav {
-    width: 220px;
-    left: -240px;
-    padding: 110px 15px 40px 0; /* Vẫn bỏ padding-left */
-  }
-
-  nav a {
-    padding: 18px 20px; /* Giảm nhẹ trên mobile nhỏ */
-  }
-
-  body {
-    padding-top: 70px;
-  }
 }
 /* ========================== RESPONSIVE – SLIDER  ========================== */
 

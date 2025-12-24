@@ -158,3 +158,4 @@ document.querySelectorAll('.PHAI').forEach(container => {
         resizeTimeout = setTimeout(updateCarousel, 300);
     });
 });
+
