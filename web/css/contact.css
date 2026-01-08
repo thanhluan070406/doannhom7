@@ -287,6 +287,11 @@ button:hover {
     object-fit: cover;
     display: block;
 }
+.right-map iframe{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 /* Khung popup */
 .map-popup {
     position: absolute;
