@@ -1198,7 +1198,7 @@ body {
   display: flex;
   justify-content: space-around;
   background: #fff;
-  padding: 40px 80px;
+  padding: 40px 30px;
   box-sizing: border-box;
   gap: 20px;
   overflow: hidden;
@@ -1285,7 +1285,7 @@ body {
     .menu-flex {
         flex-wrap: wrap;            
         justify-content: center;    
-        padding: 30px 40px;
+        padding: 30px 30px;
         gap: 20px;
     }
 
@@ -1311,56 +1311,53 @@ body {
     }
 }
 
-/* Mobile (Màn hình nhỏ hơn hoặc bằng 768px) - 1 cột dọc */
-@media (max-width: 768px) {
+/* ======================== RESPONSIVE MENU-FLEX – TỪ 768PX TRỞ XUỐNG ======================== */
+@media (max-width: 768px) { /* Thay đổi từ 480px thành 768px để bao gồm cả 760px */
     .menu-flex {
-        flex-direction: column;
-        align-items: center;
-        padding: 25px 20px;
-        gap: 20px;
-    }
-
-    .menu-item {
-        width: 100%;
-        max-width: 300px;           
-        height: 160px;
-    }
-
-    .menu-item .overlay {
-        height: 50%;
-        padding: 12px;
-    }
-
-    .menu-item .overlay .title {
-        font-size: 24px;
-        margin-bottom: 6px;
-    }
-
-    .menu-item .overlay .sum {
-        font-size: 18px;
-        margin-top: 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    .menu-flex {
-        padding: 20px 15px;
+        display: grid;
+        /* Chia 8 cột để tạo tỷ lệ 5:3 (tương đương 2.5 : 1.5) */
+        grid-template-columns: repeat(8, 1fr); 
+        padding: 25px 20px; /* Tăng padding nhẹ cho màn hình lớn hơn */
         gap: 15px;
     }
 
     .menu-item {
-        max-width: 280px;
-        height: 140px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 12px;
+        /* Giữ chiều cao bằng nhau. Bạn có thể tăng lên 180px-200px nếu thấy 160px hơi thấp trên máy tính bảng */
+        height: 180px; 
     }
 
+    /* --- THIẾT LẬP TỶ LỆ ĐAN XEN --- */
+
+    /* Hàng 1: Ô 1 rộng 5 phần (2.5) - Ô 2 rộng 3 phần (1.5) */
+    .menu-item:nth-child(1) {
+        grid-column: span 5;
+    }
+    .menu-item:nth-child(2) {
+        grid-column: span 3;
+    }
+
+    /* Hàng 2: Ô 3 rộng 3 phần (1.5) - Ô 4 rộng 5 phần (2.5) */
+    .menu-item:nth-child(3) {
+        grid-column: span 3;
+    }
+    .menu-item:nth-child(4) {
+        grid-column: span 5;
+    }
+
+    /* --- ĐIỀU CHỈNH NỘI DUNG (OVERLAY) --- */
     .menu-item .overlay {
-        height: 45%;
-        padding: 10px;
+        padding: 15px;
+        height: 70%;
     }
 
     .menu-item .overlay .title {
-        font-size: 22px;
-        margin-bottom: 5px;
+        font-size: 22px; /* Tăng nhẹ font chữ cho màn hình 760px dễ đọc hơn */
+        white-space: normal;
+        line-height: 1.2;
     }
 
     .menu-item .overlay .sum {
@@ -1369,6 +1366,60 @@ body {
     }
 }
 
+/* ======================== RESPONSIVE MENU-FLEX – 480PX (TỶ LỆ 2.5:1.5) ======================== */
+@media (max-width: 480px) {
+    .menu-flex {
+        display: grid;
+        /* Sử dụng hệ 8 cột để chia tỉ lệ 5:3 (tương đương 2.5 : 1.5) */
+        grid-template-columns: repeat(8, 1fr); 
+        padding: 20px 12px !important;
+        gap: 12px;
+    }
+
+    .menu-item {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 12px;
+        /* Thiết lập chiều cao bằng nhau cho tất cả các ô */
+        height: 160px; 
+    }
+
+    /* --- THIẾT LẬP TỶ LỆ ĐAN XEN --- */
+
+    /* Hàng 1: Ô bên trái rộng 2.5 (5 phần) - Ô bên phải rộng 1.5 (3 phần) */
+    .menu-item:nth-child(1) {
+        grid-column: span 5;
+    }
+    .menu-item:nth-child(2) {
+        grid-column: span 3;
+    }
+
+    /* Hàng 2: Ô bên trái rộng 1.5 (3 phần) - Ô bên phải rộng 2.5 (5 phần) */
+    .menu-item:nth-child(3) {
+        grid-column: span 3;
+    }
+    .menu-item:nth-child(4) {
+        grid-column: span 5;
+    }
+
+    /* --- ĐIỀU CHỈNH NỘI DUNG --- */
+    .menu-item .overlay {
+        padding: 10px;
+        height: 60%; /* Tăng diện tích phủ để chữ rõ hơn */
+    }
+
+    .menu-item .overlay .title {
+        font-size: 16px; /* Kích thước vừa vặn cho cả ô lớn và ô nhỏ */
+        white-space: normal;
+        line-height: 1.2;
+    }
+
+    .menu-item .overlay .sum {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+}
 
 
 
