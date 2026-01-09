@@ -238,7 +238,7 @@ body {
 /* SLIDE 1 */
 .slide:first-child .nen-mon {
     bottom: 70px !important; 
-    left: 8%;
+    left: 5% !important;
 }
 
 
@@ -285,8 +285,9 @@ body {
     font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 20px;
-    border-radius: 20px;
+    border-radius: 5px;
     text-decoration: none;
+    margin-left: 0 !important;
 }
 
 /* Slide 2 */
@@ -2079,8 +2080,13 @@ body {
 
     .slide:nth-child(2) .nen-mon {
         bottom: 340px !important;
-        left: 25% !important;
-        transform: translateX(-50%) !important; 
+    
+        /* SỬA LẠI: Để % nhỏ để bám lề trái */
+        left: 8% !important; 
+        
+        /* QUAN TRỌNG: Xóa bỏ lệnh transform căn giữa đi */
+        transform: none !important; 
+        
         padding: 10px 16px !important;
     }
 
@@ -2110,15 +2116,15 @@ body {
     .nen-mon {
         padding: 14px 20px !important;   
         border-radius: 18px !important;
-        max-width: 300px !important;       
+        max-width: 290px !important;       
         width: auto !important;
         backdrop-filter: blur(8px);      
     }
 
     .slide:first-child .nen-mon {
         bottom: 20px !important;
-        left: 32% !important;
-        transform: translateX(-50%) !important;
+        left: 6% !important;
+        transform: translateY(0) !important; /* Bỏ translateX(-50%) để không bị kéo lệch nữa */
     }
 
 
@@ -2138,14 +2144,19 @@ body {
         padding: 10px 22px !important;
         font-size: 13px !important;
         white-space: nowrap;
-        border-radius: 30px;
+        border-radius: 10px !important;
     }
     
 
     .slide:nth-child(2) .nen-mon {
-        bottom: 250px !important;
-        left: 30% !important;
-        transform: translateX(-50%) !important; 
+        bottom: 260px !important;
+    
+        /* SỬA LẠI: Để % nhỏ (5%) cho nó bám sát lề trái */
+        left: 5% !important; 
+        
+        /* QUAN TRỌNG: Xóa lệnh căn giữa đi */
+        transform: none !important; 
+        
         padding: 10px 16px !important;
     }
     .slide:nth-child(2) .tieu-de-nho {
@@ -2169,10 +2180,13 @@ body {
         font-size: 30px !important;
     }
 
-    /* Fix lỗi nhảy hình cho cả Slide 1 và Slide 2 */
-    .slide:first-child .nen-mon:hover,
+    /* Tách riêng ra: Hover cho SLIDE 1 (Chỉ nẩy lên, KHÔNG dịch ngang) */
+    .slide:first-child .nen-mon:hover {
+        transform: translateY(-12px) !important; 
+    }
+
+    /* Hover cho SLIDE 2 (Vẫn giữ căn giữa như cũ) */
     .slide:nth-child(2) .nen-mon:hover {
-        /* Giữ nguyên căn giữa (-50%) và thêm nẩy lên (-12px) */
         transform: translateX(-50%) translateY(-12px) !important;
     }
 
