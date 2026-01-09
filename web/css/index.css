@@ -339,10 +339,12 @@ body {
 }
 
 /* 2. Khối chữ (.nen-mon): Trượt chậm từ dưới lên */
+/* Code mới cho khung chứa (Chỉ định vị trí + lớp nổi, KHÔNG animation) */
 .slide:first-child .nen-mon {
-    opacity: 0;
-    transform: translateY(80px); /* bắt đầu thấp hơn một chút */
-    transition: opacity 1.4s ease 0.5s, transform 1.4s ease 0.5s;
+    bottom: 70px !important;
+    left: 8%;
+    position: absolute;
+    z-index: 100; /* QUAN TRỌNG: Giúp khung nổi lên trên để ấn được nút */
 }
 
 .slide:first-child.active .nen-mon {
@@ -350,44 +352,85 @@ body {
     transform: translateY(0);
 }
 
-/* 3. Từng phần tử chữ hiện lần lượt, chậm rãi từ dưới lên */
+/* ==================== 1. ĐỊNH DẠNG CƠ BẢN (TRẠNG THÁI ẨN) ==================== */
+
+/* Tiêu đề & Mô tả: Ẩn đi, đẩy xuống dưới */
 .slide:first-child .tieu-de,
-.slide:first-child .mo-ta,
-.slide:first-child .nut-menu {
+.slide:first-child .mo-ta {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease, transform 1s ease;
 }
 
+/* Nút Menu: Định dạng ban đầu + Ẩn đi */
+.slide:first-child .nut-menu {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #ff6600;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative; 
+    z-index: 101; /* Cao hơn container để chắc chắn ấn được */
+
+    /* Trạng thái ẩn của hiệu ứng load */
+    opacity: 0;
+    transform: translateY(50px);
+
+    /* QUAN TRỌNG: Tách riêng Transition cho màu sắc (hover) và vị trí (load) */
+    /* 1. Transition cho việc đổi màu (nhanh 0.3s) */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    /* 2. Transition cho hiệu ứng Load (sẽ được kích hoạt bởi class active) */
+                opacity 1s ease, transform 1s ease;
+}
+
+/* ==================== 2. TRẠNG THÁI KHI LOAD (ACTIVE) ==================== */
+
+/* Khi slide active: Tiêu đề hiện lên sau 0.8s */
 .slide:first-child.active .tieu-de {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.8s;
 }
 
+/* Khi slide active: Mô tả hiện lên sau 1.3s */
 .slide:first-child.active .mo-ta {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1.3s;
 }
 
+/* Khi slide active: Nút hiện lên sau 1.8s */
 .slide:first-child.active .nut-menu {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 1.8s; /* chậm hơn, nút hiện cuối cùng */
+    transition-delay: 1.8s; /* Chỉ delay việc hiện ra, không delay hover */
 }
 
-/* Đảm bảo reset animation khi chuyển slide */
-.slide:first-child:not(.active) .nen-mon,
+/* ==================== 3. HIỆU ỨNG HOVER (ĐỔI MÀU) ==================== */
+
+.slide:first-child .nut-menu:hover {
+    background-color: #ffffff; /* Nền trắng */
+    color: #ff6600;            /* Chữ cam */
+    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.5); /* Bóng đổ */
+    
+    /* CỰC KỲ QUAN TRỌNG: Gỡ bỏ delay khi hover */
+    /* Nếu không có dòng này, nút sẽ đợi 1.8s mới đổi màu */
+    transition-delay: 0s !important; 
+}
+
+/* ==================== 4. RESET KHI CHUYỂN SLIDE (ẨN LẠI) ==================== */
 .slide:first-child:not(.active) .tieu-de,
 .slide:first-child:not(.active) .mo-ta,
 .slide:first-child:not(.active) .nut-menu {
     opacity: 0 !important;
-    transform: translateY(80px) !important;
+    transform: translateY(50px) !important;
+    transition-delay: 0s; /* Ẩn ngay lập tức không delay */
 }
-
-
-
 
 
 
