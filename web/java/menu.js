@@ -40,20 +40,39 @@ menuItems.forEach(item => {
 function normalize(str) {
     return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
 }
-
-// Hiển thị món của trang hiện tại
+// 1. Thay thế toàn bộ hàm displayCurrentPage cũ bằng hàm này
 function displayCurrentPage() {
-    menuItems.forEach(item => item.style.display = 'none');
+    // Ẩn tất cả món trước
+    menuItems.forEach(item => {
+        item.style.display = 'none';
+        item.style.animationName = 'none'; // Tắt animation để reset
+    });
 
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
 
-    currentFilteredItems.slice(start, end).forEach(item => {
-        item.style.display = 'block'; // hoặc 'grid', nhưng block đủ vì grid container xử lý
+    // Lấy danh sách các món sẽ hiện ở trang này
+    const itemsToShow = currentFilteredItems.slice(start, end);
+
+    itemsToShow.forEach((item, index) => {
+        item.style.display = 'block';
+
+        // --- PHẦN QUAN TRỌNG: RESET HIỆU ỨNG ---
+        
+        // 1. Tính toán lại độ trễ (Delay) dựa trên thứ tự hiển thị (0->11)
+        // thay vì thứ tự trong HTML (khiến trang 3 bị delay 0.5s)
+        // Món đầu tiên delay 0.1s, cứ thế tăng dần 0.05s
+        let delayTime = 0.1 + (index * 0.05);
+        item.style.animationDelay = delayTime + 's';
+
+        // 2. Kích hoạt lại animation FadeInUp
+        // Hack nhẹ: truy cập offsetWidth để trình duyệt nhận diện reset
+        void item.offsetWidth; 
+        item.style.animationName = 'fadeInUp'; 
     });
 }
 
-// Render phân trang
+// 2. Thay thế hàm renderPagination cũ bằng hàm này (Thêm tính năng cuộn lên đầu)
 function renderPagination(totalItems) {
     // Xóa các số trang cũ
     paginationContainer.querySelectorAll('.page-number').forEach(el => el.remove());
@@ -62,38 +81,50 @@ function renderPagination(totalItems) {
     const nextBtn = paginationContainer.querySelector('.page-btn:last-of-type');
     const prevBtn = paginationContainer.querySelector('.page-btn:first-of-type');
 
+    // Hàm hỗ trợ chuyển trang và cuộn lên
+    const goToPage = (page) => {
+        currentPage = page;
+        displayCurrentPage();
+        renderPagination(currentFilteredItems.length);
+
+        // --- TỰ ĐỘNG CUỘN LÊN ĐẦU DANH SÁCH ---
+        // Cuộn đến phần thanh tìm kiếm/đầu danh sách để khách không bị nhìn vào chân trang
+        const topBar = document.querySelector('.top-content-bar');
+        if (topBar) {
+            topBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     for (let i = 1; i <= totalPages; i++) {
         const pageNum = document.createElement('span');
         pageNum.classList.add('page-number');
         pageNum.textContent = i.toString().padStart(2, '0');
         if (i === currentPage) pageNum.classList.add('active');
-        pageNum.addEventListener('click', () => {
-            currentPage = i;
-            displayCurrentPage();
-            renderPagination(currentFilteredItems.length);
-        });
+        
+        // Sự kiện click vào số trang
+        pageNum.addEventListener('click', () => goToPage(i));
+        
         paginationContainer.insertBefore(pageNum, nextBtn);
     }
 
-    // Nút prev/next
-    prevBtn.onclick = () => {
-        if (currentPage > 1) {
-            currentPage--;
-            displayCurrentPage();
-            renderPagination(currentFilteredItems.length);
-        }
+    // Sự kiện nút lùi (Prev)
+    // Clone lại nút để xóa event listener cũ (tránh bị double click)
+    const newPrevBtn = prevBtn.cloneNode(true);
+    prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+    
+    newPrevBtn.onclick = () => {
+        if (currentPage > 1) goToPage(currentPage - 1);
     };
+    newPrevBtn.disabled = currentPage === 1;
 
-    nextBtn.onclick = () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            displayCurrentPage();
-            renderPagination(currentFilteredItems.length);
-        }
+    // Sự kiện nút tiến (Next)
+    const newNextBtn = nextBtn.cloneNode(true);
+    nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+
+    newNextBtn.onclick = () => {
+        if (currentPage < totalPages) goToPage(currentPage + 1);
     };
-
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages || totalItems === 0;
+    newNextBtn.disabled = currentPage === totalPages || totalItems === 0;
 }
 
 // Lọc và hiển thị lại toàn bộ
