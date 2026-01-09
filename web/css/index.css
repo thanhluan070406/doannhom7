@@ -1913,9 +1913,8 @@ body {
         display: none;
     }
 
-    /* Chỉ đẩy body xuống đúng bằng chiều cao menu-bar */
     body {
-        padding-top: 70px;               /* Đúng = height của .menu-bar → không thừa khoảng trắng! */
+        padding-top: 70px;               
     }
 
     /* Sidebar menu */
@@ -1923,11 +1922,10 @@ body {
         position: fixed;
         top: 0;
         left: -260px;
-        width: 260px;
-        max-width: 260px;
+        max-width: 180px;
         height: 100%;
         background: #fff;
-        padding: 70px 0 30px 0;
+        padding: 0px 0 30px 0;
         transition: left .3s ease;
         z-index: 1100;
         overflow-y: auto;
@@ -1938,7 +1936,6 @@ body {
         left: 0;
     }
 
-    /* Xóa thụt của UL */
     nav ul,
     .nav-links {
         list-style: none;
@@ -1950,18 +1947,18 @@ body {
         width: 100%;
         position: relative;
     }
-
+    
     nav a:hover {
         background: #f3f3f3;
         color: #ff6600;
     }
 
     nav a {
-        display: flex !important;           /* Đảm bảo chiếm full width */
-        align-items: center;                /* Căn giữa dọc */
-        padding: 18px 30px !important;      /* Tăng padding để vùng click lớn hơn */
-        width: 100%;                        /* Rộng 100% thanh */
-        box-sizing: border-box;             /* Quan trọng: padding không làm tràn */
+        display: flex !important;           
+        align-items: center;                
+        padding: 18px 30px !important;      
+        width: 100%;                        
+        box-sizing: border-box;            
         font-size: 18px;
         font-weight: 500;
         color: #333;
@@ -1977,38 +1974,35 @@ body {
         width: 100%;
     }
 
-    /* Arrow cho submenu */
     .arrow {
         margin-left: 10px;
         transition: transform 0.3s ease;
     }
 
     .arrow.rotate {
-        transform: rotate(180deg); /* Xoay arrow khi mở submenu */
+        transform: rotate(180deg); 
     }
-
-    /* Submenu ở mobile: position static, display none ban đầu, thụt lề để giống ảnh */
     .submenu {
-        display: none; /* Ban đầu ẩn */
-        position: static; /* Không absolute để nằm dưới cha */
+        display: none; 
+        position: static; 
         width: 100%;
         background: #fff;
         padding: 0;
         margin: 0;
         box-shadow: none; /* Không shadow để sạch */
     }
+
+    .submenu li a {
+        padding: 12px 50px; 
+        font-size: 16px; 
+        border-bottom: 1px solid #eee;
+        background: #f9f9f9; 
+    }
     .has-submenu:hover > .submenu {
     display: block;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    }
-    
-    .submenu li a {
-        padding: 12px 50px; /* Thụt lề lớn hơn (50px) để giống ảnh */
-        font-size: 16px; /* Chữ nhỏ hơn cha */
-        border-bottom: 1px solid #eee;
-        background: #f9f9f9; /* Nền nhẹ để phân biệt */
     }
 
     .submenu li a:hover {
