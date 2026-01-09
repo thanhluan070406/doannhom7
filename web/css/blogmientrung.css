@@ -408,7 +408,356 @@ nav a {
   display: block;
   border-radius: 8px; 
 }
+/* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
+@media screen and (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
 
+    .menu-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        padding: 10px 20px;
+        height: 70px;                    /* Giữ nguyên chiều cao */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;                        /* Căn giữa dọc hoàn hảo */
+        transform: translate(-50%, -50%);
+    }
+
+    .hamburger {
+        position: absolute;
+        left: 20px;
+        top: 50%;                        /* Căn giữa dọc */
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: #000;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .icons {
+        position: absolute;
+        right: 20px;
+        top: 50%;                        /* Căn giữa dọc */
+        transform: translateY(-50%);
+        display: flex;
+        gap: 12px;
+    }
+
+    .icons i {
+        font-size: 24px;
+        color: #000;
+    }
+
+    .icons i:nth-child(3) {
+        display: none;
+    }
+
+    /* Chỉ đẩy body xuống đúng bằng chiều cao menu-bar */
+    body {
+        padding-top: 70px;               /* Đúng = height của .menu-bar → không thừa khoảng trắng! */
+    }
+
+    /* Sidebar menu */
+    nav {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 260px;
+        max-width: 260px;
+        height: 100%;
+        background: #fff;
+        padding: 70px 0 30px 0;
+        transition: left .3s ease;
+        z-index: 1100;
+        overflow-y: auto;
+        box-shadow: 2px 0 10px rgba(0,0,0,.1);
+    }
+
+    nav.active {
+        left: 0;
+    }
+
+    /* Xóa thụt của UL */
+    nav ul,
+    .nav-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        width: 100%;
+        position: relative;
+    }
+
+    nav a:hover {
+        background: #f3f3f3;
+        color: #ff6600;
+    }
+
+    nav a {
+        display: flex !important;           /* Đảm bảo chiếm full width */
+        align-items: center;                /* Căn giữa dọc */
+        padding: 18px 30px !important;      /* Tăng padding để vùng click lớn hơn */
+        width: 100%;                        /* Rộng 100% thanh */
+        box-sizing: border-box;             /* Quan trọng: padding không làm tràn */
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        transition: all 0.3s ease;
+    }
+
+    /* ====== HAS SUBMENU ====== */
+    .has-submenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Arrow cho submenu */
+    .arrow {
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .arrow.rotate {
+        transform: rotate(180deg); /* Xoay arrow khi mở submenu */
+    }
+
+    /* Submenu ở mobile: position static, display none ban đầu, thụt lề để giống ảnh */
+    .submenu {
+        display: none; /* Ban đầu ẩn */
+        position: static; /* Không absolute để nằm dưới cha */
+        width: 100%;
+        background: #fff;
+        padding: 0;
+        margin: 0;
+        box-shadow: none; /* Không shadow để sạch */
+    }
+    .has-submenu:hover > .submenu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    }
+    
+    .submenu li a {
+        padding: 12px 50px; /* Thụt lề lớn hơn (50px) để giống ảnh */
+        font-size: 16px; /* Chữ nhỏ hơn cha */
+        border-bottom: 1px solid #eee;
+        background: #f9f9f9; /* Nền nhẹ để phân biệt */
+    }
+
+    .submenu li a:hover {
+        background: #ff6600;
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu-bar {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .hamburger {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+    }
+
+    .icons i {
+        font-size: 22px;
+    }
+
+    nav {
+        width: 240px;
+        left: -240px;
+        padding: 70px 0 40px 0;          /* Giảm thêm chút trên màn siêu nhỏ */
+    }
+
+    nav a {
+        padding: 16px 24px;
+        font-size: 17px;
+    }
+
+    body {
+        padding-top: 70px;               /* Giữ nguyên, không cần giảm thêm */
+    }
+}
+/* =========reponsive blog============= */
+@media screen and (max-width: 768px) {
+  /* Container chính chứa 3 bài blog - ép 1 cột trên mobile */
+  .blog-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important; /* Khoảng cách giữa các bài */
+    padding: 20px 15px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Mỗi bài blog full width, kiểu dọc giống ảnh mẫu (ảnh trên, text dưới) */
+  .blog-content {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    background: #fff !important;
+    border-radius: 0 !important; /* Giống mẫu không bo góc */
+    overflow: hidden !important;
+    box-shadow: none !important; /* Không shadow như mẫu */
+    text-align: left !important;
+  }
+
+  /* Ảnh full width, chiều cao tự động hoặc cố định để đẹp */
+  .blog-content img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Phần text bên dưới ảnh */
+  .blog-content .p1 {
+    font-size: 14px !important;
+    color: #d4380d !important; /* Màu đỏ cam giống "CÂU CHUYỆN • TIN TỨC" */
+    margin: 20px 0 10px !important;
+    padding: 0 15px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .blog-content .h22 {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    margin: 0 0 15px !important;
+    padding: 0 15px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Nếu có link trong tiêu đề thì giữ màu đen, không gạch chân */
+  .blog-content .h22 a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  .blog-content .h22 a:hover {
+    color: #d4380d !important;
+  }
+
+  .blog-content .p2 {
+    font-size: 14px !important;
+    color: #666 !important;
+    margin: 0 0 20px !important;
+    padding: 0 15px !important;
+  }
+
+  /* Nút XEM THÊM đỏ với mũi tên */
+  .blog-content .bth {
+    display: inline-block !important;
+    background: #d4380d !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 12px 25px !important;
+    margin: 0 15px 20px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    align-self: flex-start !important;
+  }
+
+  .blog-content .bth i {
+    margin-left: 8px !important;
+    font-style: normal !important;
+  }
+
+  .blog-content .bth:hover {
+    background: #b5300b !important;
+  }
+
+  /* Phần header blog (tiêu đề Blog Ẩm Thực) */
+  .blog-hearder {
+    padding: 20px 15px !important;
+    text-align: center !important;
+  }
+
+  .blog-hearder .h1-first {
+    font-size: 28px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .blog-hearder .p-first {
+    font-size: 14px !important;
+    color: #888 !important;
+  }
+
+  .blog-hearder .home-link {
+    color: #888 !important;
+    text-decoration: none !important;
+  }
+  .blog-hearder .home-link:hover {
+    color: #b5300b !important; /* Đỏ đậm khi hover */
+    text-decoration: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-container {
+    gap: 25px !important;
+    padding: 15px 10px !important;
+  }
+
+  .blog-content .p1 {
+    font-size: 13px !important;
+    margin: 15px 0 8px !important;
+    padding: 0 10px !important;
+  }
+
+  .blog-content .h22 {
+    font-size: 20px !important;
+    padding: 0 10px !important;
+  }
+
+  .blog-content .p2 {
+    padding: 0 10px !important;
+  }
+
+  .blog-content .bth {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    margin: 0 10px 15px !important;
+  }
+
+  .blog-hearder .h1-first {
+    font-size: 24px !important;
+  }
+}
 /* ======================== ======================= */
 /* CSS responsive mới - Đưa phần "THEO DÕI CHÚNG TÔI" xuống dưới phần CHIA SẺ trên mobile */
 /* Xóa hết CSS cũ liên quan đến sidebar/follow mà mình gửi trước đi, rồi dán cái này thay thế */
