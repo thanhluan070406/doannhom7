@@ -650,10 +650,9 @@ url('/web/img/mammienbac.png');
         transform: rotate(180deg); /* Xoay arrow khi mở submenu */
     }
 
-    /* Submenu ở mobile: position static, display none ban đầu, thụt lề để giống ảnh */
     .submenu {
-        display: none; /* Ban đầu ẩn */
-        position: static; /* Không absolute để nằm dưới cha */
+        display: none; 
+        position: static; 
         width: 100%;
         background: #fff;
         padding: 0;
