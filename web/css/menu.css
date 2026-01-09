@@ -78,35 +78,130 @@ nav a {
     overflow: hidden;
 }
 
-.banner-thuc-don img {
+/* ================= BANNER THỰC ĐƠN (REDESIGN) ================= */
+.banner-thuc-don {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Tăng chiều cao xíu cho thoáng */
+    overflow: hidden; /* Cắt bỏ phần ảnh zoom bị thừa ra */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 1. Ảnh nền & Hiệu ứng Zoom chậm */
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.banner-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(65%); 
-    justify-content: center;
-    align-items: center;
 }
 
-.noi-dung-banner {
+.banner-overlay {
     position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient đen từ dưới lên: Giúp chữ trắng cực nổi */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+    z-index: 2;
+}
+
+/* 3. Nội dung chữ */
+.noi-dung-banner {
+    position: relative;
+    z-index: 3; /* Nằm trên cùng */
     text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    
+    /* Hiệu ứng trôi lên nhẹ nhàng khi load trang */
+    animation: fadeText 1.5s ease-in-out;
 }
 
+@keyframes fadeText {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Dòng chữ viết tay "Khám phá tinh hoa..." */
+.noi-dung-banner .sub-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 35px;
+    color: #fde4bc; /* Màu vàng kim sang trọng */
+    margin: 0 0 5px 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-weight: 400;
+}
+
+/* Tiêu đề chính "THỰC ĐƠN" */
 .noi-dung-banner h1 {
-    font-size: 50px;
+    font-family: 'Cinzel', serif; /* Font có chân mạnh mẽ (hoặc giữ font cũ nếu chưa import Cinzel) */
+    font-size: 60px;
     font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
+    letter-spacing: 4px;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.6);
 }
 
-.noi-dung-banner p {
-    font-size: 20px;
+/* Thanh điều hướng (Breadcrumb) */
+.breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15); /* Nền kính mờ */
+    padding: 8px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.breadcrumb a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.breadcrumb .separator {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.breadcrumb .current {
+    color: #fde4bc;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* --- Responsive cho Mobile --- */
+@media (max-width: 768px) {
+    .banner-thuc-don {
+        height: 300px;
+    }
+    .noi-dung-banner .sub-title {
+        font-size: 28px;
+    }
+    .noi-dung-banner h1 {
+        font-size: 40px;
+        letter-spacing: 2px;
+    }
 }
 
 /* ================= MENU SECTION ================ */
@@ -864,6 +959,7 @@ nav a {
     padding: 60px 50px; 
     border-radius: 20px;
     max-width: 100%; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 
