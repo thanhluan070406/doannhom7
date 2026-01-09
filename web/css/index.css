@@ -2264,7 +2264,54 @@ body {
     }
 }
 
+@media(max-width: 1000px){
+  .top-bar {
+    padding: 6px 20px;
+  }
 
+  .top-bar span,
+  .top-bar a {
+    font-size: 12px;
+    white-space: nowrap;  
+  }
+
+  .top-right {
+    display: flex;
+    gap: 14px;
+    flex-wrap: nowrap;    
+  }
+  /* ===== MENU BAR ===== */
+  .menu-bar {
+    padding: 8px 24px;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  nav ul.nav-links {
+    display: flex;
+    gap: 18px;
+    white-space: nowrap; 
+  }
+
+  nav ul.nav-links li a {
+    font-size: 13px;
+    padding: 6px 4px;
+  }
+
+  nav ul.nav-links .arrow {
+    font-size: 11px;
+  }
+  .icons span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .icons i {
+    font-size: 14px;
+  }
+}
 
 @media (max-width: 768px) {
     .hero-section {
