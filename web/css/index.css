@@ -1852,6 +1852,44 @@ body {
 }
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
+@media screen and (max-width: 983px) {
+    .top-bar {
+        display: none;
+    }
+    
+    nav ul,
+    .nav-links {
+        flex-wrap: nowrap;
+    }
+
+    .nav-links {
+        gap: 0px;
+    }
+
+    .nav-links > li > a {
+        padding: 0 5px;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .menu-bar {
+        column-gap: 12px;
+    }
+
+    .logo img {
+        max-width: 150px;
+    }
+
+    .icons i {
+        font-size: 20px;
+        padding: 0 8px;
+        white-space: nowrap;
+    }
+
+    .icons span {
+        font-size: 14px;
+    }
+}
 @media screen and (max-width: 768px) {
     .top-bar {
         display: none;
