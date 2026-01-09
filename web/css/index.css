@@ -188,14 +188,17 @@ body {
     background-position: center;
     opacity: 0;
     transition: opacity 0.8s ease;
+    pointer-events: none;
     }
 
 .slide.active {
-  opacity: 1;
+    opacity: 1;
+    pointer-events: auto; /* Slide hiện thì mới bắt được chuột */
+    z-index: 10;
 }
 
 .nho-hon {
-  max-width: 380px;
+    max-width: 380px;
 }
 
 /* ==================== SLIDER TEXT – PHIÊN BẢN CUỐI CÙNG, CHUẨN ĐẸP ==================== */
