@@ -372,6 +372,10 @@ nav a {
     transition: transform 0.5s ease;
 }
 
+/* Khi di chuột vào ô sản phẩm, phóng to cái khung ảnh nền bên trong */
+.menu-item:hover .menu-image {
+    transform: scale(1.1);
+}
 
 /* ===== LỚP PHỦ THÔNG TIN (Glassmorphism) ===== */
 .menu-info {
