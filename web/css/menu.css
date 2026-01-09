@@ -317,6 +317,20 @@ nav a {
     margin-bottom: 30px;
 }
 
+/* ================= HIỆU ỨNG TRÔI NHẸ (FADE IN UP) ================= */
+
+/* Định nghĩa chuyển động trôi nhẹ */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Bắt đầu thấp xuống 30px (thay vì 50px như cũ) */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Về vị trí chuẩn */
+    }
+}
+
 .menu-item {
     position: relative;
     border-radius: 20px;
@@ -325,11 +339,29 @@ nav a {
     background: #000;
     transition: all 0.3s ease; 
     cursor: pointer;
+
+    opacity: 0; /* Ẩn mặc định để chờ hiệu ứng chạy */
+    /* Chạy animation tên là 'fadeInUpBounce' trong 0.8s với độ mượt elastic */
+    animation: fadeInUp 0.8s ease-out forwards;
+    /* Giữ nguyên transition cho hover cũ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.15s; }
+.menu-item:nth-child(3) { animation-delay: 0.2s; }
+.menu-item:nth-child(4) { animation-delay: 0.25s; }
+.menu-item:nth-child(5) { animation-delay: 0.3s; }
+.menu-item:nth-child(6) { animation-delay: 0.35s; }
+.menu-item:nth-child(7) { animation-delay: 0.4s; }
+.menu-item:nth-child(8) { animation-delay: 0.45s; }
+/* Nếu menu nhiều món hơn, các món sau sẽ dùng chung delay này để không phải chờ quá lâu */
+.menu-item:nth-child(n+9) { animation-delay: 0.5s; }
 
 .menu-item:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     transform: translateY(-5px); 
+    z-index: 2;
 }
 
 .menu-image {
@@ -340,6 +372,10 @@ nav a {
     transition: transform 0.5s ease;
 }
 
+/* Khi di chuột vào ô sản phẩm, phóng to cái khung ảnh nền bên trong */
+.menu-item:hover .menu-image {
+    transform: scale(1.1);
+}
 
 /* ===== LỚP PHỦ THÔNG TIN (Glassmorphism) ===== */
 .menu-info {
@@ -831,75 +867,198 @@ nav a {
 }
 
 
+/* ================= CHEF SECTION - CẬP NHẬT MỚI ================ */
+
+/* Khung chứa ảnh */
 .chef-image {
-    flex: 0 0 35%; 
-    min-width: 300px; 
+    flex: 0 0 35%;
+    min-width: 300px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden; 
+    
+    /* VIỀN TRẮNG BÊN TRONG (Dùng inset shadow) */
+    /* Ban đầu viền trắng mờ */
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3), 
+                10px 10px 25px rgba(0, 0, 0, 0.1); 
+    
+    transition: all 0.5s ease;
+    cursor: pointer;
 }
 
+/* Ảnh bên trong */
 .chef-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     border-radius: 15px;
-    box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.1);
+    /* Zoom mượt kiểu điện ảnh */
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+/* --- TẠO CHỮ KÝ "Chef Luân" BẰNG CSS (Pseudo-element) --- */
+.chef-image::before {
+    content: "Chef Luân";     /* Nội dung chữ ký */
+    font-family: 'Great Vibes', cursive; /* Font chữ ký tay */
+    
+    position: absolute;
+    bottom: 30px;             /* Vị trí cách đáy */
+    left: 0;
+    width: 100%;              /* Căn giữa */
+    text-align: center;
+    
+    font-size: 38px;          /* Cỡ chữ to rõ */
+    color: #fff;              /* Màu chữ trắng */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Đổ bóng đen đậm để chữ nổi bật trên nền ảnh */
+    z-index: 10;              /* Nằm trên cùng */
+    
+    /* Trạng thái ban đầu: Ẩn và nằm thấp xuống */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease; /* Thời gian hiện chữ */
+}
+
+/* --- HIỆU ỨNG GƯƠNG (GIỮ NGUYÊN) --- */
+.chef-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+    transform: skewX(-25deg);
+    transition: none;
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+.chef-image:hover {
+    transform: translateY(-10px);
+    /* Viền trắng dày 3px rõ nét nằm lọt trong ảnh */
+    box-shadow: inset 0 0 0 3px #ffffff, 
+                0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Ảnh: Zoom vào */
+.chef-image:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.9); /* Làm tối ảnh một chút xíu để chữ ký nổi hơn */
+}
+
+/* 3. Chữ ký: Trôi lên và hiện ra */
+.chef-image:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 4. Gương: Lướt qua */
+.chef-image:hover::after {
+    left: 200%;
+    transition: all 0.7s ease;
+}
+
+/* ================= PHẦN NỘI DUNG BÊN PHẢI (CHỈ CHỈNH GIAO DIỆN) ================ */
 
 .chef-content {
     flex: 2; 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 5px;
+    justify-content: center;
+    padding-left: 30px; 
 }
 
+/* 1. TIÊU ĐỀ: Đổi font sang Playfair Display cho sang trọng */
 .chef-title {
-    font-size: 38px;
+    font-family: 'Cinzel', serif; /* Font mới */
+    font-size: 45px;
     font-weight: 700;
-    margin: 0 0 15px 0;
-    letter-spacing: 2px;
-    color: #1a1a1a;
-    line-height: 1.1;
+    margin: 0 0 20px 0;
+    color: #a1202f; /* Màu đỏ đô chủ đạo */
+    line-height: 1.2;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-
+/* Đường gạch chân trang trí (nhỏ gọn, không màu mè) */
 .chef-title::after {
     content: "";
     display: block;
-    width: 100px;
+    width: 70px; 
     height: 3px;
-    background: #1a1a1a;
-    margin-top: 10px;
+    background-color: #a1202f; 
+    margin-top: 15px;
 }
 
-
+/* 2. VĂN BẢN: Giữ nguyên, chỉ chỉnh khoảng cách dòng cho dễ đọc */
 .chef-text {
-    font-size: 20px; 
-    line-height: 1.6; 
+    font-size: 18px; 
+    line-height: 1.8;
     color: #333;
-    margin: 10px 0;
+    margin-bottom: 20px;
     text-align: justify;
 }
 
+/* 3. NÚT BẤM: Phong cách tối giản (Viền đỏ, nền trong suốt) */
 .chef-btn {
     align-self: flex-start;
-    margin-top: auto;
+    margin-top: 15px;
     padding: 12px 35px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    
+    /* Giao diện mặc định: Viền đỏ, nền trắng, chữ đỏ */
+    background: transparent; 
+    border: 2px solid #a1202f; 
+    color: #a1202f; 
+    
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
     text-decoration: none;
-    color: #1a1a1a;
-    font-size: 17px;
-    font-weight: 600;
+    border-radius: 5px; /* Bo góc nhẹ, nam tính */
     transition: all 0.3s ease;
 }
 
+/* Hiệu ứng khi di chuột: Đổ màu đỏ vào nền */
 .chef-btn:hover {
-    background: #1a1a1a;
-    color: #fff;
-    transform: translateY(-3px);
+    background: #a1202f; 
+    color: #fff; /* Chữ chuyển thành trắng */
+    box-shadow: 0 5px 15px rgba(161, 32, 47, 0.2); /* Bóng mờ nhẹ */
+    transform: translateY(-3px); /* Nảy lên nhẹ */
+}
+
+/* --- RESPONSIVE (Căn giữa khi lên mobile) --- */
+@media (max-width: 1440px) {
+    .chef-content {
+        padding-left: 0;
+    }
+    .chef-title {
+        font-size: 32px; /* Giảm tiêu đề từ 45px xuống 32px */
+    }
+
+    .chef-text {
+        font-size: 15px; /* Giảm nội dung từ 18px xuống 15px */
+        line-height: 1.6; /* Thu hẹp khoảng cách dòng một chút cho gọn */
+        margin-bottom: 15px;
+    }
+
+    .chef-btn {
+        padding: 10px 30px; /* Nút nhỏ lại xíu cho cân đối */
+        font-size: 14px;
+    }
+}
+@media (max-width: 1024px) {
+    .chef-content {
+        padding-left: 0;
+        text-align: center;
+    }
+    .chef-title::after {
+        margin: 15px auto 0;
+    }
+    .chef-btn {
+        align-self: center;
+    }
 }
 
 
