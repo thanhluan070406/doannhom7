@@ -225,7 +225,7 @@ body {
 
 /* SLIDE 2 */
 .slide:nth-child(2) .nen-mon {
-    bottom: 420px !important;
+    bottom: 500px !important;
     left: 10%;
     padding: 18px 32px;
 }
@@ -345,6 +345,24 @@ body {
     left: 8%;
     position: absolute;
     z-index: 100; /* QUAN TRỌNG: Giúp khung nổi lên trên để ấn được nút */
+    /* TẠO BÓNG ĐỔ NGAY LÚC BÌNH THƯỜNG */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+    /* Chuẩn bị cho hiệu ứng hover mượt mà */
+    transition: all 0.35s ease;
+}
+
+/* --- BƯỚC 2: Hiệu ứng khi di chuột vào (Nẩy lên + Bóng đậm + Nền tối hơn) --- */
+.slide .nen-mon:hover {
+    transform: translateY(-12px) !important; /* Nẩy lên cao 12px */
+    
+    /* Làm nền tối hơn và mờ ảo hơn */
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    
+    /* Bóng đổ to ra và đậm hơn để tạo cảm giác bay lên */
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),      
+        0 0 20px rgba(255, 102, 0, 0.15);    
 }
 
 .slide:first-child.active .nen-mon {
@@ -408,7 +426,12 @@ body {
 .slide:first-child.active .nut-menu {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 1.8s; /* Chỉ delay việc hiện ra, không delay hover */
+    transition: 
+        opacity 1s ease 1.8s,        /* Hiện ra: chờ 1.8s */
+        transform 1s ease 1.8s,      /* Trượt lên: chờ 1.8s */
+        background-color 0.3s ease 0s, /* Đổi màu nền: NGAY LẬP TỨC (0s) */
+        color 0.3s ease 0s,            /* Đổi màu chữ: NGAY LẬP TỨC (0s) */
+        box-shadow 0.3s ease 0s;
 }
 
 /* ==================== 3. HIỆU ỨNG HOVER (ĐỔI MÀU) ==================== */
@@ -2077,6 +2100,7 @@ body {
         transform: translateX(-50%) !important;
     }
 
+
     .slide:first-child .tieu-de {
         font-size: 44px !important; 
         letter-spacing: 1px;
@@ -2098,8 +2122,8 @@ body {
     
 
     .slide:nth-child(2) .nen-mon {
-        bottom: 250px !important;
-        left: 30% !important;
+        bottom: 300px !important;
+        left: 40% !important;
         transform: translateX(-50%) !important; 
         padding: 10px 16px !important;
     }
@@ -2122,6 +2146,13 @@ body {
     }
     .slide:nth-child(3) .tieu-de {
         font-size: 30px !important;
+    }
+
+    /* Fix lỗi nhảy hình cho cả Slide 1 và Slide 2 */
+    .slide:first-child .nen-mon:hover,
+    .slide:nth-child(2) .nen-mon:hover {
+        /* Giữ nguyên căn giữa (-50%) và thêm nẩy lên (-12px) */
+        transform: translateX(-50%) translateY(-12px) !important;
     }
 
     
