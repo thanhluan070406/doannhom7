@@ -924,61 +924,105 @@ nav a {
     transition: all 0.7s ease;
 }
 
+/* ================= PHẦN NỘI DUNG BÊN PHẢI (CHỈ CHỈNH GIAO DIỆN) ================ */
+
 .chef-content {
     flex: 2; 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 5px;
+    justify-content: center;
+    padding-left: 30px; 
 }
 
+/* 1. TIÊU ĐỀ: Đổi font sang Playfair Display cho sang trọng */
 .chef-title {
-    font-size: 38px;
+    font-family: 'Cinzel', serif; /* Font mới */
+    font-size: 45px;
     font-weight: 700;
-    margin: 0 0 15px 0;
-    letter-spacing: 2px;
-    color: #1a1a1a;
-    line-height: 1.1;
+    margin: 0 0 20px 0;
+    color: #a1202f; /* Màu đỏ đô chủ đạo */
+    line-height: 1.2;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-
+/* Đường gạch chân trang trí (nhỏ gọn, không màu mè) */
 .chef-title::after {
     content: "";
     display: block;
-    width: 100px;
+    width: 70px; 
     height: 3px;
-    background: #1a1a1a;
-    margin-top: 10px;
+    background-color: #a1202f; 
+    margin-top: 15px;
 }
 
-
+/* 2. VĂN BẢN: Giữ nguyên, chỉ chỉnh khoảng cách dòng cho dễ đọc */
 .chef-text {
-    font-size: 20px; 
-    line-height: 1.6; 
+    font-size: 18px; 
+    line-height: 1.8;
     color: #333;
-    margin: 10px 0;
+    margin-bottom: 20px;
     text-align: justify;
 }
 
+/* 3. NÚT BẤM: Phong cách tối giản (Viền đỏ, nền trong suốt) */
 .chef-btn {
     align-self: flex-start;
-    margin-top: auto;
+    margin-top: 15px;
     padding: 12px 35px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    
+    /* Giao diện mặc định: Viền đỏ, nền trắng, chữ đỏ */
+    background: transparent; 
+    border: 2px solid #a1202f; 
+    color: #a1202f; 
+    
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
     text-decoration: none;
-    color: #1a1a1a;
-    font-size: 17px;
-    font-weight: 600;
+    border-radius: 5px; /* Bo góc nhẹ, nam tính */
     transition: all 0.3s ease;
 }
 
+/* Hiệu ứng khi di chuột: Đổ màu đỏ vào nền */
 .chef-btn:hover {
-    background: #1a1a1a;
-    color: #fff;
-    transform: translateY(-3px);
+    background: #a1202f; 
+    color: #fff; /* Chữ chuyển thành trắng */
+    box-shadow: 0 5px 15px rgba(161, 32, 47, 0.2); /* Bóng mờ nhẹ */
+    transform: translateY(-3px); /* Nảy lên nhẹ */
+}
+
+/* --- RESPONSIVE (Căn giữa khi lên mobile) --- */
+@media (max-width: 1440px) {
+    .chef-content {
+        padding-left: 0;
+    }
+    .chef-title {
+        font-size: 32px; /* Giảm tiêu đề từ 45px xuống 32px */
+    }
+
+    .chef-text {
+        font-size: 15px; /* Giảm nội dung từ 18px xuống 15px */
+        line-height: 1.6; /* Thu hẹp khoảng cách dòng một chút cho gọn */
+        margin-bottom: 15px;
+    }
+
+    .chef-btn {
+        padding: 10px 30px; /* Nút nhỏ lại xíu cho cân đối */
+        font-size: 14px;
+    }
+}
+@media (max-width: 1024px) {
+    .chef-content {
+        padding-left: 0;
+        text-align: center;
+    }
+    .chef-title::after {
+        margin: 15px auto 0;
+    }
+    .chef-btn {
+        align-self: center;
+    }
 }
 
 
