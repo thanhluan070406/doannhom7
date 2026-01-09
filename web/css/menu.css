@@ -317,6 +317,24 @@ nav a {
     margin-bottom: 30px;
 }
 
+/* ================= HIỆU ỨNG NHẢY ITEM (BOUNCE UP) ================= */
+
+/* Định nghĩa chuyển động nảy lên */
+@keyframes fadeInUpBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9); /* Bắt đầu: Ẩn, thấp xuống và hơi nhỏ */
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.02); /* Giữa chừng: Vọt lên quá đà một chút (tạo độ nảy) */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* Kết thúc: Về vị trí chuẩn */
+    }
+}
+
 .menu-item {
     position: relative;
     border-radius: 20px;
@@ -325,11 +343,30 @@ nav a {
     background: #000;
     transition: all 0.3s ease; 
     cursor: pointer;
+
+    opacity: 0; /* Ẩn mặc định để chờ hiệu ứng chạy */
+    /* Chạy animation tên là 'fadeInUpBounce' trong 0.8s với độ mượt elastic */
+    animation: fadeInUpBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    
+    /* Giữ nguyên transition cho hover cũ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.15s; }
+.menu-item:nth-child(3) { animation-delay: 0.2s; }
+.menu-item:nth-child(4) { animation-delay: 0.25s; }
+.menu-item:nth-child(5) { animation-delay: 0.3s; }
+.menu-item:nth-child(6) { animation-delay: 0.35s; }
+.menu-item:nth-child(7) { animation-delay: 0.4s; }
+.menu-item:nth-child(8) { animation-delay: 0.45s; }
+/* Nếu menu nhiều món hơn, các món sau sẽ dùng chung delay này để không phải chờ quá lâu */
+.menu-item:nth-child(n+9) { animation-delay: 0.5s; }
 
 .menu-item:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     transform: translateY(-5px); 
+    z-index: 2;
 }
 
 .menu-image {
