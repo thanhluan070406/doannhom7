@@ -317,21 +317,17 @@ nav a {
     margin-bottom: 30px;
 }
 
-/* ================= HIỆU ỨNG NHẢY ITEM (BOUNCE UP) ================= */
+/* ================= HIỆU ỨNG TRÔI NHẸ (FADE IN UP) ================= */
 
-/* Định nghĩa chuyển động nảy lên */
-@keyframes fadeInUpBounce {
+/* Định nghĩa chuyển động trôi nhẹ */
+@keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(50px) scale(0.9); /* Bắt đầu: Ẩn, thấp xuống và hơi nhỏ */
-    }
-    60% {
-        opacity: 1;
-        transform: translateY(-10px) scale(1.02); /* Giữa chừng: Vọt lên quá đà một chút (tạo độ nảy) */
+        transform: translateY(30px); /* Bắt đầu thấp xuống 30px (thay vì 50px như cũ) */
     }
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1); /* Kết thúc: Về vị trí chuẩn */
+        transform: translateY(0); /* Về vị trí chuẩn */
     }
 }
 
@@ -346,8 +342,7 @@ nav a {
 
     opacity: 0; /* Ẩn mặc định để chờ hiệu ứng chạy */
     /* Chạy animation tên là 'fadeInUpBounce' trong 0.8s với độ mượt elastic */
-    animation: fadeInUpBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    
+    animation: fadeInUp 0.8s ease-out forwards;
     /* Giữ nguyên transition cho hover cũ */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
