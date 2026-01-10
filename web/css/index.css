@@ -1291,13 +1291,13 @@ body {
     height: 600px;
     position: relative;
     overflow: hidden;
+
     background-image: url('/doannhom7/web/img/phobo.jpg'); 
     background-size: 140%;             
     background-position: center center;
     background-repeat: no-repeat;
     animation: panHorizontal 25s ease-in-out infinite alternate; 
 }
-
 
 .hero-section::before {
     content: "";
@@ -1332,9 +1332,10 @@ body {
     line-height: 1.1;
     letter-spacing: 2px;
     text-transform: uppercase;
+
     opacity: 0;
     transform: translateY(-30px);
-    animation: none;
+    animation: none; 
 }
 
 .hero-title.active {
@@ -1347,15 +1348,16 @@ body {
     line-height: 1.6;
     text-align: justify;
     margin: 0 0 25px 0;
+    font-weight: 400;
+ 
     opacity: 0;
-
     transform: translateX(-50px);
-    animation: none;
+    animation: none; 
 }
 
 .hero-description.active {
     animation: fadeInSlide 1.2s ease-out forwards;
-    animation-delay: 0.5s; /* Giữ độ trễ để hiện sau tiêu đề */
+    animation-delay: 0.5s; 
 }
 
 .highlight {
@@ -1385,56 +1387,19 @@ body {
 }
 
 @keyframes panHorizontal {
-    0% {
-        background-position: 20% center;   
-    }
-    100% {
-        background-position: 80% center;   
-    }
-}
-
-
-.hero-description {
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: fadeInSlide 1.2s ease-out forwards;
-    animation-delay: 0.5s; 
-}
-
-@keyframes fadeInSlide {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.highlight {
-    color: #ff6600; 
-    font-weight: 700;
-}
-
-.hero-title {
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: fadeInDown 1s ease-out forwards;
+    0% { background-position: 20% center; }
+    100% { background-position: 80% center; }
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
 
 /* ===== KẾT THÚC PHẦN HERO SECTION ===== */
 
@@ -2992,3 +2957,8 @@ body {
     }
 }
 
+@media (max-width: 680px) {
+    .welcome-text .desc {
+        font-size: 15px;
+    }
+}
