@@ -440,16 +440,11 @@ nav a {
     transform: translateY(0);
 
     /* 2. Animation hiện ra lúc đầu: Bỏ chữ 'forwards' đi để tránh kẹt nút */
-    animation: none;
+    animation: fadeInUp 0.8s ease-out;
 
     /* 3. QUAN TRỌNG: Hiệu ứng đàn hồi (Bouncy) giúp nảy mượt mà */
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.15), 
                 box-shadow 0.4s ease;
-}
-
-.menu-item.active {
-    /* Lúc này mới cho chạy animation */
-    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .menu-item:nth-child(1) { animation-delay: 0.1s; }
