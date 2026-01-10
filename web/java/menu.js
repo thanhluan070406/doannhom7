@@ -351,3 +351,65 @@ document.addEventListener('DOMContentLoaded', () => {
 filterAndDisplay();
 document.querySelector('.menu-sidebar li.active')?.classList.remove('active');
 document.querySelector('.menu-sidebar li:first-child').classList.add('active');
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. CHỌN TẤT CẢ CÁC MÓN ĂN
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    // 2. THIẾT LẬP CAMERA QUAN SÁT (Observer)
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // Nếu món ăn xuất hiện trong khung hình (dù chỉ 1 xíu)
+            if (entry.isIntersecting) {
+                // Thêm class 'active' -> Lúc này CSS mới chạy animation bay lên
+                entry.target.classList.add('active');
+                
+                // Xong việc rồi thì nghỉ, không theo dõi món này nữa
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.1, // Ló ra 10% là hiện luôn
+        rootMargin: "0px 0px -50px 0px" // Trừ hao đáy màn hình
+    });
+
+    // 3. BẮT ĐẦU QUAN SÁT
+    menuItems.forEach(item => {
+        observer.observe(item);
+    });
+
+    // ===============================================
+    // CÁC CODE KHÁC CỦA BẠN (MOBILE MENU...)
+    // ===============================================
+    const mobileBtn = document.getElementById('openDrawer');
+    const closeBtn = document.getElementById('closeDrawer');
+    const drawer = document.getElementById('mobileSidebar');
+    const overlay = document.querySelector('.menu-overlay');
+
+    if(mobileBtn && drawer) {
+        mobileBtn.addEventListener('click', () => {
+            drawer.classList.add('active');
+            if(overlay) overlay.classList.add('active');
+        });
+    }
+
+    if(closeBtn && drawer) {
+        closeBtn.addEventListener('click', () => {
+            drawer.classList.remove('active');
+            if(overlay) overlay.classList.remove('active');
+        });
+    }
+    
+    // Đóng drawer khi click ra ngoài overlay
+    if(overlay) {
+        overlay.addEventListener('click', () => {
+             if(drawer) drawer.classList.remove('active');
+             const nav = document.querySelector('nav'); 
+             // Nếu bạn dùng chung overlay cho cả menu chính và drawer
+             if(nav) nav.classList.remove('active');
+             overlay.classList.remove('active');
+        });
+    }
+});
