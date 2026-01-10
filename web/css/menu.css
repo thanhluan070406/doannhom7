@@ -977,6 +977,38 @@ nav a {
     position: relative;
     flex: 1;
     max-width: 45%;
+
+    max-width: 420px; /* <-- Cả ảnh và viền đỏ sẽ nhỏ lại theo số này */
+    
+    /* Căn giữa khung tranh nếu muốn */
+    margin: 0 auto;
+
+    opacity: 0;
+    transform: translateX(-60px); /* Dịch sang trái để lát bay vào */
+    transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000); /* Easing mượt */
+}
+
+.chef-visual.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- 2. CỘT CHỮ (INFO) --- */
+.chef-info {
+    flex: 1.2;
+
+    /* --- HIỆU ỨNG SCROLL: ẨN ĐI --- */
+    opacity: 0;
+    transform: translateY(60px); /* Dịch xuống dưới */
+    transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    /* Chữ hiện chậm hơn ảnh 1 chút cho nghệ thuật */
+    transition-delay: 0.2s; 
+}
+
+/* KHI LƯỚT TỚI -> HIỆN LÊN */
+.chef-info.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .chef-img-wrapper {
@@ -1154,17 +1186,6 @@ nav a {
     display: inline-block;
 }
 
-/* Gạch chân dưới tên */
-.main-heading .highlight::after {
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 12px;
-    background: rgba(255, 102, 0, 0.2); /* Màu cam nhạt highlight */
-    z-index: -1;
-}
 
 .chef-quote {
     border-left: 4px solid #a1202f;
@@ -1177,14 +1198,6 @@ nav a {
     position: relative;
 }
 
-.chef-quote i {
-    color: #e0e0e0;
-    font-size: 40px;
-    position: absolute;
-    top: -15px;
-    left: 10px;
-    z-index: -1;
-}
 
 .chef-desc p {
     font-size: 16px;

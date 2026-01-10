@@ -352,3 +352,31 @@ filterAndDisplay();
 document.querySelector('.menu-sidebar li.active')?.classList.remove('active');
 document.querySelector('.menu-sidebar li:first-child').classList.add('active');
 
+// ================= SCROLL REVEAL CHO CHEF =================
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Chọn phần tử Chef (Ảnh & Chữ)
+    const chefElements = document.querySelectorAll('.chef-visual, .chef-info');
+
+    // 2. Tạo Camera quan sát
+    const chefObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Thêm class active để kích hoạt hiệu ứng bay vào
+                entry.target.classList.add('active');
+                
+                // Xong nhiệm vụ thì nghỉ
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.2, // Hiện 20% là bắt đầu chạy
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    // 3. Bắt đầu theo dõi
+    chefElements.forEach(el => {
+        chefObserver.observe(el);
+    });
+});
