@@ -1283,6 +1283,14 @@ nav a {
 }
 
 
+@media (max-width: 600px) {
+    .experience-box {
+        right: 1%; 
+    }
+
+}
+
+
 
 
 /* ========================== FOOTER SECTION ========================== */
