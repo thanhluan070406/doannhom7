@@ -218,6 +218,7 @@ nav a {
     border-radius: 12px;
     overflow: hidden;
     flex-shrink: 0;
+    font-family: Arial, sans-serif;
 }
 
 .sidebar-header {
@@ -432,14 +433,18 @@ nav a {
     overflow: hidden;
     min-width: 0;
     background: #000;
-    transition: all 0.3s ease; 
     cursor: pointer;
 
-    opacity: 0; /* Ẩn mặc định để chờ hiệu ứng chạy */
-    /* Chạy animation tên là 'fadeInUpBounce' trong 0.8s với độ mượt elastic */
-    animation: fadeInUp 0.8s ease-out forwards;
-    /* Giữ nguyên transition cho hover cũ */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 1. Đặt trạng thái mặc định là hiện rõ (để khi animation chạy xong không bị mất hình) */
+    opacity: 1; 
+    transform: translateY(0);
+
+    /* 2. Animation hiện ra lúc đầu: Bỏ chữ 'forwards' đi để tránh kẹt nút */
+    animation: fadeInUp 0.8s ease-out;
+
+    /* 3. QUAN TRỌNG: Hiệu ứng đàn hồi (Bouncy) giúp nảy mượt mà */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.15), 
+                box-shadow 0.4s ease;
 }
 
 .menu-item:nth-child(1) { animation-delay: 0.1s; }
@@ -453,38 +458,39 @@ nav a {
 /* Nếu menu nhiều món hơn, các món sau sẽ dùng chung delay này để không phải chờ quá lâu */
 .menu-item:nth-child(n+9) { animation-delay: 0.5s; }
 
+
 .menu-item:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transform: translateY(-5px); 
+    transform: translateY(-5px) !important; 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); 
     z-index: 2;
 }
 
 .menu-image {
     width: 100%;
-    aspect-ratio: 3 / 4; /* Tỷ lệ ảnh đứng chuẩn */
+    aspect-ratio: 3 / 4; 
     background-size: cover;
     background-position: center;
-    transition: transform 0.5s ease;
 }
 
-/* Khi di chuột vào ô sản phẩm, phóng to cái khung ảnh nền bên trong */
 .menu-item:hover .menu-image {
-    transform: scale(1.1);
+    transform: none; 
 }
 
-/* ===== LỚP PHỦ THÔNG TIN (Glassmorphism) ===== */
+
+
 .menu-info {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     padding: 10px 12px;
-    background: rgba(0, 0, 0, 0.45); /* Màu đen mờ */
-    backdrop-filter: blur(10px); /* Hiệu ứng kính mờ xuyên thấu ảnh nền */
+    background: rgba(0, 0, 0, 0.45); 
+    backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px);
     color: #fff;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: Arial, sans-serif;
 }
 
 .menu-info h3 {
@@ -500,7 +506,6 @@ nav a {
     opacity: 0.8;
 }
 
-/* ===== CĂN CHỈNH GIÁ VÀ NÚT NẰM NGANG ===== */
 .info-footer {
     display: flex;
     justify-content: space-between;
@@ -535,9 +540,8 @@ nav a {
 }
 
 .buy-btn:hover {
-    background: #444;
+    background: #333;
     color: #fff;
-    border-radius: 0;
 }
 
 .menu-row {
@@ -688,6 +692,11 @@ nav a {
         padding: 4px 6px;
     }
 
+    .buy-btn{
+        margin-bottom: 4px;
+        padding: 5px 7px;
+    }
+
     .info-footer {
         flex-direction: column; 
         gap: 4px;
@@ -709,6 +718,7 @@ nav a {
     color: #333;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
 }
 
 .mobile-sidebar-drawer {
@@ -723,6 +733,7 @@ nav a {
     overflow-y: auto;
     box-shadow: 4px 0 20px rgba(0,0,0,0.2);
     display: none; 
+    font-family: Arial, sans-serif;
 }
 
 .mobile-sidebar-drawer.active {
@@ -945,372 +956,334 @@ nav a {
 }
 
 
+/* ================= CHEF PREMIUM SECTION ================= */
+.chef-premium-section {
+    padding: 100px 0;
+    background: #fff; /* Nền trắng sạch sẽ hoặc #fdf8f0 nếu thích ấm áp */
+    overflow: hidden;
+}
 
-
-
-
-/* ================= CHEF SECTION (NGHỆ NHÂN) ================ */
-.chef-section {
+.chef-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    align-items: stretch; 
-    gap: 50px; 
-    background: #fdf8f0;
-    margin: 30px 8%; 
-    padding: 60px 50px; 
-    border-radius: 20px;
-    max-width: 100%; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    align-items: center;
+    gap: 80px;
+    padding: 0 20px;
 }
 
-
-/* ================= CHEF SECTION - CẬP NHẬT MỚI ================ */
-
-/* Khung chứa ảnh */
-.chef-image {
-    flex: 0 0 35%;
-    min-width: 300px;
-    border-radius: 15px;
+/* --- 1. PHẦN ẢNH (VISUAL) --- */
+.chef-visual {
     position: relative;
-    overflow: hidden; 
-    
-    /* VIỀN TRẮNG BÊN TRONG (Dùng inset shadow) */
-    /* Ban đầu viền trắng mờ */
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3), 
-                10px 10px 25px rgba(0, 0, 0, 0.1); 
-    
-    transition: all 0.5s ease;
-    cursor: pointer;
-}
+    flex: 1;
+    max-width: 45%;
 
-/* Ảnh bên trong */
-.chef-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 15px;
-    /* Zoom mượt kiểu điện ảnh */
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+    max-width: 420px; /* <-- Cả ảnh và viền đỏ sẽ nhỏ lại theo số này */
+    
+    /* Căn giữa khung tranh nếu muốn */
+    margin: 0 auto;
 
-/* --- TẠO CHỮ KÝ "Chef Luân" BẰNG CSS (Pseudo-element) --- */
-.chef-image::before {
-    content: "Chef Luân";     /* Nội dung chữ ký */
-    font-family: 'Great Vibes', cursive; /* Font chữ ký tay */
-    
-    position: absolute;
-    bottom: 30px;             /* Vị trí cách đáy */
-    left: 0;
-    width: 100%;              /* Căn giữa */
-    text-align: center;
-    
-    font-size: 38px;          /* Cỡ chữ to rõ */
-    color: #fff;              /* Màu chữ trắng */
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Đổ bóng đen đậm để chữ nổi bật trên nền ảnh */
-    z-index: 10;              /* Nằm trên cùng */
-    
-    /* Trạng thái ban đầu: Ẩn và nằm thấp xuống */
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease; /* Thời gian hiện chữ */
+    transform: translateX(-60px); /* Dịch sang trái để lát bay vào */
+    transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000); /* Easing mượt */
 }
 
-/* --- HIỆU ỨNG GƯƠNG (GIỮ NGUYÊN) --- */
-.chef-image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
-    transform: skewX(-25deg);
-    transition: none;
-    pointer-events: none;
-    z-index: 5;
+.chef-visual.active {
+    opacity: 1;
+    transform: translateX(0);
 }
 
+/* --- 2. CỘT CHỮ (INFO) --- */
+.chef-info {
+    flex: 1.2;
 
-.chef-image:hover {
-    transform: translateY(-10px);
-    /* Viền trắng dày 3px rõ nét nằm lọt trong ảnh */
-    box-shadow: inset 0 0 0 3px #ffffff, 
-                0 20px 40px rgba(0, 0, 0, 0.3);
+    /* --- HIỆU ỨNG SCROLL: ẨN ĐI --- */
+    opacity: 0;
+    transform: translateY(60px); /* Dịch xuống dưới */
+    transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    /* Chữ hiện chậm hơn ảnh 1 chút cho nghệ thuật */
+    transition-delay: 0.2s; 
 }
 
-/* 2. Ảnh: Zoom vào */
-.chef-image:hover img {
-    transform: scale(1.1);
-    filter: brightness(0.9); /* Làm tối ảnh một chút xíu để chữ ký nổi hơn */
-}
-
-/* 3. Chữ ký: Trôi lên và hiện ra */
-.chef-image:hover::before {
+/* KHI LƯỚT TỚI -> HIỆN LÊN */
+.chef-info.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* 4. Gương: Lướt qua */
-.chef-image:hover::after {
-    left: 200%;
-    transition: all 0.7s ease;
+.chef-img-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden; /* Quan trọng cho hiệu ứng gương */
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.15); /* Bóng đổ sâu tạo khối */
+    transform: perspective(1000px) rotateY(5deg); /* Xoay nhẹ tạo 3D */
+    transition: all 0.5s ease;
+    cursor: pointer;
+    z-index: 2;
 }
 
-/* ================= PHẦN NỘI DUNG BÊN PHẢI (CHỈ CHỈNH GIAO DIỆN) ================ */
-
-.chef-content {
-    flex: 2; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 30px; 
-}
-
-/* 1. TIÊU ĐỀ: Đổi font sang Playfair Display cho sang trọng */
-.chef-title {
-    font-family: 'Cinzel', serif; /* Font mới */
-    font-size: 45px;
-    font-weight: 700;
-    margin: 0 0 20px 0;
-    color: #a1202f; /* Màu đỏ đô chủ đạo */
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Đường gạch chân trang trí (nhỏ gọn, không màu mè) */
-.chef-title::after {
-    content: "";
+.chef-img-wrapper img {
+    width: 100%;
     display: block;
-    width: 70px; 
-    height: 3px;
-    background-color: #a1202f; 
-    margin-top: 15px;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* 2. VĂN BẢN: Giữ nguyên, chỉ chỉnh khoảng cách dòng cho dễ đọc */
-.chef-text {
-    font-size: 18px; 
-    line-height: 1.8;
-    color: #333;
+/* === HIỆU ỨNG GƯƠNG (SHINE EFFECT) - Giữ lại theo yêu cầu === */
+.chef-img-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%; /* Bắt đầu từ bên ngoài bên trái */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.3) 50%, 
+        rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-25deg); /* Nghiêng vệt sáng */
+    pointer-events: none;
+    z-index: 5;
+    transition: none; /* Reset transition để animation chạy mượt */
+}
+
+/* === HIỆU ỨNG CHỮ KÝ NỔI (SIGNATURE REVEAL) - Giữ lại theo yêu cầu === */
+/* Tạo lớp tối màu dưới đáy ảnh để chữ trắng nổi bật */
+.signature-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 3;
+}
+
+/* Tạo chữ ký bằng CSS (Pseudo-element) */
+.chef-img-wrapper::before {
+    content: "Chef Luân";
+    font-family: 'Great Vibes', cursive;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    z-index: 4;
+    
+    /* Trạng thái ẩn */
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Nảy nhẹ */
+}
+
+/* --- TƯƠNG TÁC HOVER VÀO ẢNH --- */
+.chef-visual:hover .chef-img-wrapper {
+    transform: perspective(1000px) rotateY(0deg) translateY(-10px); /* Về thẳng và nảy lên */
+    box-shadow: 15px 30px 50px rgba(161, 32, 47, 0.25); /* Bóng chuyển màu đỏ nhẹ */
+}
+
+.chef-visual:hover .chef-img-wrapper img {
+    transform: scale(1.05); /* Zoom ảnh nhẹ */
+}
+
+/* Kích hoạt Hiệu ứng Gương chạy qua */
+.chef-visual:hover .chef-img-wrapper::after {
+    left: 150%; /* Chạy sang bên phải */
+    transition: left 0.8s ease-in-out;
+}
+
+/* Kích hoạt Chữ ký hiện lên */
+.chef-visual:hover .signature-overlay {
+    opacity: 1;
+}
+
+.chef-visual:hover .chef-img-wrapper::before {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* --- HỌA TIẾT TRANG TRÍ & BADGE --- */
+.chef-pattern {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #a1202f; /* Viền đỏ mảnh sang trọng */
+    border-radius: 20px;
+    z-index: 1; /* Nằm sau ảnh */
+    opacity: 0.3;
+    transition: transform 0.5s ease;
+}
+
+.chef-visual:hover .chef-pattern {
+    transform: translate(10px, 10px); /* Di chuyển ngược hướng ảnh tạo chiều sâu */
+}
+
+.experience-box {
+    position: absolute;
+    top: 30px;
+    right: -30px;
+    background: #a1202f;
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(161, 32, 47, 0.3);
+    z-index: 6;
+    animation: floatBadge 4s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.exp-num {
+    display: block;
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.exp-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    display: block;
+}
+
+/* --- 2. PHẦN NỘI DUNG (INFO) --- */
+.chef-info {
+    flex: 1.2;
+}
+
+.sub-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    color: #ff6600;
+    margin: 0 0 10px 0;
+}
+
+.main-heading {
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+    line-height: 1.1;
+    color: #222;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+}
+
+.main-heading .highlight {
+    color: #a1202f;
+    position: relative;
+    display: inline-block;
+}
+
+
+.chef-quote {
+    border-left: 4px solid #a1202f;
+    padding-left: 20px;
+    font-size: 20px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+    font-family: "Times New Roman", serif;
+    position: relative;
+}
+
+
+.chef-desc p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
     margin-bottom: 20px;
     text-align: justify;
 }
 
-/* 3. NÚT BẤM: Phong cách tối giản (Viền đỏ, nền trong suốt) */
-.chef-btn {
-    align-self: flex-start;
-    margin-top: 15px;
-    padding: 12px 35px;
-    
-    /* Giao diện mặc định: Viền đỏ, nền trắng, chữ đỏ */
-    background: transparent; 
-    border: 2px solid #a1202f; 
-    color: #a1202f; 
-    
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
+.btn-chef-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 35px;
+    background: #222;
+    color: #fff;
     text-decoration: none;
-    border-radius: 5px; /* Bo góc nhẹ, nam tính */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px; /* Nút bo tròn hiện đại */
     transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
-/* Hiệu ứng khi di chuột: Đổ màu đỏ vào nền */
-.chef-btn:hover {
-    background: #a1202f; 
-    color: #fff; /* Chữ chuyển thành trắng */
-    box-shadow: 0 5px 15px rgba(161, 32, 47, 0.2); /* Bóng mờ nhẹ */
-    transform: translateY(-3px); /* Nảy lên nhẹ */
+.btn-chef-premium:hover {
+    background: #a1202f;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(161, 32, 47, 0.3);
 }
 
-/* --- RESPONSIVE (Căn giữa khi lên mobile) --- */
-@media (max-width: 1440px) {
-    .chef-content {
+.btn-chef-premium i {
+    transition: transform 0.3s;
+}
+
+.btn-chef-premium:hover i {
+    transform: translateX(5px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .chef-container {
+        padding: 0 30px;
+        gap: 50px;
+    }
+    .main-heading {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .chef-container {
+        flex-direction: column; /* Xếp dọc trên mobile */
+        text-align: center;
+    }
+
+    .chef-visual {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .chef-img-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+        transform: none !important; /* Tắt xoay 3D trên mobile cho dễ nhìn */
+    }
+
+    .experience-box {
+        right: 10%; /* Chỉnh lại vị trí badge */
+    }
+
+    .chef-quote {
+        border-left: none;
+        border-top: 3px solid #a1202f;
+        padding-top: 20px;
         padding-left: 0;
     }
-    .chef-title {
-        font-size: 32px; /* Giảm tiêu đề từ 45px xuống 32px */
-    }
-
-    .chef-text {
-        font-size: 15px; /* Giảm nội dung từ 18px xuống 15px */
-        line-height: 1.6; /* Thu hẹp khoảng cách dòng một chút cho gọn */
-        margin-bottom: 15px;
-    }
-
-    .chef-btn {
-        padding: 10px 30px; /* Nút nhỏ lại xíu cho cân đối */
-        font-size: 14px;
-    }
-}
-@media (max-width: 1024px) {
-    .chef-content {
-        padding-left: 0;
-        text-align: center;
-    }
-    .chef-title::after {
-        margin: 15px auto 0;
-    }
-    .chef-btn {
-        align-self: center;
+    
+    .chef-desc p {
+        text-align: center; /* Canh giữa nội dung */
     }
 }
 
 
 
-/* ========================== RESPONSIVE PHẦN CHEF – 1024px (TABLET) ========================== */
-@media (max-width: 1024px) {
-    .chef-section {
-        flex-direction: column;        
-        align-items: center;
-        text-align: center;
-        padding: 40px 30px;
-        margin: 25px 4%;
-        gap: 35px;                      
-        border-radius: 16px;
-    }
-
-    .chef-content {
-        order: 1;                       
-        width: 100%;
-        padding-top: 0;
-    }
-
-    .chef-image {
-        order: 2;                   
-        width: 100%;
-        max-width: 450px;               
-        margin: 0 auto;
-    }
-
-    .chef-image img {
-        border-radius: 14px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    .chef-title {
-        font-size: 32px;
-        letter-spacing: 1.5px;
-        line-height: 1.2;
-    }
-
-    .chef-title::after {
-        width: 80px;
-        height: 2.5px;
-        margin: 10px auto 0;
-    }
-
-    .chef-text {
-        font-size: 17px;
-        line-height: 1.6;
-        margin: 10px 0;
-    }
-
-    .chef-btn {
-        align-self: center;
-        margin-top: 25px;
-        padding: 12px 32px;
-        font-size: 16px;
-    }
-}
-
-/* ========================== RESPONSIVE PHẦN CHEF – MOBILE (≤768px) ========================== */
-@media (max-width: 768px) {
-    .chef-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 35px 20px;
-        margin: 20px 0;
-        gap: 30px;
-        border-radius: 15px;
-    }
-
-    .chef-content {
-        order: 1;
-    }
-
-    .chef-image {
-        order: 2;
-        width: 100%;
-        max-width: 320px;              
-        margin: 0 auto;
-    }
-
-    .chef-image img {
-        border-radius: 14px;
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-    }
-
-    .chef-title {
-        font-size: 26px;
-        letter-spacing: 1.2px;
-    }
-
-    .chef-title::after {
-        width: 70px;
-        height: 2px;
-        margin: 8px auto 0;
-    }
-
-    .chef-text {
-        font-size: 15.5px;
-        line-height: 1.6;
-    }
-
-    .chef-btn {
-        align-self: center;
-        margin-top: 20px;
-        padding: 11px 28px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .chef-section {
-        padding: 30px 15px;            
-        margin: 15px 0;
-        gap: 25px;                     
-        border-radius: 14px;
-    }
-
-    .chef-image {
-        max-width: 240px;             
-        margin: 0 auto;
-    }
-
-    .chef-image img {
-        border-radius: 12px;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .chef-title {
-        font-size: 24px;               
-        letter-spacing: 1px;
-        line-height: 1.2;
-    }
-
-    .chef-title::after {
-        width: 60px;
-        height: 2px;
-        margin: 8px auto 0;
-    }
-
-    .chef-text {
-        font-size: 14.5px;             
-        line-height: 1.55;
-        margin: 8px 0;
-    }
-
-    .chef-btn {
-        align-self: center;
-        margin-top: 18px;
-        padding: 10px 24px;            
-        font-size: 15px;
-        border-radius: 8px;
-    }
-}
 
 /* ========================== FOOTER SECTION ========================== */
 .footer-section {
@@ -1372,68 +1345,68 @@ nav a {
 
 /* Chỉnh lại ảnh để luôn full cột thứ 3 */
 .footer-img {
-  width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
-  max-width: 100%; /* Không bao giờ vượt quá khung cột */
-  height: auto;
-  display: block;
-  border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
+    width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
+    max-width: 100%; /* Không bao giờ vượt quá khung cột */
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
 }
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
 @media screen and (max-width: 768px) {
-  .top-bar {
-    display: none;
-  }
+    .top-bar {
+        display: none;
+    }
 
   .menu-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    padding: 10px 20px;
-    height: 70px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        padding: 10px 20px;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+    }   
 
- .logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-}
+    .hamburger {
+        position: absolute;
+        left: 20px;
+        top: 55%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: #000;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        cursor: pointer;
+    }
 
-  .hamburger {
-  position: absolute;
-  left: 20px;
-  top: 55%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background: #000;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  cursor: pointer;
-  }
-
-.icons {
-  position: absolute;
-  right: 20px;
-  top: 45%;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 10px;
-}
+    .icons {
+        position: absolute;
+        right: 20px;
+        top: 45%;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 10px;
+    }
 
   .icons i {
     font-size: 24px;
