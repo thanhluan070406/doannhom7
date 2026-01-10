@@ -876,9 +876,8 @@ body {
 }
 
 .MUA:hover {
-    background: #444;
+    background: #333;
     color: #fff;
-    border-radius: 0;
 }
 
 
@@ -1092,7 +1091,7 @@ body {
     
     .MUC .MOTA {
         font-size: 10px;
-        margin: 5px 0 2px 0;
+        margin: 5px 0 5px 0;
     }
     
     .MUC .DUOI {
@@ -1102,12 +1101,15 @@ body {
     .MUC .GIA, .MUC .MUA {
         padding: 8px 16px; 
         font-size: 13px;   
-        margin-top: 8px;   
+        margin-bottom: 5px;   
     }
     .phai-arrow {
         width: 32px;
         height: 32px;
         font-size: 14px;
+    }
+    .MUA {
+        border-radius: 5px;
     }
 
     .phai-arrow.left {
@@ -1119,7 +1121,7 @@ body {
 }
 
 
-@media (max-width: 530px) {
+@media (max-width: 580px) {
     .phan-tinh-hoa {
         padding: 20px 10px !important;
         
