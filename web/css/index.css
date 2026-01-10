@@ -754,6 +754,21 @@ body {
     z-index: 2;
 }
 
+.CHU h1 {
+    font-family: "Anton", sans-serif;
+    margin: 10px 0 0 0;
+    font-size: 35px !important;
+    font-weight: 400;
+}
+
+.CHU p {
+    margin: 8px 0 0 0;
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 300;
+    font-style: italic;
+}
+
 .PHAI {
     width: 83.34%;
     display: grid;
@@ -939,14 +954,6 @@ body {
         width: 80%;  
         margin-bottom: 15px;
     }
-
-    .TRAI .CHU h1 {
-        font-size: 20px;
-    }
-
-    .TRAI .CHU p {
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 1024px) {
@@ -1077,16 +1084,6 @@ body {
 
     .TRAI {
         width: 15%; 
-    }
-
-    
- 
-    .TRAI .CHU h1 {
-        font-size: 16px;
-    }
-
-    .TRAI .CHU p {
-        font-size: 10px;
     }
 
     .MUC .TEN {
