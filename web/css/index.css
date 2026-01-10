@@ -2932,6 +2932,10 @@ body {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 900px) {
+    .welcome-section {
+        padding: 50px 20px;
+    }
+
     .container-welcome {
         flex-direction: column;
         gap: 50px;
