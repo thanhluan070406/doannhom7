@@ -237,3 +237,73 @@ window.addEventListener('resize', function() {
     }
   }, 250);
 });
+
+/* ================= JS KÍCH HOẠT HIỆU ỨNG WELCOME ================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Chọn các phần tử cần bắt hiệu ứng
+    const revealElements = document.querySelectorAll('.reveal-text, .reveal-img');
+
+    // 2. Thiết lập Intersection Observer (Người theo dõi khung hình)
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // Nếu phần tử xuất hiện trong khung hình (viewport)
+            if (entry.isIntersecting) {
+                // Thêm class 'active' để CSS kích hoạt animation
+                entry.target.classList.add('active');
+                
+                // Sau khi hiện rồi thì thôi không theo dõi nữa (để đỡ tốn tài nguyên)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15 // Khi thấy 15% của phần tử thì bắt đầu hiệu ứng
+    });
+
+    // 3. Bắt đầu theo dõi
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // =============================================================
+    // DANH SÁCH CÁC PHẦN TỬ CẦN THEO DÕI (SCROLL SPY)
+    // =============================================================
+    /* 1. .reveal-text, .reveal-img : Phần Welcome Section
+       2. .hero-title, .hero-description : Phần Hero Section (Mới thêm)
+       3. .MUC : Phần Sản phẩm (Mới thêm)
+       4. .reveal-up, .reveal-left... : Các phần phụ khác nếu bạn dùng
+    */
+    
+    const targetElements = document.querySelectorAll(
+        '.reveal-text, .reveal-img, .hero-title, .hero-description, .MUC, .reveal-up'
+    );
+
+    // THIẾT LẬP "CAMERA" THEO DÕI
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // Nếu phần tử xuất hiện trong màn hình
+            if (entry.isIntersecting) {
+                
+                // Thêm class 'active' -> Lúc này CSS sẽ bật Animation lên
+                entry.target.classList.add('active');
+                
+                // Ngừng theo dõi (để hiệu ứng chỉ chạy 1 lần duy nhất)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15, // Phần tử ló ra 15% là bắt đầu chạy hiệu ứng
+        rootMargin: "0px 0px -50px 0px" // Trừ hao 50px ở đáy màn hình cho mượt
+    });
+
+    // BẮT ĐẦU GẮN CAMERA VÀO TỪNG PHẦN TỬ
+    targetElements.forEach(el => {
+        observer.observe(el);
+    });
+});

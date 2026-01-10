@@ -218,6 +218,7 @@ nav a {
     border-radius: 12px;
     overflow: hidden;
     flex-shrink: 0;
+    font-family: Arial, sans-serif;
 }
 
 .sidebar-header {
@@ -432,14 +433,18 @@ nav a {
     overflow: hidden;
     min-width: 0;
     background: #000;
-    transition: all 0.3s ease; 
     cursor: pointer;
 
-    opacity: 0; /* Ẩn mặc định để chờ hiệu ứng chạy */
-    /* Chạy animation tên là 'fadeInUpBounce' trong 0.8s với độ mượt elastic */
-    animation: fadeInUp 0.8s ease-out forwards;
-    /* Giữ nguyên transition cho hover cũ */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 1. Đặt trạng thái mặc định là hiện rõ (để khi animation chạy xong không bị mất hình) */
+    opacity: 1; 
+    transform: translateY(0);
+
+    /* 2. Animation hiện ra lúc đầu: Bỏ chữ 'forwards' đi để tránh kẹt nút */
+    animation: fadeInUp 0.8s ease-out;
+
+    /* 3. QUAN TRỌNG: Hiệu ứng đàn hồi (Bouncy) giúp nảy mượt mà */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.15), 
+                box-shadow 0.4s ease;
 }
 
 .menu-item:nth-child(1) { animation-delay: 0.1s; }
@@ -453,38 +458,39 @@ nav a {
 /* Nếu menu nhiều món hơn, các món sau sẽ dùng chung delay này để không phải chờ quá lâu */
 .menu-item:nth-child(n+9) { animation-delay: 0.5s; }
 
+
 .menu-item:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transform: translateY(-5px); 
+    transform: translateY(-5px) !important; 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); 
     z-index: 2;
 }
 
 .menu-image {
     width: 100%;
-    aspect-ratio: 3 / 4; /* Tỷ lệ ảnh đứng chuẩn */
+    aspect-ratio: 3 / 4; 
     background-size: cover;
     background-position: center;
-    transition: transform 0.5s ease;
 }
 
-/* Khi di chuột vào ô sản phẩm, phóng to cái khung ảnh nền bên trong */
 .menu-item:hover .menu-image {
-    transform: scale(1.1);
+    transform: none; 
 }
 
-/* ===== LỚP PHỦ THÔNG TIN (Glassmorphism) ===== */
+
+
 .menu-info {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     padding: 10px 12px;
-    background: rgba(0, 0, 0, 0.45); /* Màu đen mờ */
-    backdrop-filter: blur(10px); /* Hiệu ứng kính mờ xuyên thấu ảnh nền */
+    background: rgba(0, 0, 0, 0.45); 
+    backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px);
     color: #fff;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: Arial, sans-serif;
 }
 
 .menu-info h3 {
@@ -500,7 +506,6 @@ nav a {
     opacity: 0.8;
 }
 
-/* ===== CĂN CHỈNH GIÁ VÀ NÚT NẰM NGANG ===== */
 .info-footer {
     display: flex;
     justify-content: space-between;
@@ -687,6 +692,11 @@ nav a {
         padding: 4px 6px;
     }
 
+    .buy-btn{
+        margin-bottom: 4px;
+        padding: 5px 7px;
+    }
+
     .info-footer {
         flex-direction: column; 
         gap: 4px;
@@ -708,6 +718,7 @@ nav a {
     color: #333;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
 }
 
 .mobile-sidebar-drawer {
@@ -722,6 +733,7 @@ nav a {
     overflow-y: auto;
     box-shadow: 4px 0 20px rgba(0,0,0,0.2);
     display: none; 
+    font-family: Arial, sans-serif;
 }
 
 .mobile-sidebar-drawer.active {
@@ -963,17 +975,12 @@ nav a {
 
 
 /* ================= CHEF SECTION - CẬP NHẬT MỚI ================ */
-
-/* Khung chứa ảnh */
 .chef-image {
     flex: 0 0 35%;
     min-width: 300px;
     border-radius: 15px;
     position: relative;
     overflow: hidden; 
-    
-    /* VIỀN TRẮNG BÊN TRONG (Dùng inset shadow) */
-    /* Ban đầu viền trắng mờ */
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3), 
                 10px 10px 25px rgba(0, 0, 0, 0.1); 
     
@@ -981,7 +988,6 @@ nav a {
     cursor: pointer;
 }
 
-/* Ảnh bên trong */
 .chef-image img {
     width: 100%;
     height: 100%;
@@ -990,6 +996,25 @@ nav a {
     border-radius: 15px;
     /* Zoom mượt kiểu điện ảnh */
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0; /* 1. Ẩn đi lúc đầu */
+    
+    /* 2. Chạy animation imageReveal trong 1.2 giây */
+    animation: imageReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    
+    /* 3. Chờ 0.6 giây sau khi load trang mới bắt đầu chạy (để tạo điểm nhấn) */
+    animation-delay: 0.6s;
+}
+
+/* ================= ANIMATION MỚI CHO ẢNH CHEF ================= */
+@keyframes imageReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(30px); 
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0); 
+    }
 }
 
 /* --- TẠO CHỮ KÝ "Chef Luân" BẰNG CSS (Pseudo-element) --- */
@@ -1014,7 +1039,7 @@ nav a {
     transition: all 0.6s ease; /* Thời gian hiện chữ */
 }
 
-/* --- HIỆU ỨNG GƯƠNG (GIỮ NGUYÊN) --- */
+/* --- HIỆU ỨNG GƯƠNG --- */
 .chef-image::after {
     content: "";
     position: absolute;
@@ -1032,28 +1057,27 @@ nav a {
 
 .chef-image:hover {
     transform: translateY(-10px);
-    /* Viền trắng dày 3px rõ nét nằm lọt trong ảnh */
+
     box-shadow: inset 0 0 0 3px #ffffff, 
                 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* 2. Ảnh: Zoom vào */
+
 .chef-image:hover img {
     transform: scale(1.1);
     filter: brightness(0.9); /* Làm tối ảnh một chút xíu để chữ ký nổi hơn */
 }
 
-/* 3. Chữ ký: Trôi lên và hiện ra */
 .chef-image:hover::before {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* 4. Gương: Lướt qua */
 .chef-image:hover::after {
     left: 200%;
     transition: all 0.7s ease;
 }
+
 
 /* ================= PHẦN NỘI DUNG BÊN PHẢI (CHỈ CHỈNH GIAO DIỆN) ================ */
 
@@ -1063,21 +1087,25 @@ nav a {
     flex-direction: column;
     justify-content: center;
     padding-left: 30px; 
+    font-family: Arial, sans-serif;
 }
 
-/* 1. TIÊU ĐỀ: Đổi font sang Playfair Display cho sang trọng */
 .chef-title {
-    font-family: 'Cinzel', serif; /* Font mới */
+    font-family: "Anton", sans-serif !important;
     font-size: 45px;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0 0 20px 0;
     color: #a1202f; /* Màu đỏ đô chủ đạo */
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 1px;
+
+    cursor: pointer; 
+    width: fit-content;
+    margin: 0 auto 20px auto;
+    
 }
 
-/* Đường gạch chân trang trí (nhỏ gọn, không màu mè) */
 .chef-title::after {
     content: "";
     display: block;
@@ -1085,9 +1113,15 @@ nav a {
     height: 3px;
     background-color: #a1202f; 
     margin-top: 15px;
+
+    transition: width 0.5s ease, background-color 0.3s;
 }
 
-/* 2. VĂN BẢN: Giữ nguyên, chỉ chỉnh khoảng cách dòng cho dễ đọc */
+.chef-title:hover::after {
+    width: 100%; /* Kéo dài ra bằng chiều rộng chữ */
+    background-color: #ff6600; /* (Tùy chọn) Đổi sang màu cam cho nổi */
+}
+
 .chef-text {
     font-size: 18px; 
     line-height: 1.8;
@@ -1096,13 +1130,12 @@ nav a {
     text-align: justify;
 }
 
-/* 3. NÚT BẤM: Phong cách tối giản (Viền đỏ, nền trong suốt) */
+
 .chef-btn {
     align-self: flex-start;
     margin-top: 15px;
     padding: 12px 35px;
-    
-    /* Giao diện mặc định: Viền đỏ, nền trắng, chữ đỏ */
+
     background: transparent; 
     border: 2px solid #a1202f; 
     color: #a1202f; 
@@ -1111,7 +1144,7 @@ nav a {
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 5px; /* Bo góc nhẹ, nam tính */
+    border-radius: 5px; 
     transition: all 0.3s ease;
 }
 
@@ -1125,11 +1158,14 @@ nav a {
 
 /* --- RESPONSIVE (Căn giữa khi lên mobile) --- */
 @media (max-width: 1440px) {
+    .chef-section {
+        margin: 30px 3%;
+    }
     .chef-content {
         padding-left: 0;
     }
     .chef-title {
-        font-size: 32px; /* Giảm tiêu đề từ 45px xuống 32px */
+        font-size: 40px; /* Giảm tiêu đề từ 45px xuống 32px */
     }
 
     .chef-text {
@@ -1371,68 +1407,68 @@ nav a {
 
 /* Chỉnh lại ảnh để luôn full cột thứ 3 */
 .footer-img {
-  width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
-  max-width: 100%; /* Không bao giờ vượt quá khung cột */
-  height: auto;
-  display: block;
-  border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
+    width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
+    max-width: 100%; /* Không bao giờ vượt quá khung cột */
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
 }
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
 @media screen and (max-width: 768px) {
-  .top-bar {
-    display: none;
-  }
+    .top-bar {
+        display: none;
+    }
 
   .menu-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    padding: 10px 20px;
-    height: 70px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        padding: 10px 20px;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+    }   
 
- .logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-}
+    .hamburger {
+        position: absolute;
+        left: 20px;
+        top: 55%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: #000;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        cursor: pointer;
+    }
 
-  .hamburger {
-  position: absolute;
-  left: 20px;
-  top: 55%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background: #000;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  cursor: pointer;
-  }
-
-.icons {
-  position: absolute;
-  right: 20px;
-  top: 45%;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 10px;
-}
+    .icons {
+        position: absolute;
+        right: 20px;
+        top: 45%;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 10px;
+    }
 
   .icons i {
     font-size: 24px;
