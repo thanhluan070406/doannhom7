@@ -1,22 +1,21 @@
 .top-bar {
-  background: #000;
-  color: #fff;
-  padding: 8px 40px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
+    background: #000;
+    color: #fff;
+    padding: 8px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
 }
 
 .top-left a {
-  color: white;
-  margin-right: 15px;
-  font-size: 15px;
+    color: white;
+    margin-right: 15px;
+    font-size: 15px;
 }
 
 .top-right span {
-  margin-left: 25px;
+    margin-left: 25px;
 }
 
 /* ========================== MENU ========================== */
@@ -24,52 +23,209 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px; /* giảm padding trên/dưới từ 18px → 10px */
+  padding: 10px 40px; 
   background: #fff;
 }
 
+.hamburger {
+  display: none;
+}
+
 .logo {
-  width: 140px; /* bạn có thể tăng/giảm tùy ý */
-  height: 40px; /* chiều cao mới của khung logo (tự điều chỉnh từ 80–100px) */
-  overflow: hidden; /* quan trọng: cắt phần thừa */
+  width: 140px; 
+  height: 40px; 
+  overflow: hidden; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent; /* không còn nền xanh thừa */
+  background: transparent; 
 }
 
 .logo img {
   width: 100%;
   height: auto;
   max-height: none;
-  transform: translateY(
-    0%
-  ); /* dịch ảnh lên một chút để chữ nằm giữa khung mới */
-  /* Nếu muốn tinh chỉnh thêm, chỉnh giá trị từ -15% đến -25% */
+  transform: translateY(0%); 
 }
 
 nav {
-  display: flex;
-  align-items: center;
-  height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
-nav a {
-  margin: 0 20px;
-  color: #000;
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none; /* đảm bảo không có gạch chân */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav ul.nav-links {
+    display: flex;    
+    list-style: none !important; 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: center;
+}
+
+/* Ẩn icon trong menu desktop */
+.nav-links > li > a i:first-child {
+    display: none;
+}
+
+.nav-links > li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links > li > a {
+    padding: 0 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    height: 100%; 
+}
+
+.nav-links > li > a:hover {
+    color: #ff7a00;
+}
+
+/* Submenu Desktop */
+.submenu {
+    position: absolute;
+    top: 210%; 
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    list-style: none;
+    padding: 0; 
+    margin: 0;  
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+    z-index: 999;
+}
+
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu li a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    background: #fff;
+}
+
+.submenu li a:hover {
+    background-color: #787772dc;
+    color: #ffffff;
+}
+
+.arrow {
+    margin-left: 6px;
+    font-size: 12px;
+}
+
+.icons{
+     border: 1px solid rgb(205, 201, 201);
+     padding: 10px;
+     border-radius: 5px;
+}
+
+a{
+    margin-left: 10px;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    color:black;
 }
 
 .icons i {
-  margin-left: 15px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
 }
+
+.icons a:hover{
+    color: #ff6600;
+}
+
 .icons i:hover {
   color: #ff6600;
 }
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1098;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+/* Nút đóng X - chỉ hiện trong mobile */
+.close-menu {
+    display: none;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+    }
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto; /* Slide hiện thì mới bắt được chuột */
+    z-index: 10;
+}
+
+.nho-hon {
+    max-width: 380px;
+}
+/* =============================== */
 .khung-lien-he {
     width: 100%;
     height: 350px;
@@ -500,15 +656,45 @@ button:hover {
   align-items: center;
   font-size: 14px;
   cursor: pointer;
+  color: white; 
+  transition: all 0.3s ease; 
 }
 
-/* Chỉnh lại ảnh để luôn full cột thứ 3 */
+.footer-icons i:hover {
+  transform: scale(1.2); 
+}
+
+.footer-icons i.fa-envelope:hover {
+  border-color: #ea4335;
+  color: #ea4335;
+}
+
+.footer-icons i.fa-facebook-f:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.footer-icons i.fa-instagram:hover {
+  border-color: #e4405f;
+  color: #e4405f;
+}
+
+
+
 .footer-img {
-  width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
-  max-width: 100%; /* Không bao giờ vượt quá khung cột */
-  height: auto;
+  width: 100%; 
+  max-width: 100%; 
+  height: 200px;
   display: block;
-  border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
+  border-radius: 8px;
+  object-fit: cover;      
+  transition: transform 0.4s ease, filter 0.4s ease; 
+  cursor: pointer;
+}
+
+.footer-img:hover {
+  transform: scale(1.05);  
+  filter: brightness(1.1);  
 }
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
@@ -696,80 +882,81 @@ button:hover {
 
 /* ========================== RESPONSIVE – CHÂN TRANG ========================== */
 
-/* Tablet (Màn hình từ 769px đến 1024px) */
+@media (max-width: 1440px) {
+    .footer-section {
+        padding: 50px; 
+        gap: 50px;
+        justify-content: space-between;
+    }
+}
 @media (max-width: 1024px) {
     .footer-section {
-        padding: 20px 50px; /* Giảm padding ngang */
-        gap: 50px; /* Giảm khoảng cách giữa các cột */
-        justify-content: space-between; /* Căn đều các cột */
+        padding: 20px 50px; 
+        gap: 40px;
+        justify-content: space-between;
     }
 
     .footer-col {
-        /* Cho phép cột co lại một chút nhưng vẫn giữ tối đa 30% */
         max-width: 30%; 
         width: 30%;
     }
     
     .footer-col p {
-        font-size: 16px; /* Giảm cỡ chữ */
+        font-size: 14px; 
     }
 
     .footer-col h2 {
-        font-size: 20px; /* Giảm cỡ chữ tiêu đề */
+        font-size: 20px;
     }
 }
 
-/* Mobile (Màn hình nhỏ hơn 768px) */
 @media (max-width: 768px) {
-    /* Khối chân trang chính */
+
     .footer-section {
-        flex-direction: column; /* Chuyển bố cục sang dọc (stacked) */
-        align-items: center; /* Căn giữa các cột/khối theo chiều ngang */
+        flex-direction: column; 
+        align-items: center; 
         padding: 30px 20px;
-        gap: 40px; /* Khoảng cách giữa các khối nội dung */
+        gap: 40px; 
     }
 
-    /* Từng cột (column) trong chân trang */
+  
     .footer-col {
-        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        width: 100%; 
         max-width: 100%;
-        text-align: center; /* Căn giữa nội dung văn bản trong cột */
+        text-align: center; 
     }
     
-    /* Tiêu đề */
+
     .footer-col h2 {
         font-size: 22px; 
-        margin-bottom: 5px; /* Giảm khoảng cách dưới tiêu đề */
+        margin-bottom: 5px; 
     }
     
-    /* Gạch chân (nếu có) */
+
     .footer-col .underline {
-        margin: 0px auto 20px auto; /* Căn giữa gạch chân */
+        margin: 0px auto 20px auto; 
     }
-    
-    /* Đoạn văn bản */
+ 
     .footer-col p {
         font-size: 15px; 
-        line-height: 1.6; /* Tăng line-height cho dễ đọc */
+        line-height: 1.6; 
         margin-bottom: 10px;
         text-align: center;
+        
     }
 
-    /* Icon mạng xã hội */
     .footer-icons {
-        justify-content: center; /* Căn giữa các icon */
+        justify-content: center; 
         margin-top: 10px;
     }
-    
-    /* Hình ảnh chi nhánh (ở cuối chân trang) */
+
     .footer-img {
-        width: 200px; /* Ảnh nhỏ lại */
+        width: 200px; 
         height: auto;
-        margin: 15px auto 0 auto; /* Căn giữa ảnh */
-        display: block; /* Đảm bảo ảnh là block để có thể căn giữa bằng margin: auto */
+        margin: 15px auto 0 auto; 
+        display: block; 
     }
-    
-    /* Đảm bảo danh sách (nếu dùng cho địa chỉ) được căn giữa */
+ 
     .footer-col ul,
     .footer-col li {
         text-align: center;
@@ -778,12 +965,12 @@ button:hover {
     }
 
     .footer-img {
-        width: 100%;       /* Thay đổi từ 200px thành 100% để phóng to hết cỡ cột */
-        max-width: 400px;  /* Giới hạn độ rộng tối đa để ảnh không bị vỡ quá to trên máy tính bảng nhỏ */
+        width: 100%;       
+        max-width: 400px;  
         height: auto;
         margin: 15px auto 0 auto; 
         display: block; 
-        border-radius: 12px; /* Có thể tăng bo góc cho đẹp hơn trên mobile */
+        border-radius: 12px; 
     }
 
     .footer-col>.text {
