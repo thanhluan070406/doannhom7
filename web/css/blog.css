@@ -215,7 +215,7 @@ body {
 .blog {
   width: 100%;
   height: 300px;
-  background: url("../img/mamcobac.jpg") center / cover no-repeat;
+  background: url("../img/mamcobac.jpg");
   position: relative;
 }
 
