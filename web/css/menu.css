@@ -1513,15 +1513,43 @@ body {
   align-items: center;
   font-size: 14px;
   cursor: pointer;
+  color: white; 
+  transition: all 0.3s ease; 
 }
 
-/* Chỉnh lại ảnh để luôn full cột thứ 3 */
+.footer-icons i:hover {
+  transform: scale(1.2); 
+}
+
+.footer-icons i.fa-envelope:hover {
+  border-color: #ea4335;
+  color: #ea4335;
+}
+
+.footer-icons i.fa-facebook-f:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.footer-icons i.fa-instagram:hover {
+  border-color: #e4405f;
+  color: #e4405f;
+}
+
 .footer-img {
-    width: 100%; /* Ảnh sẽ tự giãn theo chiều rộng cột */
-    max-width: 100%; /* Không bao giờ vượt quá khung cột */
-    height: auto;
-    display: block;
-    border-radius: 8px; /* Thêm bo góc nhẹ cho đẹp */
+  width: 100%; 
+  max-width: 100%; 
+  height: 200px;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;      
+  transition: transform 0.4s ease, filter 0.4s ease; 
+  cursor: pointer;
+}
+
+.footer-img:hover {
+  transform: scale(1.05);  
+  filter: brightness(1.1);  
 }
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
@@ -1795,7 +1823,7 @@ body {
     .footer-img {
         width: 100%;       
         max-width: 400px;  
-        height: auto;
+        height: 200px;
         margin: 15px auto 0 auto; 
         display: block; 
         border-radius: 12px; 

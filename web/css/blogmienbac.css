@@ -487,8 +487,6 @@ body {
   margin: 0 0 15px;
   text-align: justify;
 }
-
-
 .footer-icons {
   margin-top: 20px;
   display: flex;
@@ -532,9 +530,17 @@ body {
 .footer-img {
   width: 100%; 
   max-width: 100%; 
-  height: auto;
+  height: 200px;
   display: block;
-  border-radius: 8px; 
+  border-radius: 8px;
+  object-fit: cover;      
+  transition: transform 0.4s ease, filter 0.4s ease; 
+  cursor: pointer;
+}
+
+.footer-img:hover {
+  transform: scale(1.05);  
+  filter: brightness(1.1);  
 }
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
 @media screen and (max-width: 768px) {
@@ -1119,7 +1125,7 @@ body {
     .footer-img {
         width: 100%;       
         max-width: 400px;  
-        height: auto;
+        height: 200px;
         margin: 15px auto 0 auto; 
         display: block; 
         border-radius: 12px; 
