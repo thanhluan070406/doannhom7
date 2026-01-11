@@ -279,8 +279,8 @@ body {
   color: red;
   font-size: 12px;
   font-style: italic;
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-left: 10px;
 }
 
 .blog-content img {
@@ -293,7 +293,7 @@ body {
 }
 h2 {
   font-size: 24px;
-  padding-top: 10px;
+  padding-top: 5px;
   line-height: 1.6;
 }
 .p2 {
