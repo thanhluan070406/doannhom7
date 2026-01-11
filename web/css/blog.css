@@ -89,9 +89,9 @@ nav ul.nav-links {
     height: 100%; 
 }
 .nav-links > li > a:hover {
-    color: #ff7a00; /* màu cam */
+    color: #ff7a00; 
 }
-/* 2. Xử lý Submenu (Dropdown) */
+
 .submenu {
     position: absolute;
     top: 210%; 
@@ -103,20 +103,20 @@ nav ul.nav-links {
     margin: 0;  
     box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
     
-    /* Hiệu ứng ẩn/hiện */
+
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease-in-out;
     z-index: 999;
 }
 
-/* Hiển thị khi di chuột vào <li> cha */
+
 .has-submenu:hover .submenu {
     opacity: 1;
     visibility: visible;
 }
 
-/* 3. Xử lý các mục bên trong Submenu để "KHÔNG KHOẢNG TRẮNG" */
+
 .submenu li {
     width: 100%;
 }
@@ -127,21 +127,19 @@ nav ul.nav-links {
 
 .submenu li a {
     display: block;
-    padding: 12px 20px; /* Tạo khoảng cách nội bộ trong ô */
+    padding: 12px 20px; 
     color: #333;
     text-decoration: none;
     font-size: 14px;
     transition: 0.3s;
-    background: #fff; /* Đảm bảo có nền để phủ kín */
+    background: #fff;
 }
 
-/* 4. Hiệu ứng Hover: Chỉ đổi nền chữ nào đang di chuột vào */
 .submenu li a:hover {
-    background-color: #787772dc; /* Nền chuyển vàng */
+    background-color: #787772dc; 
     color: #ffffff;
 }
 
-/* Biểu tượng mũi tên */
 .arrow {
     margin-left: 6px;
     font-size: 12px;
@@ -287,6 +285,7 @@ body {
 
 .blog-content img {
   width: 100%;
+  border-radius: 5%;
 }
 .h {
   color: #000;
