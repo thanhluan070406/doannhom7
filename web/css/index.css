@@ -1899,30 +1899,36 @@ body {
 }
 
 
-/* ================= HIỆU ỨNG LƯỚT (MỚI) ================= */
+/* ================= HIỆU ỨNG LƯỚT & KHẮC PHỤC HOVER ================= */
 
 /* 1. Trạng thái ẩn (Lúc chưa lướt tới) */
 .hieu-ung-luot {
     opacity: 0;
-    transform: translateY(60px); /* Nằm thấp xuống 60px */
-    transition: all 1s ease; /* Thời gian trượt lên là 1 giây */
-    visibility: hidden; /* Ẩn hẳn để không bấm nhầm */
+    transform: translateY(60px); 
+    transition: all 1s ease; 
+    visibility: hidden; 
 }
 
-/* 2. Trạng thái hiện (Khi JS kích hoạt) */
+/* 2. Trạng thái hiện (SỬA: Bỏ !important ở transform để không bị khóa vị trí) */
 .hieu-ung-luot.len-hinh {
-    opacity: 1 !important; /* Dùng !important để ép hiển thị */
-    transform: translateY(0) !important;
+    opacity: 1 !important;
+    transform: translateY(0); /* Đã xóa !important */
     visibility: visible !important;
 }
 
-/* 3. Độ trễ (Để các ô hiện lần lượt cho đẹp) */
+/* 3. QUAN TRỌNG: Hồi sinh hiệu ứng nảy khi di chuột */
+/* Khi đã hiện lên (len-hinh) mà di chuột vào (hover) thì phải nảy lên */
+.menu-item.hieu-ung-luot.len-hinh:hover {
+    transform: translateY(-10px) !important; /* Ép nảy lên 10px */
+    transition: transform 0.4s ease !important; /* Chỉnh lại tốc độ nảy cho nhanh (0.4s) thay vì chậm (1s) */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Giữ bóng đổ đẹp */
+}
+
+/* 4. Độ trễ (Giữ nguyên) */
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
 .delay-4 { transition-delay: 0.4s; }
-
-
 
 
 
