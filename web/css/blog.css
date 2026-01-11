@@ -215,15 +215,17 @@ body {
 .blog {
   width: 100%;
   height: 300px;
-  background-image: url("web/img/mamcobac.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("../img/mamcobac.jpg") center / cover no-repeat;
   position: relative;
 }
 
 .blog::before {
-  display: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
 }
+
 
 
 .blog-hearder {
