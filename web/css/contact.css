@@ -108,102 +108,106 @@ nav a {
 .noi-dung p {
     font-size: 20px;
 }
+/* ========================== KHỐI LIÊN HỆ CHÍNH ========================== */
 .lien-he-container {
-    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
     display: flex;
-    gap: 40px;
-    padding: 40px;
-    box-sizing: border-box;
+    gap: 30px;
+    padding: 0 20px;
 }
 
-/* ===== CỘT TRÁI ===== */
+/* CỘT TRÁI - Thông tin */
 .cot-trai {
     width: 35%;
-    border: 1px solid #ddd;
-    padding: 30px;
+    border: 1px solid #eee;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border-radius: 8px;
 }
 
 .cot-trai h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
+    font-size: 24px;
+    border-bottom: 2px solid #ff6600; /* Thêm gạch chân cam cho tiêu đề */
+    display: inline-block;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
 }
 
 .info-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+
+.info-item:hover {
+    transform: translateX(10px); /* Nhích nhẹ sang phải khi hover */
 }
 
 .info-item i {
-    font-size: 24px;
-    color: red; /* icon đỏ */
-    width: 30px; 
+    color: #ff6600 !important; /* Đổi icon sang màu cam đặc trưng */
+    font-size: 20px;
 }
 
-.info-item p {
-    margin: 0;
-    font-size: 18px;
-}
-
-/* ===== CỘT PHẢI ===== */
-.cot-phai {
-    width: 65%;
-    background: #f2f2f2;
-    padding: 40px;
-}
-
-.cot-phai h1 {
-    font-size: 34px;
-    margin-bottom: 15px;
-}
-
-.mo-ta {
-    margin-bottom: 25px;
-    line-height: 1.5;
-    font-size: 16px;
-}
-
+/* ========================== CÂN CHỈNH CÁC Ô NHẬP LIỆU ========================== */
 .top-inputs {
     display: flex;
-    gap: 15px;
+    gap: 20px; /* Tăng khoảng cách giữa các ô cho thoáng */
     margin-bottom: 20px;
+    width: 100%;
 }
 
+/* Chia đều 3 cột bằng nhau để Name, Email và Subject thẳng hàng tuyệt đối */
 .top-inputs input {
-    padding: 12px;
-    border: 1px solid #ccc;
+    flex: 1; /* Mỗi ô chiếm 1 phần bằng nhau */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
-/* Ô 1 rộng nhỏ – Ô 2 rộng 50% – Ô 3 còn lại */
-.top-inputs input:nth-child(1) { width: 25%; }
-.top-inputs input:nth-child(2) { width: 35%; }
-.top-inputs input:nth-child(3) { flex: 1; }
+/* Hiệu ứng khi nhấn vào ô nhập liệu */
+.top-inputs input:focus, 
+textarea:focus {
+    border-color: #ff6600; /* Màu cam đồng bộ với menu */
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.2);
+}
 
+/* Chỉnh lại phần Form để nút bấm căn giữa */
+.cot-phai form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Đảm bảo textarea cũng bo góc đồng bộ */
 textarea {
     width: 100%;
-    height: 180px;
+    border-radius: 4px;
     padding: 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    resize: none;
+    border: 1px solid #ddd;
     margin-bottom: 25px;
+    resize: vertical; /* Cho phép kéo dãn theo chiều dọc */
 }
 
-/* ===== NÚT SUBMIT ===== */
+/* Nút Submit căn giữa */
 button {
-    padding: 12px 35px;
-    background: black;
-    color: white;
+    align-self: center; /* Đưa nút vào giữa cột */
+    padding: 12px 50px;
+    background: #000;
+    color: #fff;
     border: none;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.25s;
+    transition: 0.3s;
+    text-transform: uppercase;
 }
 
 button:hover {
-    background: #333; /* tối màu khi hover */
+    background: #ff6600;
+    transform: translateY(-2px);
 }
 /* Tổng bố cục */
 .map-section {
@@ -253,7 +257,7 @@ button:hover {
 
 /* Cột trái */
 .left-info {
-    width: 35%;
+    width: 45%;
     border-right: 1px solid #e0e0e0;
 }
 
@@ -278,20 +282,15 @@ button:hover {
 
 /* Cột phải (ảnh Google Maps) */
 .right-map {
-    width: 65%;
+    width: 55%;
 }
 
-.right-map img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
 .right-map iframe{
     width: 100%;
     height: 100%;
     display: block;
 }
+
 /* Khung popup */
 .map-popup {
     position: absolute;
@@ -346,6 +345,102 @@ button:hover {
 }
 .right-map {
     position: relative;
+}
+
+/* --- FAQ SECTION --- */ /* Câu hỏi thường gặp */
+.faq-section {
+    padding: 80px 40px;
+    background-color: #ffffff;
+}
+
+.faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Chia 2 cột */
+    gap: 30px;
+}
+
+.faq-item {
+    background: #fdfdfd;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #f3d9b1; /* Điểm nhấn màu vàng đồng */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.faq-item h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faq-item h3 i {
+    color: #f3d9b1;
+}
+
+.faq-item p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- BOOKING CALL TO ACTION --- */
+.booking-cta {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 102, 0, 0.1); /* Màu cam nhạt */
+    border-radius: 8px;
+    text-align: center;
+}
+
+.booking-cta p {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #fff; /* Vì cột trái đang để nền đen */
+}
+
+.btn-booking {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-booking:hover {
+    background: #fff;
+    color: #ff6600;
+    transform: translateY(-3px);
 }
 /* ========================== FOOTER SECTION ========================== */
 .footer-section {
