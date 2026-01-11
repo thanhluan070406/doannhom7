@@ -333,3 +333,6 @@ document.addEventListener("DOMContentLoaded", function() {
             boQuanSat.observe(el);
         });
     });
+
+
+    
