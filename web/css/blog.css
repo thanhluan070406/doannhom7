@@ -215,29 +215,29 @@ body {
 .blog {
   width: 100%;
   height: 300px;
-  background-image: url("/web/img/mamcobac.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("../img/mamcobac.jpg") center / cover no-repeat;
   position: relative;
 }
 
+/* overlay */
 .blog::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
 }
 
-.blog-hearder {
+/* chữ nằm trên overlay */
+.blog-header {
   position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  z-index: 2;
   color: #fff;
   text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
 
 .h1-first {
   font-size: 48px;
@@ -279,8 +279,8 @@ body {
   color: red;
   font-size: 12px;
   font-style: italic;
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-left: 10px;
 }
 
 .blog-content img {
@@ -293,7 +293,7 @@ body {
 }
 h2 {
   font-size: 24px;
-  padding-top: 10px;
+  padding-top: 5px;
   line-height: 1.6;
 }
 .p2 {
@@ -352,6 +352,7 @@ h2 {
   text-align: justify;
 }
 
+
 .footer-icons {
   margin-top: 20px;
   display: flex;
@@ -368,6 +369,27 @@ h2 {
   align-items: center;
   font-size: 14px;
   cursor: pointer;
+  color: white; 
+  transition: all 0.3s ease; 
+}
+
+.footer-icons i:hover {
+  transform: scale(1.2); 
+}
+
+.footer-icons i.fa-envelope:hover {
+  border-color: #ea4335;
+  color: #ea4335;
+}
+
+.footer-icons i.fa-facebook-f:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.footer-icons i.fa-instagram:hover {
+  border-color: #e4405f;
+  color: #e4405f;
 }
 
 .footer-img {

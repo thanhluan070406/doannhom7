@@ -1899,13 +1899,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
 /* ================= HIỆU ỨNG LƯỚT (MỚI) ================= */
 
 /* 1. Trạng thái ẩn (Lúc chưa lướt tới) */
@@ -1928,6 +1921,12 @@ body {
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
 .delay-4 { transition-delay: 0.4s; }
+
+
+
+
+
+
 
 
 
