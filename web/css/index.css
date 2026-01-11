@@ -88,6 +88,7 @@ nav ul.nav-links {
     text-decoration: none;
     color: #000;
     font-weight: 500;
+    font-family: sans-serif;
     display: flex;
     align-items: center;
     height: 100%; 
@@ -133,6 +134,7 @@ nav ul.nav-links {
     color: #333;
     text-decoration: none;
     font-size: 14px;
+    font-family: sans-serif;
     transition: 0.3s;
     background: #fff;
 }
@@ -1996,7 +1998,9 @@ body {
     .nav-links {
         flex-wrap: nowrap;
     }
-
+    .submenu {
+        top: 190%;
+    }
     .nav-links {
         gap: 0px;
     }
@@ -2089,7 +2093,7 @@ body {
     }
 
     body {
-        padding-top: 70px;               
+        padding-top: 70px;  
     }
 
     /* NÚT ĐÓNG X */
@@ -2148,9 +2152,11 @@ body {
         align-items: center;
         justify-content: flex-start;
         padding: 18px 25px;
+        margin: 0;
         color: #000000;
-        font-size: 24px;
+        font-size: 16px;
         font-weight: 400;
+        font-family: sans-serif;
         width: 100%;
         height: auto;
         transition: all 0.3s ease;
@@ -2187,11 +2193,12 @@ body {
     .nav-links > li > a:hover {
         background: #f2f2f2; 
         color: #000;
+        width: 280px;
     }
 
     /* Mũi tên - luôn hiển thị trên mobile */
     .arrow {
-        margin-left: auto;
+        margin-left: 10px;
         transition: all 0.3s ease;
         color: #000000;
         opacity: 1;
@@ -2212,7 +2219,7 @@ body {
 
     .submenu {
         position: static;
-        width: calc(100% - 3px);
+        width: 280px;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -2240,8 +2247,9 @@ body {
         display: block;
         padding: 14px 25px 14px 25px;
         color: #000000;
-        font-size: 20px;
+        font-size: 15px;
         background: transparent;
+        font-family: sans-serif;
         border: none;
         position: relative;
         transition: all 0.3s ease;
