@@ -653,80 +653,81 @@ nav a {
 
 /* ========================== RESPONSIVE – CHÂN TRANG ========================== */
 
-/* Tablet (Màn hình từ 769px đến 1024px) */
+@media (max-width: 1440px) {
+    .footer-section {
+        padding: 50px; 
+        gap: 50px;
+        justify-content: space-between;
+    }
+}
 @media (max-width: 1024px) {
     .footer-section {
-        padding: 20px 50px; /* Giảm padding ngang */
-        gap: 50px; /* Giảm khoảng cách giữa các cột */
-        justify-content: space-between; /* Căn đều các cột */
+        padding: 20px 50px; 
+        gap: 40px;
+        justify-content: space-between;
     }
 
     .footer-col {
-        /* Cho phép cột co lại một chút nhưng vẫn giữ tối đa 30% */
         max-width: 30%; 
         width: 30%;
     }
     
     .footer-col p {
-        font-size: 16px; /* Giảm cỡ chữ */
+        font-size: 14px; 
     }
 
     .footer-col h2 {
-        font-size: 20px; /* Giảm cỡ chữ tiêu đề */
+        font-size: 20px;
     }
 }
 
-/* Mobile (Màn hình nhỏ hơn 768px) */
 @media (max-width: 768px) {
-    /* Khối chân trang chính */
+
     .footer-section {
-        flex-direction: column; /* Chuyển bố cục sang dọc (stacked) */
-        align-items: center; /* Căn giữa các cột/khối theo chiều ngang */
+        flex-direction: column; 
+        align-items: center; 
         padding: 30px 20px;
-        gap: 40px; /* Khoảng cách giữa các khối nội dung */
+        gap: 40px; 
     }
 
-    /* Từng cột (column) trong chân trang */
+  
     .footer-col {
-        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        width: 100%; 
         max-width: 100%;
-        text-align: center; /* Căn giữa nội dung văn bản trong cột */
+        text-align: center; 
     }
     
-    /* Tiêu đề */
+
     .footer-col h2 {
         font-size: 22px; 
-        margin-bottom: 5px; /* Giảm khoảng cách dưới tiêu đề */
+        margin-bottom: 5px; 
     }
     
-    /* Gạch chân (nếu có) */
+
     .footer-col .underline {
-        margin: 0px auto 20px auto; /* Căn giữa gạch chân */
+        margin: 0px auto 20px auto; 
     }
-    
-    /* Đoạn văn bản */
+ 
     .footer-col p {
         font-size: 15px; 
-        line-height: 1.6; /* Tăng line-height cho dễ đọc */
+        line-height: 1.6; 
         margin-bottom: 10px;
         text-align: center;
+        
     }
 
-    /* Icon mạng xã hội */
     .footer-icons {
-        justify-content: center; /* Căn giữa các icon */
+        justify-content: center; 
         margin-top: 10px;
     }
-    
-    /* Hình ảnh chi nhánh (ở cuối chân trang) */
+
     .footer-img {
-        width: 200px; /* Ảnh nhỏ lại */
+        width: 200px; 
         height: auto;
-        margin: 15px auto 0 auto; /* Căn giữa ảnh */
-        display: block; /* Đảm bảo ảnh là block để có thể căn giữa bằng margin: auto */
+        margin: 15px auto 0 auto; 
+        display: block; 
     }
-    
-    /* Đảm bảo danh sách (nếu dùng cho địa chỉ) được căn giữa */
+ 
     .footer-col ul,
     .footer-col li {
         text-align: center;
@@ -735,12 +736,12 @@ nav a {
     }
 
     .footer-img {
-        width: 100%;       /* Thay đổi từ 200px thành 100% để phóng to hết cỡ cột */
-        max-width: 400px;  /* Giới hạn độ rộng tối đa để ảnh không bị vỡ quá to trên máy tính bảng nhỏ */
+        width: 100%;       
+        max-width: 400px;  
         height: auto;
         margin: 15px auto 0 auto; 
         display: block; 
-        border-radius: 12px; /* Có thể tăng bo góc cho đẹp hơn trên mobile */
+        border-radius: 12px; 
     }
 
     .footer-col>.text {
