@@ -485,42 +485,6 @@ body {
 }
 
 
-/* ================= SLIDE 1: HIỆN CÙNG LÚC - MƯỢT MÀ ================= */
-
-/* 1. KỊCH BẢN: Chỉ thay đổi độ mờ từ 0 lên 1 (Đứng yên một chỗ) */
-@keyframes hienDongLoat {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* 2. TRẠNG THÁI MẶC ĐỊNH (Ẩn sạch sẽ) */
-.slide:first-child .tieu-de,
-.slide:first-child .mo-ta,
-.slide:first-child .nut-menu {
-    opacity: 0;
-    transform: none !important; /* Khóa vị trí, không bay nhảy */
-    animation: none;
-}
-
-/* 3. KHI HOẠT ĐỘNG (Hiện tất cả cùng lúc) */
-.slide:first-child.active .tieu-de,
-.slide:first-child.active .mo-ta,
-.slide:first-child.active .nut-menu {
-    /* Chạy trong 1.5 giây cho êm */
-    animation: hienDongLoat 1.5s ease-in-out forwards;
-    
-    /* QUAN TRỌNG: Tất cả cùng chờ 0.3s rồi hiện ra MỘT LÚC */
-    animation-delay: 0.3s; 
-}
-
-/* 4. XỬ LÝ NÚT (Để hover vẫn hoạt động tốt) */
-.slide:first-child.active .nut-menu:hover {
-    opacity: 1; 
-    background-color: #fff;
-    color: #ff6600;
-    transform: translateY(-5px) !important; /* Hover thì nảy xíu cho đẹp */
-    transition: all 0.3s ease;
-}
 
 
 /* ==================== ANIMATION SLIDER 2 - TRƯỢT TỪ TRÁI SANG (CHẬM MƯỢT) ==================== */
