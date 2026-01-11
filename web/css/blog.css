@@ -215,7 +215,9 @@ body {
 .blog {
   width: 100%;
   height: 300px;
-  background: url("../img/am-thuc-viet-nam_3d9f79b2a780486598f7f20dce3883b6.jpeg") center / cover no-repeat;
+  background: url("../img/am-thuc-viet-nam_3d9f79b2a780486598f7f20dce3883b6.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
 }
 
