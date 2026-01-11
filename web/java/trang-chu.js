@@ -307,3 +307,29 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(el);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+        // 1. Tìm tất cả các phần tử có class 'hieu-ung-luot'
+        const cacPhanTu = document.querySelectorAll('.hieu-ung-luot');
+
+        // 2. Tạo bộ quan sát (Camera)
+        const boQuanSat = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Nếu phần tử lọt vào khung hình
+                if (entry.isIntersecting) {
+                    // Thêm class 'len-hinh' để kích hoạt CSS hiện lên
+                    entry.target.classList.add('len-hinh');
+                    
+                    // Xong rồi thì thôi không theo dõi nữa cho nhẹ web
+                    boQuanSat.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // Chỉ cần hiện 10% là kích hoạt hiệu ứng ngay
+        });
+
+        // 3. Bắt đầu quan sát từng phần tử
+        cacPhanTu.forEach(el => {
+            boQuanSat.observe(el);
+        });
+    });
