@@ -207,9 +207,9 @@ nav a {
 /* ================= MENU SECTION ================ */
 .menu-layout {
     display: flex;
-    gap: 30px;
     padding: 20px 40px;
     align-items: flex-start;
+    gap: 30px;
 }
 
 .menu-sidebar {
@@ -435,6 +435,7 @@ nav a {
     background: #000;
     cursor: pointer;
 
+
     /* 1. Đặt trạng thái mặc định là hiện rõ (để khi animation chạy xong không bị mất hình) */
     opacity: 1; 
     transform: translateY(0);
@@ -445,6 +446,14 @@ nav a {
     /* 3. QUAN TRỌNG: Hiệu ứng đàn hồi (Bouncy) giúp nảy mượt mà */
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.15), 
                 box-shadow 0.4s ease;
+}
+
+/* Dán cái này xuống cuối cùng file menu.css */
+.menu-item {
+    max-width: 350px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
 }
 
 .menu-item:nth-child(1) { animation-delay: 0.1s; }
