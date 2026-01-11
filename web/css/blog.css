@@ -352,6 +352,7 @@ h2 {
   text-align: justify;
 }
 
+
 .footer-icons {
   margin-top: 20px;
   display: flex;
@@ -368,6 +369,27 @@ h2 {
   align-items: center;
   font-size: 14px;
   cursor: pointer;
+  color: white; 
+  transition: all 0.3s ease; 
+}
+
+.footer-icons i:hover {
+  transform: scale(1.2); 
+}
+
+.footer-icons i.fa-envelope:hover {
+  border-color: #ea4335;
+  color: #ea4335;
+}
+
+.footer-icons i.fa-facebook-f:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.footer-icons i.fa-instagram:hover {
+  border-color: #e4405f;
+  color: #e4405f;
 }
 
 .footer-img {
