@@ -2154,7 +2154,7 @@ body {
         justify-content: flex-start;
         padding: 18px 25px;
         color: #000000;
-        font-size: 16px;
+        font-size: 24px;
         font-weight: 400;
         width: 100%;
         height: auto;
@@ -2245,7 +2245,7 @@ body {
         display: block;
         padding: 14px 25px 14px 25px;
         color: #000000;
-        font-size: 15px;
+        font-size: 20px;
         background: transparent;
         border: none;
         position: relative;
