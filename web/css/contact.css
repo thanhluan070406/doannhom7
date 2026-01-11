@@ -411,36 +411,6 @@ button:hover {
     line-height: 1.6;
 }
 
-/* --- SOCIAL CONNECT --- */
-.social-connect {
-    text-align: center;
-    padding: 60px 20px;
-    background: #1a1a1a;
-    color: white;
-}
-
-.social-connect h3 {
-    font-size: 24px;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-}
-
-.social-icons-large {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.social-icons-large a {
-    font-size: 35px;
-    color: #fff;
-    transition: 0.4s;
-}
-
-.social-icons-large a:hover {
-    color: #f3d9b1;
-    transform: scale(1.2) rotate(10deg);
-}
 /* --- BOOKING CALL TO ACTION --- */
 .booking-cta {
     margin-top: 30px;
