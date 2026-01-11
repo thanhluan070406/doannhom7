@@ -215,29 +215,29 @@ body {
 .blog {
   width: 100%;
   height: 300px;
-  background: url("../img/mamcobac.jpg");
+  background: url("../img/mamcobac.jpg") center / cover no-repeat;
   position: relative;
 }
 
+/* overlay */
 .blog::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
 }
 
-
-
-.blog-hearder {
+/* chữ nằm trên overlay */
+.blog-header {
   position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  z-index: 2;
   color: #fff;
   text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
 
 .h1-first {
   font-size: 48px;
