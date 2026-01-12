@@ -504,7 +504,6 @@ body {
     animation: subtleMove 22s ease-in-out infinite alternate;
 }
 
-/* Dùng chung keyframes nhẹ từ trước */
 @keyframes subtleMove {
     0% {
         background-position: center 40%;
