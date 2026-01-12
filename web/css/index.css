@@ -159,7 +159,7 @@ nav ul.nav-links {
 
 a{
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Inter", sans-serif;
     color:black;
     margin-left: 6px;
 }
@@ -2078,7 +2078,7 @@ body {
     }
 
     .submenu li a {
-        padding: 12px 18px !important;
+        padding: 9px 18px !important;
         font-size: 14px !important;
     }
     
