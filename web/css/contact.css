@@ -88,6 +88,7 @@ nav ul.nav-links {
     text-decoration: none;
     color: #000;
     font-weight: 500;
+    font-family: sans-serif;
     display: flex;
     align-items: center;
     height: 100%; 
@@ -132,13 +133,15 @@ nav ul.nav-links {
     padding: 12px 20px;
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     transition: 0.3s;
     background: #fff;
+    margin-left: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .submenu li a:hover {
-    background-color: #787772dc;
+    background: #ff6600;
     color: #ffffff;
 }
 
@@ -148,21 +151,22 @@ nav ul.nav-links {
 }
 
 .icons{
-     border: 1px solid rgb(205, 201, 201);
-     padding: 10px;
-     border-radius: 5px;
+
+    border: 1px solid rgb(205, 201, 201);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 a{
-    margin-left: 10px;
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Inter", sans-serif;
     color:black;
+    margin-left: 6px;
 }
 
 .icons i {
-  font-size: 16px;
-  cursor: pointer;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .icons a:hover{
@@ -170,7 +174,7 @@ a{
 }
 
 .icons i:hover {
-  color: #ff6600;
+    color: #ff6600;
 }
 
 .menu-overlay {
@@ -567,55 +571,22 @@ button:hover {
     line-height: 1.6;
 }
 
-/* --- BOOKING CALL TO ACTION --- */
-.booking-cta {
-    margin-top: 30px;
-    padding: 20px;
-    background: rgba(255, 102, 0, 0.1); /* Màu cam nhạt */
-    border-radius: 8px;
-    text-align: center;
-}
-
-.booking-cta p {
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #fff; /* Vì cột trái đang để nền đen */
-}
-
-.btn-booking {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #ff6600;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.btn-booking:hover {
-    background: #fff;
-    color: #ff6600;
-    transform: translateY(-3px);
-}
 /* ========================== FOOTER SECTION ========================== */
 .footer-section {
   width: 100%;
   background: #000;
   color: white;
-  padding: 30px 150px; /* Giữ nguyên padding cũ của bạn */
+  padding: 30px 150px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px; /* Giữ nguyên gap cũ */
+  gap: 100px;
   box-sizing: border-box;
 }
 
 .footer-col {
-  /* Chỉnh sửa quan trọng: Đảm bảo 3 cột luôn bằng nhau */
-  flex: 1; 
-  width: 33.33%; 
-  /* Các thuộc tính còn lại giữ nguyên */
+  flex: 1;
+  width: 33.33%;
   max-width: 360px;
   padding: 15px 0;
 }
@@ -639,7 +610,6 @@ button:hover {
   margin: 0 0 15px;
   text-align: justify;
 }
-
 .footer-icons {
   margin-top: 20px;
   display: flex;
@@ -696,6 +666,7 @@ button:hover {
   transform: scale(1.05);  
   filter: brightness(1.1);  
 }
+
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
 @media screen and (max-width: 768px) {
@@ -880,8 +851,7 @@ button:hover {
   }
 }
 
-/* ========================== RESPONSIVE – CHÂN TRANG ========================== */
-
+/* ========================== RESPONSIVE – FOOTER SECTION ========================== */
 @media (max-width: 1440px) {
     .footer-section {
         padding: 50px; 
@@ -967,7 +937,7 @@ button:hover {
     .footer-img {
         width: 100%;       
         max-width: 400px;  
-        height: auto;
+        height: 200px;
         margin: 15px auto 0 auto; 
         display: block; 
         border-radius: 12px; 
