@@ -258,27 +258,39 @@ body {
 }
 
 
-.h1-first {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 8px;
+.breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15); /* Nền kính mờ */
+    padding: 8px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
-.home-link {
-  text-decoration: none;
-  color: #fff;
-}
-.home-link:hover {
-  color: red;
-}
-.p-first {
-  font-size: 16px;
-  color: #fff;
+.breadcrumb a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.p-first i {
-  font-style: normal;
-  opacity: 0.9;
+.breadcrumb a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.breadcrumb .separator {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.breadcrumb .current {
+    color: #fde4bc;
+    font-weight: 600;
+    font-size: 14px;
 }
 /* ============blog - container================== */
 .blog-container {
