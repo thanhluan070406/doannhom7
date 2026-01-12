@@ -88,6 +88,7 @@ nav ul.nav-links {
     text-decoration: none;
     color: #000;
     font-weight: 500;
+    font-family: sans-serif;
     display: flex;
     align-items: center;
     height: 100%; 
@@ -132,13 +133,15 @@ nav ul.nav-links {
     padding: 12px 20px;
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     transition: 0.3s;
     background: #fff;
+    margin-left: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .submenu li a:hover {
-    background-color: #787772dc;
+    background: #ff6600;
     color: #ffffff;
 }
 
@@ -148,21 +151,22 @@ nav ul.nav-links {
 }
 
 .icons{
-     border: 1px solid rgb(205, 201, 201);
-     padding: 10px;
-     border-radius: 5px;
+
+    border: 1px solid rgb(205, 201, 201);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 a{
-    margin-left: 10px;
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Inter", sans-serif;
     color:black;
+    margin-left: 6px;
 }
 
 .icons i {
-  font-size: 16px;
-  cursor: pointer;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .icons a:hover{
@@ -170,7 +174,7 @@ a{
 }
 
 .icons i:hover {
-  color: #ff6600;
+    color: #ff6600;
 }
 
 .menu-overlay {
@@ -225,6 +229,7 @@ body {
 .nho-hon {
     max-width: 380px;
 }
+/* ======================================================================= */
 /* Khối chứa ảnh nền */
 .khung-gioi-thieu {
     width: 100%;
