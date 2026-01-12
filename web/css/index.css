@@ -2016,44 +2016,55 @@ body {
 
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
-@media screen and (max-width: 983px) {
-    .top-bar {
-        display: none;
-    }
-    
-    nav ul,
-    .nav-links {
-        flex-wrap: nowrap;
-    }
+@media(max-width: 1024px){
+  .top-bar {
+    padding: 6px 20px;
+  }
 
-    .nav-links {
-        gap: 0px;
-    }
+  .top-bar span,
+  .top-bar a {
+    font-size: 12px;
+    white-space: nowrap;  
+  }
 
-    .nav-links > li > a {
-        padding: 0 5px;
-        font-size: 16px;
-        white-space: nowrap;
-    }
+  .top-right {
+    display: flex;
+    gap: 14px;
+    flex-wrap: nowrap;    
+  }
+  /* ===== MENU BAR ===== */
+  .menu-bar {
+    padding: 8px 24px;
+  }
 
-    .menu-bar {
-        column-gap: 12px;
-    }
+  .logo img {
+    width: 120px;
+  }
 
-    .logo img {
-        max-width: 150px;
-    }
+  nav ul.nav-links {
+    display: flex;
+    gap: 18px;
+    white-space: nowrap; 
+  }
 
-    .icons i {
-        font-size: 20px;
-        padding: 0 8px;
-        white-space: nowrap;
-    }
+  nav ul.nav-links li a {
+    font-size: 13px;
+    padding: 6px 4px;
+  }
 
-    .icons span {
-        font-size: 14px;
-    }
+  nav ul.nav-links .arrow {
+    font-size: 11px;
+  }
+  .icons span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .icons i {
+    font-size: 14px;
+  }
 }
+
 @media screen and (max-width: 768px) {
     .top-bar {
         display: none;
@@ -2205,7 +2216,7 @@ body {
         left: 25px;
         right: 25px;
         height: 2px;
-        background: #ff0000;
+        background: rgb(255, 102, 0);
         transform: scaleX(0);
         transition: transform 0.3s ease;
     }
@@ -2560,54 +2571,7 @@ body {
     }
 }
 
-@media(max-width: 1000px){
-  .top-bar {
-    padding: 6px 20px;
-  }
 
-  .top-bar span,
-  .top-bar a {
-    font-size: 12px;
-    white-space: nowrap;  
-  }
-
-  .top-right {
-    display: flex;
-    gap: 14px;
-    flex-wrap: nowrap;    
-  }
-  /* ===== MENU BAR ===== */
-  .menu-bar {
-    padding: 8px 24px;
-  }
-
-  .logo img {
-    width: 120px;
-  }
-
-  nav ul.nav-links {
-    display: flex;
-    gap: 18px;
-    white-space: nowrap; 
-  }
-
-  nav ul.nav-links li a {
-    font-size: 13px;
-    padding: 6px 4px;
-  }
-
-  nav ul.nav-links .arrow {
-    font-size: 11px;
-  }
-  .icons span {
-    font-size: 12px;
-    white-space: nowrap;
-  }
-
-  .icons i {
-    font-size: 14px;
-  }
-}
 
 @media (max-width: 768px) {
     .hero-section {
