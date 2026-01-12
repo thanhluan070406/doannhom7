@@ -2368,11 +2368,6 @@ body {
       .icons span {
         display: none;
     }
-    .hero-section {
-        height: 360px !important;               
-        background-size: cover ;        
-        background-position: center 30% ;
-    }
 }
 
 
