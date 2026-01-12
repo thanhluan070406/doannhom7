@@ -356,7 +356,6 @@ body {
   background: none;
   border: 1px solid #ddd;
   padding: 10px 15px;
-  margin-right: 10px;
   border-radius: 6px;
   font-size: 20px;
   cursor: pointer;
@@ -434,6 +433,7 @@ body {
   display: flex;
   align-items: center;
   padding: 12px;
+   margin-left: -40px;
   background-color: #f0f0f0;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -1127,6 +1127,9 @@ body {
   }
   .ND img{
     height: 200px;
+  }
+  .social-item{
+    margin-left: -40px;
   }
 }
 

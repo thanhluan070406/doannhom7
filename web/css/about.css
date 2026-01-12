@@ -508,19 +508,17 @@ body {
   width: 100%;
   background: #000;
   color: white;
-  padding: 30px 150px; /* Giữ nguyên padding cũ của bạn */
+  padding: 30px 150px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px; /* Giữ nguyên gap cũ */
+  gap: 100px;
   box-sizing: border-box;
 }
 
 .footer-col {
-  /* Chỉnh sửa quan trọng: Đảm bảo 3 cột luôn bằng nhau */
-  flex: 1; 
-  width: 33.33%; 
-  /* Các thuộc tính còn lại giữ nguyên */
+  flex: 1;
+  width: 33.33%;
   max-width: 360px;
   padding: 15px 0;
 }
@@ -583,6 +581,8 @@ body {
   color: #e4405f;
 }
 
+
+
 .footer-img {
   width: 100%; 
   max-width: 100%; 
@@ -598,6 +598,7 @@ body {
   transform: scale(1.05);  
   filter: brightness(1.1);  
 }
+
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
 @media screen and (max-width: 768px) {
@@ -782,8 +783,7 @@ body {
   }
 }
 
-/* ========================== RESPONSIVE – CHÂN TRANG ========================== */
-
+/* ========================== RESPONSIVE – FOOTER SECTION ========================== */
 @media (max-width: 1440px) {
     .footer-section {
         padding: 50px; 
@@ -869,7 +869,7 @@ body {
     .footer-img {
         width: 100%;       
         max-width: 400px;  
-        height: auto;
+        height: 200px;
         margin: 15px auto 0 auto; 
         display: block; 
         border-radius: 12px; 
