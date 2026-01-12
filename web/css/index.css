@@ -133,13 +133,15 @@ nav ul.nav-links {
     padding: 12px 20px;
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     transition: 0.3s;
     background: #fff;
+    margin-left: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .submenu li a:hover {
-    background-color: #787772dc;
+    background: #ff6600;
     color: #ffffff;
 }
 
@@ -149,21 +151,22 @@ nav ul.nav-links {
 }
 
 .icons{
-     border: 1px solid rgb(205, 201, 201);
-     padding: 10px;
-     border-radius: 5px;
+
+    border: 1px solid rgb(205, 201, 201);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 a{
-    margin-left: 10px;
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
     color:black;
+    margin-left: 6px;
 }
 
 .icons i {
-  font-size: 16px;
-  cursor: pointer;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .icons a:hover{
@@ -171,7 +174,7 @@ a{
 }
 
 .icons i:hover {
-  color: #ff6600;
+    color: #ff6600;
 }
 
 .menu-overlay {
@@ -226,6 +229,7 @@ body {
 .nho-hon {
     max-width: 380px;
 }
+
 
 /* ==================== SLIDER TEXT – PHIÊN BẢN CUỐI CÙNG, CHUẨN ĐẸP ==================== */
 
@@ -2017,52 +2021,70 @@ body {
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
 @media(max-width: 1024px){
-  .top-bar {
-    padding: 6px 20px;
-  }
+    .top-bar {
+        padding: 6px 20px;
+    }
 
-  .top-bar span,
-  .top-bar a {
-    font-size: 12px;
-    white-space: nowrap;  
-  }
+    .top-bar span,
+    .top-bar a {
+        font-size: 12px;
+        white-space: nowrap;  
+    }
 
-  .top-right {
-    display: flex;
-    gap: 14px;
-    flex-wrap: nowrap;    
-  }
-  /* ===== MENU BAR ===== */
-  .menu-bar {
-    padding: 8px 24px;
-  }
+    .top-right {
+        display: flex;
+        gap: 14px;
+        flex-wrap: nowrap;    
+    }
+    /* ===== MENU BAR ===== */
+    .menu-bar {
+        padding: 8px 24px;
+    }
 
-  .logo img {
-    width: 120px;
-  }
+    .logo img {
+        width: 120px;
+    }
 
-  nav ul.nav-links {
-    display: flex;
-    gap: 18px;
-    white-space: nowrap; 
-  }
+    nav ul.nav-links {
+        display: flex;
+        gap: 18px;
+        white-space: nowrap; 
+    }
 
-  nav ul.nav-links li a {
-    font-size: 13px;
-    padding: 6px 4px;
-  }
+    nav ul.nav-links li a {
+        font-size: 13px;
+        padding: 6px 4px;
+    }
 
-  nav ul.nav-links .arrow {
-    font-size: 11px;
-  }
-  .icons span {
-    font-size: 12px;
-    white-space: nowrap;
-  }
+    nav ul.nav-links .arrow {
+        font-size: 11px;
+    }
+    .icons span {
+        font-size: 12px;
+        white-space: nowrap;
+    }
 
-  .icons i {
-    font-size: 14px;
-  }
+    .icons {
+        padding: 6px 8px;
+    }
+
+    .icons i {
+        font-size: 12px;
+    }
+
+    .submenu {
+        top: 151%; 
+        min-width: 140px !important;
+    }
+
+    .submenu li a {
+        padding: 12px 18px !important;
+        font-size: 14px !important;
+    }
+    
+    
+
+
 }
 
 @media screen and (max-width: 768px) {
@@ -2120,7 +2142,7 @@ body {
     }
 
     .icons i {
-        font-size: 24px;
+        font-size: 16px;
         color: #000;
     }
 
@@ -2191,7 +2213,7 @@ body {
         color: #000000;
         font-size: 20px;
         font-family: sans-serif;
-        font-weight: 400;
+        font-weight: 500;
         width: 100%;
         height: auto;
         transition: all 0.3s ease;
@@ -2216,7 +2238,7 @@ body {
         left: 25px;
         right: 25px;
         height: 2px;
-        background: rgb(255, 102, 0);
+        background: rgb(255, 102, 0) !important;
         transform: scaleX(0);
         transition: transform 0.3s ease;
     }
@@ -2254,7 +2276,7 @@ body {
 
     .submenu {
         position: static;
-        width: 280px;
+        width: 20s0px;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -2303,7 +2325,7 @@ body {
         left: 25px;
         right: 25px;
         height: 2px;
-        background: #ff0000;
+        background: rgb(255, 102, 0) !important;
         transform: scaleX(0);
         transition: transform 0.3s ease;
     }
@@ -2319,40 +2341,22 @@ body {
     }
 }
 
-@media screen and (max-width: 480px) {
-    .menu-bar {
-        padding: 10px 15px;
+@media (max-width: 600px) {
+    .icons i{
+        margin-right: -5px;
     }
-
-    .logo {
-        width: 120px;
+      .icons span {
+        display: none;
     }
-
-    .hamburger {
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
-    }
-
-    .icons i {
-        font-size: 22px;
-    }
-
-    nav {
-        width: 240px;
-        left: -240px;
-        padding: 70px 0 40px 0;          /* Giảm thêm chút trên màn siêu nhỏ */
-    }
-
-    nav a {
-        padding: 16px 24px;
-        font-size: 17px;
-    }
-
-    body {
-        padding-top: 70px;               /* Giữ nguyên, không cần giảm thêm */
+    .hero-section {
+        height: 360px !important;               
+        background-size: cover ;        
+        background-position: center 30% ;
     }
 }
+
+
+
 /* ========================== RESPONSIVE – SLIDER  ========================== */
 
 
@@ -2611,19 +2615,7 @@ body {
     }
 }
 
-@media (max-width: 600px) {
-    .icons i{
-        margin-right: -10px;
-    }
-      .icons span {
-        display: none;
-    }
-    .hero-section {
-        height: 360px !important;               
-        background-size: cover ;        
-        background-position: center 30% ;
-    }
-}
+
 
 
 
