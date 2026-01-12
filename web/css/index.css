@@ -2560,20 +2560,20 @@ body {
     }
 
     .hero-title {
-        font-size: 28px;   /* GIẢM */
+        font-size: 35px;   /* GIẢM */
         line-height: 1.3;
     }
 
     .hero-description {
-        font-size: 14px;   /* GIẢM */
+        font-size: 18px;   /* GIẢM */
         line-height: 1.5;
         margin-top: 10px;
     }
 
     .btn-view-more {
         padding: 10px 22px;
-        font-size: 14px;   /* GIẢM */
-        margin-top: 14px;
+        font-size: 16px;   /* GIẢM */
+        margin-top: 8px;
     }
 
     .hero-section::before {
