@@ -567,37 +567,6 @@ button:hover {
     line-height: 1.6;
 }
 
-/* --- BOOKING CALL TO ACTION --- */
-.booking-cta {
-    margin-top: 30px;
-    padding: 20px;
-    background: rgba(255, 102, 0, 0.1); /* Màu cam nhạt */
-    border-radius: 8px;
-    text-align: center;
-}
-
-.booking-cta p {
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #fff; /* Vì cột trái đang để nền đen */
-}
-
-.btn-booking {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #ff6600;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.btn-booking:hover {
-    background: #fff;
-    color: #ff6600;
-    transform: translateY(-3px);
-}
 /* ========================== FOOTER SECTION ========================== */
 .footer-section {
   width: 100%;
