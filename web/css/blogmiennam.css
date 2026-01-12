@@ -1141,7 +1141,7 @@ body {
         justify-content: space-between;
     }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1050px) {
     .footer-section {
         padding: 20px 50px; 
         gap: 40px;
@@ -1154,7 +1154,12 @@ body {
     }
     
     .footer-col p {
-        font-size: 14px; 
+        display: flex;      /* Đưa icon và chữ vào cùng hàng */
+        align-items: center; /* Căn giữa icon và chữ theo chiều dọc */
+        gap: 10px;          /* Khoảng cách cố định giữa Icon và Chữ (Xóa khoảng trắng thừa) */
+        margin-bottom: 12px; /* Khoảng cách giữa dòng Địa chỉ, Hotline, Email */
+        font-size: 14px;
+        line-height: 1.4; 
     }
 
     .footer-col h2 {
@@ -1194,6 +1199,8 @@ body {
         line-height: 1.6; 
         margin-bottom: 10px;
         text-align: center;
+        display: flex;          /* Sử dụng flex để quản lý icon và chữ */
+        justify-content: center;
         
     }
 
