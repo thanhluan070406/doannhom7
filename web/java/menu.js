@@ -1,90 +1,76 @@
 /* ======================== RESPONSIVE MENU ======================== */
 
-// Mở menu khi click hamburger
 document.querySelector('.hamburger').addEventListener('click', function() {
   document.querySelector('nav').classList.toggle('active');
   document.querySelector('.menu-overlay').classList.toggle('active');
   document.body.classList.toggle('menu-open');
 });
 
-// Đóng menu khi click overlay
 document.querySelector('.menu-overlay').addEventListener('click', function() {
   document.querySelector('nav').classList.remove('active');
   this.classList.remove('active');
   document.body.classList.remove('menu-open');
-  
-  // Đóng tất cả submenu
+
   document.querySelectorAll('.has-submenu').forEach(function(item) {
     item.classList.remove('active');
   });
 });
 
-// Đóng menu khi click nút X
 const closeBtn = document.querySelector('.close-menu');
 if (closeBtn) {
   closeBtn.addEventListener('click', function() {
     document.querySelector('nav').classList.remove('active');
     document.querySelector('.menu-overlay').classList.remove('active');
     document.body.classList.remove('menu-open');
-    
-    // Đóng tất cả submenu
+
     document.querySelectorAll('.has-submenu').forEach(function(item) {
       item.classList.remove('active');
     });
   });
 }
 
-// HOVER để hiện/ẩn submenu (chỉ mobile)
 document.querySelectorAll('.has-submenu').forEach(function(menuItem) {
   const link = menuItem.querySelector('a');
   const submenu = menuItem.querySelector('.submenu');
-  
-  // Hover vào menu item
+
   menuItem.addEventListener('mouseenter', function() {
     if (window.innerWidth <= 768) {
       this.classList.add('active');
     }
   });
   
-  // Rời chuột khỏi menu item (bao gồm cả submenu)
   menuItem.addEventListener('mouseleave', function() {
     if (window.innerWidth <= 768) {
       this.classList.remove('active');
     }
   });
   
-  // Click vào link (cho mobile touch và desktop)
   link.addEventListener('click', function(e) {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       
       const parent = this.parentElement;
       
-      // Đóng tất cả submenu khác
       document.querySelectorAll('.has-submenu').forEach(function(item) {
         if (item !== parent) {
           item.classList.remove('active');
         }
       });
       
-      // Toggle submenu hiện tại
       parent.classList.toggle('active');
     }
   });
 });
 
-// Xử lý khi resize window
 let resizeTimer;
 window.addEventListener('resize', function() {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(function() {
     if (window.innerWidth > 768) {
-      // Desktop: đóng menu mobile nếu đang mở
       document.querySelector('nav').classList.remove('active');
       document.querySelector('.menu-overlay').classList.remove('active');
       document.body.classList.remove('menu-open');
-      
-      // Xóa active class khỏi submenu
+    
       document.querySelectorAll('.has-submenu').forEach(function(item) {
         item.classList.remove('active');
       });
@@ -92,8 +78,8 @@ window.addEventListener('resize', function() {
   }, 250);
 });
 
-// menu.js - ĐÃ FIX RESPONSIVE PHÂN TRANG + LỌC VÙNG + TÌM KIẾM
 
+// menu.js - ĐÃ FIX RESPONSIVE PHÂN TRANG + LỌC VÙNG + TÌM KIẾM
 const searchInput = document.querySelector('.menu-search input');
 const searchBtn = document.querySelector('.search-btn');
 const menuRow = document.querySelector('.menu-row');
@@ -109,23 +95,21 @@ let currentQuery = '';
 let currentRegion = 'all';
 let currentFilteredItems = [];
 
-// Hàm tính số món mỗi trang theo kích thước màn hình
 function getItemsPerPage() {
     const width = window.innerWidth;
     if (width <= 480) {
-        return 8;   // Mobile nhỏ: 2 cột × 4 hàng
+        return 8;   
     } else if (width <= 767) {
-        return 12;  // Mobile/tablet: 3 cột × 4 hàng
+        return 12;  
     } else if (width <= 1024) {
-        return 8;   // Tablet: 2 cột × 4 hàng (có thể đổi thành 12 nếu muốn nhiều hơn)
+        return 8;   
     } else {
-        return 12;  // Desktop & Laptop: 12 món/trang là hợp lý
+        return 12;  
     }
 }
 
 let itemsPerPage = getItemsPerPage();
 
-// Lấy tên món cho gợi ý tìm kiếm
 menuItems.forEach(item => {
     const title = item.querySelector('h3').textContent.trim();
     allItemTitles.push(title);
@@ -134,55 +118,41 @@ menuItems.forEach(item => {
 function normalize(str) {
     return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
 }
-// 1. Thay thế toàn bộ hàm displayCurrentPage cũ bằng hàm này
 function displayCurrentPage() {
-    // Ẩn tất cả món trước
+  
     menuItems.forEach(item => {
         item.style.display = 'none';
-        item.style.animationName = 'none'; // Tắt animation để reset
+        item.style.animationName = 'none'; 
     });
 
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
 
-    // Lấy danh sách các món sẽ hiện ở trang này
     const itemsToShow = currentFilteredItems.slice(start, end);
 
     itemsToShow.forEach((item, index) => {
         item.style.display = 'block';
 
-        // --- PHẦN QUAN TRỌNG: RESET HIỆU ỨNG ---
-        
-        // 1. Tính toán lại độ trễ (Delay) dựa trên thứ tự hiển thị (0->11)
-        // thay vì thứ tự trong HTML (khiến trang 3 bị delay 0.5s)
-        // Món đầu tiên delay 0.1s, cứ thế tăng dần 0.05s
         let delayTime = 0.1 + (index * 0.05);
         item.style.animationDelay = delayTime + 's';
 
-        // 2. Kích hoạt lại animation FadeInUp
-        // Hack nhẹ: truy cập offsetWidth để trình duyệt nhận diện reset
         void item.offsetWidth; 
         item.style.animationName = 'fadeInUp'; 
     });
 }
 
-// 2. Thay thế hàm renderPagination cũ bằng hàm này (Thêm tính năng cuộn lên đầu)
 function renderPagination(totalItems) {
-    // Xóa các số trang cũ
     paginationContainer.querySelectorAll('.page-number').forEach(el => el.remove());
 
     const totalPages = totalItems === 0 ? 1 : Math.ceil(totalItems / itemsPerPage);
     const nextBtn = paginationContainer.querySelector('.page-btn:last-of-type');
     const prevBtn = paginationContainer.querySelector('.page-btn:first-of-type');
 
-    // Hàm hỗ trợ chuyển trang và cuộn lên
     const goToPage = (page) => {
         currentPage = page;
         displayCurrentPage();
         renderPagination(currentFilteredItems.length);
 
-        // --- TỰ ĐỘNG CUỘN LÊN ĐẦU DANH SÁCH ---
-        // Cuộn đến phần thanh tìm kiếm/đầu danh sách để khách không bị nhìn vào chân trang
         const topBar = document.querySelector('.top-content-bar');
         if (topBar) {
             topBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -194,15 +164,13 @@ function renderPagination(totalItems) {
         pageNum.classList.add('page-number');
         pageNum.textContent = i.toString().padStart(2, '0');
         if (i === currentPage) pageNum.classList.add('active');
-        
-        // Sự kiện click vào số trang
+
         pageNum.addEventListener('click', () => goToPage(i));
         
         paginationContainer.insertBefore(pageNum, nextBtn);
     }
 
-    // Sự kiện nút lùi (Prev)
-    // Clone lại nút để xóa event listener cũ (tránh bị double click)
+
     const newPrevBtn = prevBtn.cloneNode(true);
     prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
     
@@ -211,7 +179,6 @@ function renderPagination(totalItems) {
     };
     newPrevBtn.disabled = currentPage === 1;
 
-    // Sự kiện nút tiến (Next)
     const newNextBtn = nextBtn.cloneNode(true);
     nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
 
@@ -221,7 +188,6 @@ function renderPagination(totalItems) {
     newNextBtn.disabled = currentPage === totalPages || totalItems === 0;
 }
 
-// Lọc và hiển thị lại toàn bộ
 function filterAndDisplay() {
     menuRow.innerHTML = originalMenuHTML;
     menuItems = document.querySelectorAll('.menu-item');
@@ -363,7 +329,6 @@ window.addEventListener('resize', () => {
     }
 });
 
-// Khởi động ban đầu
 filterAndDisplay();
 
 
@@ -378,7 +343,7 @@ document.body.appendChild(drawerOverlay);
 function openMobileSidebar() {
     mobileSidebar.classList.add('active');
     drawerOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Chặn scroll nền
+    document.body.style.overflow = 'hidden'; 
 }
 
 function closeMobileSidebar() {
@@ -391,7 +356,6 @@ openDrawerBtn.addEventListener('click', openMobileSidebar);
 closeDrawerBtn.addEventListener('click', closeMobileSidebar);
 drawerOverlay.addEventListener('click', closeMobileSidebar);
 
-// Cũng dùng chung logic lọc danh mục cho drawer
 document.querySelectorAll('.mobile-sidebar-drawer li').forEach(item => {
     item.addEventListener('click', () => {
         document.querySelectorAll('.mobile-sidebar-drawer li').forEach(li => li.classList.remove('active'));
@@ -409,23 +373,21 @@ document.querySelectorAll('.mobile-sidebar-drawer li').forEach(item => {
         }
 
         filterAndDisplay();
-        closeMobileSidebar(); // Đóng drawer sau khi chọn
+        closeMobileSidebar();
     });
 });
 
 // XỬ LÝ LINK TỪ TRANG KHÁC VỚI #HASH (ví dụ menu.html#mien-nam)
 document.addEventListener('DOMContentLoaded', () => {
-    const hash = window.location.hash.substring(1); // Lấy phần sau # (ví dụ "mien-nam")
+    const hash = window.location.hash.substring(1); 
     if (hash) {
         const targetLi = document.getElementById(hash);
         if (targetLi) {
-            // Xóa class active cũ
+    
             sidebarItems.forEach(li => li.classList.remove('active'));
-            
-            // Thêm active cho mục mới → sáng đỏ + nền xám như ảnh
+     
             targetLi.classList.add('active');
             
-            // Set vùng lọc đúng
             if (hash === 'tat-ca') {
                 currentRegion = 'all';
             } else if (hash === 'mien-bac') {
@@ -436,12 +398,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentRegion = 'mien-nam';
             }
             
-            // Lọc và hiển thị món ăn tương ứng
             filterAndDisplay();
         }
     }
 });
-// Khởi động: hiển thị tất cả + active "Tất cả"
+
+
 filterAndDisplay();
 document.querySelector('.menu-sidebar li.active')?.classList.remove('active');
 document.querySelector('.menu-sidebar li:first-child').classList.add('active');
