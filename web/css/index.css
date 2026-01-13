@@ -546,7 +546,6 @@ body {
     animation: subtleMove 22s ease-in-out infinite alternate;
 }
 
-/* Dùng chung keyframes nhẹ */
 @keyframes subtleMove {
     0% {
         background-position: center 40%;
@@ -556,10 +555,9 @@ body {
     }
 }
 
-/* 2. Khối chữ (.nen-mon): Trượt chậm từ phải sang */
 .slide:nth-child(3) .nen-mon {
     opacity: 0;
-    transform: translateX(100px); /* bắt đầu từ bên phải ngoài khung */
+    transform: translateX(100px); 
     transition: opacity 1.4s ease 0.5s, transform 1.4s ease 0.5s;
 }
 
@@ -568,7 +566,6 @@ body {
     transform: translateX(0);
 }
 
-/* 3. Từng phần tử chữ hiện lần lượt từ phải sang, chậm rãi */
 .slide:nth-child(3) .tieu-de-nho,
 .slide:nth-child(3) .tieu-de {
     opacity: 0;
@@ -579,16 +576,15 @@ body {
 .slide:nth-child(3).active .tieu-de-nho {
     opacity: 1;
     transform: translateX(0);
-    transition-delay: 0.9s; /* hiện trước */
+    transition-delay: 0.9s; 
 }
 
 .slide:nth-child(3).active .tieu-de {
     opacity: 1;
     transform: translateX(0);
-    transition-delay: 1.4s; /* tiêu đề chính hiện sau, chậm mượt */
+    transition-delay: 1.4s; 
 }
 
-/* Reset animation khi slide không active */
 .slide:nth-child(3):not(.active) .nen-mon,
 .slide:nth-child(3):not(.active) .tieu-de-nho,
 .slide:nth-child(3):not(.active) .tieu-de {
@@ -596,7 +592,6 @@ body {
     transform: translateX(100px) !important;
 }
 
-/* Áp dụng hiệu ứng hover nổi khối giống Slide 1 & 2 (rất khuyến khích) */
 .slide:nth-child(3) .nen-mon:hover {
     transform: translateY(-12px) translateX(0) !important;
     background: rgba(0, 0, 0, 0.65);
@@ -2452,7 +2447,7 @@ body {
         font-size: 12px !important;
     }
     .slide:nth-child(2) .nen-mon {
-        bottom: 250px !important;
+        bottom: 290px !important;
         left: 30% !important;
         transform: translateX(-50%) !important; 
         padding: 10px 16px !important;
