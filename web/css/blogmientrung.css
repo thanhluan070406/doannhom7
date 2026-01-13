@@ -230,7 +230,6 @@ body {
     max-width: 380px;
 }
 /* ========== blog ========= */
-/* ========== blog ========= */
 .container {
   display: flex;
   max-width: 1200px;
@@ -240,7 +239,40 @@ body {
   border-radius: 8px;
   overflow: hidden;
 }
+.breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15); /* Nền kính mờ */
+    padding: 8px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
 
+.breadcrumb a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.breadcrumb .separator {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.breadcrumb .current {
+    color: #fde4bc;
+    font-weight: 600;
+    font-size: 14px;
+}
 /* ============ giữa trang ============= */
 .hero-banner {
     background-image: 
@@ -250,10 +282,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 350px;
+    height: 400px;
     position: relative;
     display: flex;
     align-items: flex-end;
+   text-align: center;
 }
 
 .title-content {
