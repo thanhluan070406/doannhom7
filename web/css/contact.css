@@ -955,3 +955,352 @@ button:hover {
         text-align: justify;
     }
 }
+
+
+
+
+/* ========================== NEW CONTACT DESIGN ========================== */
+:root {
+    --primary-color: #ff6600;
+    --dark-bg: #111;
+    --light-bg: #f8f9fa;
+    --text-gray: #666;
+    --border-radius: 12px;
+}
+
+/* --- Wrapper --- */
+.contact-wrapper {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Grid Layout --- */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: #fff;
+}
+
+/* --- Left Column: Form --- */
+.contact-form-card {
+    flex: 1.5; /* Chiếm 60% */
+    padding: 50px;
+}
+
+.form-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+}
+
+.form-desc {
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.modern-form .input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.modern-form .input-box {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.modern-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.modern-form input,
+.modern-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #fdfdfd;
+    transition: 0.3s;
+    outline: none;
+    box-sizing: border-box; /* Quan trọng để không bị vỡ khung */
+}
+
+.modern-form input:focus,
+.modern-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1);
+    background: #fff;
+}
+
+.btn-submit {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-submit:hover {
+    background: #e65c00;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3);
+}
+
+/* --- Right Column: Info (Dark Mode) --- */
+.contact-info-card {
+    flex: 1; /* Chiếm 40% */
+    background: var(--dark-bg);
+    color: #fff;
+    padding: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Thêm họa tiết nền nhẹ cho phần Info */
+.contact-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255,102,0,0.2) 0%, rgba(0,0,0,0) 70%);
+}
+
+.contact-info-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.info-intro {
+    color: #ccc;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.text-box h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.text-box p {
+    margin: 0;
+    color: #bbb;
+    font-size: 14px;
+}
+
+.opening-hours {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.opening-hours h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.opening-hours ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.opening-hours li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #bbb;
+    font-size: 14px;
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* --- Map Section --- */
+.modern-map {
+    width: 100%;
+    line-height: 0; /* Loại bỏ khoảng trắng dưới iframe */
+    filter: grayscale(20%); /* Làm màu bản đồ trầm xuống một chút cho sang */
+    transition: 0.5s;
+}
+
+.modern-map:hover {
+    filter: grayscale(0%);
+}
+
+/* --- FAQ Section --- */
+.modern-faq {
+    padding: 80px 20px;
+    background: var(--light-bg);
+}
+
+.faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-header h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.faq-header p {
+    color: var(--text-gray);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.faq-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.faq-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    border-color: rgba(255, 102, 0, 0.3);
+}
+
+.faq-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    background: rgba(255, 102, 0, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.faq-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.faq-content p {
+    margin: 0;
+    color: var(--text-gray);
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* --- Responsive CSS --- */
+@media (max-width: 992px) {
+    .contact-grid {
+        flex-direction: column;
+    }
+    
+    .contact-form-card, 
+    .contact-info-card {
+        flex: auto;
+        width: 100%;
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-form .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-title, .faq-header h2 {
+        font-size: 26px;
+    }
+    
+    .contact-info-card {
+        padding: 30px 20px;
+    }
+}
+
+
+
+
+
+

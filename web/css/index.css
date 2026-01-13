@@ -71,7 +71,6 @@ nav ul.nav-links {
     align-items: center;
 }
 
-/* Ẩn icon trong menu desktop */
 .nav-links > li > a i:first-child {
     display: none;
 }
@@ -98,7 +97,6 @@ nav ul.nav-links {
     color: #ff7a00;
 }
 
-/* Submenu Desktop */
 .submenu {
     position: absolute;
     top: 210%; 
@@ -222,7 +220,7 @@ body {
 
 .slide.active {
     opacity: 1;
-    pointer-events: auto; /* Slide hiện thì mới bắt được chuột */
+    pointer-events: auto; 
     z-index: 10;
 }
 
@@ -248,7 +246,6 @@ body {
 }
 
 
-/* SLIDE 1 */
 .slide:first-child .nen-mon {
     bottom: 70px !important; 
     left: 5% !important;
@@ -256,14 +253,12 @@ body {
 
 
 
-/* SLIDE 2 */
 .slide:nth-child(2) .nen-mon {
     bottom: 450px !important;
     left: 10%;
     padding: 18px 32px;
 }
 
-/* SLIDE 3  */
 .slide:nth-child(3) .nen-mon {
     bottom: 90px !important; 
     right: 8% !important; 
@@ -272,7 +267,6 @@ body {
 }
 /* ==================== NỘI DUNG CHỮ THEO TỪNG SLIDE ==================== */
 
-/* Slide 1 – EATOPIA siêu to */
 .slide:first-child .tieu-de {
     font-family: "Anton", sans-serif;
     font-size: 110px;
@@ -291,7 +285,7 @@ body {
     text-align: justify;
 }
 .slide:first-child .nut-menu {
-    display: inline-block;      /* Thêm để kiểm soát tốt hơn */
+    display: inline-block;      
     padding: 14px 36px;
     background: #ff6600;
     color: white;
@@ -303,7 +297,6 @@ body {
     margin-left: 0 !important;
 }
 
-/* Slide 2 */
 .slide:nth-child(2) .tieu-de-nho {
     font-family: "Inter", sans-serif;
     font-size: 26px;
@@ -323,7 +316,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Slide 3  */
 .slide:nth-child(3) .tieu-de-nho {
     font-family: "Inter", sans-serif;
     font-size: 26px;
@@ -346,10 +338,6 @@ body {
 
 
 /* ========================== animation SLIDER ========================== */
-
-/* ==================== ANIMATION SLIDER - SLIDE 1 (CẬP NHẬT MỚI NHẤT) ==================== */
-
-/* 1. Ảnh nền Slide 1: Chỉ fade-in + di chuyển rất chậm (gần như tĩnh, không zoom) */
 .slide:first-child {
     background-position: center center;
     background-size: cover;
@@ -362,7 +350,6 @@ body {
     animation: subtleMove 22s ease-in-out infinite alternate;
 }
 
-/* Hiệu ứng ảnh rất nhẹ: chỉ dịch chuyển nhẹ theo chiều dọc, không zoom */
 @keyframes subtleMove {
     0% {
         background-position: center 40%;
@@ -372,28 +359,22 @@ body {
     }
 }
 
-/* 2. Khối chữ (.nen-mon): Trượt chậm từ dưới lên */
-/* Code mới cho khung chứa (Chỉ định vị trí + lớp nổi, KHÔNG animation) */
 .slide:first-child .nen-mon {
     bottom: 70px !important;
     left: 8%;
     position: absolute;
-    z-index: 100; /* QUAN TRỌNG: Giúp khung nổi lên trên để ấn được nút */
-    /* TẠO BÓNG ĐỔ NGAY LÚC BÌNH THƯỜNG */
+    z-index: 100; 
+
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
-    /* Chuẩn bị cho hiệu ứng hover mượt mà */
     transition: all 0.35s ease;
 }
 
-/* --- BƯỚC 2: Hiệu ứng khi di chuột vào (Nẩy lên + Bóng đậm + Nền tối hơn) --- */
 .slide .nen-mon:hover {
-    transform: translateY(-12px) !important; /* Nẩy lên cao 12px */
+    transform: translateY(-12px) !important; 
     
-    /* Làm nền tối hơn và mờ ảo hơn */
     background: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(10px);
     
-    /* Bóng đổ to ra và đậm hơn để tạo cảm giác bay lên */
     box-shadow: 
         0 25px 50px rgba(0, 0, 0, 0.5),      
         0 0 20px rgba(255, 102, 0, 0.15);    
@@ -404,9 +385,7 @@ body {
     transform: translateY(0);
 }
 
-/* ==================== 1. ĐỊNH DẠNG CƠ BẢN (TRẠNG THÁI ẨN) ==================== */
 
-/* Tiêu đề & Mô tả: Ẩn đi, đẩy xuống dưới */
 .slide:first-child .tieu-de,
 .slide:first-child .mo-ta {
     opacity: 0;
@@ -414,7 +393,6 @@ body {
     transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Nút Menu: Định dạng ban đầu + Ẩn đi */
 .slide:first-child .nut-menu {
     display: inline-block;
     padding: 14px 36px;
@@ -427,66 +405,51 @@ body {
     text-decoration: none;
     cursor: pointer;
     position: relative; 
-    z-index: 101; /* Cao hơn container để chắc chắn ấn được */
-
-    /* Trạng thái ẩn của hiệu ứng load */
+    z-index: 101; 
     opacity: 0;
     transform: translateY(50px);
 
-    /* QUAN TRỌNG: Tách riêng Transition cho màu sắc (hover) và vị trí (load) */
-    /* 1. Transition cho việc đổi màu (nhanh 0.3s) */
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
-    /* 2. Transition cho hiệu ứng Load (sẽ được kích hoạt bởi class active) */
                 opacity 1s ease, transform 1s ease;
 }
 
-/* ==================== 2. TRẠNG THÁI KHI LOAD (ACTIVE) ==================== */
-
-/* Khi slide active: Tiêu đề hiện lên sau 0.8s */
 .slide:first-child.active .tieu-de {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.8s;
 }
 
-/* Khi slide active: Mô tả hiện lên sau 1.3s */
 .slide:first-child.active .mo-ta {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1.3s;
 }
 
-/* Khi slide active: Nút hiện lên sau 1.8s */
 .slide:first-child.active .nut-menu {
     opacity: 1;
     transform: translateY(0);
     transition: 
-        opacity 1s ease 1.8s,        /* Hiện ra: chờ 1.8s */
-        transform 1s ease 1.8s,      /* Trượt lên: chờ 1.8s */
-        background-color 0.3s ease 0s, /* Đổi màu nền: NGAY LẬP TỨC (0s) */
-        color 0.3s ease 0s,            /* Đổi màu chữ: NGAY LẬP TỨC (0s) */
+        opacity 1s ease 1.8s,        
+        transform 1s ease 1.8s,      
+        background-color 0.3s ease 0s, 
+        color 0.3s ease 0s,            
         box-shadow 0.3s ease 0s;
 }
 
-/* ==================== 3. HIỆU ỨNG HOVER (ĐỔI MÀU) ==================== */
-
 .slide:first-child .nut-menu:hover {
-    background-color: #ffffff; /* Nền trắng */
-    color: #ff6600;            /* Chữ cam */
-    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.5); /* Bóng đổ */
-    
-    /* CỰC KỲ QUAN TRỌNG: Gỡ bỏ delay khi hover */
-    /* Nếu không có dòng này, nút sẽ đợi 1.8s mới đổi màu */
+    background-color: #ffffff; 
+    color: #ff6600;            
+    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.5);
+
     transition-delay: 0s !important; 
 }
 
-/* ==================== 4. RESET KHI CHUYỂN SLIDE (ẨN LẠI) ==================== */
 .slide:first-child:not(.active) .tieu-de,
 .slide:first-child:not(.active) .mo-ta,
 .slide:first-child:not(.active) .nut-menu {
     opacity: 0 !important;
     transform: translateY(50px) !important;
-    transition-delay: 0s; /* Ẩn ngay lập tức không delay */
+    transition-delay: 0s; 
 }
 
 
@@ -495,8 +458,6 @@ body {
 
 
 /* ==================== ANIMATION SLIDER 2 - TRƯỢT TỪ TRÁI SANG (CHẬM MƯỢT) ==================== */
-
-/* 1. Ảnh nền Slide 2: Giữ hiệu ứng nhẹ, gần như tĩnh (giống Slide 1) */
 .slide:nth-child(2) {
     background-position: center center;
     background-size: cover;
@@ -518,10 +479,9 @@ body {
     }
 }
 
-/* 2. Khối chữ (.nen-mon): Trượt chậm từ trái sang */
 .slide:nth-child(2) .nen-mon {
     opacity: 0;
-    transform: translateX(-100px); /* bắt đầu từ bên trái ngoài khung */
+    transform: translateX(-100px); 
     transition: opacity 1.4s ease 0.5s, transform 1.4s ease 0.5s;
 }
 
@@ -530,7 +490,6 @@ body {
     transform: translateX(0);
 }
 
-/* 3. Từng phần tử chữ hiện lần lượt từ trái sang, chậm rãi */
 .slide:nth-child(2) .tieu-de-nho,
 .slide:nth-child(2) .tieu-de {
     opacity: 0;
@@ -541,16 +500,15 @@ body {
 .slide:nth-child(2).active .tieu-de-nho {
     opacity: 1;
     transform: translateX(0);
-    transition-delay: 0.9s; /* hiện trước */
+    transition-delay: 0.9s; 
 }
 
 .slide:nth-child(2).active .tieu-de {
     opacity: 1;
     transform: translateX(0);
-    transition-delay: 1.4s; /* tiêu đề chính hiện sau, chậm mượt */
+    transition-delay: 1.4s;
 }
 
-/* Reset animation khi slide không active */
 .slide:nth-child(2):not(.active) .nen-mon,
 .slide:nth-child(2):not(.active) .tieu-de-nho,
 .slide:nth-child(2):not(.active) .tieu-de {
@@ -588,7 +546,6 @@ body {
     animation: subtleMove 22s ease-in-out infinite alternate;
 }
 
-/* Dùng chung keyframes nhẹ */
 @keyframes subtleMove {
     0% {
         background-position: center 40%;
@@ -598,10 +555,9 @@ body {
     }
 }
 
-/* 2. Khối chữ (.nen-mon): Trượt chậm từ phải sang */
 .slide:nth-child(3) .nen-mon {
     opacity: 0;
-    transform: translateX(100px); /* bắt đầu từ bên phải ngoài khung */
+    transform: translateX(100px); 
     transition: opacity 1.4s ease 0.5s, transform 1.4s ease 0.5s;
 }
 
@@ -610,7 +566,6 @@ body {
     transform: translateX(0);
 }
 
-/* 3. Từng phần tử chữ hiện lần lượt từ phải sang, chậm rãi */
 .slide:nth-child(3) .tieu-de-nho,
 .slide:nth-child(3) .tieu-de {
     opacity: 0;
@@ -621,16 +576,15 @@ body {
 .slide:nth-child(3).active .tieu-de-nho {
     opacity: 1;
     transform: translateX(0);
-    transition-delay: 0.9s; /* hiện trước */
+    transition-delay: 0.9s; 
 }
 
 .slide:nth-child(3).active .tieu-de {
     opacity: 1;
     transform: translateX(0);
-    transition-delay: 1.4s; /* tiêu đề chính hiện sau, chậm mượt */
+    transition-delay: 1.4s; 
 }
 
-/* Reset animation khi slide không active */
 .slide:nth-child(3):not(.active) .nen-mon,
 .slide:nth-child(3):not(.active) .tieu-de-nho,
 .slide:nth-child(3):not(.active) .tieu-de {
@@ -638,7 +592,6 @@ body {
     transform: translateX(100px) !important;
 }
 
-/* Áp dụng hiệu ứng hover nổi khối giống Slide 1 & 2 (rất khuyến khích) */
 .slide:nth-child(3) .nen-mon:hover {
     transform: translateY(-12px) translateX(0) !important;
     background: rgba(0, 0, 0, 0.65);
@@ -1029,23 +982,17 @@ body {
     
 }
 
-/* 1. Mặc định ẩn tiêu đề này trên máy tính */
 .ten-mien-mobile {
     display: none;
 }
 
-/* 2. Cài đặt cho màn hình điện thoại (dưới 768px) */
 @media (max-width: 750px) {
-
-
-    /* Dán vào BÊN TRONG @media (max-width: 768px) */
 
     .ten-mien-mobile {
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        /* Font & Màu sắc */
+
         font-family: "Anton", sans-serif;
         font-weight: 400;
         font-size: 22px;
@@ -1069,27 +1016,22 @@ body {
         background-color: #ff6600; 
         border-radius: 10px;
         box-shadow: 0 0 5px #ff6600, 0 0 10px rgba(255, 102, 0, 0.6);
-        
-        /* Kích thước ban đầu */
+
         width: 20px; 
-        
-        /* Hiệu ứng chuyển động */
         transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    /* --- KHI DI CHUỘT VÀO KHUNG --- */
     .KHUNG:hover .ten-mien-mobile::before,
     .KHUNG:hover .ten-mien-mobile::after {
         width: 25%; 
     }
-    /* QUAN TRỌNG: Xếp dọc nội dung trong KHUNG */
+
     .KHUNG {
-        flex-direction: column; /* Để chữ nằm TRÊN, ảnh nằm DƯỚI */
+        flex-direction: column; 
     }
 
-    /* Mở rộng chiều rộng cột PHẢI ra 100% vì không còn cột TRÁI */
     .KHUNG .PHAI {
-        width: 100% !important; /* Phủ kín chiều ngang */
+        width: 100% !important; 
         padding-left: 0;
     }
 }
@@ -1098,13 +1040,13 @@ body {
     .tua-trang {
         font-size: 24px;
         margin-bottom: 20px;
-        white-space: nowrap;        /* Thêm dòng này */
+        white-space: nowrap;        
         overflow: hidden;
     }
     .tua-trang::after {
-        width: 80px;      /* Giảm chiều rộng (Gốc là 140px) */
-        height: 3px;      /* Giảm độ dày cho thanh mảnh hơn (Gốc là 4px) */
-        margin-top: 8px;  /* Thu hẹp khoảng cách với chữ (Gốc là 12px) */
+        width: 80px;      
+        height: 3px;      
+        margin-top: 8px;  
     }
 
     .phan-tinh-hoa {
@@ -1527,12 +1469,12 @@ body {
 }
 
 /* ======================== RESPONSIVE MENU-FLEX – TỪ 768PX TRỞ XUỐNG ======================== */
-@media (max-width: 768px) { /* Thay đổi từ 480px thành 768px để bao gồm cả 760px */
+@media (max-width: 768px) { 
     .menu-flex {
         display: grid;
-        /* Chia 8 cột để tạo tỷ lệ 5:3 (tương đương 2.5 : 1.5) */
+ 
         grid-template-columns: repeat(8, 1fr); 
-        padding: 25px 20px; /* Tăng padding nhẹ cho màn hình lớn hơn */
+        padding: 25px 20px; 
         gap: 15px;
     }
 
@@ -1541,13 +1483,9 @@ body {
         max-width: 100%;
         margin: 0;
         border-radius: 12px;
-        /* Giữ chiều cao bằng nhau. Bạn có thể tăng lên 180px-200px nếu thấy 160px hơi thấp trên máy tính bảng */
         height: 180px; 
     }
 
-    /* --- THIẾT LẬP TỶ LỆ ĐAN XEN --- */
-
-    /* Hàng 1: Ô 1 rộng 5 phần (2.5) - Ô 2 rộng 3 phần (1.5) */
     .menu-item:nth-child(1) {
         grid-column: span 5;
     }
@@ -1555,7 +1493,6 @@ body {
         grid-column: span 3;
     }
 
-    /* Hàng 2: Ô 3 rộng 3 phần (1.5) - Ô 4 rộng 5 phần (2.5) */
     .menu-item:nth-child(3) {
         grid-column: span 3;
     }
@@ -1563,14 +1500,13 @@ body {
         grid-column: span 5;
     }
 
-    /* --- ĐIỀU CHỈNH NỘI DUNG (OVERLAY) --- */
     .menu-item .overlay {
         padding: 15px;
         height: 70%;
     }
 
     .menu-item .overlay .title {
-        font-size: 22px; /* Tăng nhẹ font chữ cho màn hình 760px dễ đọc hơn */
+        font-size: 22px; 
         white-space: normal;
         line-height: 1.2;
     }
@@ -1902,7 +1838,6 @@ body {
 
 /* ================= HIỆU ỨNG LƯỚT & KHẮC PHỤC HOVER ================= */
 
-/* 1. Trạng thái ẩn (Lúc chưa lướt tới) */
 .hieu-ung-luot {
     opacity: 0;
     transform: translateY(60px); 
@@ -1910,22 +1845,18 @@ body {
     visibility: hidden; 
 }
 
-/* 2. Trạng thái hiện (SỬA: Bỏ !important ở transform để không bị khóa vị trí) */
 .hieu-ung-luot.len-hinh {
     opacity: 1 !important;
-    transform: translateY(0); /* Đã xóa !important */
+    transform: translateY(0); 
     visibility: visible !important;
 }
 
-/* 3. QUAN TRỌNG: Hồi sinh hiệu ứng nảy khi di chuột */
-/* Khi đã hiện lên (len-hinh) mà di chuột vào (hover) thì phải nảy lên */
 .menu-item.hieu-ung-luot.len-hinh:hover {
-    transform: translateY(-10px) !important; /* Ép nảy lên 10px */
-    transition: transform 0.4s ease !important; /* Chỉnh lại tốc độ nảy cho nhanh (0.4s) thay vì chậm (1s) */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Giữ bóng đổ đẹp */
+    transform: translateY(-10px) !important; 
+    transition: transform 0.4s ease !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); 
 }
 
-/* 4. Độ trễ (Giữ nguyên) */
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
@@ -2171,7 +2102,6 @@ body {
         padding-top: 70px;               
     }
 
-    /* NÚT ĐÓNG X */
     .close-menu {
         display: block;
         position: absolute;
@@ -2190,7 +2120,6 @@ body {
         transform: rotate(90deg);
     }
 
-    /* SIDEBAR MENU */
     nav {
         position: fixed;
         top: 0;
@@ -2247,7 +2176,6 @@ body {
         text-align: center;
     }
 
-    /* Gạch ngang khi hover */
     .nav-links > li > a::after {
         content: '';
         position: absolute;
@@ -2269,8 +2197,6 @@ body {
         color: #000;
         width: 280px;
     }
-
-    /* Mũi tên - luôn hiển thị trên mobile */
     .arrow {
         margin-left: 10px;
         transition: all 0.3s ease;
@@ -2280,12 +2206,10 @@ body {
         flex-shrink: 0;
     }
 
-    /* Xoay mũi tên khi active */
     .has-submenu.active > a .arrow {
         transform: rotate(180deg);
     }
 
-    /* SUBMENU - Nằm bên dưới THỰC ĐƠN */
     .has-submenu {
         display: block;
         width: 100%;
@@ -2305,7 +2229,6 @@ body {
         transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     }
 
-    /* Hiển thị submenu khi active */
     .has-submenu.active .submenu {
         max-height: 500px;
         opacity: 1;
@@ -2334,7 +2257,6 @@ body {
         border-bottom: none;
     }
 
-    /* Gạch ngang cho submenu */
     .submenu li a::after {
         content: '';
         position: absolute;
@@ -2402,18 +2324,15 @@ body {
     }
 
     .slide:nth-child(2) .nen-mon {
-        bottom: 340px !important;
+        bottom: 380px !important;
     
-        /* SỬA LẠI: Để % nhỏ để bám lề trái */
         left: 8% !important; 
-        
-        /* QUAN TRỌNG: Xóa bỏ lệnh transform căn giữa đi */
+   
         transform: none !important; 
         
         padding: 10px 16px !important;
     }
 
-    /* Slide 2 & 3 */
     .slide:nth-child(2) .nen-mon,
     .slide:nth-child(3) .nen-mon {
         padding: 12px 22px !important;
@@ -2447,7 +2366,7 @@ body {
     .slide:first-child .nen-mon {
         bottom: 20px !important;
         left: 6% !important;
-        transform: translateY(0) !important; /* Bỏ translateX(-50%) để không bị kéo lệch nữa */
+        transform: translateY(0) !important; 
     }
 
 
@@ -2473,11 +2392,7 @@ body {
 
     .slide:nth-child(2) .nen-mon {
         bottom: 260px !important;
-    
-        /* SỬA LẠI: Để % nhỏ (5%) cho nó bám sát lề trái */
         left: 5% !important; 
-        
-        /* QUAN TRỌNG: Xóa lệnh căn giữa đi */
         transform: none !important; 
         
         padding: 10px 16px !important;
@@ -2503,12 +2418,10 @@ body {
         font-size: 30px !important;
     }
 
-    /* Tách riêng ra: Hover cho SLIDE 1 (Chỉ nẩy lên, KHÔNG dịch ngang) */
     .slide:first-child .nen-mon:hover {
         transform: translateY(-12px) !important; 
     }
 
-    /* Hover cho SLIDE 2 (Vẫn giữ căn giữa như cũ) */
     .slide:nth-child(2) .nen-mon:hover {
         transform: translateX(-50%) translateY(-12px) !important;
     }
@@ -2534,12 +2447,15 @@ body {
         font-size: 12px !important;
     }
     .slide:nth-child(2) .nen-mon {
-        bottom: 250px !important;
+        bottom: 290px !important;
         left: 30% !important;
         transform: translateX(-50%) !important; 
         padding: 10px 16px !important;
     }
-    .slide:nth-child(2) .tieu-de,
+
+    .slide:nth-child(2) .tieu-de {
+        font-size: 23px !important;
+    }
     .slide:nth-child(3) .tieu-de {
         font-size: 26px !important;
     }
@@ -2560,20 +2476,20 @@ body {
     }
 
     .hero-title {
-        font-size: 28px;   /* GIẢM */
+        font-size: 35px;   /* GIẢM */
         line-height: 1.3;
     }
 
     .hero-description {
-        font-size: 14px;   /* GIẢM */
+        font-size: 18px;   /* GIẢM */
         line-height: 1.5;
         margin-top: 10px;
     }
 
     .btn-view-more {
         padding: 10px 22px;
-        font-size: 14px;   /* GIẢM */
-        margin-top: 14px;
+        font-size: 16px;   /* GIẢM */
+        margin-top: 8px;
     }
 
     .hero-section::before {
