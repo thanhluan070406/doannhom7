@@ -752,6 +752,68 @@ body {
 
 
 /* ======================== RESPONSIVE MENU & TOP-BAR ======================== */
+@media(max-width: 1024px){
+    .top-bar {
+        padding: 6px 20px;
+    }
+
+    .top-bar span,
+    .top-bar a {
+        font-size: 12px;
+        white-space: nowrap;  
+    }
+
+    .top-right {
+        display: flex;
+        gap: 14px;
+        flex-wrap: nowrap;    
+    }
+    /* ===== MENU BAR ===== */
+    .menu-bar {
+        padding: 8px 24px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    nav ul.nav-links {
+        display: flex;
+        gap: 18px;
+        white-space: nowrap; 
+    }
+
+    nav ul.nav-links li a {
+        font-size: 13px;
+        padding: 6px 4px;
+    }
+
+    nav ul.nav-links .arrow {
+        font-size: 11px;
+    }
+    .icons span {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .icons {
+        padding: 6px 8px;
+    }
+
+    .icons i {
+        font-size: 12px;
+    }
+
+    .submenu {
+        top: 151%; 
+        min-width: 140px !important;
+    }
+    
+    .submenu li a {
+        padding: 9px 18px !important;
+        font-size: 14px !important;
+    }
+}
 @media screen and (max-width: 768px) {
     .top-bar {
         display: none;
@@ -997,45 +1059,14 @@ body {
     }
 }
 
-@media screen and (max-width: 480px) {
-  .menu-bar {
-    height: 70px;
-    padding: 0px 15px;
-  }
-
-  .logo {
-    width: 120px;
-  }
-
-  .hamburger {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .icons {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .icons i {
-    font-size: 22px;
-  }
-
-  nav {
-    width: 220px;
-    left: -240px;
-    padding: 110px 15px 40px 0; /* Vẫn bỏ padding-left */
-  }
-
-  nav a {
-    padding: 18px 20px; /* Giảm nhẹ trên mobile nhỏ */
-  }
-
-  body {
-    padding-top: 70px;
-  }
+@media (max-width: 600px) {
+    .icons i{
+        margin-right: -5px;
+    }
+      .icons span {
+        display: none;
+    }
 }
-
 /* ========================== RESPONSIVE – FOOTER SECTION ========================== */
 @media (max-width: 1440px) {
     .footer-section {
