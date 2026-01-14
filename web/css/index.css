@@ -2366,7 +2366,7 @@ body {
     .nen-mon {
         padding: 14px 20px !important;   
         border-radius: 18px !important;
-        max-width: 290px !important;       
+        max-width: 250px !important;       
         width: auto !important;
         backdrop-filter: blur(8px);      
     }
@@ -2455,7 +2455,6 @@ body {
         font-size: 12px !important;
     }
     .slide:nth-child(2) .nen-mon {
-        bottom: 290px !important;
         left: 30% !important;
         transform: translateX(-50%) !important; 
         padding: 10px 16px !important;
@@ -2576,10 +2575,10 @@ body {
     }
     
     .footer-col p {
-        display: flex;      /* Đưa icon và chữ vào cùng hàng */
-        align-items: center; /* Căn giữa icon và chữ theo chiều dọc */
-        gap: 10px;          /* Khoảng cách cố định giữa Icon và Chữ (Xóa khoảng trắng thừa) */
-        margin-bottom: 12px; /* Khoảng cách giữa dòng Địa chỉ, Hotline, Email */
+        display: flex;     
+        align-items: center; 
+        gap: 10px;          
+        margin-bottom: 12px; 
         font-size: 14px;
         line-height: 1.4; 
     }
@@ -2666,7 +2665,7 @@ body {
 .welcome-section {
     padding: 100px 40px;
     background: #fff;
-    overflow: hidden; /* Quan trọng để che phần tử khi trượt từ ngoài vào */
+    overflow: hidden; 
 }
 
 .container-welcome {
@@ -2677,15 +2676,14 @@ body {
     gap: 80px;
 }
 
-/* --- 1. CỘT CHỮ --- */
+
 .welcome-text {
     flex: 1;
-    opacity: 0; /* Ẩn mặc định để chờ JS kích hoạt */
+    opacity: 0; 
     transform: translateY(50px);
     transition: all 1s ease-out;
 }
 
-/* Class này sẽ được JS thêm vào khi cuộn tới */
 .welcome-text.active {
     opacity: 1;
     transform: translateY(0);
@@ -2720,7 +2718,6 @@ body {
     text-align: justify;
 }
 
-/* Các icon tròn */
 .welcome-features {
     display: flex;
     gap: 40px;
@@ -2737,7 +2734,7 @@ body {
 .icon-circle {
     width: 60px;
     height: 60px;
-    background: #fff3e6; /* Màu cam nhạt nền */
+    background: #fff3e6; 
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2750,7 +2747,6 @@ body {
     font-size: 24px;
 }
 
-/* Hiệu ứng hover vào icon */
 .w-item:hover .icon-circle {
     background: #ff6600;
     transform: translateY(-5px);
@@ -2767,14 +2763,13 @@ body {
     font-size: 14px;
 }
 
-/* Nút bấm */
 .btn-welcome {
     padding: 16px 36px;
     background: #222;
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    border-radius: 30px; /* Bo tròn mềm mại */
+    border-radius: 30px; 
     transition: all 0.3s ease;
     display: inline-block;
     font-family: "Inter", sans-serif;
@@ -2786,16 +2781,14 @@ body {
     box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4);
 }
 
-/* --- 2. CỘT ẢNH & HIỆU ỨNG --- */
 .welcome-img {
     flex: 1;
     position: relative;
     opacity: 0; 
-    transform: translateX(100px); /* Dịch sang phải */
-    transition: all 1.2s ease-out; /* Chậm hơn chữ một chút */
+    transform: translateX(100px); 
+    transition: all 1.2s ease-out; 
 }
 
-/* Class kích hoạt ảnh */
 .welcome-img.active {
     opacity: 1;
     transform: translateX(0);
@@ -2811,27 +2804,23 @@ body {
     width: 100%;
     border-radius: 20px;
     display: block;
-    /* Animation: Ảnh trôi nhẹ lên xuống */
     animation: floatImage 6s ease-in-out infinite;
     transition: transform 0.5s ease;
 }
 
-/* Hiệu ứng Zoom khi hover vào ảnh */
 .img-wrapper:hover .floating-img {
-    transform: scale(1.05); /* Phóng to nhẹ, animation float vẫn chạy */
+    transform: scale(1.05); 
 }
 
-/* Animation Keyframes: Trôi bồng bềnh */
 @keyframes floatImage {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-15px); /* Trôi lên 15px */
+        transform: translateY(-15px); 
     }
 }
 
-/* Badge số năm kinh nghiệm */
 .exp-badge {
     position: absolute;
     bottom: -30px;
@@ -2842,15 +2831,13 @@ body {
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 15px 35px rgba(255, 102, 0, 0.4);
-    
-    /* Hiệu ứng nảy (Pop in) */
+
     opacity: 0;
     transform: scale(0);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng đàn hồi */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     transition-delay: 0.8s; /* Hiện ra cuối cùng */
 }
 
-/* Khi cha (.welcome-img) active thì con (.exp-badge) mới hiện */
 .welcome-img.active .exp-badge {
     opacity: 1;
     transform: scale(1);
@@ -2871,7 +2858,6 @@ body {
     display: block;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 900px) {
     .welcome-section {
         padding: 50px 20px;
@@ -2884,7 +2870,7 @@ body {
     }
     
     .welcome-text, .welcome-img {
-        transform: translateY(30px); /* Mobile chỉ cần trượt lên đơn giản */
+        transform: translateY(30px); 
     }
     
     .main-title {
