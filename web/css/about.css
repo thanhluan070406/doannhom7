@@ -196,7 +196,38 @@ a{
 .close-menu {
     display: none;
 }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+    }
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto; /* Slide hiện thì mới bắt được chuột */
+    z-index: 10;
+}
+
+.nho-hon {
+    max-width: 380px;
+}
 /* ======================================================================= */
 :root {
     --primary-color: #ff6600;
