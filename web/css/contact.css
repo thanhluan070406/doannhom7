@@ -208,7 +208,13 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
-
+:root {
+    --primary-color: #ff6600;
+    --dark-bg: #111;
+    --light-bg: #f8f9fa;
+    --text-gray: #666;
+    --border-radius: 12px;
+}
 .slider {
     position: relative;
     width: 100%;
@@ -276,248 +282,238 @@ body {
     font-size: 20px;
 }
 /* ========================== KHỐI LIÊN HỆ CHÍNH ========================== */
-.lien-he-container {
+/* --- Wrapper --- */
+.contact-wrapper {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-container {
     max-width: 1200px;
-    margin: 60px auto;
-    display: flex;
-    gap: 30px;
-    padding: 0 20px;
+    margin: 0 auto;
 }
 
-/* CỘT TRÁI - Thông tin */
-.cot-trai {
-    width: 35%;
-    border: 1px solid #eee;
-    padding: 40px;
+/* --- Grid Layout --- */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border-radius: var(--border-radius);
+    overflow: hidden;
     background: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    border-radius: 8px;
 }
 
-.cot-trai h2 {
-    font-size: 24px;
-    border-bottom: 2px solid #ff6600; /* Thêm gạch chân cam cho tiêu đề */
-    display: inline-block;
+/* --- Left Column: Form --- */
+.contact-form-card {
+    flex: 1.5; /* Chiếm 60% */
+    padding: 50px;
+}
+
+.form-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+}
+
+.form-desc {
+    color: var(--text-gray);
     margin-bottom: 30px;
-    padding-bottom: 5px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-.info-item {
-    margin-bottom: 25px;
-    transition: 0.3s;
-}
-
-.info-item:hover {
-    transform: translateX(10px); /* Nhích nhẹ sang phải khi hover */
-}
-
-.info-item i {
-    color: #ff6600 !important; /* Đổi icon sang màu cam đặc trưng */
-    font-size: 20px;
-}
-
-/* ========================== CÂN CHỈNH CÁC Ô NHẬP LIỆU ========================== */
-.top-inputs {
+.modern-form .input-group {
     display: flex;
-    gap: 20px; /* Tăng khoảng cách giữa các ô cho thoáng */
+    gap: 20px;
+}
+
+.modern-form .input-box {
     margin-bottom: 20px;
     width: 100%;
 }
 
-/* Chia đều 3 cột bằng nhau để Name, Email và Subject thẳng hàng tuyệt đối */
-.top-inputs input {
-    flex: 1; /* Mỗi ô chiếm 1 phần bằng nhau */
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    outline: none;
-    transition: all 0.3s ease;
+.modern-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
 }
 
-/* Hiệu ứng khi nhấn vào ô nhập liệu */
-.top-inputs input:focus, 
-textarea:focus {
-    border-color: #ff6600; /* Màu cam đồng bộ với menu */
-    box-shadow: 0 0 5px rgba(255, 102, 0, 0.2);
-}
-
-/* Chỉnh lại phần Form để nút bấm căn giữa */
-.cot-phai form {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Đảm bảo textarea cũng bo góc đồng bộ */
-textarea {
+.modern-form input,
+.modern-form textarea {
     width: 100%;
-    border-radius: 4px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    margin-bottom: 25px;
-    resize: vertical; /* Cho phép kéo dãn theo chiều dọc */
-}
-
-/* Nút Submit căn giữa */
-button {
-    align-self: center; /* Đưa nút vào giữa cột */
-    padding: 12px 50px;
-    background: #000;
-    color: #fff;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 14px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #fdfdfd;
     transition: 0.3s;
-    text-transform: uppercase;
+    outline: none;
+    box-sizing: border-box; /* Quan trọng để không bị vỡ khung */
 }
 
-button:hover {
-    background: #ff6600;
-    transform: translateY(-2px);
-}
-/* Tổng bố cục */
-.map-section {
-    width: 100%;
+.modern-form input:focus,
+.modern-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1);
     background: #fff;
 }
 
-/* Ô tìm kiếm */
-.search-box {
-    padding: 15px;
-    border-bottom: 1px solid #dcdcdc;
-}
-
-.search-box input {
-    width: 320px;
-    padding: 15px 20px;
-    font-size: 20px;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    outline: none;
-}
-/* Ô tìm kiếm */
-.search-box {
-    padding: 0 0 20px 0; /* gọn lại để thẳng hàng */
-    border: none;        /* bỏ border dưới */
-}
-
-.search-box input {
-    width: 100%;         /* full chiều ngang cột trái */
-    padding: 12px 15px;
-    font-size: 18px;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    outline: none;
-}
-
-
-.search-box input:focus {
-    border-color: #999;
-}
-
-/* Bố cục main */
-.map-content {
-    display: flex;
-    width: 100%;
-}
-
-/* Cột trái */
-.left-info {
-    width: 45%;
-    border-right: 1px solid #e0e0e0;
-}
-
-.location-title {
-    display: flex;
+.btn-submit {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
-    font-size: 28px;
-    font-weight: bold;
+    gap: 10px;
 }
 
-.location-title i {
-    color: red;
-    font-size: 35px;
+.btn-submit:hover {
+    background: #e65c00;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3);
 }
 
-.location-detail {
-    margin-top: 18px;
-    font-size: 17px;
+/* --- Right Column: Info (Dark Mode) --- */
+.contact-info-card {
+    flex: 1; /* Chiếm 40% */
+    background: var(--dark-bg);
+    color: #fff;
+    padding: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Thêm họa tiết nền nhẹ cho phần Info */
+.contact-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255,102,0,0.2) 0%, rgba(0,0,0,0) 70%);
+}
+
+.contact-info-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.info-intro {
+    color: #ccc;
+    margin-bottom: 30px;
     line-height: 1.6;
 }
 
-/* Cột phải (ảnh Google Maps) */
-.right-map {
-    width: 55%;
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
-.right-map iframe{
-    width: 100%;
-    height: 100%;
-    display: block;
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    flex-shrink: 0;
 }
 
-/* Khung popup */
-.map-popup {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 350px;
-    background: #fff;
-    border-radius: 4px;
-    padding: 15px 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    z-index: 10;
+.text-box h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    font-weight: 600;
 }
 
-/* Nội dung bên trái */
-.popup-content h3 {
+.text-box p {
     margin: 0;
-    font-size: 20px;
-    font-weight: 700;
+    color: #bbb;
+    font-size: 14px;
 }
 
-.popup-content p {
-    margin: 5px 0 10px 0;
-    font-size: 15px;
+.opening-hours {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Link màu xanh */
-.popup-link,
-.popup-direction {
-    color: #0066ff;
-    font-size: 15px;
-    text-decoration: none;
+.opening-hours h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
-.popup-link:hover,
-.popup-direction:hover {
-    text-decoration: underline;
+.opening-hours ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Khối bên phải gồm mũi tên + chữ Chỉ đường */
-.popup-right {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    text-align: center;
+.opening-hours li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #bbb;
+    font-size: 14px;
 }
 
-.popup-right i {
-    font-size: 26px;
-    color: black;
-    display: block;
-    margin-bottom: 2px;
-}
-.right-map {
-    position: relative;
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
 }
 
-/* --- FAQ SECTION --- */ /* Câu hỏi thường gặp */
-.faq-section {
-    padding: 80px 40px;
-    background-color: #ffffff;
+.social-links a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* --- Map Section --- */
+.modern-map {
+    width: 100%;
+    line-height: 0; /* Loại bỏ khoảng trắng dưới iframe */
+    filter: grayscale(20%); /* Làm màu bản đồ trầm xuống một chút cho sang */
+    transition: 0.5s;
+}
+
+.modern-map:hover {
+    filter: grayscale(0%);
+}
+
+/* --- FAQ Section --- */
+.modern-faq {
+    padding: 80px 20px;
+    background: var(--light-bg);
 }
 
 .faq-container {
@@ -525,57 +521,96 @@ button:hover {
     margin: 0 auto;
 }
 
-.section-title {
+.faq-header {
     text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    margin-bottom: 10px;
-    color: #1a1a1a;
+    margin-bottom: 50px;
 }
 
-.section-subtitle {
-    text-align: center;
-    color: #777;
-    margin-bottom: 50px;
-    font-size: 18px;
+.faq-header h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.faq-header p {
+    color: var(--text-gray);
 }
 
 .faq-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia 2 cột */
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
-.faq-item {
-    background: #fdfdfd;
-    padding: 25px;
+.faq-card {
+    background: #fff;
+    padding: 30px;
     border-radius: 12px;
-    border-left: 4px solid #f3d9b1; /* Điểm nhấn màu vàng đồng */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-.faq-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.faq-item h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-    color: #1a1a1a;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 20px;
+    transition: 0.3s;
+    border: 1px solid #eee;
 }
 
-.faq-item h3 i {
-    color: #f3d9b1;
+.faq-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    border-color: rgba(255, 102, 0, 0.3);
 }
 
-.faq-item p {
-    color: #555;
+.faq-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    background: rgba(255, 102, 0, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.faq-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.faq-content p {
+    margin: 0;
+    color: var(--text-gray);
     line-height: 1.6;
+    font-size: 15px;
+}
+
+/* --- Responsive CSS --- */
+@media (max-width: 992px) {
+    .contact-grid {
+        flex-direction: column;
+    }
+    
+    .contact-form-card, 
+    .contact-info-card {
+        flex: auto;
+        width: 100%;
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-form .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-title, .faq-header h2 {
+        font-size: 26px;
+    }
+    
+    .contact-info-card {
+        padding: 30px 20px;
+    }
 }
 
 /* ========================== FOOTER SECTION ========================== */
@@ -960,349 +995,6 @@ button:hover {
     .footer-col>.text {
         margin-bottom: 15px;
         text-align: justify;
-    }
-}
-
-
-
-
-/* ========================== NEW CONTACT DESIGN ========================== */
-:root {
-    --primary-color: #ff6600;
-    --dark-bg: #111;
-    --light-bg: #f8f9fa;
-    --text-gray: #666;
-    --border-radius: 12px;
-}
-
-/* --- Wrapper --- */
-.contact-wrapper {
-    background-color: #ffffff;
-    padding: 80px 20px;
-    font-family: 'Inter', sans-serif;
-}
-
-.contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* --- Grid Layout --- */
-.contact-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    background: #fff;
-}
-
-/* --- Left Column: Form --- */
-.contact-form-card {
-    flex: 1.5; /* Chiếm 60% */
-    padding: 50px;
-}
-
-.form-title {
-    font-size: 32px;
-    margin-bottom: 10px;
-    color: #333;
-    font-weight: 700;
-}
-
-.form-desc {
-    color: var(--text-gray);
-    margin-bottom: 30px;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.modern-form .input-group {
-    display: flex;
-    gap: 20px;
-}
-
-.modern-form .input-box {
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.modern-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333;
-}
-
-.modern-form input,
-.modern-form textarea {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    font-size: 15px;
-    background: #fdfdfd;
-    transition: 0.3s;
-    outline: none;
-    box-sizing: border-box; /* Quan trọng để không bị vỡ khung */
-}
-
-.modern-form input:focus,
-.modern-form textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1);
-    background: #fff;
-}
-
-.btn-submit {
-    background: var(--primary-color);
-    color: #fff;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-submit:hover {
-    background: #e65c00;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3);
-}
-
-/* --- Right Column: Info (Dark Mode) --- */
-.contact-info-card {
-    flex: 1; /* Chiếm 40% */
-    background: var(--dark-bg);
-    color: #fff;
-    padding: 50px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Thêm họa tiết nền nhẹ cho phần Info */
-.contact-info-card::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(255,102,0,0.2) 0%, rgba(0,0,0,0) 70%);
-}
-
-.contact-info-card h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-.info-intro {
-    color: #ccc;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.info-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.icon-box {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    flex-shrink: 0;
-}
-
-.text-box h4 {
-    margin: 0 0 5px 0;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.text-box p {
-    margin: 0;
-    color: #bbb;
-    font-size: 14px;
-}
-
-.opening-hours {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.opening-hours h4 {
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-.opening-hours ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.opening-hours li {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    color: #bbb;
-    font-size: 14px;
-}
-
-.social-links {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
-}
-
-.social-links a {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    transition: 0.3s;
-    border: 1px solid transparent;
-}
-
-.social-links a:hover {
-    background: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-/* --- Map Section --- */
-.modern-map {
-    width: 100%;
-    line-height: 0; /* Loại bỏ khoảng trắng dưới iframe */
-    filter: grayscale(20%); /* Làm màu bản đồ trầm xuống một chút cho sang */
-    transition: 0.5s;
-}
-
-.modern-map:hover {
-    filter: grayscale(0%);
-}
-
-/* --- FAQ Section --- */
-.modern-faq {
-    padding: 80px 20px;
-    background: var(--light-bg);
-}
-
-.faq-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.faq-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.faq-header h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    color: #222;
-}
-
-.faq-header p {
-    color: var(--text-gray);
-}
-
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.faq-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    transition: 0.3s;
-    border: 1px solid #eee;
-}
-
-.faq-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-    border-color: rgba(255, 102, 0, 0.3);
-}
-
-.faq-icon {
-    font-size: 24px;
-    color: var(--primary-color);
-    background: rgba(255, 102, 0, 0.1);
-    padding: 12px;
-    border-radius: 8px;
-}
-
-.faq-content h3 {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.faq-content p {
-    margin: 0;
-    color: var(--text-gray);
-    line-height: 1.6;
-    font-size: 15px;
-}
-
-/* --- Responsive CSS --- */
-@media (max-width: 992px) {
-    .contact-grid {
-        flex-direction: column;
-    }
-    
-    .contact-form-card, 
-    .contact-info-card {
-        flex: auto;
-        width: 100%;
-        padding: 40px 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .modern-form .input-group {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-title, .faq-header h2 {
-        font-size: 26px;
-    }
-    
-    .contact-info-card {
-        padding: 30px 20px;
     }
 }
 
