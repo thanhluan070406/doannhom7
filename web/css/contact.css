@@ -595,12 +595,36 @@ body {
 }
 
 @media (max-width: 768px) {
+    .contact-wrapper {
+        padding: 40px 10px;
+    }
+
+    .contact-grid {
+        flex-direction: column;
+        box-shadow: none; 
+        border-radius: 0;  
+    }
+
+    .contact-form-card, 
+    .contact-info-card {
+        padding: 30px 20px;
+        width: 100%;
+        box-sizing: border-box; 
+    }
+
     .modern-form .input-group {
         flex-direction: column;
         gap: 0;
     }
 
-    .faq-grid {
+    .text-box p {
+        word-break: break-all; 
+    }
+
+    .form-title, .faq-header h2 {
+        font-size: 24px;
+    }
+     .faq-grid {
         grid-template-columns: 1fr;
     }
 
