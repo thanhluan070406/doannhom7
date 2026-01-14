@@ -241,12 +241,12 @@ body {
 .h1-first{
     font-family: 'Cinzel', serif; 
     font-size: 60px;
-    padding: 10px;
+    padding: 5px;
 }
 .about {
   width: 100%;
   height: 400px;
-  background: url("../img/anh-slide-1.png") center / cover no-repeat;
+  background: url("../img/mientrung.svg") center / cover no-repeat;
   position: relative;
 }
 
@@ -273,7 +273,7 @@ body {
 .breadcrumb {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     background: rgba(255, 255, 255, 0.15); /* Nền kính mờ */
     padding: 8px 20px;
     border-radius: 30px;
