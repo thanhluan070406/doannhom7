@@ -91,3 +91,26 @@ window.addEventListener('resize', function() {
     }
   }, 250);
 });
+// ==================================================>
+ const likeBtn = document.getElementById("likeBtn");
+  const likeIcon = document.getElementById("likeIcon");
+  const likeCount = document.getElementById("likeCount");
+
+  let liked = false;
+  let count = 0;
+
+  likeBtn.addEventListener("click", () => {
+    liked = !liked;
+
+    if (liked) {
+      count = 1;
+      likeIcon.classList.remove("fa-regular");
+      likeIcon.classList.add("fa-solid", "liked");
+    } else {
+      count = 0;
+      likeIcon.classList.remove("fa-solid", "liked");
+      likeIcon.classList.add("fa-regular");
+    }
+
+    likeCount.textContent = count;
+  });

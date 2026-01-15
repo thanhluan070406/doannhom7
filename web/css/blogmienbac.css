@@ -404,6 +404,11 @@ body {
   text-transform: uppercase;
   margin-bottom: 15px;
 }
+.social-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .social-buttons button {
   background: none;
@@ -419,14 +424,22 @@ body {
   background-color: #f0f0f0;
   transform: scale(1.1);
 }
+
 .social-buttons button:nth-child(1) {
   background-color: red;
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .social-buttons button:nth-child(1):hover {
   background-color: red;
   transform: translateY(-3px);
+}
+
+.liked {
+  color: white;
 }
 
 .social-buttons button:nth-child(2) {
@@ -440,7 +453,7 @@ body {
 }
 
 .social-buttons button:nth-child(3) {
-  background-color: #000000;
+  background-color: #000;
   color: white;
 }
 
@@ -463,6 +476,7 @@ body {
   background-color: grey;
   color: white;
 }
+
 
 /* === (THEO DÕI CHÚNG TÔI) === */
 .join {
