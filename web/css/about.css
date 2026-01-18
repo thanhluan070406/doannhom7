@@ -452,6 +452,13 @@ body {
     border-bottom-color: var(--primary-color);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
+.values-header p {
+    font-size: 16px;
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .text-center {
     text-align: center;
 }
