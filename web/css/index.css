@@ -2548,6 +2548,14 @@ body {
     }
 }
 
+@media (max-width: 480px) {
+    .hero-section {
+        background-size: 200%; /* Phóng to ảnh lên 3.5 lần */
+        background-position: 65% center; /* Căn chỉnh vị trí ảnh để thấy bát phở */
+        height: 400px;
+    }
+}
+
 
 
 
