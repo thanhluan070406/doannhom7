@@ -250,7 +250,7 @@ body {
 .about {
   width: 100%;
   height: 400px;
-  background: url("../img/mientrung.svg") center / cover no-repeat;
+  background: url("../img/nen gioi thieu.jpg") center / cover no-repeat;
   position: relative;
 }
 
@@ -278,7 +278,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.15); /* Nền kính mờ */
+    background: rgba(255, 255, 255, 0.15); 
     padding: 8px 20px;
     border-radius: 30px;
     backdrop-filter: blur(5px);
@@ -373,7 +373,7 @@ body {
 .story-image {
     flex: 1;
     position: relative;
-    max-height: 420px;  
+    height: 420px;  
     overflow: hidden;
 }
 
@@ -385,6 +385,7 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     z-index: 2;
     position: relative;
+    object-position: center 40%;
 }
 
 /* Tạo khung viền trang trí sau ảnh */
@@ -469,7 +470,7 @@ body {
 .section-sub {
     font-size: 16px;
     max-width: 600px;
-    margin: 10px auto 0;
+    margin: 10px auto 10px;
     line-height: 1.6;
 }
 
