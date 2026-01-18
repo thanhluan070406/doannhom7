@@ -452,7 +452,9 @@ body {
     border-bottom-color: var(--primary-color);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
-
+.text-center {
+    text-align: center;
+}
 .icon-box {
     width: 70px;
     height: 70px;
