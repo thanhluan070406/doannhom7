@@ -329,8 +329,9 @@ body {
 }
 
 .ND p {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-align: justify;
+  line-height: 1.6;
 }
 
 .ND img {
