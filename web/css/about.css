@@ -385,6 +385,7 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     z-index: 2;
     position: relative;
+    object-position: center 40%;
 }
 
 /* Tạo khung viền trang trí sau ảnh */
