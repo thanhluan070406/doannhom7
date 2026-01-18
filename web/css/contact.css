@@ -253,15 +253,15 @@ body {
     font-size: 60px;
     padding: 10px;
 }
-.blog {
+.contact {
   width: 100%;
   height: 400px;
-  background: url("../img/mamcobac.jpg") center / cover no-repeat;
+  background: url("../img/Amthuc.svg") center / cover no-repeat;
   position: relative;
 }
 
 /* overlay */
-.blog::before {
+.contact::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -270,7 +270,7 @@ body {
 }
 
 /* chữ nằm trên overlay */
-.blog-header {
+.contact-header {
   position: relative;
   z-index: 2;
   color: #fff;
