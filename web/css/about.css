@@ -236,12 +236,16 @@ body {
     --bg-light: #f9f9f9;
     --font-heading: 'Inter', sans-serif; /* Hoặc font Playfair Display nếu có */
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* --- Common Utility --- */
 .h1-first{
     font-family: 'Cinzel', serif; 
     font-size: 60px;
-    padding: 5px;
+    padding: 10px;
 }
 .about {
   width: 100%;
@@ -273,7 +277,7 @@ body {
 .breadcrumb {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     background: rgba(255, 255, 255, 0.15); /* Nền kính mờ */
     padding: 8px 20px;
     border-radius: 30px;
@@ -309,7 +313,7 @@ body {
 .about-hero {
     position: relative;
     height: 450px;
-    background-image: url("./img/anh-slide-1.png"); /* Đảm bảo đường dẫn ảnh đúng */
+    background-image: url("./img/anh-slide-1.png"); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Hiệu ứng cuộn Parallax nhẹ */
