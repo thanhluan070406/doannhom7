@@ -236,17 +236,21 @@ body {
     --bg-light: #f9f9f9;
     --font-heading: 'Inter', sans-serif; /* Hoặc font Playfair Display nếu có */
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* --- Common Utility --- */
 .h1-first{
     font-family: 'Cinzel', serif; 
     font-size: 60px;
-    padding: 5px;
+    padding: 10px;
 }
 .about {
   width: 100%;
   height: 400px;
-  background: url("../img/mientrung.svg") center / cover no-repeat;
+  background: url("../img/nen gioi thieu.jpg") center / cover no-repeat;
   position: relative;
 }
 
@@ -273,8 +277,8 @@ body {
 .breadcrumb {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    background: rgba(255, 255, 255, 0.15); /* Nền kính mờ */
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15); 
     padding: 8px 20px;
     border-radius: 30px;
     backdrop-filter: blur(5px);
@@ -309,7 +313,7 @@ body {
 .about-hero {
     position: relative;
     height: 450px;
-    background-image: url("./img/anh-slide-1.png"); /* Đảm bảo đường dẫn ảnh đúng */
+    background-image: url("./img/anh-slide-1.png"); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Hiệu ứng cuộn Parallax nhẹ */
@@ -369,14 +373,19 @@ body {
 .story-image {
     flex: 1;
     position: relative;
+    height: 420px;  
+    overflow: hidden;
 }
 
 .story-image img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     z-index: 2;
     position: relative;
+    object-position: center 40%;
 }
 
 /* Tạo khung viền trang trí sau ảnh */
@@ -443,6 +452,26 @@ body {
     transform: translateY(-10px);
     border-bottom-color: var(--primary-color);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.values-header p {
+    font-size: 16px;
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+.section-header {
+    font-size: 36px;
+    margin-top: -40px;     
+}
+.section-sub {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 10px auto 10px;
+    line-height: 1.6;
 }
 
 .icon-box {
