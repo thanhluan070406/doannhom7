@@ -27,32 +27,33 @@ header {
 
 /* ========================== MENU ========================== */
 .menu-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px; 
-  background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px; 
+    background: #fff;
+    box-sizing: border-box;
 }
 
 .hamburger {
-  display: none;
+    display: none;
 }
 
 .logo {
-  width: 140px; 
-  height: 40px; 
-  overflow: hidden; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent; 
+    width: 140px; 
+    height: 40px; 
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent; 
 }
 
 .logo img {
-  width: 100%;
-  height: auto;
-  max-height: none;
-  transform: translateY(0%); 
+    width: 100%;
+    height: auto;
+    max-height: none;
+    transform: translateY(0%); 
 }
 
 nav {

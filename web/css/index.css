@@ -28,11 +28,12 @@ header {
 
 /* ========================== MENU ========================== */
 .menu-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px; 
-  background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px; 
+    background: #fff;
+    box-sizing: border-box;
 }
 
 .hamburger {
@@ -1541,13 +1542,10 @@ body {
         max-width: 100%;
         margin: 0;
         border-radius: 12px;
-        /* Thiết lập chiều cao bằng nhau cho tất cả các ô */
+
         height: 160px; 
     }
 
-    /* --- THIẾT LẬP TỶ LỆ ĐAN XEN --- */
-
-    /* Hàng 1: Ô bên trái rộng 2.5 (5 phần) - Ô bên phải rộng 1.5 (3 phần) */
     .menu-item:nth-child(1) {
         grid-column: span 5;
     }
@@ -1555,7 +1553,6 @@ body {
         grid-column: span 3;
     }
 
-    /* Hàng 2: Ô bên trái rộng 1.5 (3 phần) - Ô bên phải rộng 2.5 (5 phần) */
     .menu-item:nth-child(3) {
         grid-column: span 3;
     }
@@ -1563,14 +1560,13 @@ body {
         grid-column: span 5;
     }
 
-    /* --- ĐIỀU CHỈNH NỘI DUNG --- */
     .menu-item .overlay {
         padding: 10px;
-        height: 60%; /* Tăng diện tích phủ để chữ rõ hơn */
+        height: 60%; 
     }
 
     .menu-item .overlay .title {
-        font-size: 16px; /* Kích thước vừa vặn cho cả ô lớn và ô nhỏ */
+        font-size: 16px; 
         white-space: normal;
         line-height: 1.2;
     }
@@ -2400,7 +2396,7 @@ body {
     
 
     .slide:nth-child(2) .nen-mon {
-        bottom: 260px !important;
+        bottom: 290px !important;
         left: 5% !important; 
         transform: none !important; 
         
@@ -2456,7 +2452,8 @@ body {
         font-size: 12px !important;
     }
     .slide:nth-child(2) .nen-mon {
-        left: 30% !important;
+        left: 32% !important;
+        bottom: 310px !important;
         transform: translateX(-50%) !important; 
         padding: 10px 16px !important;
     }
