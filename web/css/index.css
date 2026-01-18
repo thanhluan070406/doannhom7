@@ -2107,6 +2107,7 @@ body {
         padding-top: 70px;               
     }
 
+    /* NÚT ĐÓNG X */
     .close-menu {
         display: block;
         position: absolute;
@@ -2181,6 +2182,7 @@ body {
         text-align: center;
     }
 
+    /* Gạch ngang khi hover */
     .nav-links > li > a::after {
         content: '';
         position: absolute;
@@ -2202,6 +2204,8 @@ body {
         color: #000;
         width: 280px;
     }
+
+    /* Mũi tên - luôn hiển thị trên mobile */
     .arrow {
         margin-left: 10px;
         transition: all 0.3s ease;
@@ -2211,10 +2215,12 @@ body {
         flex-shrink: 0;
     }
 
+    /* Xoay mũi tên khi active */
     .has-submenu.active > a .arrow {
         transform: rotate(180deg);
     }
 
+    /* SUBMENU - Nằm bên dưới THỰC ĐƠN */
     .has-submenu {
         display: block;
         width: 100%;
@@ -2234,6 +2240,7 @@ body {
         transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     }
 
+    /* Hiển thị submenu khi active */
     .has-submenu.active .submenu {
         max-height: 500px;
         opacity: 1;
@@ -2262,6 +2269,7 @@ body {
         border-bottom: none;
     }
 
+    /* Gạch ngang cho submenu */
     .submenu li a::after {
         content: '';
         position: absolute;
@@ -2545,6 +2553,14 @@ body {
 
     .hero-image {
         object-position: center; 
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        background-size: 200%; /* Phóng to ảnh lên 3.5 lần */
+        background-position: 65% center; /* Căn chỉnh vị trí ảnh để thấy bát phở */
+        height: 400px;
     }
 }
 
