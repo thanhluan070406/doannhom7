@@ -470,11 +470,9 @@ body {
     font-size: 16px;
     max-width: 600px;
     margin: 10px auto 0;
+    line-height: 1.6;
 }
-.section-heading,
-.section-sub {
-    transform: translateY(-10px); 
-}
+
 .icon-box {
     width: 70px;
     height: 70px;
