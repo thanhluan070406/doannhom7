@@ -470,7 +470,7 @@ body {
 .section-sub {
     font-size: 16px;
     max-width: 600px;
-    margin: 10px auto 0;
+    margin: 10px auto 10px;
     line-height: 1.6;
 }
 
