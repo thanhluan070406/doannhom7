@@ -235,7 +235,7 @@ body {
 
 .slide.active {
     opacity: 1;
-    pointer-events: auto; /* Slide hiện thì mới bắt được chuột */
+    pointer-events: auto; 
     z-index: 10;
 }
 
@@ -256,7 +256,7 @@ body {
 .contact {
   width: 100%;
   height: 400px;
-  background: url("../img/Amthuc.svg") center / cover no-repeat;
+  background: url("../img/nền liên hệ.jpg") center / cover no-repeat;
   position: relative;
 }
 
