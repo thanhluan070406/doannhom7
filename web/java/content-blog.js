@@ -114,3 +114,20 @@ window.addEventListener('resize', function() {
 
     likeCount.textContent = count;
   });
+
+// ==============================
+ const commentInput = document.getElementById("commentInput");
+  const sendBtn = document.getElementById("sendBtn");
+
+  sendBtn.addEventListener("click", () => {
+    const commentText = commentInput.value.trim();
+
+    if (commentText === "") {
+      alert("Vui lòng nhập bình luận!");
+      return;
+    }
+
+    alert("Đã gửi bình luận!");
+
+    commentInput.value = "";
+  });
