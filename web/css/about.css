@@ -473,7 +473,7 @@ body {
 }
 .section-heading,
 .section-sub {
-    transform: translateY(-30px); 
+    transform: translateY(-10px); 
 }
 .icon-box {
     width: 70px;
