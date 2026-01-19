@@ -1445,97 +1445,97 @@ body {
 
 /* ========================== FOOTER SECTION ========================== */
 .footer-section {
-  width: 100%;
-  background: #000;
-  color: white;
-  padding: 30px 150px; 
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 100px; 
-  box-sizing: border-box;
+    width: 100%;
+    background: #000;
+    color: white;
+    padding: 30px 150px; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px; 
+    box-sizing: border-box;
 }
 
 .footer-col {
-  flex: 1; 
-  width: 33.33%; 
-  max-width: 360px;
-  padding: 15px 0;
+    flex: 1; 
+    width: 33.33%; 
+    max-width: 360px;
+    padding: 15px 0;
 }
 
 .footer-col h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 10px;
 }
 
 .footer-col .underline {
-  width: 40px;
-  height: 1px;
-  background: white;
-  margin-bottom: 20px;
+    width: 40px;
+    height: 1px;
+    background: white;
+    margin-bottom: 20px;
 }
 
 .footer-col p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin: 0 0 15px;
-  text-align: justify;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 15px;
+    text-align: justify;
 }
 
 .footer-icons {
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
 }
 
 .footer-icons i {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: 2px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  cursor: pointer;
-  color: white; 
-  transition: all 0.3s ease; 
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    color: white; 
+    transition: all 0.3s ease; 
 }
 
 .footer-icons i:hover {
-  transform: scale(1.2); 
+    transform: scale(1.2); 
 }
 
 .footer-icons i.fa-envelope:hover {
-  border-color: #ea4335;
-  color: #ea4335;
+    border-color: #ea4335;
+    color: #ea4335;
 }
 
 .footer-icons i.fa-facebook-f:hover {
-  border-color: #1877f2;
-  color: #1877f2;
+    border-color: #1877f2;
+    color: #1877f2;
 }
 
 .footer-icons i.fa-instagram:hover {
-  border-color: #e4405f;
-  color: #e4405f;
+    border-color: #e4405f;
+    color: #e4405f;
 }
 
 .footer-img {
-  width: 100%; 
-  max-width: 100%; 
-  height: 200px;
-  display: block;
-  border-radius: 8px;
-  object-fit: cover;      
-  transition: transform 0.4s ease, filter 0.4s ease; 
-  cursor: pointer;
+    width: 100%; 
+    max-width: 100%; 
+    height: 200px;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;      
+    transition: transform 0.4s ease, filter 0.4s ease; 
+    cursor: pointer;
 }
 
 .footer-img:hover {
-  transform: scale(1.05);  
-  filter: brightness(1.1);  
+    transform: scale(1.05);  
+    filter: brightness(1.1);  
 }
 
 @media(max-width: 1024px){
