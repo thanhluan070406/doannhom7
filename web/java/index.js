@@ -241,18 +241,15 @@ window.addEventListener('resize', function() {
 /* ================= JS KÍCH HOẠT HIỆU ỨNG WELCOME ================= */
 
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Chọn các phần tử cần bắt hiệu ứng
     const revealElements = document.querySelectorAll('.reveal-text, .reveal-img');
 
-    // 2. Thiết lập Intersection Observer (Người theo dõi khung hình)
+    // Thiết lập Intersection Observer (Người theo dõi khung hình)
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // Nếu phần tử xuất hiện trong khung hình (viewport)
+
             if (entry.isIntersecting) {
-                // Thêm class 'active' để CSS kích hoạt animation
+
                 entry.target.classList.add('active');
-                
-                // Sau khi hiện rồi thì thôi không theo dõi nữa (để đỡ tốn tài nguyên)
                 observer.unobserve(entry.target);
             }
         });
@@ -270,36 +267,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    // =============================================================
-    // DANH SÁCH CÁC PHẦN TỬ CẦN THEO DÕI (SCROLL SPY)
-    // =============================================================
-    /* 1. .reveal-text, .reveal-img : Phần Welcome Section
-       2. .hero-title, .hero-description : Phần Hero Section (Mới thêm)
-       3. .MUC : Phần Sản phẩm (Mới thêm)
-       4. .reveal-up, .reveal-left... : Các phần phụ khác nếu bạn dùng
-    */
     
     const targetElements = document.querySelectorAll(
         '.reveal-text, .reveal-img, .hero-title, .hero-description, .MUC, .reveal-up'
     );
 
-    // THIẾT LẬP "CAMERA" THEO DÕI
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // Nếu phần tử xuất hiện trong màn hình
             if (entry.isIntersecting) {
-                
-                // Thêm class 'active' -> Lúc này CSS sẽ bật Animation lên
+        
                 entry.target.classList.add('active');
-                
-                // Ngừng theo dõi (để hiệu ứng chỉ chạy 1 lần duy nhất)
+            
                 observer.unobserve(entry.target);
             }
         });
     }, {
         root: null,
-        threshold: 0.15, // Phần tử ló ra 15% là bắt đầu chạy hiệu ứng
-        rootMargin: "0px 0px -50px 0px" // Trừ hao 50px ở đáy màn hình cho mượt
+        threshold: 0.15, 
+        rootMargin: "0px 0px -50px 0px" 
     });
 
     // BẮT ĐẦU GẮN CAMERA VÀO TỪNG PHẦN TỬ
@@ -309,26 +294,21 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-        // 1. Tìm tất cả các phần tử có class 'hieu-ung-luot'
         const cacPhanTu = document.querySelectorAll('.hieu-ung-luot');
 
-        // 2. Tạo bộ quan sát (Camera)
+
         const boQuanSat = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // Nếu phần tử lọt vào khung hình
+
                 if (entry.isIntersecting) {
-                    // Thêm class 'len-hinh' để kích hoạt CSS hiện lên
                     entry.target.classList.add('len-hinh');
-                    
-                    // Xong rồi thì thôi không theo dõi nữa cho nhẹ web
                     boQuanSat.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1 // Chỉ cần hiện 10% là kích hoạt hiệu ứng ngay
+            threshold: 0.1 
         });
 
-        // 3. Bắt đầu quan sát từng phần tử
         cacPhanTu.forEach(el => {
             boQuanSat.observe(el);
         });
