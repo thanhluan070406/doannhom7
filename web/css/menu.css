@@ -1199,6 +1199,8 @@ body {
         rgba(255,255,255,0.3) 50%, 
         rgba(255,255,255,0) 100%
     );
+
+    /* --- Nghiêng 25 độ --- */
     transform: skewX(-25deg);
     pointer-events: none;
     z-index: 5;
